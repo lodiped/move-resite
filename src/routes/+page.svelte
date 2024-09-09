@@ -55,7 +55,7 @@
 <div class="flex flex-col gap-10 px-20 py-10 bg-yellow-400 text-black">
 	<div class="flex flex-col">
 		<p class="uppercase">Bem-vindo à MOVE Negócios</p>
-		<h2 class="text-4xl font-bold">Quem Somos</h2>
+		<h2 class="text-4xl font-bold font-grifter">Quem Somos</h2>
 	</div>
 	<div class="flex flex-col gap-5">
 		<p>
@@ -73,7 +73,7 @@
 
 <div class="flex flex-col gap-10 px-20 py-10">
 	<div>
-		<h2 class="text-4xl font-bold">Diferenciais</h2>
+		<h2 class="text-4xl font-bold font-grifter">Diferenciais</h2>
 	</div>
 	<div>
 		<h3 class="text-2xl font-bold">Sintonia com o cliente</h3>
@@ -112,7 +112,7 @@
 <div class="flex flex-col gap-10 px-20 py-10 bg-yellow-400 text-black">
 	<div>
 		<p class="uppercase">Por que nos escolher?</p>
-		<h2 class="text-4xl font-bold">Por isso, somos sua melhor escolha!</h2>
+		<h2 class="text-4xl font-bold font-grifter">Por isso, somos sua melhor escolha!</h2>
 	</div>
 	<div class="flex gap-20">
 		<div class="w-20">
@@ -132,26 +132,34 @@
 
 <div class="flex flex-col gap-10 px-20 py-10">
 	<div>
-		<h2 class="text-3xl font-bold">Soluções Contábeis</h2>
-		<p>
+		<h2 class="text-3xl font-bold font-grifter">Soluções Contábeis</h2>
+		<p class="mb-8">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam officia maxime et quos quam,
 			corrupti qui. Eveniet velit iste consectetur ut esse, quo obcaecati aperiam minus sit sequi
 			doloribus similique?
 		</p>
+		<a
+			class="p-4 rounded-xl font-bold drop-shadow-lg w-fit bg-yellow-400 text-black"
+			href="/">Saiba Mais</a
+		>
 	</div>
 	<div>
-		<h2 class="text-3xl font-bold">Gestão Financeira</h2>
-		<p>
+		<h2 class="text-3xl font-bold font-grifter">Gestão Financeira</h2>
+		<p class="mb-8">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam officia maxime et quos quam,
 			corrupti qui. Eveniet velit iste consectetur ut esse, quo obcaecati aperiam minus sit sequi
 			doloribus similique?
 		</p>
+		<a
+			class="p-4 rounded-xl font-bold drop-shadow-lg w-fit bg-yellow-400 text-black"
+			href="/">Saiba Mais</a
+		>
 	</div>
 </div>
 
 <div class="flex flex-col gap-10 px-20 py-10">
 	<div>
-		<h1 class="text-3xl font-bold">Depoimentos</h1>
+		<h1 class="text-4xl font-bold font-grifter">Depoimentos</h1>
 	</div>
 </div>
 
