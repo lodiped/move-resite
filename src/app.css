@@ -5,10 +5,13 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: 'Grifter Bold';
-    src: url('/fonts/grifterbold.otf');
-    font-weight: bold;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'Grifter Bold';
+		src: url('/fonts/grifterbold.otf');
+		font-weight: bold;
+		font-display: swap;
+	}
+	body {
+		@apply bg-[#151515] -z-50;
+	}
 }
