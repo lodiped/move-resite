@@ -45,16 +45,16 @@
 	import iefe from '$lib/assets/empresas/iefe.png';
 
 	// InView stuff
-	let numbersInView = false; //Checa se a section dos números está em vista (IntersectionObserver com InView)
+	let numbersInView = $state(false); //Checa se a section dos números está em vista (IntersectionObserver com InView)
 	const inviewOpt = {}; //parte do InView (não sei se é necessário)
 
 	// textarea Mensagem do Form de Contato
-	let charsUsed = ''; //Variável que insere todos os caracteres na textarea do form de contato
+	let charsUsed = $state(''); //Variável que insere todos os caracteres na textarea do form de contato
 	let charsMax = 2000;
-	$: charsLeft = charsMax - charsUsed.length; //Calcula os caracteres restantes na textarea
+	let charsLeft = $derived(charsMax - charsUsed.length); //Calcula os caracteres restantes na textarea
 
 	//Função que mede se a página está scrollada até o topo
-	let atTop = true;
+	let atTop = $state(true);
 	function handleScroll() {
 		if (window.scrollY === 0) {
 			atTop = true;
@@ -64,16 +64,16 @@
 	}
 
 	//Mobile menu dropdown
-	let mobileDrop = false;
-	$: mobileMenu = () => {
+	let mobileDrop = $state(false);
+	let mobileMenu = $derived(() => {
 		mobileDrop = !mobileDrop;
-	};
+	});
 
 	// Efeito de aumento dos números
-	let clientes = 0;
-	let anos = 0;
-	let solucoes = 0;
-	$: raiseNumbers = () => {
+	let clientes = $state(0);
+	let anos = $state(0);
+	let solucoes = $state(0);
+	let raiseNumbers = $derived(() => {
 		let raiseClientes = () => {
 			if (clientes < 340) {
 				setTimeout(() => {
@@ -103,7 +103,7 @@
 		raiseAnos();
 		raiseSolucoes();
 		numbersInView = true;
-	};
+	});
 
 	// ESC para fechar o menu dropdown
 	/** @param {{ key: string; }} event */
@@ -174,7 +174,7 @@
 				Área do Cliente
 			</a>
 			<button
-				on:click={mobileMenu}
+				onclick={mobileMenu}
 				aria-label="Menu de navegação"
 				class="z-20 lg:hidden text-xl drop-shadow w-fit"
 			>
@@ -466,7 +466,7 @@
 <div
 	class="flex gap-10 bg-yellow-400 text-black h-[500px] w-full"
 	use:inview={inviewOpt}
-	on:inview_enter={raiseNumbers}
+	oninview_enter={raiseNumbers}
 >
 	<div class="w-1/2 bg-team bg-cover bg-center"></div>
 	<div class="flex flex-col gap-10 py-10 pr-20 h-fit justify-center w-1/2">
@@ -557,7 +557,7 @@
 					class="resize-none text-stone-700 rounded bg-stone-300"
 					maxlength={charsMax}
 					bind:value={charsUsed}
-				/>
+				></textarea>
 				<p
 					class={charsLeft > 50
 						? 'w-full text-right text-sm opacity-50 pb-1 -translate-y-2'
