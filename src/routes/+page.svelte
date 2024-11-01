@@ -14,6 +14,8 @@
 	import Podcast from '$lib/components/diferenciais/Podcast.svelte';
 	import Depo2 from '$lib/components/depoimentos/Depo2.svelte';
 	import Depo1 from '$lib/components/depoimentos/Depo1.svelte';
+	import AndreCastro from '$lib/components/AndreCastro.svelte';
+	import ValdineiSilva from '$lib/components/ValdineiSilva.svelte';
 
 	// Imagens
 	import moveLogo from '$lib/assets/logo-move.webp';
@@ -46,17 +48,15 @@
 	import iefe from '$lib/assets/empresas/iefe.png';
 
 	// InView stuff
-	let numbersInView = $state(false); //Checa se a section dos números está em vista (IntersectionObserver com InView)
-	let phraseInView = $state(false);
 	const inviewOpt = {}; //parte do InView (não sei se é necessário)
-
-	// textarea Mensagem do Form de Contato
-	let charsUsed = $state(''); //Variável que insere todos os caracteres na textarea do form de contato
-	let charsMax = 2000;
-	let charsLeft = $derived(charsMax - charsUsed.length); //Calcula os caracteres restantes na textarea
-
-	//Função que mede se a página está scrollada até o topo
-	let atTop = $state(true);
+	let numbersInView = $state(false), //Checa se a section dos números está em vista (IntersectionObserver com InView)
+		phraseInView = $state(false),
+		// textarea Mensagem do Form de Contato
+		charsUsed = $state(''), //Variável que insere todos os caracteres na textarea do form de contato
+		charsMax = 2000,
+		charsLeft = $derived(charsMax - charsUsed.length), //Calcula os caracteres restantes na textarea
+		//Função que mede se a página está scrollada até o topo
+		atTop = $state(true);
 	function handleScroll() {
 		if (window.scrollY === 0) {
 			atTop = true;
@@ -66,46 +66,54 @@
 	}
 
 	//Mobile menu dropdown
-	let mobileDrop = $state(false);
-	let mobileMenu = $derived(() => {
-		mobileDrop = !mobileDrop;
-	});
-
-	// Efeito de aumento dos números
-	let clientes = $state(0);
-	let anos = $state(0);
-	let solucoes = $state(0);
-	let raiseNumbers = $derived(() => {
-		let raiseClientes = () => {
-			if (clientes < 340) {
-				setTimeout(() => {
-					clientes++;
-					clientes++;
-					raiseClientes();
-				}, 15);
-			}
-		};
-		let raiseAnos = () => {
-			if (anos < 13) {
-				setTimeout(() => {
-					anos++;
-					raiseAnos();
-				}, 250);
-			}
-		};
-		let raiseSolucoes = () => {
-			if (solucoes < 20) {
-				setTimeout(() => {
-					solucoes++;
-					raiseSolucoes();
-				}, 150);
-			}
-		};
-		raiseClientes();
-		raiseAnos();
-		raiseSolucoes();
-		numbersInView = true;
-	});
+	let mobileDrop = $state(false),
+		mobileMenu = $derived(() => {
+			mobileDrop = !mobileDrop;
+		}),
+		// Efeito de aumento dos números
+		clientes = $state(0),
+		anos = $state(0),
+		solucoes = $state(0),
+		dinheiros = $state(0),
+		raiseNumbers = $derived(() => {
+			let raiseClientes = () => {
+				if (clientes < 330) {
+					setTimeout(() => {
+						clientes++;
+						clientes++;
+						raiseClientes();
+					}, 15);
+				}
+			};
+			let raiseAnos = () => {
+				if (anos < 13) {
+					setTimeout(() => {
+						anos++;
+						raiseAnos();
+					}, 250);
+				}
+			};
+			let raiseSolucoes = () => {
+				if (solucoes < 20) {
+					setTimeout(() => {
+						solucoes++;
+						raiseSolucoes();
+					}, 150);
+				}
+			};
+			let raiseDinheiros = () => {
+				if (dinheiros < 50) {
+					setTimeout(() => {
+						dinheiros++;
+						raiseDinheiros();
+					}, 150);
+				}
+			};
+			raiseClientes();
+			raiseAnos();
+			raiseSolucoes();
+			numbersInView = true;
+		});
 
 	// ESC para fechar o menu dropdown
 	/** @param {{ key: string; }} event */
@@ -279,6 +287,10 @@
 		<div class="w-32">
 			<p class="text-3xl font-bold">+{solucoes}</p>
 			<p>Soluções para seu negócio</p>
+		</div>
+		<div class="w-32">
+			<p class="text-3xl font-bold">+R$42M</p>
+			<p>Dinheiros movimentados</p>
 		</div>
 	</div>
 	<div class="flex flex-col h-fit justify-center items-center z-10">
@@ -475,7 +487,7 @@
 	>
 		o complicado
 	</p>
-	<div>🚀</div>
+	<div class="drop-shadow-lg text-4xl animate-bounce">🚀</div>
 </div>
 
 <div class="flex flex-col gap-10 px-10 lg:px-20 pb-32 bg-yellow-400 text-black">
@@ -535,36 +547,44 @@
 	</div>
 </div>
 
-<div class="flex gap-20 px-20 flex-col lg:flex-row items-start justify-center">
-	<div class="basis-1/2">
-		<h2
-			class="text-4xl font-grifter bg-gradient-to-r from-yellow-300 to-yellow-500 w-fit text-transparent bg-clip-text"
-		>
-			André Castro - Cofundador e CEO
-		</h2>
-		<p class="text-justify">
-			O fato de amarmos o que fazemos já é um primeiro e grande passo para entregar algo de valor,
-			que realmente faça a diferença na vida das pessoas e das empresas. A isso, aliamos um
-			propósito bem definido e uma cultura forte, pautada em princípios em que resplandece nossa
-			identidade. Enquanto muitos veem apenas uma empresa, nós vemos um sonho e trabalhamos para ser
-			uma engrenagem dele. Acredito que, ao unir a paixão pelo que fazemos com o desejo de impactar
-			positivamente a vida das pessoas, podemos todos alcançar novos patamares de realização.
-		</p>
+<div class="flex gap-20 px-20 flex-col lg:flex-row items-start justify-center mb-60">
+	<div class="basis-1/2 text-black">
+		<div class="flex h-[600px] p-8 flex-col bg-yellow-400 rounded-xl mr-[180px] relative">
+			<div class="h-3/4">
+				<img src="" alt="" class="h-full" />
+			</div>
+			<div class="h-1/4">
+				<h3 class="font-grifter text-2xl drop-shadow-md">André Castro</h3>
+				<p>Cofundador e CEO</p>
+			</div>
+			<div
+				class="absolute p-8 drop-shadow-lg border border-white/10 h-[300px] -right-[100px] rounded-xl -bottom-[75px] backdrop-blur-xl w-2/3 bg-black/10"
+			>
+				<p>
+					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit unde officia expedita?
+					Nihil, hic facere.
+				</p>
+			</div>
+		</div>
 	</div>
-	<div class="basis-1/2">
-		<h2
-			class="text-4xl font-grifter bg-gradient-to-r from-yellow-300 to-yellow-500 w-fit text-transparent bg-clip-text"
-		>
-			Valdinei Silva - Cofundador e COO
-		</h2>
-		<p class="text-justify">
-			Acredito no poder do propósito e do trabalho duro para melhorar as chances de sucesso de
-			qualquer tipo de empreendimento. Isso está impresso também na identidade da Move Negócios, uma
-			empresa que se envolve e se entrega pelo resultado de seus clientes como se fosse o seu,
-			justamente por ter um norte bem definido. Sonho em legar um ecossistema inteligente que dê
-			acesso para o pequeno empresário à todos os serviços que são essenciais em uma
-			gestão profissional.
-		</p>
+	<div class="basis-1/2 text-black">
+		<div class="flex h-[600px] p-8 flex-col bg-yellow-400 rounded-xl mr-[180px] relative">
+			<div class="h-3/4">
+				<img src="" alt="" class="h-full" />
+			</div>
+			<div class="h-1/4">
+				<h3 class="font-grifter text-2xl drop-shadow-lg">Valdinei Silva</h3>
+				<p>Cofundador e COO</p>
+			</div>
+			<div
+				class="absolute p-8 drop-shadow-lg border h-[300px] border-yellow-300/10 -right-[100px] rounded-xl -bottom-[75px] backdrop-blur-xl w-2/3 bg-yellow-200/5"
+			>
+				<p class="text-justify">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore consequatur natus,
+					distinctio voluptatem harum beatae!
+				</p>
+			</div>
+		</div>
 	</div>
 </div>
 

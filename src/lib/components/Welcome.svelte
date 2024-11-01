@@ -1,5 +1,5 @@
 <script>
-	import MoveLogo from '$lib/assets/logo-move.webp';
+	import MoveLogo from '$lib/assets/logo-move-pb.webp';
 </script>
 
 <p>
