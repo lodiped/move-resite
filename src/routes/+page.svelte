@@ -222,7 +222,7 @@
 	{/if}
 </header>
 
-<div class="flex flex-col gap-20 pt-64 relative">
+<div class="flex flex-col gap-10 pt-64 relative">
 	<div class="w-full absolute items-center flex justify-center z-10 top-[85px]">
 		<a
 			href="https://www.youtube.com/watch?v=atn1FXDDswY"
@@ -232,7 +232,7 @@
 			<img src={bpo} class="h-[9rem]" alt="Prêmio Conta Azul BPO Financeiro UAU 2024" />
 		</a>
 	</div>
-	<div class="flex flex-col h-2/3 justify-center items-center gap-12 z-10">
+	<div class="flex flex-col h-2/3 justify-center items-center gap-10 z-10">
 		<p
 			class="text-4xl lg:text-7xl font-bold font-grifter drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] w-fit uppercase text-center leading-snug bg-gradient-to-r from-yellow-300 to-yellow-600 text-transparent bg-clip-text"
 		>
@@ -240,9 +240,31 @@
 		</p>
 		<p class="text-xl text-white font-bold w-full text-center">
 			Números não precisam ser complicados.
+			<br />
+			Lorem ipsum dolor sit amet consectetur.
 		</p>
 	</div>
-	<div class="flex flex-col h-fit justify-center items-center z-10">
+	<div
+		use:inview={inviewOpt}
+		oninview_enter={raiseNumbers}
+		class={numbersInView
+			? 'flex gap-10 lg:gap-10 transition-all  w-full z-10 justify-center duration-[2500ms] flex-col lg:flex-row'
+			: 'transition-all opacity-0 flex gap-10 duration-[2500ms] translate-y-10 flex-col lg:flex-row'}
+	>
+		<div class="w-32">
+			<p class="text-3xl font-bold">+{clientes}</p>
+			<p>Clientes ativos</p>
+		</div>
+		<div class="w-32">
+			<p class="text-3xl font-bold">+{anos}</p>
+			<p>Anos de experiência</p>
+		</div>
+		<div class="w-32">
+			<p class="text-3xl font-bold">+{solucoes}</p>
+			<p>Soluções para seu negócio</p>
+		</div>
+	</div>
+	<div class="flex flex-col h-fit justify-center my-20 items-center z-10">
 		<a
 			aria-label="Clique para falar com o nosso time"
 			href="/sobre"
@@ -250,122 +272,6 @@
 		>
 			Eu quero levar o meu negócio para o próximo nível!
 		</a>
-	</div>
-	<div class="flex flex-col gap-5 items-center w-full z-10">
-		<span class="opacity-50 font-bold">Nossos clientes</span>
-		<div class="embla hidden invert bg-black/10" use:emblaCarouselSvelte={{ options }}>
-			<div class="embla__container">
-				<div class="embla__slide">
-					<a aria-labelledby="seuelias" href="https://www.seuelias.com/">
-						<img
-							id="seuelias"
-							src={seuelias}
-							alt="Seu Elias"
-							class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-						/>
-					</a>
-				</div>
-				<div class="embla__slide">
-					<a aria-labelledby="comendador" href="https://www.instagram.com/comendadorburguer/?hl=en">
-						<img
-							id="comendador"
-							src={comendador}
-							alt="Comendador Burguer"
-							class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-						/>
-					</a>
-				</div>
-				<div class="embla__slide">
-					<a
-						aria-labelledby="iefe"
-						href="https://evolucaoeducacional.com.br/"
-						class="hidden lg:inline"
-					>
-						<img
-							id="iefe"
-							src={iefe}
-							alt="IEFE - Evolução Educacional"
-							class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-						/>
-					</a>
-				</div>
-				<div class="embla__slide">
-					<a
-						aria-labelledby="ifb"
-						href="https://www.institutofernandabenead.com.br/"
-						class="hidden lg:inline"
-					>
-						<img
-							id="ifb"
-							src={ifb}
-							alt="Instituto Fernanda Ben"
-							class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-						/>
-					</a>
-				</div>
-				<div class="embla__slide">
-					<a aria-labelledby="europan" href="https://www.europanbrasil.com.br/">
-						<img
-							id="europan"
-							src={europan}
-							alt="Europan Brasil"
-							class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-						/>
-					</a>
-				</div>
-			</div>
-		</div>
-		<div class="flex justify-evenly w-full items-center invert">
-			<a aria-labelledby="seuelias" href="https://www.seuelias.com/">
-				<img
-					id="seuelias"
-					src={seuelias}
-					alt="Seu Elias"
-					class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-				/>
-			</a>
-			<a aria-labelledby="comendador" href="https://www.instagram.com/comendadorburguer/?hl=en">
-				<img
-					id="comendador"
-					src={comendador}
-					alt="Comendador Burguer"
-					class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-				/>
-			</a>
-			<a aria-labelledby="iefe" href="https://evolucaoeducacional.com.br/" class="hidden lg:inline">
-				<img
-					id="iefe"
-					src={iefe}
-					alt="IEFE - Evolução Educacional"
-					class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-				/>
-			</a>
-			<a
-				aria-labelledby="ifb"
-				href="https://www.institutofernandabenead.com.br/"
-				class="hidden lg:inline"
-			>
-				<img
-					id="ifb"
-					src={ifb}
-					alt="Instituto Fernanda Ben"
-					class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-				/>
-			</a>
-			<a aria-labelledby="europan" href="https://www.europanbrasil.com.br/">
-				<img
-					id="europan"
-					src={europan}
-					alt="Europan Brasil"
-					class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-				/>
-			</a>
-		</div>
-	</div>
-	<div
-		class="hidden absolute text-5xl lg:text-9xl z-10 drop-shadow-[0_40px_15px_rgba(0,0,0,0.9)] top-1/3 left-2/3 -translate-x-10 -translate-y-24 hover:-translate-y-28 cursor-default transition-all h-fit"
-	>
-		🚀
 	</div>
 	<video
 		tabindex="-1"
@@ -419,6 +325,125 @@
 	</div>
 </div>
 
+<div class="flex flex-col gap-5 items-center w-full z-10 my-20">
+	<span class="opacity-50 font-bold">Nossos clientes</span>
+	<div class="embla hidden invert bg-black/10" use:emblaCarouselSvelte={{ options }}>
+		<div class="embla__container">
+			<div class="embla__slide">
+				<a aria-labelledby="seuelias" href="https://www.seuelias.com/">
+					<img
+						id="seuelias"
+						src={seuelias}
+						alt="Seu Elias"
+						class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
+					/>
+				</a>
+			</div>
+			<div class="embla__slide">
+				<a aria-labelledby="comendador" href="https://www.instagram.com/comendadorburguer/?hl=en">
+					<img
+						id="comendador"
+						src={comendador}
+						alt="Comendador Burguer"
+						class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
+					/>
+				</a>
+			</div>
+			<div class="embla__slide">
+				<a
+					aria-labelledby="iefe"
+					href="https://evolucaoeducacional.com.br/"
+					class="hidden lg:inline"
+				>
+					<img
+						id="iefe"
+						src={iefe}
+						alt="IEFE - Evolução Educacional"
+						class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
+					/>
+				</a>
+			</div>
+			<div class="embla__slide">
+				<a
+					aria-labelledby="ifb"
+					href="https://www.institutofernandabenead.com.br/"
+					class="hidden lg:inline"
+				>
+					<img
+						id="ifb"
+						src={ifb}
+						alt="Instituto Fernanda Ben"
+						class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
+					/>
+				</a>
+			</div>
+			<div class="embla__slide">
+				<a aria-labelledby="europan" href="https://www.europanbrasil.com.br/">
+					<img
+						id="europan"
+						src={europan}
+						alt="Europan Brasil"
+						class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
+					/>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="flex justify-evenly w-full items-center invert">
+		<a aria-labelledby="seuelias" href="https://www.seuelias.com/">
+			<img
+				id="seuelias"
+				src={seuelias}
+				alt="Seu Elias"
+				class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
+			/>
+		</a>
+		<a aria-labelledby="comendador" href="https://www.instagram.com/comendadorburguer/?hl=en">
+			<img
+				id="comendador"
+				src={comendador}
+				alt="Comendador Burguer"
+				class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
+			/>
+		</a>
+		<a aria-labelledby="iefe" href="https://evolucaoeducacional.com.br/" class="hidden lg:inline">
+			<img
+				id="iefe"
+				src={iefe}
+				alt="IEFE - Evolução Educacional"
+				class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
+			/>
+		</a>
+		<a
+			aria-labelledby="ifb"
+			href="https://www.institutofernandabenead.com.br/"
+			class="hidden lg:inline"
+		>
+			<img
+				id="ifb"
+				src={ifb}
+				alt="Instituto Fernanda Ben"
+				class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
+			/>
+		</a>
+		<a aria-labelledby="europan" href="https://www.europanbrasil.com.br/">
+			<img
+				id="europan"
+				src={europan}
+				alt="Europan Brasil"
+				class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
+			/>
+		</a>
+	</div>
+</div>
+<div class="bg-yellow-400 flex-col flex items-center justify-center text-black py-16 uppercase">
+	<p class="text-[10vw] tracking leading-none flex justify-center tracking-tight font-grifter">
+		Descomplicando
+	</p>
+	<p class="text-[12.25vw] leading-none flex justify-center tracking-tight font-grifter">
+		o complicado
+	</p>
+</div>
 <div class="flex flex-col gap-10 px-10 lg:px-20 py-10 bg-yellow-400 text-black">
 	<div class="flex flex-col">
 		<p class="uppercase">Bem-vindo à MOVE Negócios</p>
