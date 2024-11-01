@@ -17,6 +17,7 @@
 
 	// Imagens
 	import moveLogo from '$lib/assets/logo-move.webp';
+	import moveIcon from '$lib/assets/move-icon.png';
 	import bpo from '$lib/assets/bpo.png';
 	import timelapse from '$lib/assets/timelapse.webm';
 
@@ -46,6 +47,7 @@
 
 	// InView stuff
 	let numbersInView = $state(false); //Checa se a section dos números está em vista (IntersectionObserver com InView)
+	let phraseInView = $state(false);
 	const inviewOpt = {}; //parte do InView (não sei se é necessário)
 
 	// textarea Mensagem do Form de Contato
@@ -111,6 +113,20 @@
 		if (event.key === 'Escape') {
 			mobileDrop = false;
 		}
+	}
+
+	/** @param {string} text */
+	function copyToClipboard(text) {
+		navigator.clipboard
+			.writeText(text)
+			.then(() => {
+				console.log('Text copied to clipboard:', text);
+				// You can add a success message here if needed
+			})
+			.catch((err) => {
+				console.error('Failed to copy text:', err);
+				// You can add error handling here
+			});
 	}
 
 	onMount(() => {
@@ -222,7 +238,7 @@
 	{/if}
 </header>
 
-<div class="flex flex-col gap-10 pt-64 relative">
+<div class="flex flex-col gap-16 pt-64 relative">
 	<div class="w-full absolute items-center flex justify-center z-10 top-[85px]">
 		<a
 			href="https://www.youtube.com/watch?v=atn1FXDDswY"
@@ -232,16 +248,17 @@
 			<img src={bpo} class="h-[9rem]" alt="Prêmio Conta Azul BPO Financeiro UAU 2024" />
 		</a>
 	</div>
-	<div class="flex flex-col h-2/3 justify-center items-center gap-10 z-10">
+	<div class="flex h-2/3 justify-center z-10">
 		<p
 			class="text-4xl lg:text-7xl font-bold font-grifter drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] w-fit uppercase text-center leading-snug bg-gradient-to-r from-yellow-300 to-yellow-600 text-transparent bg-clip-text"
 		>
 			Saia do<br />amadorismo
 		</p>
-		<p class="text-xl text-white font-bold w-full text-center">
-			Números não precisam ser complicados.
-			<br />
-			Lorem ipsum dolor sit amet consectetur.
+	</div>
+	<div class="flex justify-center text-xl text-white z-10 items-center w-full text-center">
+		<p class="w-2/3">
+			Gestão Contábil completa e o melhor BPO Financeiro do Brasil, com profissionais altamente
+			qualificados e constantemente desenvolvidos. Tudo isso pensando no sucesso do SEU NEGÓCIO!
 		</p>
 	</div>
 	<div
@@ -264,11 +281,11 @@
 			<p>Soluções para seu negócio</p>
 		</div>
 	</div>
-	<div class="flex flex-col h-fit justify-center my-20 items-center z-10">
+	<div class="flex flex-col h-fit justify-center items-center z-10">
 		<a
 			aria-label="Clique para falar com o nosso time"
 			href="/sobre"
-			class="p-4 rounded-xl text-xl shadow-xl font-bold uppercase w-fit bg-yellow-400 text-black hover:bg-black hover:text-yellow-300 transition-all"
+			class="button-before relative p-4 rounded-xl text-xl shadow-xl font-bold uppercase w-fit bg-yellow-400 text-black hover:bg-black hover:text-yellow-300 transition-all"
 		>
 			Eu quero levar o meu negócio para o próximo nível!
 		</a>
@@ -325,7 +342,7 @@
 	</div>
 </div>
 
-<div class="flex flex-col gap-5 items-center w-full z-10 my-20">
+<div class="flex flex-col gap-5 items-center w-full z-10 mb-40">
 	<span class="opacity-50 font-bold">Nossos clientes</span>
 	<div class="embla hidden invert bg-black/10" use:emblaCarouselSvelte={{ options }}>
 		<div class="embla__container">
@@ -436,17 +453,33 @@
 		</a>
 	</div>
 </div>
-<div class="bg-yellow-400 flex-col flex items-center justify-center text-black py-16 uppercase">
-	<p class="text-[10vw] tracking leading-none flex justify-center tracking-tight font-grifter">
+
+<div
+	use:inview={inviewOpt}
+	oninview_enter={(phraseInView = true)}
+	class="bg-yellow-400 flex-col transition-all duration-[2500ms] opacity-100 flex items-center justify-center text-black py-32 uppercase"
+>
+	<p
+		use:inview={inviewOpt}
+		oninview_enter={(phraseInView = true)}
+		class={phraseInView
+			? 'transition-all duration-[2500ms] text-[10vw] tracking leading-none flex justify-center tracking-tight font-grifter'
+			: 'opacity-0 translate-y-10 text-[10vw] tracking leading-none flex justify-center tracking-tight font-grifter'}
+	>
 		Descomplicando
 	</p>
-	<p class="text-[12.25vw] leading-none flex justify-center tracking-tight font-grifter">
+	<p
+		class={phraseInView
+			? 'transition-all duration-[2500ms] text-[12.25vw] tracking leading-none flex justify-center tracking-tight font-grifter'
+			: 'opacity-0 translate-y-10 text-[12.25vw] tracking leading-none flex justify-center tracking-tight font-grifter'}
+	>
 		o complicado
 	</p>
+	<div>🚀</div>
 </div>
-<div class="flex flex-col gap-10 px-10 lg:px-20 py-10 bg-yellow-400 text-black">
+
+<div class="flex flex-col gap-10 px-10 lg:px-20 pb-32 bg-yellow-400 text-black">
 	<div class="flex flex-col">
-		<p class="uppercase">Bem-vindo à MOVE Negócios</p>
 		<h2 class="text-4xl font-bold font-grifter">Quem Somos</h2>
 	</div>
 	<div class="flex flex-col gap-5 w-2/3">
@@ -488,42 +521,6 @@
 	</div>
 </div>
 
-<div
-	class="flex gap-10 bg-yellow-400 text-black h-[500px] w-full"
-	use:inview={inviewOpt}
-	oninview_enter={raiseNumbers}
->
-	<div class="w-1/2 bg-team bg-cover bg-center"></div>
-	<div class="flex flex-col gap-10 py-10 pr-20 h-fit justify-center w-1/2">
-		<div
-			class={numbersInView
-				? 'transition-all duration-[2500ms]'
-				: 'transition-all duration-[2500ms] translate-y-10 opacity-0'}
-		>
-			<p class="uppercase">Por que nos escolher?</p>
-			<h2 class="text-4xl font-bold font-grifter">Por isso, somos sua melhor escolha!</h2>
-		</div>
-		<div
-			class={numbersInView
-				? 'flex gap-10 lg:gap-20 transition-all duration-[2500ms] flex-col lg:flex-row'
-				: 'transition-all opacity-0 flex gap-20 duration-[2500ms] translate-y-10 flex-col lg:flex-row'}
-		>
-			<div class="w-32">
-				<p class="text-3xl font-bold">+{clientes}</p>
-				<p>Clientes ativos</p>
-			</div>
-			<div class="w-32">
-				<p class="text-3xl font-bold">+{anos}</p>
-				<p>Anos de experiência</p>
-			</div>
-			<div class="w-32">
-				<p class="text-3xl font-bold">+{solucoes}</p>
-				<p>Soluções para seu negócio</p>
-			</div>
-		</div>
-	</div>
-</div>
-
 <div class="flex flex-col gap-10 px-10 lg:px-20 py-10">
 	<div>
 		<h1
@@ -535,6 +532,39 @@
 	<div class="flex flex-col lg:flex-row">
 		<Depo1 />
 		<Depo2 />
+	</div>
+</div>
+
+<div class="flex gap-20 px-20 flex-col lg:flex-row items-start justify-center">
+	<div class="basis-1/2">
+		<h2
+			class="text-4xl font-grifter bg-gradient-to-r from-yellow-300 to-yellow-500 w-fit text-transparent bg-clip-text"
+		>
+			André Castro - Cofundador e CEO
+		</h2>
+		<p class="text-justify">
+			O fato de amarmos o que fazemos já é um primeiro e grande passo para entregar algo de valor,
+			que realmente faça a diferença na vida das pessoas e das empresas. A isso, aliamos um
+			propósito bem definido e uma cultura forte, pautada em princípios em que resplandece nossa
+			identidade. Enquanto muitos veem apenas uma empresa, nós vemos um sonho e trabalhamos para ser
+			uma engrenagem dele. Acredito que, ao unir a paixão pelo que fazemos com o desejo de impactar
+			positivamente a vida das pessoas, podemos todos alcançar novos patamares de realização.
+		</p>
+	</div>
+	<div class="basis-1/2">
+		<h2
+			class="text-4xl font-grifter bg-gradient-to-r from-yellow-300 to-yellow-500 w-fit text-transparent bg-clip-text"
+		>
+			Valdinei Silva - Cofundador e COO
+		</h2>
+		<p class="text-justify">
+			Acredito no poder do propósito e do trabalho duro para melhorar as chances de sucesso de
+			qualquer tipo de empreendimento. Isso está impresso também na identidade da Move Negócios, uma
+			empresa que se envolve e se entrega pelo resultado de seus clientes como se fosse o seu,
+			justamente por ter um norte bem definido. Sonho em legar um ecossistema inteligente que dê
+			acesso para o pequeno empresário à todos os serviços que são essenciais em uma
+			gestão profissional.
+		</p>
 	</div>
 </div>
 
@@ -622,7 +652,7 @@
 <footer class="flex flex-col lg:flex-row gap-10 lg:gap-0 justify-between items-center w-full py-10">
 	<div class="flex items-center px-10 max-w-[500px] w-full">
 		<a href="/">
-			<img src={moveLogo} alt="Logo Move Negócios" class="" />
+			<img src={moveIcon} alt="Logo Move Negócios" class="hover:scale-110 transition-all" />
 		</a>
 	</div>
 	<div class="hidden lg:flex"></div>
@@ -632,6 +662,7 @@
 				<a
 					aria-label="Link para o Instagram da Move Negócios"
 					href="https://www.instagram.com/movenegocios/"
+					class="hover:scale-110 transition-all"
 				>
 					<Instagram />
 				</a>
@@ -640,6 +671,7 @@
 				<a
 					aria-label="Link para o LinkedIn da Move Negócios"
 					href="https://www.linkedin.com/company/move-neg-cios/"
+					class="hover:scale-110 transition-all"
 				>
 					<LinkedIn />
 				</a>
@@ -649,6 +681,7 @@
 				<a
 					aria-label="Link para o Facebook da Move Negócios"
 					href="https://www.facebook.com/movenegociosoficial/"
+					class="hover:scale-110 transition-all"
 				>
 					<Facebook />
 				</a>
@@ -660,6 +693,7 @@
 				<a
 					aria-label="E-mail de contato da Move Negócios: contato@movenegocios.com.br"
 					href="mailto:contato@movenegocios.com.br"
+					class="after:underline after:h-0.5 after:w-0 after:hover:w-full after:bg-yellow-400 after:absolute relative after:left-0 after:bottom-0 after:transition-all"
 				>
 					contato@movenegocios.com.br
 				</a>
@@ -668,13 +702,21 @@
 				aria-label="Número do WhatsApp da Move Negócios: (41) 99816-3983"
 				class="flex gap-2 items-center"
 			>
-				<WhatsApp class="scale-110 text-yellow-300" />(41) 99816-3983
+				<WhatsApp class="scale-110 text-yellow-300" />
+				<a href="tel:041998163983" class="lg:hidden">(41) 99816-3983</a>
+				<div class="hidden lg:block">(41) 99816-3983</div>
 			</div>
 			<div
 				aria-label="Número do telefone fixo da Move Negócios: (41) 3078-4210"
 				class="flex gap-2 items-center"
 			>
-				<Phone class="text-yellow-300 scale-110" />(41) 3078-4210
+				<Phone class="text-yellow-300 scale-110" />
+				<a href="tel:04130784210" class="lg:hidden">(41) 3078-4210</a>
+				<button
+					onclick={() => copyToClipboard('4130784210')}
+					class="hidden lg:block after:hover:content-['(copiar)'] after:opacity-50 after:ml-2"
+					>(41) 3078-4210</button
+				>
 			</div>
 		</div>
 		<div class="">
@@ -700,5 +742,18 @@
 	.embla__slide {
 		flex: 0 0 50%;
 		min-width: 0;
+	}
+	.button-before::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -1rem;
+		width: 100%;
+		height: 1rem;
+		background-color: yellow;
+		filter: blur(20px); /* Adjust for desired blur */
+		border-radius: 9999px;
+		z-index: -1;
+		opacity: 50%;
 	}
 </style>

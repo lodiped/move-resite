@@ -1,7 +1,6 @@
-<h3 class="text-2xl font-bold pb-4">Sintonia com o cliente</h3>
+<h3 class="text-2xl font-bold pb-4">Seu Negócio é Nosso Compromisso</h3>
 <p>
-	Assumimos a participação efetiva de cada negócio, fazendo parte de todos eles, contribuímos
-	ativamente nas decisões que são tomadas por nossos clientes. Além de nossos serviços, oferecemos o
-	direcionamento e apontamos o melhor caminho em busca do crescimento, pois é isso que desejamos
-	para cada empresário que confia em nossas soluções.
+	Assumimos uma posição ativa no crescimento do seu negócio, proporcionando uma gestão compartilhada
+	e orientada para decisões estratégicas. Além dos serviços, oferecemos direcionamento para que sua
+	empresa cresça com confiança e consistência.
 </p>

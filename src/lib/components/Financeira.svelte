@@ -1,6 +1,5 @@
 <p class="text-justify">
-	Foque seus esforços na performance do seu negócio, o setor financeiro é nossa responsabilidade.
-	Fazemos análise de controle das atividades financeiras da sua empresa. Possuímos as habilidades e
-	competências necessárias para organizar, captar e aplicar os recursos necessários para a sua
-	empresa alcançar desenvolvimento financeiro saudável e constante.
+	Gestão financeira completa, organizamos e potencializamos seus recursos financeiros para um
+	desenvolvimento contínuo e seguro, garantindo mais foco e resultados para o seu negócio.
+	Relatórios completos e acompanhamento estratégico.
 </p>

@@ -1,13 +1,17 @@
+<script>
+	import MoveLogo from '$lib/assets/logo-move.webp';
+</script>
+
 <p>
-	Nossa história começou em 2018, tendo como base apenas a coragem e algumas experiências no
-	currículo, fomos em busca da aventura de iniciar nosso próprio negócio.
+	Somos a <img src={MoveLogo} alt="Move Negócios" class="inline w-48 drop-shadow" />, nossa missão é
+	revolucionar a gestão contábil e financeira com soluções práticas, inovadoras e personalizadas,
+	especialmente desenhadas para pequenas e médias empresas. Combinamos tecnologia de ponta e uma
+	abordagem proativa para simplificar os processos financeiros, ajudando empresários a focar no
+	crescimento de seus negócios sem complicação.
 </p>
 <p>
-	Após traçar um planejamento bem elaborado, começamos a realizar nossos primeiros atendimentos,
-	atuando de maneira proativa e próxima ao cliente.
-</p>
-<p>
-	Em 2020, com o avanço da pandemia e as dificuldades no mundo empresarial em evidência, decidimos
-	também atuar de maneira consultiva, passando a oferecer serviços de gestão financeira que
-	contribuem com o sucesso de nossos clientes, enquanto expandimos o nosso negócio.
+	Nossa visão é ser um parceiro estratégico, comprometido com o sucesso do cliente ao fornecer
+	informações cruciais e gerar impacto real e positivo na vida de cada empresa e empreendedor que
+	atendemos. Almejamos profissionalizar a gestão contábil dos negócios, sempre com agilidade,
+	responsabilidade e o propósito de impulsionar seu desenvolvimento.
 </p>
