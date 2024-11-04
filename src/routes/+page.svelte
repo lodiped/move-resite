@@ -68,6 +68,10 @@
 		}
 	}
 
+	// Checa a escala da UI do dispositivo (para entregar a hero section corretamente dimensionada em laptops)
+	// Resto do código em onMount
+	let pixelRatio = $state(1);
+
 	//Mobile menu dropdown
 	let mobileDrop = $state(false),
 		mobileMenu = $derived(() => {
@@ -105,11 +109,11 @@
 				}
 			};
 			let raiseDinheiros = () => {
-				if (dinheiros < 50) {
+				if (dinheiros < 42) {
 					setTimeout(() => {
 						dinheiros++;
 						raiseDinheiros();
-					}, 50);
+					}, 70);
 				}
 			};
 			raiseClientes();
@@ -143,6 +147,8 @@
 
 	onMount(() => {
 		handleScroll();
+		pixelRatio = window.devicePixelRatio;
+		console.log('Pixel Ratio: ' + window.devicePixelRatio);
 		window.addEventListener('scroll', handleScroll);
 		window.addEventListener('keydown', handleEsc);
 		return () => {
@@ -250,7 +256,11 @@
 	{/if}
 </header>
 
-<div class="flex flex-col gap-16 pt-64 relative">
+<div
+	class={pixelRatio > 1
+		? 'flex flex-col gap-12 pt-60 relative'
+		: 'flex flex-col gap-20 pt-72 relative'}
+>
 	<div class="w-full absolute items-center flex justify-center z-10 top-[85px]">
 		<a
 			href="https://www.youtube.com/watch?v=atn1FXDDswY"
@@ -262,13 +272,15 @@
 	</div>
 	<div class="flex h-2/3 justify-center z-10">
 		<p
-			class="text-4xl lg:text-7xl font-bold font-grifter drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] w-fit uppercase text-center leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text"
+			class={pixelRatio > 1
+				? 'text-4xl lg:text-6xl font-bold font-grifter drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] w-fit uppercase text-center leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text'
+				: 'text-4xl lg:text-7xl font-bold font-grifter drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] w-fit uppercase text-center leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text'}
 		>
-			Saia do<br />amadorismo
+			Saia do amadorismo
 		</p>
 	</div>
-	<div class="flex justify-center text-xl text-white z-10 items-center w-full text-center">
-		<p class="w-2/3">
+	<div class="flex justify-center text-white z-10 items-center w-full text-center">
+		<p class={pixelRatio > 1 ? 'w-2/3 text-lg' : 'w-2/3 text-xl'}>
 			Gestão Contábil completa e o melhor BPO Financeiro do Brasil, com profissionais altamente
 			qualificados e constantemente desenvolvidos. Tudo isso pensando no sucesso do SEU NEGÓCIO!
 		</p>
@@ -277,8 +289,8 @@
 		use:inview={inviewOpt}
 		oninview_enter={raiseNumbers}
 		class={numbersInView
-			? 'flex gap-10 lg:gap-10 transition-all  w-full z-10 justify-center duration-[2500ms] flex-col lg:flex-row'
-			: 'transition-all opacity-0 flex gap-10 duration-[2500ms] translate-y-10 flex-col lg:flex-row'}
+			? 'flex gap-8 transition-all  w-full z-10 justify-center duration-[2500ms] flex-col lg:flex-row'
+			: 'transition-all opacity-0 flex gap-8 duration-[2500ms] translate-y-10 flex-col lg:flex-row'}
 	>
 		<div class="w-32">
 			<p class="text-3xl font-bold">+{clientes}</p>
@@ -506,17 +518,19 @@
 		</div>
 		<img src={coin} class="h-[400px] absolute top-0 right-[10%] drop-shadow-lg" alt="" />
 	</div>
-	<div class="flex flex-col gap-10 pt-60 pb-40">
+	<div class="flex flex-col gap-10 pt-60 pb-40 group">
 		<div class="relative flex items-center mx-40 text-sm">
 			<div class="w-full rounded-full h-[200px] absolute blur-3xl"></div>
 			<div class="w-full bg-black h-1 z-10"></div>
 			<div class="rounded-full absolute bg-black left-0 z-20 border-4 border-move w-5 h-5"></div>
 			<div
-				class="absolute -bottom-12 text-2xl left-[calc(0%-90px)] text-center w-[200px] font-bold"
+				class="absolute group-hover:-bottom-12 -bottom-3 bg-move z-30 transition-all text-2xl left-[calc(0%-30px)] text-center w-fit px-2 font-bold"
 			>
 				2018
 			</div>
-			<div class="absolute bottom-5 left-[calc(0%-115px)] w-[250px] text-center">
+			<div
+				class="absolute bottom-0 group-hover:bottom-5 transition-all opacity-0 group-hover:opacity-100 left-[calc(0%-115px)] w-[250px] text-center"
+			>
 				Começamos uma história com vontade de vencer
 			</div>
 			<div
