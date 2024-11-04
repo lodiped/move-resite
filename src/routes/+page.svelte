@@ -22,6 +22,9 @@
 	import moveIcon from '$lib/assets/move-icon.png';
 	import bpo from '$lib/assets/bpo.png';
 	import timelapse from '$lib/assets/timelapse.webm';
+	import coin from '$lib/assets/coin.png';
+	import andre from '$lib/assets/Andre.webp';
+	import valdi from '$lib/assets/Valdi.webp';
 
 	// @ts-ignore
 	import Facebook from 'virtual:icons/mdi/facebook';
@@ -106,12 +109,13 @@
 					setTimeout(() => {
 						dinheiros++;
 						raiseDinheiros();
-					}, 150);
+					}, 50);
 				}
 			};
 			raiseClientes();
 			raiseAnos();
 			raiseSolucoes();
+			raiseDinheiros();
 			numbersInView = true;
 		});
 
@@ -150,8 +154,8 @@
 
 <header
 	class={atTop && !mobileDrop
-		? 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 transition-all duration-700 z-20'
-		: 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 drop-shadow-lg bg-black/10 z-20 transition-all duration-700 backdrop-blur-md'}
+		? 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 transition-all duration-700 z-20 border-move/5'
+		: 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 drop-shadow-lg shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/10 z-20 transition-all duration-700 backdrop-blur-md border-b border-move/10'}
 >
 	<div class="flex justify-between w-full">
 		<div>
@@ -192,7 +196,7 @@
 		<div>
 			<a
 				aria-label="Área do Cliente"
-				class="p-4 rounded-xl font-bold z-20 drop-shadow-lg w-fit bg-yellow-400 text-black hover:text-yellow-300 transition-all hover:bg-black hidden lg:inline"
+				class="p-4 rounded-xl font-bold z-20 drop-shadow-lg w-fit bg-move text-black hover:text-move transition-all hover:bg-black hidden lg:inline"
 				href="https://app.gestta.com.br/#/login/auth?isInitialPage=true%20"
 			>
 				Área do Cliente
@@ -258,7 +262,7 @@
 	</div>
 	<div class="flex h-2/3 justify-center z-10">
 		<p
-			class="text-4xl lg:text-7xl font-bold font-grifter drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] w-fit uppercase text-center leading-snug bg-gradient-to-r from-yellow-300 to-yellow-600 text-transparent bg-clip-text"
+			class="text-4xl lg:text-7xl font-bold font-grifter drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] w-fit uppercase text-center leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text"
 		>
 			Saia do<br />amadorismo
 		</p>
@@ -289,15 +293,15 @@
 			<p>Soluções para seu negócio</p>
 		</div>
 		<div class="w-32">
-			<p class="text-3xl font-bold">+R$42M</p>
-			<p>Dinheiros movimentados</p>
+			<p class="text-3xl font-bold">+R${dinheiros}M</p>
+			<p>Em valores administrados</p>
 		</div>
 	</div>
 	<div class="flex flex-col h-fit justify-center items-center z-10">
 		<a
 			aria-label="Clique para falar com o nosso time"
 			href="/sobre"
-			class="button-before relative p-4 rounded-xl text-xl shadow-xl font-bold uppercase w-fit bg-yellow-400 text-black hover:bg-black hover:text-yellow-300 transition-all"
+			class="button-before relative p-4 rounded-xl text-xl shadow-xl font-bold uppercase w-fit bg-move text-black hover:bg-black hover:text-move transition-all"
 		>
 			Eu quero levar o meu negócio para o próximo nível!
 		</a>
@@ -317,13 +321,13 @@
 <div
 	class="flex flex-col lg:flex-row gap-10 px-10 lg:px-20 py-40 justify-center items-center lg:items-start"
 >
-	<div class="flex flex-col items-center gap-12 max-w-[500px]">
+	<div class="flex z-10 flex-col items-center gap-12 max-w-[500px]">
 		<h2
-			class="text-4xl font-bold relative font-grifter bg-gradient-to-r from-yellow-300 to-yellow-500 w-fit text-transparent bg-clip-text"
+			class="text-4xl font-bold relative font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
 		>
 			Soluções Contábeis.
 			<span
-				class="absolute text-3xl font-bold font-grifter text-yellow-400 bottom-3 left-24 translate-x-2.5 -translate-y-0.5"
+				class="absolute text-3xl font-bold font-grifter text-move bottom-3 left-24 translate-x-2.5 -translate-y-0.5"
 			>
 				~
 			</span>
@@ -331,22 +335,22 @@
 		<Contabil />
 		<a
 			aria-label="Saiba mais sobre o serviço de Gestão Contábil"
-			class="p-4 rounded-xl font-bold drop-shadow-lg w-fit bg-yellow-400 text-black hover:bg-black hover:text-white"
+			class="button-before relative p-4 rounded-xl shadow-xl font-bold w-fit bg-move text-black hover:bg-black hover:text-move transition-all"
 			href="/"
 		>
 			Saiba Mais
 		</a>
 	</div>
-	<div class="flex flex-col items-center gap-12 max-w-[500px]">
+	<div class="flex z-10 flex-col items-center gap-12 max-w-[500px]">
 		<h2
-			class="text-4xl font-bold font-grifter bg-gradient-to-r from-yellow-300 to-yellow-500 w-fit text-transparent bg-clip-text"
+			class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
 		>
 			Gestão Financeira.
 		</h2>
 		<Financeira />
 		<a
 			aria-label="Saiba mais sobre o serviço de Gestão Financeira"
-			class="p-4 rounded-xl font-bold drop-shadow-lg w-fit bg-yellow-400 text-black hover:bg-black hover:text-white"
+			class="button-before relative p-4 rounded-xl shadow-xl font-bold w-fit bg-move text-black hover:bg-black hover:text-move transition-all"
 			href="/"
 		>
 			Saiba Mais
@@ -469,7 +473,7 @@
 <div
 	use:inview={inviewOpt}
 	oninview_enter={(phraseInView = true)}
-	class="bg-yellow-400 flex-col transition-all duration-[2500ms] opacity-100 flex items-center justify-center text-black py-32 uppercase"
+	class="bg-move flex-col transition-all duration-[2500ms] opacity-100 flex items-center justify-center text-black py-32 uppercase"
 >
 	<p
 		use:inview={inviewOpt}
@@ -487,22 +491,91 @@
 	>
 		o complicado
 	</p>
-	<div class="drop-shadow-lg text-4xl animate-bounce">🚀</div>
+	<div class="drop-shadow-lg text-4xl hidden animate-bounce">🚀</div>
 </div>
 
-<div class="flex flex-col gap-10 px-10 lg:px-20 pb-32 bg-yellow-400 text-black">
-	<div class="flex flex-col">
-		<h2 class="text-4xl font-bold font-grifter">Quem Somos</h2>
+<div class="flex flex-col gap-10 px-10 lg:px-20 pb-32 bg-move text-black">
+	<div class="flex justify-between relative">
+		<div class="flex flex-col gap-10">
+			<div class="flex flex-col">
+				<h2 class="text-4xl font-bold font-grifter">Quem Somos</h2>
+			</div>
+			<div class="flex flex-col gap-5 w-1/2">
+				<Welcome />
+			</div>
+		</div>
+		<img src={coin} class="h-[400px] absolute top-0 right-[10%] drop-shadow-lg" alt="" />
 	</div>
-	<div class="flex flex-col gap-5 w-2/3">
-		<Welcome />
+	<div class="flex flex-col gap-10 pt-60 pb-40">
+		<div class="relative flex items-center mx-40 text-sm">
+			<div class="w-full rounded-full h-[200px] absolute blur-3xl"></div>
+			<div class="w-full bg-black h-1 z-10"></div>
+			<div class="rounded-full absolute bg-black left-0 z-20 border-4 border-move w-5 h-5"></div>
+			<div
+				class="absolute -bottom-12 text-2xl left-[calc(0%-90px)] text-center w-[200px] font-bold"
+			>
+				2018
+			</div>
+			<div class="absolute bottom-5 left-[calc(0%-115px)] w-[250px] text-center">
+				Começamos uma história com vontade de vencer
+			</div>
+			<div
+				class="rounded-full absolute bg-black left-[20%] z-20 border-4 border-move w-5 h-5"
+			></div>
+			<div class="absolute text-2xl -top-12 left-[calc(20%-90px)] text-center w-[200px] font-bold">
+				2019
+			</div>
+			<div class="absolute top-5 left-[calc(20%-115px)] w-[250px] text-center">
+				Mudamos para uma nova sede, a família cresceu
+			</div>
+			<div
+				class="rounded-full absolute bg-black left-[40%] z-20 border-4 border-move w-5 h-5"
+			></div>
+			<div
+				class="absolute -bottom-12 text-2xl left-[calc(40%-90px)] text-center w-[200px] font-bold"
+			>
+				2020
+			</div>
+			<div class="absolute bottom-5 left-[calc(40%-115px)] w-[250px] text-center">
+				Passamos a oferecer soluções de gestão financeira
+			</div>
+			<div
+				class="rounded-full absolute bg-black left-[60%] z-20 border-4 border-move w-5 h-5"
+			></div>
+			<div class="absolute -top-12 text-2xl left-[calc(60%-90px)] w-[200px] text-center font-bold">
+				2021
+			</div>
+			<div class="absolute top-5 left-[calc(60%-115px)] w-[250px] text-center">
+				Ampliação do nosso escritório, a casa ficou maior
+			</div>
+			<div
+				class="rounded-full absolute bg-black left-[80%] z-20 border-4 border-move w-5 h-5"
+			></div>
+			<div
+				class="absolute -bottom-12 text-2xl left-[calc(80%-90px)] w-[200px] text-center font-bold"
+			>
+				2022
+			</div>
+			<div class="absolute bottom-5 left-[calc(80%-115px)] w-[250px] text-center">
+				Criação do nosso podcast &ldquo;Negócio em Jogo&rdquo;
+			</div>
+			<div
+				class="rounded-full absolute bg-black left-[100%] z-20 border-4 border-move w-5 h-5"
+			></div>
+			<div class="absolute -top-12 text-2xl left-[calc(100%-90px)] w-[200px] text-center font-bold">
+				2024
+			</div>
+			<div class="absolute top-5 left-[calc(100%-115px)] w-[250px] text-center">
+				Prêmio Conta Azul de melhor escritório de BPO Financeiro do Brasil
+			</div>
+		</div>
 	</div>
 </div>
 
-<div class="flex flex-col gap-8 lg:px-20 px-8 py-10 items-center">
+<div class="flex flex-col gap-8 lg:px-20 px-8 py-20 items-center">
 	<div>
 		<h2
-			class="text-4xl font-bold font-grifter pb-4 bg-gradient-to-r from-yellow-300 to-yellow-500 w-fit text-transparent bg-clip-text"
+			class="text-4xl font-bold font-grifter pb-4 bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
 		>
 			Diferenciais
 		</h2>
@@ -533,10 +606,10 @@
 	</div>
 </div>
 
-<div class="flex flex-col gap-10 px-10 lg:px-20 py-10">
+<div class="flex flex-col gap-10 px-10 lg:px-20 py-20">
 	<div>
 		<h1
-			class="text-4xl font-bold font-grifter bg-gradient-to-r from-yellow-300 to-yellow-500 w-fit text-transparent bg-clip-text"
+			class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
 		>
 			Depoimentos
 		</h1>
@@ -547,41 +620,61 @@
 	</div>
 </div>
 
-<div class="flex gap-20 px-20 flex-col lg:flex-row items-start justify-center mb-60">
-	<div class="basis-1/2 text-black">
-		<div class="flex h-[600px] p-8 flex-col bg-yellow-400 rounded-xl mr-[180px] relative">
-			<div class="h-3/4">
-				<img src="" alt="" class="h-full" />
-			</div>
+<div class="flex gap-20 px-20 flex-col py-20 xl:flex-row items-start justify-center mb-60">
+	<div class=" text-black w-[650px]">
+		<div
+			class="flex h-[600px] p-8 flex-col bg-andre bg-cover border-yellow-900 border bg-[center_top_-10rem] rounded-xl mr-[180px] relative"
+		>
+			<div class="h-3/4"></div>
 			<div class="h-1/4">
-				<h3 class="font-grifter text-2xl drop-shadow-md">André Castro</h3>
-				<p>Cofundador e CEO</p>
+				<h3
+					class="font-grifter text-2xl drop-shadow-md bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
+				>
+					André Castro
+				</h3>
+				<p class="text-white">Cofundador e CEO</p>
 			</div>
 			<div
-				class="absolute p-8 drop-shadow-lg border border-white/10 h-[300px] -right-[100px] rounded-xl -bottom-[75px] backdrop-blur-xl w-2/3 bg-black/10"
+				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 -right-[130px] rounded-xl -bottom-[150px] backdrop-blur-xl w-[80%] bg-yellow-200/5"
 			>
-				<p>
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit unde officia expedita?
-					Nihil, hic facere.
+				<p
+					class="text-justify text-sm text-white before:content-['\201C'] before:absolute before:top-28 before:left-2 before:font-serif before:text-[15rem] before:-z-10 z-20 before:text-move/30 after:content-['\201D'] after:-bottom-4 after:right-2 after:font-serif after:text-[15rem] after:absolute after:-z-10 after:text-move/30"
+				>
+					O fato de amarmos o que fazemos já é um primeiro e grande passo para entregar algo de
+					valor, que realmente faça a diferença na vida das pessoas e das empresas. A isso, aliamos
+					um propósito bem definido e uma cultura forte, pautada em princípios em que resplandece
+					nossa identidade. De fora vocês veem uma empresa, nós vemos um sonho. Acredito que, ao
+					unir a paixão pelo que fazemos com o desejo de impactar positivamente a vida das pessoas,
+					podemos todos alcançar novos patamares de realização.
 				</p>
 			</div>
 		</div>
 	</div>
-	<div class="basis-1/2 text-black">
-		<div class="flex h-[600px] p-8 flex-col bg-yellow-400 rounded-xl mr-[180px] relative">
-			<div class="h-3/4">
-				<img src="" alt="" class="h-full" />
-			</div>
+	<div class=" text-black w-[650px]">
+		<div
+			class="flex bg-valdi bg-cover bg-bottom border border-yellow-900 h-[600px] p-8 flex-col rounded-xl mr-[180px] relative"
+		>
+			<div class="h-3/4"></div>
 			<div class="h-1/4">
-				<h3 class="font-grifter text-2xl drop-shadow-lg">Valdinei Silva</h3>
-				<p>Cofundador e COO</p>
+				<h3
+					class="font-grifter text-2xl drop-shadow-lg bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
+				>
+					Valdinei Silva
+				</h3>
+				<p class="text-white">Cofundador e COO</p>
 			</div>
 			<div
-				class="absolute p-8 drop-shadow-lg border h-[300px] border-yellow-300/10 -right-[100px] rounded-xl -bottom-[75px] backdrop-blur-xl w-2/3 bg-yellow-200/5"
+				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 -right-[130px] rounded-xl -bottom-[150px] backdrop-blur-xl w-[80%] bg-yellow-200/5"
 			>
-				<p class="text-justify">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore consequatur natus,
-					distinctio voluptatem harum beatae!
+				<p
+					class="text-justify text-sm text-white before:content-['\201C'] before:absolute before:top-28 before:left-2 before:font-serif before:text-[15rem] before:-z-10 z-20 before:text-move/30 after:content-['\201D'] after:-bottom-4 after:right-2 after:font-serif after:text-[15rem] after:absolute after:-z-10 after:text-move/30"
+				>
+					Acredito no poder do propósito e do trabalho duro para melhorar as chances de sucesso de
+					qualquer tipo de empreendimento. Isso está impresso também na identidade da Move Negócios,
+					uma empresa que se envolve e se entrega pelo resultado de seus clientes como se fosse o
+					seu, justamente por ter um norte bem definido. Sonho em legar um ecossistema inteligente
+					que dê acesso para o pequeno empresário à todos os serviços que são essenciais em uma
+					gestão profissional.
 				</p>
 			</div>
 		</div>
@@ -591,7 +684,7 @@
 <div class="flex flex-col items-center justify-center py-10 gap-4">
 	<div>
 		<h1
-			class="text-4xl font-bold font-grifter bg-gradient-to-r from-yellow-300 to-yellow-500 w-fit text-transparent bg-clip-text"
+			class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
 		>
 			Fale com o nosso time!
 		</h1>
@@ -648,7 +741,7 @@
 					type="submit"
 					name="submit"
 					value="Consultar"
-					class="p-4 rounded bg-yellow-400 text-black cursor-pointer hover:bg-black hover:text-yellow-400 transition-all"
+					class="p-4 rounded bg-move text-black cursor-pointer hover:bg-black hover:text-move transition-all"
 				/>
 			</form>
 		</div>
@@ -677,7 +770,7 @@
 	</div>
 	<div class="hidden lg:flex"></div>
 	<div class="flex flex-col gap-10 pr-10 pl-10 lg:pl-0 items-center lg:items-start">
-		<div class="flex text-4xl items-center gap-6 text-yellow-300 -translate-x-1">
+		<div class="flex text-4xl items-center gap-6 text-move -translate-x-1">
 			<div class="flex">
 				<a
 					aria-label="Link para o Instagram da Move Negócios"
@@ -709,11 +802,11 @@
 		</div>
 		<div class="flex flex-col gap-2 w-full">
 			<div class="flex gap-2 items-center">
-				<Email class="scale-110 text-yellow-300" />
+				<Email class="scale-110 text-move" />
 				<a
 					aria-label="E-mail de contato da Move Negócios: contato@movenegocios.com.br"
 					href="mailto:contato@movenegocios.com.br"
-					class="after:underline after:h-0.5 after:w-0 after:hover:w-full after:bg-yellow-400 after:absolute relative after:left-0 after:bottom-0 after:transition-all"
+					class="after:underline after:h-0.5 after:w-0 after:hover:w-full after:bg-move after:absolute relative after:left-0 after:bottom-0 after:transition-all"
 				>
 					contato@movenegocios.com.br
 				</a>
@@ -722,7 +815,7 @@
 				aria-label="Número do WhatsApp da Move Negócios: (41) 99816-3983"
 				class="flex gap-2 items-center"
 			>
-				<WhatsApp class="scale-110 text-yellow-300" />
+				<WhatsApp class="scale-110 text-move" />
 				<a href="tel:041998163983" class="lg:hidden">(41) 99816-3983</a>
 				<div class="hidden lg:block">(41) 99816-3983</div>
 			</div>
@@ -730,7 +823,7 @@
 				aria-label="Número do telefone fixo da Move Negócios: (41) 3078-4210"
 				class="flex gap-2 items-center"
 			>
-				<Phone class="text-yellow-300 scale-110" />
+				<Phone class="text-move scale-110" />
 				<a href="tel:04130784210" class="lg:hidden">(41) 3078-4210</a>
 				<button
 					onclick={() => copyToClipboard('4130784210')}

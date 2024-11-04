@@ -7,7 +7,13 @@ export default {
 				grifter: ['Grifter Bold']
 			},
 			backgroundImage: {
-				team: "url('$lib/assets/team.png')"
+				team: "url('$lib/assets/team.png')",
+				valdi: "url('$lib/assets/Valdi.webp')",
+				andre: "url('$lib/assets/Andre.webp')"
+			},
+
+			colors: {
+				move: '#FFF200'
 			}
 		}
 	},
