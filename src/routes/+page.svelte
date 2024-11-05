@@ -4,6 +4,27 @@
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 	let options = { loop: true, dragFree: true, dragThreshold: 1 };
 
+	let gestaoOpen = $state(false);
+
+	/** @param {number} offset */
+	function scrollToSection(offset) {
+		return (event) => {
+			event.preventDefault();
+			const targetId = event.currentTarget.getAttribute('href').substring(1);
+			const targetElement = document.getElementById(targetId);
+
+			if (targetElement) {
+				const yOffset = offset;
+				const yPosition = targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
+
+				window.scrollTo({
+					top: yPosition,
+					behavior: 'smooth'
+				});
+			}
+		};
+	}
+
 	// Components
 	import Contabil from '$lib/components/Contabil.svelte';
 	import Financeira from '$lib/components/Financeira.svelte';
@@ -42,6 +63,14 @@
 	import WhatsApp from 'virtual:icons/mdi/whatsapp';
 	// @ts-ignore
 	import Phone from 'virtual:icons/mdi/phone';
+	// @ts-ignore
+	import BPOCard from 'virtual:icons/mdi/credit-card-outline';
+	// @ts-ignore
+	import BPOCoin from 'virtual:icons/mdi/hand-coin-outline';
+	// @ts-ignore
+	import BPOInbox from 'virtual:icons/mdi/inbox';
+	// @ts-ignore
+	import BPOPaper from 'virtual:icons/mdi/paper-outline';
 
 	// Empresas
 	import seuelias from '$lib/assets/empresas/seuelias.png';
@@ -49,6 +78,7 @@
 	import europan from '$lib/assets/empresas/europan.png';
 	import ifb from '$lib/assets/empresas/ifb.png';
 	import iefe from '$lib/assets/empresas/iefe.png';
+	import { blur, fade, fly, slide } from 'svelte/transition';
 
 	// InView stuff
 	const inviewOpt = {}; //parte do InView (não sei se é necessário)
@@ -128,20 +158,26 @@
 	function handleEsc(event) {
 		if (event.key === 'Escape') {
 			mobileDrop = false;
+			gestaoOpen = false;
 		}
 	}
 
+	//Copiar para o clipboard
+	let clipboardResult = $state('clique para copiar');
 	/** @param {string} text */
 	function copyToClipboard(text) {
 		navigator.clipboard
 			.writeText(text)
 			.then(() => {
-				console.log('Text copied to clipboard:', text);
-				// You can add a success message here if needed
+				console.log('Texto copiado:', text);
+				clipboardResult = 'copiado ✔️';
+				setTimeout(() => {
+					clipboardResult = 'clique para copiar';
+				}, 2500);
 			})
 			.catch((err) => {
-				console.error('Failed to copy text:', err);
-				// You can add error handling here
+				console.error('Falha ao copiar texto:', err);
+				clipboardResult = 'erro ao copiar (cheque o console)';
 			});
 	}
 
@@ -166,20 +202,22 @@
 	<div class="flex justify-between w-full">
 		<div>
 			<a aria-label="Logo Move Negócios" href="/">
-				<img src={moveLogo} class="w-64 drop-shadow-md" alt="Logo Move Negócios" />
+				<img loading="lazy" src={moveLogo} class="w-64 drop-shadow-md" alt="Logo Move Negócios" />
 			</a>
 		</div>
 		<div class="gap-10 font-bold justify-between hidden lg:flex">
 			<a
 				aria-label="Sobre"
-				href="/sobre"
+				onclick={scrollToSection(-130)}
+				href="#sobre"
 				class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
 			>
 				Sobre
 			</a>
 			<a
 				aria-label="Serviços"
-				href="/servicos"
+				onclick={scrollToSection(-40)}
+				href="#servicos"
 				class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
 			>
 				Serviços
@@ -225,14 +263,16 @@
 			<div class="gap-4 font-bold justify-between flex flex-col text-lg items-end">
 				<a
 					aria-label="Sobre"
-					href="/sobre"
+					onclick={scrollToSection(-190)}
+					href="#sobre"
 					class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] w-fit"
 				>
 					Sobre
 				</a>
 				<a
 					aria-label="Serviços"
-					href="/servicos"
+					onclick={scrollToSection(-10)}
+					href="#servicos"
 					class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] w-fit"
 				>
 					Serviços
@@ -267,7 +307,12 @@
 			target="blank_"
 			class="hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)] hover:scale-105 opacity-70 hover:opacity-100 drop-shadow-lg transition-all tracking-widest rounded-full w-fit"
 		>
-			<img src={bpo} class="h-[9rem]" alt="Prêmio Conta Azul BPO Financeiro UAU 2024" />
+			<img
+				loading="lazy"
+				src={bpo}
+				class="h-[9rem]"
+				alt="Prêmio Conta Azul BPO Financeiro UAU 2024"
+			/>
 		</a>
 	</div>
 	<div class="flex h-2/3 justify-center z-10">
@@ -331,6 +376,7 @@
 </div>
 
 <div
+	id="servicos"
 	class="flex flex-col lg:flex-row gap-10 px-10 lg:px-20 py-40 justify-center items-center lg:items-start"
 >
 	<div class="flex z-10 flex-col items-center gap-12 max-w-[500px]">
@@ -360,15 +406,72 @@
 			Gestão Financeira.
 		</h2>
 		<Financeira />
-		<a
+		<button
 			aria-label="Saiba mais sobre o serviço de Gestão Financeira"
 			class="button-before relative p-4 rounded-xl shadow-xl font-bold w-fit bg-move text-black hover:bg-black hover:text-move transition-all"
-			href="/"
+			onclick={() => {
+				gestaoOpen = !gestaoOpen;
+				console.log('hey' + gestaoOpen);
+			}}
 		>
 			Saiba Mais
-		</a>
+		</button>
 	</div>
 </div>
+
+{#if gestaoOpen}
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<div
+		in:fly={{ duration: 200, y: 500, opacity: 0 }}
+		out:fade={{ duration: 200 }}
+		class="fixed flex inset-0 justify-center items-center bg-black/30 z-50"
+		onclick={(event) => {
+			if (event.target === event.currentTarget) {
+				gestaoOpen = false;
+			}
+		}}
+	>
+		<div
+			class="p-20 w-[75%] relative text-center h-[75%] flex flex-wrap justify-center items-center gap-28 shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
+		>
+			<div class="w-48 flex flex-col gap-2 items-center">
+				<BPOCard class="text-3xl" />
+				<p>Contas a pagar</p>
+			</div>
+			<div class="w-48 flex flex-col gap-2 items-center">
+				<BPOCoin class="text-3xl" />
+				<p>Contas a receber</p>
+			</div>
+			<div class="w-48 flex flex-col gap-2 items-center">
+				<BPOInbox class="text-3xl" />
+				<p>Conciliação bancária e fechamento de caixa</p>
+			</div>
+			<div class="w-48 flex flex-col gap-2 items-center">
+				<p>Relatórios financeiros</p>
+			</div>
+			<div class="w-48 flex flex-col gap-2 items-center">
+				<BPOPaper class="text-3xl" />
+				<p>Emissão de notas fiscais</p>
+			</div>
+			<div class="w-48">Controle de contrato</div>
+			<div class="w-48">Emissão e envio de boletos (plataforma exclusiva)</div>
+			<div class="w-48">Agendamento de pagamentos e cobranças</div>
+			<div class="w-48">Consultoria</div>
+			<div class="w-48">Avisos de vencimentos</div>
+			<div class="w-48">Acompanhamento de lançamentos (Modalidade Externa)</div>
+			<div class="w-48">Revisão de lançamentos (Modalidade Externa)</div>
+			<button
+				onclick={() => {
+					gestaoOpen = false;
+				}}
+				class="absolute hover:bg-white/10 rounded-full text-lg top-0 right-0 p-2 m-2"
+			>
+				<BigX />
+			</button>
+		</div>
+	</div>
+{/if}
 
 <div class="flex flex-col gap-5 items-center w-full z-10 mb-40">
 	<span class="opacity-50 font-bold">Nossos clientes</span>
@@ -377,6 +480,7 @@
 			<div class="embla__slide">
 				<a aria-labelledby="seuelias" href="https://www.seuelias.com/">
 					<img
+						loading="lazy"
 						id="seuelias"
 						src={seuelias}
 						alt="Seu Elias"
@@ -387,6 +491,7 @@
 			<div class="embla__slide">
 				<a aria-labelledby="comendador" href="https://www.instagram.com/comendadorburguer/?hl=en">
 					<img
+						loading="lazy"
 						id="comendador"
 						src={comendador}
 						alt="Comendador Burguer"
@@ -401,6 +506,7 @@
 					class="hidden lg:inline"
 				>
 					<img
+						loading="lazy"
 						id="iefe"
 						src={iefe}
 						alt="IEFE - Evolução Educacional"
@@ -415,6 +521,7 @@
 					class="hidden lg:inline"
 				>
 					<img
+						loading="lazy"
 						id="ifb"
 						src={ifb}
 						alt="Instituto Fernanda Ben"
@@ -425,6 +532,7 @@
 			<div class="embla__slide">
 				<a aria-labelledby="europan" href="https://www.europanbrasil.com.br/">
 					<img
+						loading="lazy"
 						id="europan"
 						src={europan}
 						alt="Europan Brasil"
@@ -437,6 +545,7 @@
 	<div class="flex justify-evenly w-full items-center invert">
 		<a aria-labelledby="seuelias" href="https://www.seuelias.com/">
 			<img
+				loading="lazy"
 				id="seuelias"
 				src={seuelias}
 				alt="Seu Elias"
@@ -445,6 +554,7 @@
 		</a>
 		<a aria-labelledby="comendador" href="https://www.instagram.com/comendadorburguer/?hl=en">
 			<img
+				loading="lazy"
 				id="comendador"
 				src={comendador}
 				alt="Comendador Burguer"
@@ -453,6 +563,7 @@
 		</a>
 		<a aria-labelledby="iefe" href="https://evolucaoeducacional.com.br/" class="hidden lg:inline">
 			<img
+				loading="lazy"
 				id="iefe"
 				src={iefe}
 				alt="IEFE - Evolução Educacional"
@@ -465,6 +576,7 @@
 			class="hidden lg:inline"
 		>
 			<img
+				loading="lazy"
 				id="ifb"
 				src={ifb}
 				alt="Instituto Fernanda Ben"
@@ -473,6 +585,7 @@
 		</a>
 		<a aria-labelledby="europan" href="https://www.europanbrasil.com.br/">
 			<img
+				loading="lazy"
 				id="europan"
 				src={europan}
 				alt="Europan Brasil"
@@ -484,12 +597,16 @@
 
 <div
 	use:inview={inviewOpt}
-	oninview_enter={(phraseInView = true)}
+	oninview_enter={() => {
+		phraseInView = true;
+	}}
 	class="bg-move flex-col transition-all duration-[2500ms] opacity-100 flex items-center justify-center text-black py-32 uppercase"
 >
 	<p
 		use:inview={inviewOpt}
-		oninview_enter={(phraseInView = true)}
+		oninview_enter={() => {
+			phraseInView = true;
+		}}
 		class={phraseInView
 			? 'transition-all duration-[2500ms] text-[10vw] tracking leading-none flex justify-center tracking-tight font-grifter'
 			: 'opacity-0 translate-y-10 text-[10vw] tracking leading-none flex justify-center tracking-tight font-grifter'}
@@ -506,7 +623,7 @@
 	<div class="drop-shadow-lg text-4xl hidden animate-bounce">🚀</div>
 </div>
 
-<div class="flex flex-col gap-10 px-10 lg:px-20 pb-32 bg-move text-black">
+<div id="sobre" class="flex flex-col gap-10 px-10 lg:px-20 pb-32 bg-move text-black">
 	<div class="flex justify-between relative">
 		<div class="flex flex-col gap-10">
 			<div class="flex flex-col">
@@ -516,7 +633,12 @@
 				<Welcome />
 			</div>
 		</div>
-		<img src={coin} class="h-[400px] absolute top-0 right-[10%] drop-shadow-lg" alt="" />
+		<img
+			loading="lazy"
+			src={coin}
+			class="h-[400px] absolute top-0 right-[10%] drop-shadow-lg"
+			alt=""
+		/>
 	</div>
 	<div class="flex flex-col gap-10 pt-60 pb-40 group">
 		<div class="relative flex items-center mx-40 text-sm">
@@ -779,7 +901,12 @@
 <footer class="flex flex-col lg:flex-row gap-10 lg:gap-0 justify-between items-center w-full py-10">
 	<div class="flex items-center px-10 max-w-[500px] w-full">
 		<a href="/">
-			<img src={moveIcon} alt="Logo Move Negócios" class="hover:scale-110 transition-all" />
+			<img
+				loading="lazy"
+				src={moveIcon}
+				alt="Logo Move Negócios"
+				class="hover:scale-110 transition-all"
+			/>
 		</a>
 	</div>
 	<div class="hidden lg:flex"></div>
@@ -841,8 +968,8 @@
 				<a href="tel:04130784210" class="lg:hidden">(41) 3078-4210</a>
 				<button
 					onclick={() => copyToClipboard('4130784210')}
-					class="hidden lg:block after:hover:content-['(copiar)'] after:opacity-50 after:ml-2"
-					>(41) 3078-4210</button
+					class="before:underline before:h-0.5 before:w-0 before:hover:w-full before:bg-move before:absolute relative before:left-0 before:bottom-0 before:transition-all hidden lg:block after:hover:content-[attr(data-content)] after:text-sm after:flex after:text-left after:opacity-50 after:ml-2 after:absolute after:bottom-0 after:w-[160px] after:left-[8.5rem]"
+					data-content={clipboardResult}>(41) 3078-4210</button
 				>
 			</div>
 		</div>
