@@ -4,8 +4,10 @@
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 	let options = { loop: true, dragFree: true, dragThreshold: 1 };
 
-	let gestaoOpen = $state(false);
+	let gestaoOpen = $state(false),
+		contabilOpen = $state(false);
 
+	// ´Go to´ seção com padding especificos
 	/** @param {number} offset */
 	function scrollToSection(offset) {
 		return (event) => {
@@ -71,6 +73,22 @@
 	import BPOInbox from 'virtual:icons/mdi/inbox';
 	// @ts-ignore
 	import BPOPaper from 'virtual:icons/mdi/paper-outline';
+	// @ts-ignore
+	import BPOPapertext from 'virtual:icons/mdi/paper-text-outline';
+	// @ts-ignore
+	import BPOSign from 'virtual:icons/mdi/contract-sign';
+	// @ts-ignore
+	import BPOMoney from 'virtual:icons/mdi/money';
+	// @ts-ignore
+	import BPOCalendar from 'virtual:icons/mdi/date-range';
+	// @ts-ignore
+	import BPOPerson from 'virtual:icons/mdi/account-tie-outline';
+	// @ts-ignore
+	import BPODeadline from 'virtual:icons/mdi/clipboard-text-date-outline';
+	// @ts-ignore
+	import BPOList from 'virtual:icons/mdi/playlist-check';
+	// @ts-ignore
+	import BPOEye from 'virtual:icons/mdi/file-eye-outline';
 
 	// Empresas
 	import seuelias from '$lib/assets/empresas/seuelias.png';
@@ -78,12 +96,15 @@
 	import europan from '$lib/assets/empresas/europan.png';
 	import ifb from '$lib/assets/empresas/ifb.png';
 	import iefe from '$lib/assets/empresas/iefe.png';
-	import { blur, fade, fly, slide } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 
 	// InView stuff
-	const inviewOpt = {}; //parte do InView (não sei se é necessário)
+	const inviewOpt = { unobserveOnEnter: true }; //parte do InView (não sei se é necessário)
+	const complicadoOpt = { unobserveOnEnter: true, rootMargin: '-50%' }; //parte do InView (não sei se é necessário)
+	const timelineOpt = { rootMargin: '-45%' }; //parte do InView (não sei se é necessário)
 	let numbersInView = $state(false), //Checa se a section dos números está em vista (IntersectionObserver com InView)
 		phraseInView = $state(false),
+		timelineInView = $state(false),
 		// textarea Mensagem do Form de Contato
 		charsUsed = $state(''), //Variável que insere todos os caracteres na textarea do form de contato
 		charsMax = 2000,
@@ -159,6 +180,7 @@
 		if (event.key === 'Escape') {
 			mobileDrop = false;
 			gestaoOpen = false;
+			contabilOpen = false;
 		}
 	}
 
@@ -196,8 +218,8 @@
 
 <header
 	class={atTop && !mobileDrop
-		? 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 transition-all duration-700 z-20 border-move/5'
-		: 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 drop-shadow-lg shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/10 z-20 transition-all duration-700 backdrop-blur-md border-b border-move/10'}
+		? 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 transition-all duration-700 z-50 border-move/5'
+		: 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 drop-shadow-lg shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/10 z-50 transition-all duration-700 backdrop-blur-md border-b border-move/10'}
 >
 	<div class="flex justify-between w-full">
 		<div>
@@ -375,47 +397,47 @@
 	</video>
 </div>
 
-<div
-	id="servicos"
-	class="flex flex-col lg:flex-row gap-10 px-10 lg:px-20 py-40 justify-center items-center lg:items-start"
->
-	<div class="flex z-10 flex-col items-center gap-12 max-w-[500px]">
-		<h2
-			class="text-4xl font-bold relative font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
-		>
-			Soluções Contábeis.
-			<span
-				class="absolute text-3xl font-bold font-grifter text-move bottom-3 left-24 translate-x-2.5 -translate-y-0.5"
+<div id="servicos" class="flex px-10 lg:px-20 py-40 justify-center lg:items-start">
+	<div class="flex gap-10 lg:flex-row flex-col">
+		<div class="flex z-10 flex-col items-center justify-between gap-12 max-w-[500px]">
+			<h2
+				class="text-4xl font-bold relative font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
 			>
-				~
-			</span>
-		</h2>
-		<Contabil />
-		<a
-			aria-label="Saiba mais sobre o serviço de Gestão Contábil"
-			class="button-before relative p-4 rounded-xl shadow-xl font-bold w-fit bg-move text-black hover:bg-black hover:text-move transition-all"
-			href="/"
-		>
-			Saiba Mais
-		</a>
-	</div>
-	<div class="flex z-10 flex-col items-center gap-12 max-w-[500px]">
-		<h2
-			class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
-		>
-			Gestão Financeira.
-		</h2>
-		<Financeira />
-		<button
-			aria-label="Saiba mais sobre o serviço de Gestão Financeira"
-			class="button-before relative p-4 rounded-xl shadow-xl font-bold w-fit bg-move text-black hover:bg-black hover:text-move transition-all"
-			onclick={() => {
-				gestaoOpen = !gestaoOpen;
-				console.log('hey' + gestaoOpen);
-			}}
-		>
-			Saiba Mais
-		</button>
+				Soluções Contábeis.
+				<span
+					class="absolute text-3xl font-bold font-grifter text-move bottom-3 left-24 translate-x-2.5 -translate-y-0.5"
+				>
+					~
+				</span>
+			</h2>
+			<Contabil />
+			<button
+				aria-label="Saiba mais sobre o serviço de Gestão Contábil"
+				class="button-before relative p-4 rounded-xl shadow-xl font-bold w-fit bg-move text-black hover:bg-black hover:text-move transition-all"
+				onclick={() => {
+					contabilOpen = !contabilOpen;
+				}}
+			>
+				Serviços
+			</button>
+		</div>
+		<div class="flex z-10 flex-col items-center justify-between gap-12 max-w-[500px]">
+			<h2
+				class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
+			>
+				Gestão Financeira.
+			</h2>
+			<Financeira />
+			<button
+				aria-label="Saiba mais sobre o serviço de Gestão Financeira"
+				class="button-before relative p-4 rounded-xl shadow-xl font-bold w-fit bg-move text-black hover:bg-black hover:text-move transition-all"
+				onclick={() => {
+					gestaoOpen = !gestaoOpen;
+				}}
+			>
+				Serviços
+			</button>
+		</div>
 	</div>
 </div>
 
@@ -425,7 +447,7 @@
 	<div
 		in:fly={{ duration: 200, y: 500, opacity: 0 }}
 		out:fade={{ duration: 200 }}
-		class="fixed flex inset-0 justify-center items-center bg-black/30 z-50"
+		class="fixed flex flex-col inset-0 justify-center items-center bg-black/30 z-50"
 		onclick={(event) => {
 			if (event.target === event.currentTarget) {
 				gestaoOpen = false;
@@ -433,34 +455,8 @@
 		}}
 	>
 		<div
-			class="p-20 w-[75%] relative text-center h-[75%] flex flex-wrap justify-center items-center gap-28 shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
+			class="p-16 w-[75%] relative text-center h-fit flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
 		>
-			<div class="w-48 flex flex-col gap-2 items-center">
-				<BPOCard class="text-3xl" />
-				<p>Contas a pagar</p>
-			</div>
-			<div class="w-48 flex flex-col gap-2 items-center">
-				<BPOCoin class="text-3xl" />
-				<p>Contas a receber</p>
-			</div>
-			<div class="w-48 flex flex-col gap-2 items-center">
-				<BPOInbox class="text-3xl" />
-				<p>Conciliação bancária e fechamento de caixa</p>
-			</div>
-			<div class="w-48 flex flex-col gap-2 items-center">
-				<p>Relatórios financeiros</p>
-			</div>
-			<div class="w-48 flex flex-col gap-2 items-center">
-				<BPOPaper class="text-3xl" />
-				<p>Emissão de notas fiscais</p>
-			</div>
-			<div class="w-48">Controle de contrato</div>
-			<div class="w-48">Emissão e envio de boletos (plataforma exclusiva)</div>
-			<div class="w-48">Agendamento de pagamentos e cobranças</div>
-			<div class="w-48">Consultoria</div>
-			<div class="w-48">Avisos de vencimentos</div>
-			<div class="w-48">Acompanhamento de lançamentos (Modalidade Externa)</div>
-			<div class="w-48">Revisão de lançamentos (Modalidade Externa)</div>
 			<button
 				onclick={() => {
 					gestaoOpen = false;
@@ -469,6 +465,144 @@
 			>
 				<BigX />
 			</button>
+			<h2
+				class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
+			>
+				Gestão Financeira.
+			</h2>
+			<div class="flex flex-wrap *:h-full relative justify-center items-start gap-10">
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOCard class="text-3xl" />
+					<p>Contas a pagar</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOCoin class="text-3xl" />
+					<p>Contas a receber</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOInbox class="text-3xl" />
+					<p>Conciliação bancária e fechamento de caixa</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOMoney class="text-3xl" />
+					<p>Relatórios financeiros</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOPaper class="text-3xl" />
+					<p>Emissão de notas fiscais</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOSign class="text-3xl" />
+					<p>Controle de contrato</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOPapertext class="text-3xl" />
+					<p>Emissão e envio de boletos (plataforma exclusiva)</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOCalendar class="text-3xl" />
+					<p>Agendamento de pagamentos e cobranças</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOPerson class="text-3xl" />
+					<p>Consultoria</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPODeadline class="text-3xl" />
+					<p>Avisos de vencimentos</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOEye class="text-3xl" />
+					<p>Acompanhamento de lançamentos (Modalidade Externa)</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOList class="text-3xl" />
+					<p>Revisão de lançamentos (Modalidade Externa)</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{/if}
+
+{#if contabilOpen}
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<div
+		in:fly={{ duration: 200, y: 500, opacity: 0 }}
+		out:fade={{ duration: 200 }}
+		class="fixed flex inset-0 justify-center items-center bg-black/30 z-50"
+		onclick={(event) => {
+			if (event.target === event.currentTarget) {
+				contabilOpen = false;
+			}
+		}}
+	>
+		<div
+			class="p-16 w-[75%] relative text-center h-fit flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
+		>
+			<button
+				onclick={() => {
+					contabilOpen = false;
+				}}
+				class="absolute hover:bg-white/10 rounded-full text-lg top-0 right-0 p-2 m-2"
+			>
+				<BigX />
+			</button>
+			<h2
+				class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
+			>
+				Soluções Contábeis.
+			</h2>
+			<div class="flex flex-wrap *:h-full relative justify-center items-start gap-10">
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOCard class="text-3xl" />
+					<p>Relatórios gerenciais e contábeis</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOCoin class="text-3xl" />
+					<p>Realização de registros contábeis</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOInbox class="text-3xl" />
+					<p>Escriturações fiscais e legais</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOMoney class="text-3xl" />
+					<p>Elaboração de balancetes demonstrativos anuais</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOPaper class="text-3xl" />
+					<p>Departamento pessoal</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOSign class="text-3xl" />
+					<p>Departamento fiscal</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOPapertext class="text-3xl" />
+					<p>Parte societária: abertura, alteração e encerramento de empresas</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOCalendar class="text-3xl" />
+					<p>Folhas de pagamentos</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOPerson class="text-3xl" />
+					<p>void</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPODeadline class="text-3xl" />
+					<p>void</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOEye class="text-3xl" />
+					<p>void</p>
+				</div>
+				<div class="w-48 flex flex-col gap-2 items-center">
+					<BPOList class="text-3xl" />
+					<p>void</p>
+				</div>
+			</div>
 		</div>
 	</div>
 {/if}
@@ -596,17 +730,13 @@
 </div>
 
 <div
-	use:inview={inviewOpt}
+	use:inview={complicadoOpt}
 	oninview_enter={() => {
 		phraseInView = true;
 	}}
 	class="bg-move flex-col transition-all duration-[2500ms] opacity-100 flex items-center justify-center text-black py-32 uppercase"
 >
 	<p
-		use:inview={inviewOpt}
-		oninview_enter={() => {
-			phraseInView = true;
-		}}
 		class={phraseInView
 			? 'transition-all duration-[2500ms] text-[10vw] tracking leading-none flex justify-center tracking-tight font-grifter'
 			: 'opacity-0 translate-y-10 text-[10vw] tracking leading-none flex justify-center tracking-tight font-grifter'}
@@ -640,18 +770,29 @@
 			alt=""
 		/>
 	</div>
-	<div class="flex flex-col gap-10 pt-60 pb-40 group">
+	<div
+		use:inview={timelineOpt}
+		oninview_enter={() => {
+			timelineInView = true;
+		}}
+		oninview_leave={() => {
+			timelineInView = false;
+		}}
+		class={timelineInView
+			? 'flex flex-col gap-10 pt-60 pb-40 group inview'
+			: 'flex flex-col gap-10 pt-60 pb-40'}
+	>
 		<div class="relative flex items-center mx-40 text-sm">
 			<div class="w-full rounded-full h-[200px] absolute blur-3xl"></div>
 			<div class="w-full bg-black h-1 z-10"></div>
 			<div class="rounded-full absolute bg-black left-0 z-20 border-4 border-move w-5 h-5"></div>
 			<div
-				class="absolute group-hover:-bottom-12 -bottom-3 bg-move z-30 transition-all text-2xl left-[calc(0%-30px)] text-center w-fit px-2 font-bold"
+				class="absolute group-[.inview]:-bottom-12 -bottom-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(0%-30px)] text-center w-fit px-2 font-bold"
 			>
 				2018
 			</div>
 			<div
-				class="absolute bottom-0 group-hover:bottom-5 transition-all opacity-0 group-hover:opacity-100 left-[calc(0%-115px)] w-[250px] text-center"
+				class="absolute bottom-0 group-[.inview]:bottom-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(0%-115px)] w-[250px] text-center"
 			>
 				Começamos uma história com vontade de vencer
 			</div>
@@ -773,16 +914,7 @@
 			<div
 				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 -right-[130px] rounded-xl -bottom-[150px] backdrop-blur-xl w-[80%] bg-yellow-200/5"
 			>
-				<p
-					class="text-justify text-sm text-white before:content-['\201C'] before:absolute before:top-28 before:left-2 before:font-serif before:text-[15rem] before:-z-10 z-20 before:text-move/30 after:content-['\201D'] after:-bottom-4 after:right-2 after:font-serif after:text-[15rem] after:absolute after:-z-10 after:text-move/30"
-				>
-					O fato de amarmos o que fazemos já é um primeiro e grande passo para entregar algo de
-					valor, que realmente faça a diferença na vida das pessoas e das empresas. A isso, aliamos
-					um propósito bem definido e uma cultura forte, pautada em princípios em que resplandece
-					nossa identidade. De fora vocês veem uma empresa, nós vemos um sonho. Acredito que, ao
-					unir a paixão pelo que fazemos com o desejo de impactar positivamente a vida das pessoas,
-					podemos todos alcançar novos patamares de realização.
-				</p>
+				<AndreCastro />
 			</div>
 		</div>
 	</div>
@@ -802,16 +934,7 @@
 			<div
 				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 -right-[130px] rounded-xl -bottom-[150px] backdrop-blur-xl w-[80%] bg-yellow-200/5"
 			>
-				<p
-					class="text-justify text-sm text-white before:content-['\201C'] before:absolute before:top-28 before:left-2 before:font-serif before:text-[15rem] before:-z-10 z-20 before:text-move/30 after:content-['\201D'] after:-bottom-4 after:right-2 after:font-serif after:text-[15rem] after:absolute after:-z-10 after:text-move/30"
-				>
-					Acredito no poder do propósito e do trabalho duro para melhorar as chances de sucesso de
-					qualquer tipo de empreendimento. Isso está impresso também na identidade da Move Negócios,
-					uma empresa que se envolve e se entrega pelo resultado de seus clientes como se fosse o
-					seu, justamente por ter um norte bem definido. Sonho em legar um ecossistema inteligente
-					que dê acesso para o pequeno empresário à todos os serviços que são essenciais em uma
-					gestão profissional.
-				</p>
+				<ValdineiSilva />
 			</div>
 		</div>
 	</div>

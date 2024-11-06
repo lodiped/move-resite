@@ -1,9 +1,6 @@
-<h2
-	class="text-4xl font-grifter bg-gradient-to-r from-yellow-300 to-yellow-500 w-fit text-transparent bg-clip-text"
+<p
+	class="text-justify text-sm text-white before:content-['\201C'] before:absolute before:top-28 before:left-2 before:font-serif before:text-[15rem] before:-z-10 z-20 before:text-move/30 after:content-['\201D'] after:-bottom-4 after:right-2 after:font-serif after:text-[15rem] after:absolute after:-z-10 after:text-move/30"
 >
-	Valdinei Silva - Cofundador e COO
-</h2>
-<p class="text-justify">
 	Acredito no poder do propósito e do trabalho duro para melhorar as chances de sucesso de qualquer
 	tipo de empreendimento. Isso está impresso também na identidade da Move Negócios, uma empresa que
 	se envolve e se entrega pelo resultado de seus clientes como se fosse o seu, justamente por ter um
