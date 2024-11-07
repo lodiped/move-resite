@@ -1,16 +1,16 @@
 <script>
 	import { inview } from 'svelte-inview';
 	import { onMount } from 'svelte';
+
+	// Embla Carousel Stuff
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 	let options = { loop: true, dragFree: true, dragThreshold: 1 };
-
-	let gestaoOpen = $state(false),
-		contabilOpen = $state(false);
 
 	// ´Go to´ seção com padding especificos
 	/** @param {number} offset */
 	function scrollToSection(offset) {
 		return (event) => {
+			console.log(event);
 			event.preventDefault();
 			const targetId = event.currentTarget.getAttribute('href').substring(1);
 			const targetElement = document.getElementById(targetId);
@@ -26,6 +26,32 @@
 			}
 		};
 	}
+
+	let financeira = $state([
+		{ icon: BPOCard, desc: 'Contas a pagar' },
+		{ icon: BPOCoin, desc: 'Contas a receber' },
+		{ icon: BPOInbox, desc: 'Conciliação bancária e fechamento de caixa' },
+		{ icon: BPOMoney, desc: 'Relatórios financeiros' },
+		{ icon: BPOPaper, desc: 'Emissão de notas fiscais' },
+		{ icon: BPOSign, desc: 'Controle de contrato' },
+		{ icon: BPOPapertext, desc: 'Emissão e envio de boletos (plataforma exclusiva)' },
+		{ icon: BPOCalendar, desc: 'Agendamento de pagamentos e cobranças' },
+		{ icon: BPOPerson, desc: 'Consultoria' },
+		{ icon: BPODeadline, desc: 'Avisos de vencimentos' },
+		{ icon: BPOEye, desc: 'Acompanhamento de lançamentos (Modalidade Externa)' },
+		{ icon: BPOList, desc: 'Revisão de lançamentos (Modalidade Externa)' }
+	]);
+
+	let contabeis = $state([
+		{ icon: BPOCard, desc: 'Relatórios gerenciais e contábeis' },
+		{ icon: BPOCoin, desc: 'Realização de registros contábeis' },
+		{ icon: BPOInbox, desc: 'Escriturações fiscais e legais' },
+		{ icon: BPOMoney, desc: 'Elaboração de balancetes demonstrativos anuais' },
+		{ icon: BPOPaper, desc: 'Departamento pessoal' },
+		{ icon: BPOSign, desc: 'Departamento fiscal' },
+		{ icon: BPOPapertext, desc: 'Parte societária: abertura, alteração e encerramento' },
+		{ icon: BPOCalendar, desc: 'Folhas de pagamentos' }
+	]);
 
 	// Components
 	import Contabil from '$lib/components/Contabil.svelte';
@@ -89,8 +115,10 @@
 	import BPOList from 'virtual:icons/mdi/playlist-check';
 	// @ts-ignore
 	import BPOEye from 'virtual:icons/mdi/file-eye-outline';
+	// @ts-ignore
+	import External from 'virtual:icons/mdi/external-link';
 
-	// Empresas
+	// Empresas Logos
 	import seuelias from '$lib/assets/empresas/seuelias.png';
 	import comendador from '$lib/assets/empresas/comendador.png';
 	import europan from '$lib/assets/empresas/europan.png';
@@ -99,6 +127,8 @@
 	import { fade, fly } from 'svelte/transition';
 
 	// InView stuff
+	let gestaoOpen = $state(false), // Modal
+		contabilOpen = $state(false); // Modal
 	const inviewOpt = { unobserveOnEnter: true }; //parte do InView (não sei se é necessário)
 	const complicadoOpt = { unobserveOnEnter: true, rootMargin: '-50%' }; //parte do InView (não sei se é necessário)
 	const timelineOpt = { rootMargin: '-45%' }; //parte do InView (não sei se é necessário)
@@ -418,7 +448,7 @@
 					contabilOpen = !contabilOpen;
 				}}
 			>
-				Serviços
+				Serviços Contábeis
 			</button>
 		</div>
 		<div class="flex z-10 flex-col items-center justify-between gap-12 max-w-[500px]">
@@ -435,7 +465,7 @@
 					gestaoOpen = !gestaoOpen;
 				}}
 			>
-				Serviços
+				Serviços BPO
 			</button>
 		</div>
 	</div>
@@ -471,54 +501,12 @@
 				Gestão Financeira.
 			</h2>
 			<div class="flex flex-wrap *:h-full relative justify-center items-start gap-10">
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOCard class="text-3xl" />
-					<p>Contas a pagar</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOCoin class="text-3xl" />
-					<p>Contas a receber</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOInbox class="text-3xl" />
-					<p>Conciliação bancária e fechamento de caixa</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOMoney class="text-3xl" />
-					<p>Relatórios financeiros</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOPaper class="text-3xl" />
-					<p>Emissão de notas fiscais</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOSign class="text-3xl" />
-					<p>Controle de contrato</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOPapertext class="text-3xl" />
-					<p>Emissão e envio de boletos (plataforma exclusiva)</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOCalendar class="text-3xl" />
-					<p>Agendamento de pagamentos e cobranças</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOPerson class="text-3xl" />
-					<p>Consultoria</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPODeadline class="text-3xl" />
-					<p>Avisos de vencimentos</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOEye class="text-3xl" />
-					<p>Acompanhamento de lançamentos (Modalidade Externa)</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOList class="text-3xl" />
-					<p>Revisão de lançamentos (Modalidade Externa)</p>
-				</div>
+				{#each financeira as item}
+					<div class="w-48 flex flex-col gap-2 items-center">
+						<item.icon class="text-3xl" />
+						<p>{item.desc}</p>
+					</div>
+				{/each}
 			</div>
 		</div>
 	</div>
@@ -554,54 +542,12 @@
 				Soluções Contábeis.
 			</h2>
 			<div class="flex flex-wrap *:h-full relative justify-center items-start gap-10">
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOCard class="text-3xl" />
-					<p>Relatórios gerenciais e contábeis</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOCoin class="text-3xl" />
-					<p>Realização de registros contábeis</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOInbox class="text-3xl" />
-					<p>Escriturações fiscais e legais</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOMoney class="text-3xl" />
-					<p>Elaboração de balancetes demonstrativos anuais</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOPaper class="text-3xl" />
-					<p>Departamento pessoal</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOSign class="text-3xl" />
-					<p>Departamento fiscal</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOPapertext class="text-3xl" />
-					<p>Parte societária: abertura, alteração e encerramento de empresas</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOCalendar class="text-3xl" />
-					<p>Folhas de pagamentos</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOPerson class="text-3xl" />
-					<p>void</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPODeadline class="text-3xl" />
-					<p>void</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOEye class="text-3xl" />
-					<p>void</p>
-				</div>
-				<div class="w-48 flex flex-col gap-2 items-center">
-					<BPOList class="text-3xl" />
-					<p>void</p>
-				</div>
+				{#each contabeis as item}
+					<div class="w-48 flex flex-col gap-2 items-center">
+						<item.icon class="text-3xl" />
+						<p>{item.desc}</p>
+					</div>
+				{/each}
 			</div>
 		</div>
 	</div>
@@ -949,7 +895,9 @@
 		</h1>
 	</div>
 	<div class="flex max-w-[1600px] justify-between items-center gap-8 lg:flex-row flex-col">
-		<div class="bg-stone-700/50 w-[400px] p-8 rounded-xl shadow-[0_5px_10px_rgba(0,0,0,0.2)]">
+		<div
+			class="bg-yellow-200/5 backdrop-blur-xl shadow-[0_5px_12px_rgba(0,0,0,0.75)] border border-move/10 w-[400px] p-8 rounded-xl"
+		>
 			<form action="" class="flex flex-col gap-2" id="contato">
 				<label for="name">Seu nome:</label>
 				<input
@@ -1004,7 +952,9 @@
 				/>
 			</form>
 		</div>
-		<div class="bg-stone-700/50 p-8 rounded-xl shadow-[0_5px_10px_rgba(0,0,0,0.2)]">
+		<div
+			class="bg-yellow-200/5 border border-move/10 shadow-[0_5px_12px_rgba(0,0,0,0.75)] backdrop-blur-xl p-8 rounded-xl"
+		>
 			<iframe
 				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15716.878785504974!2d-49.279913382024695!3d-25.434576567173202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce532a8764435%3A0x2784bcd3ae721131!2sMove%20Neg%C3%B3cios!5e0!3m2!1sen!2sbr!4v1729100527608!5m2!1sen!2sbr"
 				width="500"
@@ -1100,6 +1050,7 @@
 			<a
 				aria-label="Endereço da Move Negócios: Av. Visconde de Guarapuava, número 2764, sala 306, Centro, Curitiba, Paraná, CEP: 12345-678"
 				href="https://maps.app.goo.gl/XgDwzC39xEEJwP1v9"
+				class="before:content-[]"
 			>
 				<p>Av. Visconde de Guarapuava, nº 2764, sala 306</p>
 				<p>Centro, Curitiba &mdash; PR, 12345-678</p>
