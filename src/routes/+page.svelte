@@ -2,10 +2,6 @@
 	import { inview } from 'svelte-inview';
 	import { onMount } from 'svelte';
 
-	// Embla Carousel Stuff
-	import emblaCarouselSvelte from 'embla-carousel-svelte';
-	let options = { loop: true, dragFree: true, dragThreshold: 1 };
-
 	// ´Go to´ seção com padding especificos
 	/** @param {number} offset */
 	function scrollToSection(offset) {
@@ -65,6 +61,7 @@
 	import Depo1 from '$lib/components/depoimentos/Depo1.svelte';
 	import AndreCastro from '$lib/components/AndreCastro.svelte';
 	import ValdineiSilva from '$lib/components/ValdineiSilva.svelte';
+	import Embla from '$lib/components/Embla.svelte';
 
 	// Imagens
 	import moveLogo from '$lib/assets/logo-move.webp';
@@ -553,127 +550,8 @@
 	</div>
 {/if}
 
-<div class="flex flex-col gap-5 items-center w-full z-10 mb-40">
-	<span class="opacity-50 font-bold">Nossos clientes</span>
-	<div class="embla hidden invert bg-black/10" use:emblaCarouselSvelte={{ options }}>
-		<div class="embla__container">
-			<div class="embla__slide">
-				<a aria-labelledby="seuelias" href="https://www.seuelias.com/">
-					<img
-						loading="lazy"
-						id="seuelias"
-						src={seuelias}
-						alt="Seu Elias"
-						class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-					/>
-				</a>
-			</div>
-			<div class="embla__slide">
-				<a aria-labelledby="comendador" href="https://www.instagram.com/comendadorburguer/?hl=en">
-					<img
-						loading="lazy"
-						id="comendador"
-						src={comendador}
-						alt="Comendador Burguer"
-						class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-					/>
-				</a>
-			</div>
-			<div class="embla__slide">
-				<a
-					aria-labelledby="iefe"
-					href="https://evolucaoeducacional.com.br/"
-					class="hidden lg:inline"
-				>
-					<img
-						loading="lazy"
-						id="iefe"
-						src={iefe}
-						alt="IEFE - Evolução Educacional"
-						class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-					/>
-				</a>
-			</div>
-			<div class="embla__slide">
-				<a
-					aria-labelledby="ifb"
-					href="https://www.institutofernandabenead.com.br/"
-					class="hidden lg:inline"
-				>
-					<img
-						loading="lazy"
-						id="ifb"
-						src={ifb}
-						alt="Instituto Fernanda Ben"
-						class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-					/>
-				</a>
-			</div>
-			<div class="embla__slide">
-				<a aria-labelledby="europan" href="https://www.europanbrasil.com.br/">
-					<img
-						loading="lazy"
-						id="europan"
-						src={europan}
-						alt="Europan Brasil"
-						class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-					/>
-				</a>
-			</div>
-		</div>
-	</div>
-	<div class="flex justify-evenly w-full items-center invert">
-		<a aria-labelledby="seuelias" href="https://www.seuelias.com/">
-			<img
-				loading="lazy"
-				id="seuelias"
-				src={seuelias}
-				alt="Seu Elias"
-				class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-			/>
-		</a>
-		<a aria-labelledby="comendador" href="https://www.instagram.com/comendadorburguer/?hl=en">
-			<img
-				loading="lazy"
-				id="comendador"
-				src={comendador}
-				alt="Comendador Burguer"
-				class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-			/>
-		</a>
-		<a aria-labelledby="iefe" href="https://evolucaoeducacional.com.br/" class="hidden lg:inline">
-			<img
-				loading="lazy"
-				id="iefe"
-				src={iefe}
-				alt="IEFE - Evolução Educacional"
-				class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-			/>
-		</a>
-		<a
-			aria-labelledby="ifb"
-			href="https://www.institutofernandabenead.com.br/"
-			class="hidden lg:inline"
-		>
-			<img
-				loading="lazy"
-				id="ifb"
-				src={ifb}
-				alt="Instituto Fernanda Ben"
-				class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-			/>
-		</a>
-		<a aria-labelledby="europan" href="https://www.europanbrasil.com.br/">
-			<img
-				loading="lazy"
-				id="europan"
-				src={europan}
-				alt="Europan Brasil"
-				class="w-24 aspect-square transition-all opacity-50 hover:opacity-100"
-			/>
-		</a>
-	</div>
-</div>
+<span class="opacity-50 font-bold w-full flex justify-center">Nossos clientes</span>
+<Embla />
 
 <div
 	use:inview={complicadoOpt}
@@ -1062,17 +940,6 @@
 </footer>
 
 <style>
-	.embla {
-		overflow: hidden;
-		width: 90%;
-	}
-	.embla__container {
-		display: flex;
-	}
-	.embla__slide {
-		flex: 0 0 50%;
-		min-width: 0;
-	}
 	.button-before::before {
 		content: '';
 		position: absolute;
