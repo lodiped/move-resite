@@ -1,4 +1,4 @@
-<div class="lg:p-10 p-4 shadow-md w-1/2">
+<div class="lg:p-10 p-4 shadow-md w-1/2 xl:w-1/3">
 	<p class="text-justify">
 		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore harum nihil quaerat, id alias
 		laudantium illo. Iure asperiores nisi error voluptatem, quae laboriosam blanditiis illo mollitia

@@ -350,8 +350,8 @@
 
 <div
 	class={pixelRatio > 1
-		? 'flex flex-col gap-12 pt-60 relative'
-		: 'flex flex-col gap-20 pt-72 relative'}
+		? 'flex flex-col lg:gap-12 gap-8 pt-60 relative'
+		: 'flex flex-col lg:gap-20 gap-12 pt-72 relative'}
 >
 	<div class="w-full absolute items-center flex justify-center z-10 top-[85px]">
 		<a
@@ -377,7 +377,7 @@
 		</p>
 	</div>
 	<div class="flex justify-center text-white z-10 items-center w-full text-center">
-		<p class={pixelRatio > 1 ? 'w-2/3 text-lg' : 'w-2/3 text-xl'}>
+		<p class={pixelRatio > 1 ? 'w-2/3 lg:text-lg text-md' : 'w-2/3 text-md lg:text-xl'}>
 			Gestão Contábil completa e o melhor BPO Financeiro do Brasil, com profissionais altamente
 			qualificados e constantemente desenvolvidos. Tudo isso pensando no sucesso do SEU NEGÓCIO!
 		</p>
@@ -386,23 +386,23 @@
 		use:inview={inviewOpt}
 		oninview_enter={raiseNumbers}
 		class={numbersInView
-			? 'flex gap-8 transition-all  w-full z-10 justify-center duration-[2500ms] flex-col lg:flex-row'
-			: 'transition-all opacity-0 flex gap-8 duration-[2500ms] translate-y-10 flex-col lg:flex-row'}
+			? 'flex lg:gap-8 gap-2 transition-all text-sm w-full z-10 justify-center duration-[2500ms]'
+			: 'transition-all opacity-0 flex lg:gap-8 gap-2 text-sm duration-[2500ms] translate-y-10'}
 	>
-		<div class="w-32">
-			<p class="text-3xl font-bold">+{clientes}</p>
+		<div class="lg:w-32 w-24">
+			<p class="lg:text-3xl text-xl font-bold">+{clientes}</p>
 			<p>Clientes ativos</p>
 		</div>
-		<div class="w-32">
-			<p class="text-3xl font-bold">+{anos}</p>
+		<div class="lg:w-32 w-24">
+			<p class="lg:text-3xl text-xl font-bold">+{anos}</p>
 			<p>Anos de experiência</p>
 		</div>
-		<div class="w-32">
-			<p class="text-3xl font-bold">+{solucoes}</p>
+		<div class="lg:w-32 w-24">
+			<p class="lg:text-3xl text-xl font-bold">+{solucoes}</p>
 			<p>Soluções para seu negócio</p>
 		</div>
-		<div class="w-32">
-			<p class="text-3xl font-bold">+R${dinheiros}M</p>
+		<div class="lg:w-32 w-24">
+			<p class="lg:text-3xl text-xl font-bold">+R${dinheiros}M</p>
 			<p>Em valores administrados</p>
 		</div>
 	</div>
@@ -830,26 +830,28 @@
 </div>
 
 <div class="flex flex-col gap-10 px-10 lg:px-20 py-20">
-	<div>
+	<div class="flex justify-center">
 		<h1
 			class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
 		>
 			Depoimentos
 		</h1>
 	</div>
-	<div class="flex flex-col lg:flex-row">
+	<div class="flex flex-col justify-center lg:flex-row">
 		<Depo1 />
 		<Depo2 />
 	</div>
 </div>
 
-<div class="flex gap-20 px-20 flex-col py-20 xl:flex-row items-start justify-center mb-60">
-	<div class=" text-black w-[650px]">
+<div
+	class="flex lg:gap-20 gap-80 lg:px-20 px-10 flex-col py-20 xl:flex-row items-start justify-center mb-60"
+>
+	<div class="lg:w-[650px] w-[460px]">
 		<div
-			class="flex h-[600px] p-8 flex-col bg-andre bg-cover border-yellow-900 border bg-[center_top_-10rem] rounded-xl mr-[180px] relative"
+			class="flex h-[400px] lg:h-[600px] p-8 flex-col bg-andre bg-cover border-yellow-900 border lg:bg-[center_top_-10rem] bg-[center_top_-5rem] rounded-xl mr-[180px] relative"
 		>
-			<div class="h-3/4"></div>
-			<div class="h-1/4">
+			<div class="lg:h-3/4 h-1/2"></div>
+			<div class="lg:h-1/4 h-1/2">
 				<h3
 					class="font-grifter text-2xl drop-shadow-md bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
 				>
@@ -858,18 +860,18 @@
 				<p class="text-white">Cofundador e CEO</p>
 			</div>
 			<div
-				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 -right-[130px] rounded-xl -bottom-[150px] backdrop-blur-xl w-[80%] bg-yellow-200/5"
+				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 lg:-right-[130px] -right-[100px] rounded-xl lg:-bottom-[150px] -bottom-[250px] backdrop-blur-xl lg:w-[80%] w-full bg-yellow-200/5"
 			>
 				<AndreCastro />
 			</div>
 		</div>
 	</div>
-	<div class=" text-black w-[650px]">
+	<div class="lg:w-[650px] w-[460px]">
 		<div
-			class="flex bg-valdi bg-cover bg-bottom border border-yellow-900 h-[600px] p-8 flex-col rounded-xl mr-[180px] relative"
+			class="flex h-[400px] lg:h-[600px] p-8 flex-col bg-valdi bg-cover border-yellow-900 border lg:bg-[center_top_-12rem] bg-[center_top_-7rem] rounded-xl mr-[180px] relative"
 		>
-			<div class="h-3/4"></div>
-			<div class="h-1/4">
+			<div class="lg:h-3/4 h-1/2"></div>
+			<div class="lg:h-1/4 h-1/2">
 				<h3
 					class="font-grifter text-2xl drop-shadow-lg bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
 				>
@@ -878,7 +880,7 @@
 				<p class="text-white">Cofundador e COO</p>
 			</div>
 			<div
-				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 -right-[130px] rounded-xl -bottom-[150px] backdrop-blur-xl w-[80%] bg-yellow-200/5"
+				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 lg:-right-[130px] -right-[100px] rounded-xl lg:-bottom-[150px] -bottom-[250px] backdrop-blur-xl lg:w-[80%] w-full bg-yellow-200/5"
 			>
 				<ValdineiSilva />
 			</div>
