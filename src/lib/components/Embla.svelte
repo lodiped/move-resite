@@ -22,7 +22,6 @@
 		{ icon: taus, a: 'https://www.clinicataus.com.br/' },
 		{ icon: ifb, a: 'https://www.institutofernandabenead.com.br/' },
 		{ icon: iefe, a: 'https://evolucaoeducacional.com.br/' },
-		{ icon: seuelias, a: 'https://seuelias.com/' },
 		{ icon: comendador, a: 'https://www.instagram.com/comendadorburguer/' },
 		{ icon: europan, a: 'https://www.instagram.com/europanbrasil/' },
 		{ icon: novaciencia, a: 'http://www.lojanovaciencia.com/' },
