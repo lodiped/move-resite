@@ -32,10 +32,10 @@
 <div class="embla mb-40" use:emblaCarouselSvelte={{ options, plugins }}>
 	<div class="embla__container">
 		{#each logos as logo}
-			<div class="flex-[0_0_200px] mr-[30%] lg:mr-[10%] min-w-0 invert">
+			<div class="lg:flex-[0_0_200px] flex-[0_0_150px] mr-[15%] lg:mr-[10%] min-w-0 invert">
 				<div class="w-full">
 					<a href={logo.a} class="border opacity-50 hover:opacity-100 transition-opacity">
-						<img src={logo.icon} alt="" class="w-[200px]" />
+						<img src={logo.icon} alt="" class="lg:w-[200px] w-[150px]" />
 					</a>
 				</div>
 			</div>
