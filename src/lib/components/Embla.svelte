@@ -12,7 +12,6 @@
 	import p2 from '$lib/assets/empresas/p2.png';
 	import taus from '$lib/assets/empresas/taus.png';
 
-	let emblaApi;
 	let options = { loop: true, dragFree: true };
 	let plugins = [AutoScroll({ startDelay: 0, stopOnMouseEnter: true, stopOnInteraction: false })];
 
@@ -29,7 +28,7 @@
 	];
 </script>
 
-<div class="embla mb-40" use:emblaCarouselSvelte={{ options, plugins }}>
+<div class="embla select-none" use:emblaCarouselSvelte={{ options, plugins }}>
 	<div class="embla__container">
 		{#each logos as logo}
 			<div class="lg:flex-[0_0_200px] flex-[0_0_150px] mr-[15%] lg:mr-[10%] min-w-0 invert">

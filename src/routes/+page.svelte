@@ -122,6 +122,7 @@
 	import ifb from '$lib/assets/empresas/ifb.png';
 	import iefe from '$lib/assets/empresas/iefe.png';
 	import { fade, fly } from 'svelte/transition';
+	import Swiper from '$lib/components/Swiper.svelte';
 
 	// InView stuff
 	let gestaoOpen = $state(false), // Modal
@@ -550,8 +551,8 @@
 	</div>
 {/if}
 
-<span class="opacity-50 font-bold w-full flex justify-center">Nossos clientes</span>
 <Embla />
+<span class="opacity-50 font-bold w-full flex justify-center mb-20 mt-10">Nossos clientes</span>
 
 <div
 	use:inview={complicadoOpt}
@@ -623,57 +624,81 @@
 			<div
 				class="rounded-full absolute bg-black left-[20%] z-20 border-4 border-move w-5 h-5"
 			></div>
-			<div class="absolute text-2xl -top-12 left-[calc(20%-90px)] text-center w-[200px] font-bold">
+			<div
+				class="absolute group-[.inview]:-top-12 -top-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(20%-30px)] text-center w-fit px-2 font-bold"
+			>
 				2019
 			</div>
-			<div class="absolute top-5 left-[calc(20%-115px)] w-[250px] text-center">
+			<div
+				class="absolute top-0 group-[.inview]:top-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(20%-115px)] w-[250px] text-center"
+			>
 				Mudamos para uma nova sede, a família cresceu
 			</div>
 			<div
 				class="rounded-full absolute bg-black left-[40%] z-20 border-4 border-move w-5 h-5"
 			></div>
 			<div
-				class="absolute -bottom-12 text-2xl left-[calc(40%-90px)] text-center w-[200px] font-bold"
+				class="absolute group-[.inview]:-bottom-12 -bottom-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(40%-30px)] text-center w-fit px-2 font-bold"
 			>
 				2020
 			</div>
-			<div class="absolute bottom-5 left-[calc(40%-115px)] w-[250px] text-center">
+			<div
+				class="absolute bottom-0 group-[.inview]:bottom-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(40%-115px)] w-[250px] text-center"
+			>
 				Passamos a oferecer soluções de gestão financeira
 			</div>
 			<div
 				class="rounded-full absolute bg-black left-[60%] z-20 border-4 border-move w-5 h-5"
 			></div>
-			<div class="absolute -top-12 text-2xl left-[calc(60%-90px)] w-[200px] text-center font-bold">
+			<div
+				class="absolute group-[.inview]:-top-12 -top-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(60%-30px)] w-fit px-2 text-center font-bold"
+			>
 				2021
 			</div>
-			<div class="absolute top-5 left-[calc(60%-115px)] w-[250px] text-center">
+			<div
+				class="absolute top-0 group-[.inview]:top-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(60%-115px)] w-[250px] text-center"
+			>
 				Ampliação do nosso escritório, a casa ficou maior
 			</div>
 			<div
 				class="rounded-full absolute bg-black left-[80%] z-20 border-4 border-move w-5 h-5"
 			></div>
 			<div
-				class="absolute -bottom-12 text-2xl left-[calc(80%-90px)] w-[200px] text-center font-bold"
+				class="absolute group-[.inview]:-bottom-12 -bottom-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(80%-30px)] w-fit px-2 text-center font-bold"
 			>
 				2022
 			</div>
-			<div class="absolute bottom-5 left-[calc(80%-115px)] w-[250px] text-center">
+			<div
+				class="absolute bottom-0 group-[.inview]:bottom-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(80%-115px)] w-[250px] text-center"
+			>
 				Criação do nosso podcast &ldquo;Negócio em Jogo&rdquo;
 			</div>
 			<div
 				class="rounded-full absolute bg-black left-[100%] z-20 border-4 border-move w-5 h-5"
 			></div>
-			<div class="absolute -top-12 text-2xl left-[calc(100%-90px)] w-[200px] text-center font-bold">
+			<div
+				class="absolute group-[.inview]:-top-12 -top-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(100%-30px)] w-fit px-2 text-center font-bold"
+			>
 				2024
 			</div>
-			<div class="absolute top-5 left-[calc(100%-115px)] w-[250px] text-center">
+			<div
+				class="absolute top-0 group-[.inview]:top-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(100%-115px)] w-[250px] text-center"
+			>
 				Prêmio Conta Azul de melhor escritório de BPO Financeiro do Brasil
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="flex flex-col gap-8 lg:px-20 px-8 py-20 items-center">
+<div class="relative flex flex-col gap-8 lg:px-20 px-8 py-20 items-center">
+	<div class="absolute h-full flex flex-col items-center justify-center">
+		<img
+			loading="lazy"
+			src={moveIcon}
+			alt="Logo Move Negócios"
+			class=" scale-150 translate-x-3 -translate-y-9 opacity-50"
+		/>
+	</div>
 	<div>
 		<h2
 			class="text-4xl font-bold font-grifter pb-4 bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
@@ -683,46 +708,35 @@
 	</div>
 	<div class="flex lg:flex-row flex-col gap-8 justify-center">
 		<div
-			class="shadow-[0_5px_10px_rgba(0,0,0,0.2)] p-8 rounded-xl lg:w-1/2 max-w-[600px] bg-stone-700/50"
+			class="p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
 		>
 			<Sintonia />
 		</div>
 		<div
-			class="shadow-[0_5px_10px_rgba(0,0,0,0.2)] p-8 rounded-xl lg:w-1/2 max-w-[600px] bg-stone-700/50"
+			class="p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
 		>
 			<Solucao />
 		</div>
 	</div>
 	<div class="flex lg:flex-row flex-col gap-8 justify-center">
 		<div
-			class="shadow-[0_5px_10px_rgba(0,0,0,0.2)] p-8 rounded-xl lg:w-1/2 max-w-[600px] bg-stone-700/50"
+			class="p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
 		>
 			<Tecnologia />
 		</div>
 		<div
-			class="shadow-[0_5px_10px_rgba(0,0,0,0.2)] p-8 rounded-xl lg:w-1/2 max-w-[600px] bg-stone-700/50"
+			class="p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
 		>
 			<Podcast />
 		</div>
 	</div>
 </div>
+<div class="bg-move/50 w-full h-[150px]">colaboradores</div>
 
-<div class="flex flex-col gap-10 px-10 lg:px-20 py-20">
-	<div class="flex justify-center">
-		<h1
-			class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
-		>
-			Depoimentos
-		</h1>
-	</div>
-	<div class="flex flex-col justify-center lg:flex-row">
-		<Depo1 />
-		<Depo2 />
-	</div>
-</div>
+<Swiper />
 
 <div
-	class="flex 2xl:gap-20 lg:gap-60 gap-80 lg:px-20 px-6 flex-col py-20 2xl:flex-row 2xl:items-start items-center lg:items-center justify-center mb-60"
+	class="flex 2xl:gap-20 lg:gap-60 gap-80 lg:px-20 px-6 flex-col py-40 2xl:flex-row 2xl:items-start items-center lg:items-center justify-center mb-60"
 >
 	<div class="lg:w-[650px] w-[230px] mr-[90px] lg:mr-0">
 		<div

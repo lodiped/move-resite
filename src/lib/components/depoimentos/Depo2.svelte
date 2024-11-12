@@ -1,9 +1,8 @@
-<div class="lg:p-10 p-4 shadow-md w-1/2 xl:w-1/3">
+<div>
 	<p class="text-justify">
-		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore harum nihil quaerat, id alias
-		laudantium illo. Iure asperiores nisi error voluptatem, quae laboriosam blanditiis illo mollitia
-		vitae vero quasi delectus nihil dicta natus minima aliquid earum nobis sapiente cumque saepe.
+		Passando para agradecer tudo que me ensinaram, direcionam e me fizeram crescer. Minha empresa e
+		eu, naõ somos os mesmo graças a vocês. Graidão à Move e a todos que estão comigo, todos os dias!
 	</p>
-	<p class="font-bold text-yellow-400">Nome</p>
-	<p class="text-yellow-400">Empresa Tal</p>
+	<p class="font-bold text-red-900">Thais Sedoski</p>
+	<p class="text-red-900">Instituto de Prótese Dentária</p>
 </div>

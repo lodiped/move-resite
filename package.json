@@ -37,6 +37,7 @@
 		"embla-carousel-auto-scroll": "^8.3.1",
 		"embla-carousel-autoplay": "^8.3.1",
 		"embla-carousel-svelte": "^8.3.0",
-		"svelte-inview": "^4.0.4"
+		"svelte-inview": "^4.0.4",
+		"swiper": "^11.1.14"
 	}
 }
