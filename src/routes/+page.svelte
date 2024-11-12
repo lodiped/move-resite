@@ -722,11 +722,11 @@
 </div>
 
 <div
-	class="flex lg:gap-20 gap-80 lg:px-20 px-10 flex-col py-20 xl:flex-row items-start justify-center mb-60"
+	class="flex 2xl:gap-20 lg:gap-60 gap-80 lg:px-20 px-6 flex-col py-20 2xl:flex-row 2xl:items-start items-center lg:items-center justify-center mb-60"
 >
-	<div class="lg:w-[650px] w-[460px]">
+	<div class="lg:w-[650px] w-[230px] mr-[90px] lg:mr-0">
 		<div
-			class="flex h-[400px] lg:h-[600px] p-8 flex-col bg-andre bg-cover border-yellow-900 border lg:bg-[center_top_-10rem] bg-[center_top_-5rem] rounded-xl mr-[180px] relative"
+			class="flex h-[300px] lg:h-[600px] p-6 flex-col bg-andre bg-cover border-yellow-900 border lg:bg-[center_top_-10rem] bg-[center_top_-5rem] rounded-xl mr-0 lg:mr-[180px] relative"
 		>
 			<div class="lg:h-3/4 h-1/2"></div>
 			<div class="lg:h-1/4 h-1/2">
@@ -738,15 +738,15 @@
 				<p class="text-white">Cofundador e CEO</p>
 			</div>
 			<div
-				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 lg:-right-[130px] -right-[100px] rounded-xl lg:-bottom-[150px] -bottom-[250px] backdrop-blur-xl lg:w-[80%] w-full bg-yellow-200/5"
+				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 lg:-right-[130px] -right-[90px] rounded-xl lg:-bottom-[150px] -bottom-[290px] backdrop-blur-xl lg:w-[80%] w-[260px] bg-yellow-200/5"
 			>
 				<AndreCastro />
 			</div>
 		</div>
 	</div>
-	<div class="lg:w-[650px] w-[460px]">
+	<div class="lg:w-[650px] w-[230px] mr-[90px] lg:mr-0">
 		<div
-			class="flex h-[400px] lg:h-[600px] p-8 flex-col bg-valdi bg-cover border-yellow-900 border lg:bg-[center_top_-12rem] bg-[center_top_-7rem] rounded-xl mr-[180px] relative"
+			class="flex h-[300px] lg:h-[600px] p-6 flex-col bg-valdi bg-cover border-yellow-900 border lg:bg-[center_top_-12rem] bg-[center_top_-7rem] rounded-xl mr-0 lg:mr-[180px] relative"
 		>
 			<div class="lg:h-3/4 h-1/2"></div>
 			<div class="lg:h-1/4 h-1/2">
@@ -758,7 +758,7 @@
 				<p class="text-white">Cofundador e COO</p>
 			</div>
 			<div
-				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 lg:-right-[130px] -right-[100px] rounded-xl lg:-bottom-[150px] -bottom-[250px] backdrop-blur-xl lg:w-[80%] w-full bg-yellow-200/5"
+				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 lg:-right-[130px] -right-[90px] rounded-xl lg:-bottom-[150px] -bottom-[290px] backdrop-blur-xl lg:w-[80%] w-[260px] bg-yellow-200/5"
 			>
 				<ValdineiSilva />
 			</div>
@@ -833,7 +833,7 @@
 			</form>
 		</div>
 		<div
-			class="bg-yellow-200/5 border border-move/10 shadow-[0_5px_12px_rgba(0,0,0,0.75)] backdrop-blur-xl p-8 rounded-xl"
+			class="bg-yellow-200/5 border hidden border-move/10 shadow-[0_5px_12px_rgba(0,0,0,0.75)] backdrop-blur-xl p-8 rounded-xl"
 		>
 			<iframe
 				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15716.878785504974!2d-49.279913382024695!3d-25.434576567173202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce532a8764435%3A0x2784bcd3ae721131!2sMove%20Neg%C3%B3cios!5e0!3m2!1sen!2sbr!4v1729100527608!5m2!1sen!2sbr"
