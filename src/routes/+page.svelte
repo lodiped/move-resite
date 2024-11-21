@@ -360,7 +360,7 @@
 	</video>
 </div>
 
-<Servicos bind:gestaoOpen bind:contabilOpen financeira contabeis />
+<Servicos bind:gestaoOpen bind:contabilOpen />
 
 <Embla />
 <span class="opacity-50 font-bold w-full flex justify-center mb-20 mt-10">Nossos clientes</span>
