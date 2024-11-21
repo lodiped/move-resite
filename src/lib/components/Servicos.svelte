@@ -62,7 +62,7 @@
 	<div class="flex gap-10 lg:flex-row flex-col">
 		<div class="flex z-10 flex-col items-center justify-between gap-12 max-w-[500px]">
 			<h2
-				class="text-4xl font-bold relative font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
+				class="drop-shadow-[0_0_1rem_rgba(255,255,0,0.35)] text-4xl font-bold relative font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
 			>
 				Soluções Contábeis.
 				<span
@@ -74,7 +74,7 @@
 			<Contabil />
 			<button
 				aria-label="Saiba mais sobre o serviço de Gestão Contábil"
-				class="button-before group border border-move/5 relative p-4 rounded-xl shadow-xl font-bold w-fit bg-yellow-900/30 backdrop-blur-xl hover:bg-yellow-900/60 text-move transition-all"
+				class="button-before group border border-move/10 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-900/90 backdrop-blur-xl bg-yellow-900/60 text-move transition-all"
 				onclick={() => {
 					contabilOpen = !contabilOpen;
 				}}
@@ -93,7 +93,7 @@
 			<Financeira />
 			<button
 				aria-label="Saiba mais sobre o serviço de Gestão Financeira"
-				class="button-before group border border-move/5 relative p-4 rounded-xl shadow-xl font-bold w-fit bg-yellow-900/30 backdrop-blur-xl hover:bg-yellow-900/60 text-move transition-all"
+				class="button-before group border border-move/10 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-900/90 backdrop-blur-xl bg-yellow-900/60 text-move transition-all"
 				onclick={() => {
 					gestaoOpen = !gestaoOpen;
 				}}

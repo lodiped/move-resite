@@ -58,6 +58,14 @@
 	import WhatsApp from 'virtual:icons/mdi/whatsapp';
 	// @ts-ignore
 	import Phone from 'virtual:icons/mdi/phone';
+	// @ts-ignore
+	import Handshake from 'virtual:icons/mdi/handshake';
+	// @ts-ignore
+	import HandHeart from 'virtual:icons/mdi/hand-heart';
+	// @ts-ignore
+	import Teaching from 'virtual:icons/mdi/teach';
+	// @ts-ignore
+	import RocketLaunch from 'virtual:icons/mdi/rocket-launch';
 
 	// InView stuff
 	let gestaoOpen = $state(false), // Modal
@@ -182,7 +190,7 @@
 <header
 	class={atTop && !mobileDrop
 		? 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 transition-all duration-700 z-50 border-move/5'
-		: 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 drop-shadow-lg shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/10 z-50 transition-all duration-700 backdrop-blur-md border-b border-move/10'}
+		: 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 drop-shadow-lg shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/20 z-50 transition-all duration-700 backdrop-blur-md border-b border-move/10'}
 >
 	<div class="flex justify-between w-full">
 		<div>
@@ -225,10 +233,12 @@
 		<div>
 			<a
 				aria-label="Área do Cliente"
-				class="p-4 rounded-xl font-bold z-20 drop-shadow-lg w-fit bg-move text-black hover:text-move transition-all hover:bg-black hidden lg:inline"
+				class="p-4 border border-move/10 rounded-xl font-bold z-20 drop-shadow-lg hover:drop-shadow-[0_1rem_1rem_rgba(255,255,0,0.2)] backdrop-blur-lg w-fit bg-yellow-900/60 text-move transition-all hover:bg-yellow-900/90 hidden lg:inline"
 				href="https://app.gestta.com.br/#/login/auth?isInitialPage=true%20"
 			>
-				Área do Cliente
+				<span class="transition-all drop-shadow-[0_0_0.5rem_rgba(255,255,0,0.7)]">
+					Área do Cliente
+				</span>
 			</a>
 			<button
 				onclick={mobileMenu}
@@ -343,9 +353,11 @@
 		<a
 			aria-label="Clique para falar com o nosso time"
 			href="/sobre"
-			class="button-before relative p-4 rounded-xl text-xl shadow-xl font-bold uppercase w-fit bg-move text-black hover:bg-black hover:text-move transition-all"
+			class="button-before group border border-move/10 relative p-4 rounded-xl text-xl shadow-xl font-bold w-fit hover:bg-yellow-900/90 backdrop-blur-xl bg-yellow-900/60 text-move transition-all"
 		>
-			Eu quero levar o meu negócio para o próximo nível!
+			<span class="transition-all drop-shadow-[0_0_0.5rem_rgba(255,255,0,0.7)] uppercase">
+				Eu quero levar o meu negócio para o próximo nível!
+			</span>
 		</a>
 	</div>
 	<video
@@ -507,7 +519,7 @@
 			loading="lazy"
 			src={moveIcon}
 			alt="Logo Move Negócios"
-			class=" scale-150 translate-x-3 -translate-y-9 opacity-50"
+			class=" scale-[200%] translate-x-3 -translate-y-9 opacity-20 hidden"
 		/>
 	</div>
 	<div>
@@ -519,25 +531,37 @@
 	</div>
 	<div class="flex lg:flex-row flex-col gap-8 justify-center">
 		<div
-			class="p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
+			class="p-8 relative shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[290px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
 		>
+			<Handshake
+				class="absolute opacity-10 drop-shadow-[0_0_1rem_rgba(255,255,0,1)] text-9xl text-move right-2 bottom-2"
+			/>
 			<Sintonia />
 		</div>
 		<div
-			class="p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
+			class="p-8 relative shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[290px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
 		>
+			<HandHeart
+				class="absolute opacity-10 drop-shadow-[0_0_1rem_rgba(255,255,0,1)] text-9xl text-move right-2 bottom-2"
+			/>
 			<Solucao />
 		</div>
 	</div>
 	<div class="flex lg:flex-row flex-col gap-8 justify-center">
 		<div
-			class="p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
+			class="p-8 relative shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[290px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
 		>
+			<RocketLaunch
+				class="absolute opacity-10 drop-shadow-[0_0_1rem_rgba(255,255,0,1)] text-move text-9xl right-2 bottom-2"
+			/>
 			<Tecnologia />
 		</div>
 		<div
-			class="p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
+			class="p-8 relative shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[290px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
 		>
+			<Teaching
+				class="absolute opacity-10 drop-shadow-[0_0_1rem_rgba(255,255,0,1)] text-move text-9xl right-2 bottom-2"
+			/>
 			<Podcast />
 		</div>
 	</div>
