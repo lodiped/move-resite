@@ -28,8 +28,8 @@
 	];
 </script>
 
-<div class="embla select-none" use:emblaCarouselSvelte={{ options, plugins }}>
-	<div class="embla__container">
+<div class="overflow-hidden select-none" use:emblaCarouselSvelte={{ options, plugins }}>
+	<div class="flex">
 		{#each logos as logo}
 			<div class="lg:flex-[0_0_200px] flex-[0_0_150px] mr-[15%] lg:mr-[10%] min-w-0 invert">
 				<div class="w-full">
@@ -41,15 +41,3 @@
 		{/each}
 	</div>
 </div>
-
-<style>
-	.embla {
-		overflow: hidden;
-	}
-	.embla__container {
-		display: flex;
-	}
-	.embla__slide {
-		min-width: 0;
-	}
-</style>
