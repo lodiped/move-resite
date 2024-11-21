@@ -23,45 +23,17 @@
 		};
 	}
 
-	let financeira = $state([
-		{ icon: BPOCard, desc: 'Contas a pagar' },
-		{ icon: BPOCoin, desc: 'Contas a receber' },
-		{ icon: BPOInbox, desc: 'Conciliação bancária e fechamento de caixa' },
-		{ icon: BPOMoney, desc: 'Relatórios financeiros' },
-		{ icon: BPOPaper, desc: 'Emissão de notas fiscais' },
-		{ icon: BPOSign, desc: 'Controle de contrato' },
-		{ icon: BPOPapertext, desc: 'Emissão e envio de boletos (plataforma exclusiva)' },
-		{ icon: BPOCalendar, desc: 'Agendamento de pagamentos e cobranças' },
-		{ icon: BPOPerson, desc: 'Consultoria' },
-		{ icon: BPODeadline, desc: 'Avisos de vencimentos' },
-		{ icon: BPOEye, desc: 'Acompanhamento de lançamentos (Modalidade Externa)' },
-		{ icon: BPOList, desc: 'Revisão de lançamentos (Modalidade Externa)' }
-	]);
-
-	let contabeis = $state([
-		{ icon: BPOCard, desc: 'Relatórios gerenciais e contábeis' },
-		{ icon: BPOCoin, desc: 'Realização de registros contábeis' },
-		{ icon: BPOInbox, desc: 'Escriturações fiscais e legais' },
-		{ icon: BPOMoney, desc: 'Elaboração de balancetes demonstrativos anuais' },
-		{ icon: BPOPaper, desc: 'Departamento pessoal' },
-		{ icon: BPOSign, desc: 'Departamento fiscal' },
-		{ icon: BPOPapertext, desc: 'Parte societária: abertura, alteração e encerramento' },
-		{ icon: BPOCalendar, desc: 'Folhas de pagamentos' }
-	]);
-
 	// Components
-	import Contabil from '$lib/components/Contabil.svelte';
-	import Financeira from '$lib/components/Financeira.svelte';
 	import Welcome from '$lib/components/Welcome.svelte';
 	import Sintonia from '$lib/components/diferenciais/Sintonia.svelte';
 	import Solucao from '$lib/components/diferenciais/Solucao.svelte';
 	import Tecnologia from '$lib/components/diferenciais/Tecnologia.svelte';
 	import Podcast from '$lib/components/diferenciais/Podcast.svelte';
-	import Depo2 from '$lib/components/depoimentos/Depo2.svelte';
-	import Depo1 from '$lib/components/depoimentos/Depo1.svelte';
 	import AndreCastro from '$lib/components/AndreCastro.svelte';
 	import ValdineiSilva from '$lib/components/ValdineiSilva.svelte';
 	import Embla from '$lib/components/Embla.svelte';
+	import Servicos from '$lib/components/Servicos.svelte';
+	import Swiper from '$lib/components/Swiper.svelte';
 
 	// Imagens
 	import moveLogo from '$lib/assets/logo-move.webp';
@@ -69,8 +41,6 @@
 	import bpo from '$lib/assets/bpo.png';
 	import timelapse from '$lib/assets/timelapse.webm';
 	import coin from '$lib/assets/coin.png';
-	import andre from '$lib/assets/Andre.webp';
-	import valdi from '$lib/assets/Valdi.webp';
 
 	// @ts-ignore
 	import Facebook from 'virtual:icons/mdi/facebook';
@@ -88,41 +58,6 @@
 	import WhatsApp from 'virtual:icons/mdi/whatsapp';
 	// @ts-ignore
 	import Phone from 'virtual:icons/mdi/phone';
-	// @ts-ignore
-	import BPOCard from 'virtual:icons/mdi/credit-card-outline';
-	// @ts-ignore
-	import BPOCoin from 'virtual:icons/mdi/hand-coin-outline';
-	// @ts-ignore
-	import BPOInbox from 'virtual:icons/mdi/inbox';
-	// @ts-ignore
-	import BPOPaper from 'virtual:icons/mdi/paper-outline';
-	// @ts-ignore
-	import BPOPapertext from 'virtual:icons/mdi/paper-text-outline';
-	// @ts-ignore
-	import BPOSign from 'virtual:icons/mdi/contract-sign';
-	// @ts-ignore
-	import BPOMoney from 'virtual:icons/mdi/money';
-	// @ts-ignore
-	import BPOCalendar from 'virtual:icons/mdi/date-range';
-	// @ts-ignore
-	import BPOPerson from 'virtual:icons/mdi/account-tie-outline';
-	// @ts-ignore
-	import BPODeadline from 'virtual:icons/mdi/clipboard-text-date-outline';
-	// @ts-ignore
-	import BPOList from 'virtual:icons/mdi/playlist-check';
-	// @ts-ignore
-	import BPOEye from 'virtual:icons/mdi/file-eye-outline';
-	// @ts-ignore
-	import External from 'virtual:icons/mdi/external-link';
-
-	// Empresas Logos
-	import seuelias from '$lib/assets/empresas/seuelias.png';
-	import comendador from '$lib/assets/empresas/comendador.png';
-	import europan from '$lib/assets/empresas/europan.png';
-	import ifb from '$lib/assets/empresas/ifb.png';
-	import iefe from '$lib/assets/empresas/iefe.png';
-	import { fade, fly } from 'svelte/transition';
-	import Swiper from '$lib/components/Swiper.svelte';
 
 	// InView stuff
 	let gestaoOpen = $state(false), // Modal
@@ -425,131 +360,7 @@
 	</video>
 </div>
 
-<div id="servicos" class="flex px-10 lg:px-20 py-40 justify-center lg:items-start">
-	<div class="flex gap-10 lg:flex-row flex-col">
-		<div class="flex z-10 flex-col items-center justify-between gap-12 max-w-[500px]">
-			<h2
-				class="text-4xl font-bold relative font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
-			>
-				Soluções Contábeis.
-				<span
-					class="absolute text-3xl font-bold font-grifter text-move bottom-3 left-24 translate-x-2.5 -translate-y-0.5"
-				>
-					~
-				</span>
-			</h2>
-			<Contabil />
-			<button
-				aria-label="Saiba mais sobre o serviço de Gestão Contábil"
-				class="button-before relative p-4 rounded-xl shadow-xl font-bold w-fit bg-move text-black hover:bg-black hover:text-move transition-all"
-				onclick={() => {
-					contabilOpen = !contabilOpen;
-				}}
-			>
-				Serviços Contábeis
-			</button>
-		</div>
-		<div class="flex z-10 flex-col items-center justify-between gap-12 max-w-[500px]">
-			<h2
-				class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
-			>
-				Gestão Financeira.
-			</h2>
-			<Financeira />
-			<button
-				aria-label="Saiba mais sobre o serviço de Gestão Financeira"
-				class="button-before relative p-4 rounded-xl shadow-xl font-bold w-fit bg-move text-black hover:bg-black hover:text-move transition-all"
-				onclick={() => {
-					gestaoOpen = !gestaoOpen;
-				}}
-			>
-				Serviços BPO
-			</button>
-		</div>
-	</div>
-</div>
-
-{#if gestaoOpen}
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div
-		in:fly={{ duration: 200, y: 500, opacity: 0 }}
-		out:fade={{ duration: 200 }}
-		class="fixed flex flex-col inset-0 justify-center items-center bg-black/30 z-50"
-		onclick={(event) => {
-			if (event.target === event.currentTarget) {
-				gestaoOpen = false;
-			}
-		}}
-	>
-		<div
-			class="p-16 w-[75%] relative text-center h-fit flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
-		>
-			<button
-				onclick={() => {
-					gestaoOpen = false;
-				}}
-				class="absolute hover:bg-white/10 rounded-full text-lg top-0 right-0 p-2 m-2"
-			>
-				<BigX />
-			</button>
-			<h2
-				class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
-			>
-				Gestão Financeira.
-			</h2>
-			<div class="flex flex-wrap *:h-full relative justify-center items-start gap-10">
-				{#each financeira as item}
-					<div class="w-48 flex flex-col gap-2 items-center">
-						<item.icon class="text-3xl" />
-						<p>{item.desc}</p>
-					</div>
-				{/each}
-			</div>
-		</div>
-	</div>
-{/if}
-
-{#if contabilOpen}
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div
-		in:fly={{ duration: 200, y: 500, opacity: 0 }}
-		out:fade={{ duration: 200 }}
-		class="fixed flex inset-0 justify-center items-center bg-black/30 z-50"
-		onclick={(event) => {
-			if (event.target === event.currentTarget) {
-				contabilOpen = false;
-			}
-		}}
-	>
-		<div
-			class="p-16 w-[75%] relative text-center h-fit flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
-		>
-			<button
-				onclick={() => {
-					contabilOpen = false;
-				}}
-				class="absolute hover:bg-white/10 rounded-full text-lg top-0 right-0 p-2 m-2"
-			>
-				<BigX />
-			</button>
-			<h2
-				class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
-			>
-				Soluções Contábeis.
-			</h2>
-			<div class="flex flex-wrap *:h-full relative justify-center items-start gap-10">
-				{#each contabeis as item}
-					<div class="w-48 flex flex-col gap-2 items-center">
-						<item.icon class="text-3xl" />
-						<p>{item.desc}</p>
-					</div>
-				{/each}
-			</div>
-		</div>
-	</div>
-{/if}
+<Servicos bind:gestaoOpen bind:contabilOpen financeira contabeis />
 
 <Embla />
 <span class="opacity-50 font-bold w-full flex justify-center mb-20 mt-10">Nossos clientes</span>
@@ -952,19 +763,3 @@
 		</div>
 	</div>
 </footer>
-
-<style>
-	.button-before::before {
-		content: '';
-		position: absolute;
-		left: 0;
-		bottom: -1rem;
-		width: 100%;
-		height: 1rem;
-		background-color: yellow;
-		filter: blur(20px); /* Adjust for desired blur */
-		border-radius: 9999px;
-		z-index: -1;
-		opacity: 50%;
-	}
-</style>
