@@ -33,7 +33,7 @@
 	import ValdineiSilva from '$lib/components/ValdineiSilva.svelte';
 	import Embla from '$lib/components/Embla.svelte';
 	import Servicos from '$lib/components/Servicos.svelte';
-	import Swiper from '$lib/components/Swiper.svelte';
+	import Depoimentos from '$lib/components/Depoimentos.svelte';
 
 	// Imagens
 	import moveLogo from '$lib/assets/logo-move.webp';
@@ -41,6 +41,10 @@
 	import bpo from '$lib/assets/bpo.png';
 	import timelapse from '$lib/assets/timelapse.webm';
 	import coin from '$lib/assets/coin.png';
+	import peaks from '$lib/assets/peaks.png';
+	import peaksSvg from '$lib/assets/peaks.svg';
+	import lines from '$lib/assets/lines.svg';
+	import waves from '$lib/assets/wave.svg';
 
 	// @ts-ignore
 	import Facebook from 'virtual:icons/mdi/facebook';
@@ -66,6 +70,7 @@
 	import Teaching from 'virtual:icons/mdi/teach';
 	// @ts-ignore
 	import RocketLaunch from 'virtual:icons/mdi/rocket-launch';
+	import EmblaFuncionarios from '$lib/components/EmblaFuncionarios.svelte';
 
 	// InView stuff
 	let gestaoOpen = $state(false), // Modal
@@ -233,7 +238,7 @@
 		<div>
 			<a
 				aria-label="Área do Cliente"
-				class="p-4 border border-move/10 rounded-xl font-bold z-20 drop-shadow-lg hover:drop-shadow-[0_1rem_1rem_rgba(255,255,0,0.2)] backdrop-blur-lg w-fit bg-yellow-900/60 text-move transition-all hover:bg-yellow-900/90 hidden lg:inline"
+				class="p-4 border border-move/10 rounded-xl font-bold z-20 drop-shadow-lg hover:drop-shadow-[0_1rem_1rem_rgba(255,180,0,0.2)] backdrop-blur-lg w-fit bg-yellow-900/60 text-move transition-all hover:bg-yellow-900/90 hidden lg:inline"
 				href="https://app.gestta.com.br/#/login/auth?isInitialPage=true%20"
 			>
 				<span class="transition-all drop-shadow-[0_0_0.5rem_rgba(255,255,0,0.7)]">
@@ -375,14 +380,15 @@
 <Servicos bind:gestaoOpen bind:contabilOpen />
 
 <Embla />
-<span class="opacity-50 font-bold w-full flex justify-center mb-20 mt-10">Nossos clientes</span>
+<span class="opacity-50 font-bold w-full flex justify-center mt-10">Nossos clientes</span>
+<img src={peaksSvg} alt="" class="w-full" />
 
 <div
 	use:inview={complicadoOpt}
 	oninview_enter={() => {
 		phraseInView = true;
 	}}
-	class="bg-move flex-col transition-all duration-[2500ms] opacity-100 flex items-center justify-center text-black py-32 uppercase"
+	class="bg-move flex-col transition-all duration-[2500ms] opacity-100 flex items-center justify-center text-black pb-32 uppercase"
 >
 	<p
 		class={phraseInView
@@ -514,6 +520,9 @@
 </div>
 
 <div class="relative flex flex-col gap-8 lg:px-20 px-8 py-20 items-center">
+	<div class="absolute w-full h-full flex justify-center items-center">
+		<img src={lines} alt="" class="opacity-40 w-full blur -hue-rotate-15" />
+	</div>
 	<div class="absolute h-full flex flex-col items-center justify-center">
 		<img
 			loading="lazy"
@@ -568,7 +577,8 @@
 </div>
 <div class="bg-move/50 w-full h-[150px]">colaboradores</div>
 
-<Swiper />
+<EmblaFuncionarios />
+<Depoimentos />
 
 <div
 	class="flex 2xl:gap-20 lg:gap-60 gap-80 lg:px-20 px-6 flex-col py-40 2xl:flex-row 2xl:items-start items-center lg:items-center justify-center mb-60"
