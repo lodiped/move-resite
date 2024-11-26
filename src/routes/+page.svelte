@@ -33,7 +33,8 @@
 	import ValdineiSilva from '$lib/components/ValdineiSilva.svelte';
 	import Embla from '$lib/components/Embla.svelte';
 	import Servicos from '$lib/components/Servicos.svelte';
-	import Depoimentos from '$lib/components/Depoimentos.svelte';
+	import EmblaDepoimentos from '$lib/components/EmblaDepoimentos.svelte';
+	import EmblaColaboradores from '$lib/components/EmblaColaboradores.svelte';
 
 	// Imagens
 	import moveLogo from '$lib/assets/logo-move.webp';
@@ -45,6 +46,11 @@
 	import peaksSvg from '$lib/assets/peaks.svg';
 	import lines from '$lib/assets/lines.svg';
 	import waves from '$lib/assets/wave.svg';
+	import foguetesmoke from '$lib/assets/Foguete Fumaça.png';
+	import foguete from '$lib/assets/Foguete.png';
+	import planeta from '$lib/assets/Planeta.png';
+	import astronauta from '$lib/assets/Astronauta.png';
+	import cafe from '$lib/assets/Café.png';
 
 	// @ts-ignore
 	import Facebook from 'virtual:icons/mdi/facebook';
@@ -70,7 +76,6 @@
 	import Teaching from 'virtual:icons/mdi/teach';
 	// @ts-ignore
 	import RocketLaunch from 'virtual:icons/mdi/rocket-launch';
-	import EmblaFuncionarios from '$lib/components/EmblaFuncionarios.svelte';
 
 	// InView stuff
 	let gestaoOpen = $state(false), // Modal
@@ -206,7 +211,7 @@
 		<div class="gap-10 font-bold justify-between hidden lg:flex">
 			<a
 				aria-label="Sobre"
-				onclick={scrollToSection(-130)}
+				onclick={scrollToSection(-180)}
 				href="#sobre"
 				class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
 			>
@@ -229,7 +234,8 @@
 			</a>
 			<a
 				aria-label="Contato"
-				href="/contato"
+				onclick={scrollToSection(-200)}
+				href="#contato"
 				class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
 			>
 				Contato
@@ -238,7 +244,7 @@
 		<div>
 			<a
 				aria-label="Área do Cliente"
-				class="p-4 border border-move/10 rounded-xl font-bold z-20 drop-shadow-lg hover:drop-shadow-[0_1rem_1rem_rgba(255,180,0,0.2)] backdrop-blur-lg w-fit bg-yellow-900/60 text-move transition-all hover:bg-yellow-900/90 hidden lg:inline"
+				class="p-4 border border-move/10 rounded-xl font-bold z-20 drop-shadow-lg hover:drop-shadow-[0_1rem_1rem_rgba(255,180,0,0.2)] backdrop-blur-lg w-fit bg-yellow-700/70 text-move transition-all hover:bg-yellow-700/90 hidden lg:inline"
 				href="https://app.gestta.com.br/#/login/auth?isInitialPage=true%20"
 			>
 				<span class="transition-all drop-shadow-[0_0_0.5rem_rgba(255,255,0,0.7)]">
@@ -286,7 +292,8 @@
 				</a>
 				<a
 					aria-label="Contato"
-					href="/contato"
+					onclick={scrollToSection(-10)}
+					href="#contato"
 					class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] w-fit"
 				>
 					Contato
@@ -305,7 +312,7 @@
 		<a
 			href="https://www.youtube.com/watch?v=atn1FXDDswY"
 			target="blank_"
-			class="hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)] hover:scale-105 opacity-70 hover:opacity-100 drop-shadow-lg transition-all tracking-widest rounded-full w-fit"
+			class="hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)] opacity-70 hover:opacity-100 drop-shadow-lg transition-all duration-700 tracking-widest rounded-full w-fit"
 		>
 			<img
 				loading="lazy"
@@ -358,10 +365,10 @@
 		<a
 			aria-label="Clique para falar com o nosso time"
 			href="/sobre"
-			class="button-before group border border-move/10 relative p-4 rounded-xl text-xl shadow-xl font-bold w-fit hover:bg-yellow-900/90 backdrop-blur-xl bg-yellow-900/60 text-move transition-all"
+			class="button-before group border border-move/10 relative p-4 rounded-xl text-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 backdrop-blur-xl bg-yellow-600/70 text-move transition-all"
 		>
-			<span class="transition-all drop-shadow-[0_0_0.5rem_rgba(255,255,0,0.7)] uppercase">
-				Eu quero levar o meu negócio para o próximo nível!
+			<span class="transition-all drop-shadow-[0_0_0.3rem_rgba(0,0,0,0.5)] uppercase">
+				Fazer um diagnóstico da sua empresa
 			</span>
 		</a>
 	</div>
@@ -379,9 +386,12 @@
 
 <Servicos bind:gestaoOpen bind:contabilOpen />
 
-<Embla />
-<span class="opacity-50 font-bold w-full flex justify-center mt-10">Nossos clientes</span>
-<img src={peaksSvg} alt="" class="w-full" />
+<div class="-mb-60">
+	<span class="opacity-50 font-bold w-full flex justify-center mb-10">Nossos clientes</span>
+	<Embla />
+</div>
+
+<img src={peaksSvg} alt="" class="w-full scale-y-50 translate-y-[calc(25%+2px)]" />
 
 <div
 	use:inview={complicadoOpt}
@@ -404,12 +414,14 @@
 	>
 		o complicado
 	</p>
-	<div class="drop-shadow-lg text-4xl hidden animate-bounce">🚀</div>
+	<div class="drop-shadow-lg text-4xl origin-center animate-float">
+		<img src={foguete} alt="" class="drop-shadow-[0_10px_1rem_rgba(0,0,0,0.5)] w-60" />
+	</div>
 </div>
 
 <div id="sobre" class="flex flex-col gap-10 px-10 lg:px-20 pb-32 bg-move text-black">
 	<div class="flex justify-between relative">
-		<div class="flex flex-col gap-10">
+		<div class="flex flex-col gap-12">
 			<div class="flex flex-col">
 				<h2 class="text-4xl font-bold font-grifter">Quem Somos</h2>
 			</div>
@@ -419,8 +431,8 @@
 		</div>
 		<img
 			loading="lazy"
-			src={coin}
-			class="h-[400px] absolute top-0 right-[10%] drop-shadow-lg"
+			src={cafe}
+			class="h-[600px] absolute -top-20 right-[10%] drop-shadow-[0_10px_1rem_rgba(0,0,0,0.4)]"
 			alt=""
 		/>
 	</div>
@@ -451,67 +463,80 @@
 				Começamos uma história com vontade de vencer
 			</div>
 			<div
-				class="rounded-full absolute bg-black left-[20%] z-20 border-4 border-move w-5 h-5"
+				class="rounded-full absolute bg-black left-[calc(100%/6)] z-20 border-4 border-move w-5 h-5"
 			></div>
 			<div
-				class="absolute group-[.inview]:-top-12 -top-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(20%-30px)] text-center w-fit px-2 font-bold"
+				class="absolute group-[.inview]:-top-12 -top-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc((100%/6)-30px)] text-center w-fit px-2 font-bold"
 			>
 				2019
 			</div>
 			<div
-				class="absolute top-0 group-[.inview]:top-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(20%-115px)] w-[250px] text-center"
+				class="absolute top-0 group-[.inview]:top-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc((100%/6)-115px)] w-[250px] text-center"
 			>
 				Mudamos para uma nova sede, a família cresceu
 			</div>
 			<div
-				class="rounded-full absolute bg-black left-[40%] z-20 border-4 border-move w-5 h-5"
+				class="rounded-full absolute bg-black left-[calc((100%/6)*2)] z-20 border-4 border-move w-5 h-5"
 			></div>
 			<div
-				class="absolute group-[.inview]:-bottom-12 -bottom-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(40%-30px)] text-center w-fit px-2 font-bold"
+				class="absolute group-[.inview]:-bottom-12 -bottom-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(((100%/6)*2)-30px)] text-center w-fit px-2 font-bold"
 			>
 				2020
 			</div>
 			<div
-				class="absolute bottom-0 group-[.inview]:bottom-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(40%-115px)] w-[250px] text-center"
+				class="absolute bottom-0 group-[.inview]:bottom-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(((100%/6)*2)-115px)] w-[250px] text-center"
 			>
 				Passamos a oferecer soluções de gestão financeira
 			</div>
 			<div
-				class="rounded-full absolute bg-black left-[60%] z-20 border-4 border-move w-5 h-5"
+				class="rounded-full absolute bg-black left-[calc((100%/6)*3)] z-20 border-4 border-move w-5 h-5"
 			></div>
 			<div
-				class="absolute group-[.inview]:-top-12 -top-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(60%-30px)] w-fit px-2 text-center font-bold"
+				class="absolute group-[.inview]:-top-12 -top-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(((100%/6)*3)-30px)] w-fit px-2 text-center font-bold"
 			>
 				2021
 			</div>
 			<div
-				class="absolute top-0 group-[.inview]:top-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(60%-115px)] w-[250px] text-center"
+				class="absolute top-0 group-[.inview]:top-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(((100%/6)*3)-115px)] w-[250px] text-center"
 			>
 				Ampliação do nosso escritório, a casa ficou maior
 			</div>
 			<div
-				class="rounded-full absolute bg-black left-[80%] z-20 border-4 border-move w-5 h-5"
+				class="rounded-full absolute bg-black left-[calc((100%/6)*4)] z-20 border-4 border-move w-5 h-5"
 			></div>
 			<div
-				class="absolute group-[.inview]:-bottom-12 -bottom-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(80%-30px)] w-fit px-2 text-center font-bold"
+				class="absolute group-[.inview]:-bottom-12 -bottom-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(((100%/6)*4)-30px)] w-fit px-2 text-center font-bold"
 			>
 				2022
 			</div>
 			<div
-				class="absolute bottom-0 group-[.inview]:bottom-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(80%-115px)] w-[250px] text-center"
+				class="absolute bottom-0 group-[.inview]:bottom-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(((100%/6)*4)-115px)] w-[250px] text-center"
 			>
 				Criação do nosso podcast &ldquo;Negócio em Jogo&rdquo;
+			</div>
+			<div
+				class="rounded-full absolute bg-black left-[calc((100%/6)*5)] z-20 border-4 border-move w-5 h-5"
+			></div>
+			<div
+				class="absolute group-[.inview]:-top-12 -top-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(((100%/6)*5)-30px)] w-fit px-2 text-center font-bold"
+			>
+				2023
+			</div>
+			<div
+				class="absolute top-0 group-[.inview]:top-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(((100%/6)*5)-115px)] w-[250px] text-center"
+			>
+				Expansão do escritório
 			</div>
 			<div
 				class="rounded-full absolute bg-black left-[100%] z-20 border-4 border-move w-5 h-5"
 			></div>
 			<div
-				class="absolute group-[.inview]:-top-12 -top-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(100%-30px)] w-fit px-2 text-center font-bold"
+				class="absolute group-[.inview]:-bottom-12 -bottom-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(100%-30px)] w-fit px-2 text-center font-bold"
 			>
 				2024
 			</div>
 			<div
-				class="absolute top-0 group-[.inview]:top-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(100%-115px)] w-[250px] text-center"
+				class="absolute bottom-0 group-[.inview]:bottom-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(100%-115px)] w-[250px] text-center"
 			>
 				Prêmio Conta Azul de melhor escritório de BPO Financeiro do Brasil
 			</div>
@@ -519,9 +544,13 @@
 	</div>
 </div>
 
-<div class="relative flex flex-col gap-8 lg:px-20 px-8 py-20 items-center">
+<div class="-mb-60">
+	<img src={peaksSvg} alt="" class="w-full rotate-180 scale-y-50 -translate-y-[calc(25%+2px)]" />
+</div>
+
+<div class="relative flex flex-col gap-12 lg:px-20 px-8 py-20 items-center">
 	<div class="absolute w-full h-full flex justify-center items-center">
-		<img src={lines} alt="" class="opacity-40 w-full blur -hue-rotate-15" />
+		<img src={foguetesmoke} alt="" class="opacity-30 w-full" />
 	</div>
 	<div class="absolute h-full flex flex-col items-center justify-center">
 		<img
@@ -531,19 +560,19 @@
 			class=" scale-[200%] translate-x-3 -translate-y-9 opacity-20 hidden"
 		/>
 	</div>
-	<div>
+	<div class="drop-shadow-[0_0_1rem_rgba(255,255,0,0.35)]">
 		<h2
-			class="text-4xl font-bold font-grifter pb-4 bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
+			class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
 		>
 			Diferenciais
 		</h2>
 	</div>
-	<div class="flex lg:flex-row flex-col gap-8 justify-center">
+	<div class="flex lg:flex-row flex-col gap-12 justify-center">
 		<div
 			class="p-8 relative shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[290px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
 		>
 			<Handshake
-				class="absolute opacity-10 drop-shadow-[0_0_1rem_rgba(255,255,0,1)] text-9xl text-move right-2 bottom-2"
+				class="absolute opacity-20 drop-shadow-[0_0_1rem_rgba(255,255,255,1)] text-9xl text-white right-2 bottom-2"
 			/>
 			<Sintonia />
 		</div>
@@ -551,17 +580,17 @@
 			class="p-8 relative shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[290px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
 		>
 			<HandHeart
-				class="absolute opacity-10 drop-shadow-[0_0_1rem_rgba(255,255,0,1)] text-9xl text-move right-2 bottom-2"
+				class="absolute opacity-20 drop-shadow-[0_0_1rem_rgba(255,255,255,1)] text-9xl text-white right-2 bottom-2"
 			/>
 			<Solucao />
 		</div>
 	</div>
-	<div class="flex lg:flex-row flex-col gap-8 justify-center">
+	<div class="flex lg:flex-row flex-col gap-12 justify-center">
 		<div
 			class="p-8 relative shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[290px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
 		>
 			<RocketLaunch
-				class="absolute opacity-10 drop-shadow-[0_0_1rem_rgba(255,255,0,1)] text-move text-9xl right-2 bottom-2"
+				class="absolute opacity-20 drop-shadow-[0_0_1rem_rgba(255,255,255,1)] text-white text-9xl right-2 bottom-2"
 			/>
 			<Tecnologia />
 		</div>
@@ -569,16 +598,16 @@
 			class="p-8 relative shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[290px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
 		>
 			<Teaching
-				class="absolute opacity-10 drop-shadow-[0_0_1rem_rgba(255,255,0,1)] text-move text-9xl right-2 bottom-2"
+				class="absolute opacity-20 drop-shadow-[0_0_1rem_rgba(255,255,255,1)] text-white text-9xl right-2 bottom-2"
 			/>
 			<Podcast />
 		</div>
 	</div>
 </div>
-<div class="bg-move/50 w-full h-[150px]">colaboradores</div>
 
-<EmblaFuncionarios />
-<Depoimentos />
+<EmblaColaboradores />
+
+<EmblaDepoimentos />
 
 <div
 	class="flex 2xl:gap-20 lg:gap-60 gap-80 lg:px-20 px-6 flex-col py-40 2xl:flex-row 2xl:items-start items-center lg:items-center justify-center mb-60"
@@ -625,85 +654,37 @@
 	</div>
 </div>
 
-<div class="flex flex-col items-center justify-center py-10 gap-4">
-	<div>
-		<h1
-			class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
-		>
-			Fale com o nosso time!
-		</h1>
+<div id="contato" class="flex w-full items-center justify-evenly pb-40">
+	<div class="flex">
+		<img src={planeta} alt="" />
 	</div>
-	<div class="flex max-w-[1600px] justify-between items-center gap-8 lg:flex-row flex-col">
-		<div
-			class="bg-yellow-200/5 backdrop-blur-xl shadow-[0_5px_12px_rgba(0,0,0,0.75)] border border-move/10 w-[400px] p-8 rounded-xl"
-		>
-			<form action="" class="flex flex-col gap-2" id="contato">
-				<label for="name">Seu nome:</label>
-				<input
-					type="text"
-					name="name"
-					required
-					class="text-stone-700 p-1 rounded bg-stone-300"
-					maxlength="150"
-				/>
-				<label for="email">Seu e-mail:</label>
-				<input
-					type="email"
-					name="email"
-					required
-					class="text-stone-700 p-1 rounded bg-stone-300"
-					maxlength="320"
-				/>
-				<label for="phone">Seu celular:</label>
-				<input
-					type="tel"
-					name="phone"
-					required
-					class="text-stone-700 p-1 rounded bg-stone-300"
-					maxlength="14"
-				/>
-				<label for="message">Mensagem: <span class="opacity-30">(opcional)</span></label>
-				<textarea
-					name="message"
-					id=""
-					rows={charsUsed.length > 150 ? 12 : 5}
-					form="contato"
-					class="resize-none text-stone-700 rounded bg-stone-300"
-					maxlength={charsMax}
-					bind:value={charsUsed}
-				></textarea>
-				<p
-					class={charsLeft > 50
-						? 'w-full text-right text-sm opacity-50 pb-1 -translate-y-2'
-						: 'w-full text-right text-sm pb-1 text-red-500 -translate-y-2'}
-				>
-					{#if charsLeft === 1}
-						{charsLeft} caractere restante
-					{:else}
-						{charsLeft} caracteres restantes
-					{/if}
-				</p>
-				<input
-					type="submit"
-					name="submit"
-					value="Consultar"
-					class="p-4 rounded bg-move text-black cursor-pointer hover:bg-black hover:text-move transition-all"
-				/>
-			</form>
+	<div class="flex flex-col w-1/3 gap-12">
+		<div class=" flex flex-col justify-center gap-12">
+			<h1
+				class="drop-shadow-[0_0_1rem_rgba(255,255,0,0.35)] text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
+			>
+				Fale com o nosso time!
+			</h1>
+			<p class="text-justify">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, repellendus. Voluptatibus
+				maxime eveniet veritatis tenetur, quidem rerum qui explicabo quae quo nesciunt totam iure
+				facere voluptates sequi beatae minus ipsum eaque laudantium, velit ex soluta? Error rem sunt
+				voluptates quidem tempore iusto at necessitatibus laborum ducimus? Fugit labore placeat ut.
+			</p>
 		</div>
-		<div
-			class="bg-yellow-200/5 border hidden border-move/10 shadow-[0_5px_12px_rgba(0,0,0,0.75)] backdrop-blur-xl p-8 rounded-xl"
-		>
-			<iframe
-				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15716.878785504974!2d-49.279913382024695!3d-25.434576567173202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce532a8764435%3A0x2784bcd3ae721131!2sMove%20Neg%C3%B3cios!5e0!3m2!1sen!2sbr!4v1729100527608!5m2!1sen!2sbr"
-				width="500"
-				height="465"
-				style="border:0;"
-				loading="lazy"
-				title="maps"
-				referrerpolicy="no-referrer-when-downgrade"
-				class="w-[350px] md:w-[500px]"
-			></iframe>
+		<div class="flex flex-col gap-8">
+			<button
+				class="button-before flex text-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-700/90 transition-all bg-yellow-700/70 border border-move/10 backdrop-blur"
+				><WhatsApp class=" scale-125" />WhatsApp</button
+			>
+			<button
+				class="button-before flex text-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-700/90 transition-all bg-yellow-700/70 border border-move/10 backdrop-blur"
+				><Email class=" scale-125" />Email</button
+			>
+			<button
+				class="button-before flex text-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-700/90 transition-all bg-yellow-700/70 border border-move/10 backdrop-blur"
+				><Phone class=" scale-125" />Telefone</button
+			>
 		</div>
 	</div>
 </div>
@@ -770,7 +751,11 @@
 			>
 				<WhatsApp class="scale-110 text-move" />
 				<a href="tel:041998163983" class="lg:hidden">(41) 99816-3983</a>
-				<div class="hidden lg:block">(41) 99816-3983</div>
+				<div
+					class="hidden lg:block before:underline before:h-0.5 before:w-0 before:hover:w-full before:bg-move before:absolute relative before:left-0 before:bottom-0 before:transition-all"
+				>
+					<a href="wame">(41) 99816-3983</a>
+				</div>
 			</div>
 			<div
 				aria-label="Número do telefone fixo da Move Negócios: (41) 3078-4210"

@@ -74,7 +74,7 @@
 			<Contabil />
 			<button
 				aria-label="Saiba mais sobre o serviço de Gestão Contábil"
-				class="button-before group border border-move/10 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-900/90 backdrop-blur-xl bg-yellow-900/60 text-move transition-all"
+				class="button-before group border border-move/30 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 backdrop-blur-xl bg-yellow-600/70 text-move transition-all"
 				onclick={() => {
 					contabilOpen = !contabilOpen;
 				}}
@@ -93,7 +93,7 @@
 			<Financeira />
 			<button
 				aria-label="Saiba mais sobre o serviço de Gestão Financeira"
-				class="button-before group border border-move/10 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-900/90 backdrop-blur-xl bg-yellow-900/60 text-move transition-all"
+				class="button-before group border border-move/30 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 backdrop-blur-xl bg-yellow-600/70 text-move transition-all"
 				onclick={() => {
 					gestaoOpen = !gestaoOpen;
 				}}
