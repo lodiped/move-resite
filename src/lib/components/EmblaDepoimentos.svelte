@@ -11,6 +11,9 @@
 	import Depo6 from './depoimentos/Depo3.svelte';
 	import Depo7 from './depoimentos/Depo4.svelte';
 	import { onMount } from 'svelte';
+	import astronauta from '$lib/assets/Astronauta.png';
+	import foguete from '$lib/assets/Foguete.png';
+	import planeta from '$lib/assets/Planeta.png';
 
 	let isFirefox = $state(false);
 	let options = { loop: true };
@@ -30,9 +33,24 @@
 	});
 </script>
 
-<div class="bg-move py-20 flex flex-col gap-12">
+<div class="py-20 flex flex-col gap-12 relative">
+	<img
+		src={astronauta}
+		alt=""
+		class="absolute touch-none pointer-events-none animate-float left-[15%] top-10 opacity-75 w-[200px]"
+	/>
+	<img
+		src={foguete}
+		alt=""
+		class="absolute touch-none pointer-events-none right-[15%] bottom-1/4 animate-spin-slow opacity-50 w-[200px]"
+	/>
+	<img
+		src={planeta}
+		alt=""
+		class="absolute touch-none pointer-events-none left-[30%] top-3/4 animate-spin-reverse opacity-40 w-[200px]"
+	/>
 	<div class="flex justify-center">
-		<h1 class="text-4xl font-bold font-grifter text-black">Depoimentos</h1>
+		<h1 class="grifter-title">Depoimentos</h1>
 	</div>
 	<div
 		class="overflow-hidden select-none py-5"
@@ -45,8 +63,8 @@
 					<div class="w-full">
 						<div
 							class={isFirefox
-								? 'flex justify-center items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-fit border-move/10 rounded-xl bg-[#f9d010] w-[500px] text-black'
-								: 'flex justify-center items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-fit border-move/10 rounded-xl backdrop-blur-md bg-move/40 w-[500px] text-black'}
+								? 'flex justify-center items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-fit border-move/10 backdrop-blur-xl rounded-xl bg-yellow-200/5 w-[500px] '
+								: 'h-[500px] flex justify-center items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border border-move/10 rounded-xl backdrop-blur-md bg-yellow-200/5 w-[500px] '}
 						>
 							<Depo />
 						</div>

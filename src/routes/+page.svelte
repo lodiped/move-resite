@@ -29,8 +29,6 @@
 	import Solucao from '$lib/components/diferenciais/Solucao.svelte';
 	import Tecnologia from '$lib/components/diferenciais/Tecnologia.svelte';
 	import Podcast from '$lib/components/diferenciais/Podcast.svelte';
-	import AndreCastro from '$lib/components/AndreCastro.svelte';
-	import ValdineiSilva from '$lib/components/ValdineiSilva.svelte';
 	import Embla from '$lib/components/Embla.svelte';
 	import Servicos from '$lib/components/Servicos.svelte';
 	import EmblaDepoimentos from '$lib/components/EmblaDepoimentos.svelte';
@@ -76,6 +74,7 @@
 	import Teaching from 'virtual:icons/mdi/teach';
 	// @ts-ignore
 	import RocketLaunch from 'virtual:icons/mdi/rocket-launch';
+	import Donos from '$lib/components/Donos.svelte';
 
 	// InView stuff
 	let gestaoOpen = $state(false), // Modal
@@ -365,7 +364,7 @@
 		<a
 			aria-label="Clique para falar com o nosso time"
 			href="/sobre"
-			class="button-before group border border-move/10 relative p-4 rounded-xl text-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 backdrop-blur-xl bg-yellow-600/70 text-move transition-all"
+			class="button-before group border border-move/30 relative p-4 rounded-xl text-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 backdrop-blur-xl bg-yellow-600/70 text-move transition-all"
 		>
 			<span class="transition-all drop-shadow-[0_0_0.3rem_rgba(0,0,0,0.5)] uppercase">
 				Fazer um diagnóstico da sua empresa
@@ -398,7 +397,7 @@
 	oninview_enter={() => {
 		phraseInView = true;
 	}}
-	class="bg-move flex-col transition-all duration-[2500ms] opacity-100 flex items-center justify-center text-black pb-32 uppercase"
+	class="bg-move flex-col relative transition-all duration-[2500ms] opacity-100 flex items-center justify-center text-black pb-32 uppercase"
 >
 	<p
 		class={phraseInView
@@ -409,13 +408,13 @@
 	</p>
 	<p
 		class={phraseInView
-			? 'transition-all duration-[2500ms] text-[12.25vw] tracking leading-none flex justify-center tracking-tight font-grifter'
+			? 'transition-all duration-[2500ms] text-[12.25vw] tracking leading-none flex z-30 justify-center tracking-tight font-grifter'
 			: 'opacity-0 translate-y-10 text-[12.25vw] tracking leading-none flex justify-center tracking-tight font-grifter'}
 	>
 		o complicado
 	</p>
-	<div class="drop-shadow-lg text-4xl origin-center animate-float">
-		<img src={foguete} alt="" class="drop-shadow-[0_10px_1rem_rgba(0,0,0,0.5)] w-60" />
+	<div class="drop-shadow-lg absolute origin-center right-20 animationwhatever z-10">
+		<img src={foguete} alt="" class=" drop-shadow-[0_10px_1rem_rgba(0,0,0,0.5)] w-40" />
 	</div>
 </div>
 
@@ -560,12 +559,8 @@
 			class=" scale-[200%] translate-x-3 -translate-y-9 opacity-20 hidden"
 		/>
 	</div>
-	<div class="drop-shadow-[0_0_1rem_rgba(255,255,0,0.35)]">
-		<h2
-			class="text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
-		>
-			Diferenciais
-		</h2>
+	<div class="">
+		<h2 class="grifter-title">Diferenciais</h2>
 	</div>
 	<div class="flex lg:flex-row flex-col gap-12 justify-center">
 		<div
@@ -609,50 +604,7 @@
 
 <EmblaDepoimentos />
 
-<div
-	class="flex 2xl:gap-20 lg:gap-60 gap-80 lg:px-20 px-6 flex-col py-40 2xl:flex-row 2xl:items-start items-center lg:items-center justify-center mb-60"
->
-	<div class="lg:w-[650px] w-[230px] mr-[90px] lg:mr-0">
-		<div
-			class="flex h-[300px] lg:h-[600px] p-6 flex-col bg-andre bg-cover border-yellow-900 border lg:bg-[center_top_-10rem] bg-[center_top_-5rem] rounded-xl mr-0 lg:mr-[180px] relative"
-		>
-			<div class="lg:h-3/4 h-1/2"></div>
-			<div class="lg:h-1/4 h-1/2">
-				<h3
-					class="font-grifter text-2xl drop-shadow-md bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
-				>
-					André Castro
-				</h3>
-				<p class="text-white">Cofundador e CEO</p>
-			</div>
-			<div
-				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 lg:-right-[130px] -right-[90px] rounded-xl lg:-bottom-[150px] -bottom-[290px] backdrop-blur-xl lg:w-[80%] w-[260px] bg-yellow-200/5"
-			>
-				<AndreCastro />
-			</div>
-		</div>
-	</div>
-	<div class="lg:w-[650px] w-[230px] mr-[90px] lg:mr-0">
-		<div
-			class="flex h-[300px] lg:h-[600px] p-6 flex-col bg-valdi bg-cover border-yellow-900 border lg:bg-[center_top_-12rem] bg-[center_top_-7rem] rounded-xl mr-0 lg:mr-[180px] relative"
-		>
-			<div class="lg:h-3/4 h-1/2"></div>
-			<div class="lg:h-1/4 h-1/2">
-				<h3
-					class="font-grifter text-2xl drop-shadow-lg bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
-				>
-					Valdinei Silva
-				</h3>
-				<p class="text-white">Cofundador e COO</p>
-			</div>
-			<div
-				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[380px] border-move/10 lg:-right-[130px] -right-[90px] rounded-xl lg:-bottom-[150px] -bottom-[290px] backdrop-blur-xl lg:w-[80%] w-[260px] bg-yellow-200/5"
-			>
-				<ValdineiSilva />
-			</div>
-		</div>
-	</div>
-</div>
+<Donos />
 
 <div id="contato" class="flex w-full items-center justify-evenly pb-40">
 	<div class="flex">
@@ -660,11 +612,7 @@
 	</div>
 	<div class="flex flex-col w-1/3 gap-12">
 		<div class=" flex flex-col justify-center gap-12">
-			<h1
-				class="drop-shadow-[0_0_1rem_rgba(255,255,0,0.35)] text-4xl font-bold font-grifter bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
-			>
-				Fale com o nosso time!
-			</h1>
+			<h1 class="grifter-title">Fale com o nosso time!</h1>
 			<p class="text-justify">
 				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, repellendus. Voluptatibus
 				maxime eveniet veritatis tenetur, quidem rerum qui explicabo quae quo nesciunt totam iure
@@ -782,3 +730,19 @@
 		</div>
 	</div>
 </footer>
+
+<style>
+	.animationwhatever {
+		offset-path: path('m 10 21 c 0 0 0 -11 19 -12 c 9 0 14 1 17 -6');
+		animation: move 3000ms;
+		width: 700px;
+	}
+	@keyframes move {
+		from {
+			offset-distance: 0%;
+		}
+		to {
+			offset-distance: 100%;
+		}
+	}
+</style>
