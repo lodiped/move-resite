@@ -1,6 +1,7 @@
 <script>
 	import Contabil from './Contabil.svelte';
 	import Financeira from './Financeira.svelte';
+	import Embla from './Embla.svelte';
 	import { fade, fly } from 'svelte/transition';
 	// @ts-ignore
 	import BigX from 'virtual:icons/mdi/close';
@@ -27,8 +28,7 @@
 		{ icon: BPOMoney, desc: 'Elaboração de balancetes demonstrativos anuais' },
 		{ icon: BPOPaper, desc: 'Departamento pessoal' },
 		{ icon: BPOSign, desc: 'Departamento fiscal' },
-		{ icon: BPOPapertext, desc: 'Parte societária: abertura, alteração e encerramento' },
-		{ icon: BPOCalendar, desc: 'Folhas de pagamentos' }
+		{ icon: BPOPapertext, desc: 'Parte societária: abertura, alteração e encerramento' }
 	]);
 	// @ts-ignore
 	import BPOCard from 'virtual:icons/mdi/credit-card-outline';
@@ -61,10 +61,10 @@
 <div id="servicos" class="flex px-10 lg:px-20 py-40 justify-center lg:items-start">
 	<div class="flex gap-10 lg:flex-row flex-col">
 		<div class="flex z-10 flex-col items-center justify-between gap-12 max-w-[500px]">
-			<h2 class="grifter-title">
-				Soluções Contábeis.
+			<h2 class="grifter-title text-3xl md:text-4xl text-center">
+				Soluções Contábeis
 				<span
-					class="absolute text-3xl font-bold font-grifter text-move bottom-3 left-24 translate-x-2.5 -translate-y-0.5"
+					class="absolute md:text-3xl text-2xl font-bold font-grifter text-move bottom-3 left-24 translate-x-2.5 -translate-y-0.5"
 				>
 					~
 				</span>
@@ -83,7 +83,7 @@
 			</button>
 		</div>
 		<div class="flex z-10 flex-col items-center justify-between gap-12 max-w-[500px]">
-			<h2 class="grifter-title">Gestão Financeira.</h2>
+			<h2 class="grifter-title text-3xl md:text-4xl text-center">Gestão Financeira</h2>
 			<Financeira />
 			<button
 				aria-label="Saiba mais sobre o serviço de Gestão Financeira"
@@ -100,6 +100,10 @@
 	</div>
 </div>
 
+<div class="-mb-60">
+	<span class="opacity-50 font-bold w-full flex justify-center mb-10">Nossos clientes</span>
+	<Embla />
+</div>
 {#if gestaoOpen}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -151,7 +155,7 @@
 		}}
 	>
 		<div
-			class="p-16 w-[75%] relative text-center h-fit flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
+			class="p-16 w-[70%] relative text-center h-fit flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
 		>
 			<button
 				onclick={() => {

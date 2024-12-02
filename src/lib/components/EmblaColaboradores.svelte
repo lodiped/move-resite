@@ -8,7 +8,9 @@
 	let plugins = [AutoScroll({ startDelay: 0, stopOnInteraction: false, stopOnFocusIn: false })];
 </script>
 
-<div class="flex pt-20 justify-center flex-col items-center">
+<div
+	class="flex pt-20 pb-10 justify-center flex-col items-center drop-shadow-[0_0_1rem_rgba(0,0,0,0.75)]"
+>
 	<div class="overflow-hidden select-none" use:emblaCarouselSvelte={{ options, plugins }}>
 		<div class="flex">
 			{#each colaboradoresimg as colaborador}

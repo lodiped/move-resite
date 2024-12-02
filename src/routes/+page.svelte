@@ -5,6 +5,7 @@
 	// ´Go to´ seção com padding especificos
 	/** @param {number} offset */
 	function scrollToSection(offset) {
+		// @ts-ignore
 		return (event) => {
 			console.log(event);
 			event.preventDefault();
@@ -24,57 +25,25 @@
 	}
 
 	// Components
-	import Welcome from '$lib/components/Welcome.svelte';
-	import Sintonia from '$lib/components/diferenciais/Sintonia.svelte';
-	import Solucao from '$lib/components/diferenciais/Solucao.svelte';
-	import Tecnologia from '$lib/components/diferenciais/Tecnologia.svelte';
-	import Podcast from '$lib/components/diferenciais/Podcast.svelte';
-	import Embla from '$lib/components/Embla.svelte';
 	import Servicos from '$lib/components/Servicos.svelte';
 	import EmblaDepoimentos from '$lib/components/EmblaDepoimentos.svelte';
 	import EmblaColaboradores from '$lib/components/EmblaColaboradores.svelte';
+	import Donos from '$lib/components/Donos.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import Contato from '$lib/components/Contato.svelte';
+	import Frase from '$lib/components/Frase.svelte';
+	import Diferenciais from '$lib/components/Diferenciais.svelte';
+	import Quemsomos from '$lib/components/Quemsomos.svelte';
 
 	// Imagens
 	import moveLogo from '$lib/assets/logo-move.webp';
-	import moveIcon from '$lib/assets/move-icon.png';
 	import bpo from '$lib/assets/bpo.png';
 	import timelapse from '$lib/assets/timelapse.webm';
-	import coin from '$lib/assets/coin.png';
-	import peaks from '$lib/assets/peaks.png';
-	import peaksSvg from '$lib/assets/peaks.svg';
-	import lines from '$lib/assets/lines.svg';
-	import waves from '$lib/assets/wave.svg';
-	import foguetesmoke from '$lib/assets/Foguete Fumaça.png';
-	import foguete from '$lib/assets/Foguete.png';
-	import planeta from '$lib/assets/Planeta.png';
-	import astronauta from '$lib/assets/Astronauta.png';
-	import cafe from '$lib/assets/Café.png';
 
-	// @ts-ignore
-	import Facebook from 'virtual:icons/mdi/facebook';
-	// @ts-ignore
-	import Email from 'virtual:icons/mdi/email';
-	// @ts-ignore
-	import Instagram from 'virtual:icons/mdi/instagram';
-	// @ts-ignore
-	import LinkedIn from 'virtual:icons/mdi/linkedin';
 	// @ts-ignore
 	import Hamburger from 'virtual:icons/mdi/menu';
 	// @ts-ignore
 	import BigX from 'virtual:icons/mdi/close';
-	// @ts-ignore
-	import WhatsApp from 'virtual:icons/mdi/whatsapp';
-	// @ts-ignore
-	import Phone from 'virtual:icons/mdi/phone';
-	// @ts-ignore
-	import Handshake from 'virtual:icons/mdi/handshake';
-	// @ts-ignore
-	import HandHeart from 'virtual:icons/mdi/hand-heart';
-	// @ts-ignore
-	import Teaching from 'virtual:icons/mdi/teach';
-	// @ts-ignore
-	import RocketLaunch from 'virtual:icons/mdi/rocket-launch';
-	import Donos from '$lib/components/Donos.svelte';
 
 	// InView stuff
 	let gestaoOpen = $state(false), // Modal
@@ -196,6 +165,22 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Move Negócios</title>
+	<meta
+		name="description"
+		content="Solução contábil e gestão financeira para descomplicar a sua rotina, auxiliando no desenvolvimento estratégico da sua empresa."
+	/>
+	<meta name="author" content="Move Negócios - Growth" />
+	<meta property="og:locale" content="pt_BR" />
+	<meta property="og:title" content="Move Negócios" />
+	<meta
+		property="og:description"
+		content="Solução contábil e gestão financeira para descomplicar a sua rotina, auxiliando no desenvolvimento estratégico da sua empresa."
+	/>
+	<meta property="og:type" content="website" />
+</svelte:head>
+
 <header
 	class={atTop && !mobileDrop
 		? 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 transition-all duration-700 z-50 border-move/5'
@@ -243,12 +228,10 @@
 		<div>
 			<a
 				aria-label="Área do Cliente"
-				class="p-4 border border-move/10 rounded-xl font-bold z-20 drop-shadow-lg hover:drop-shadow-[0_1rem_1rem_rgba(255,180,0,0.2)] backdrop-blur-lg w-fit bg-yellow-700/70 text-move transition-all hover:bg-yellow-700/90 hidden lg:inline"
+				class="p-4 rounded-xl font-bold z-20 drop-shadow-lg hover:drop-shadow-[0_1rem_1rem_rgba(255,180,0,0.2)] w-fit bg-move text-black transition-all hover:bg-yellow-400/90 hidden lg:inline"
 				href="https://app.gestta.com.br/#/login/auth?isInitialPage=true%20"
 			>
-				<span class="transition-all drop-shadow-[0_0_0.5rem_rgba(255,255,0,0.7)]">
-					Área do Cliente
-				</span>
+				<span> Área do Cliente </span>
 			</a>
 			<button
 				onclick={mobileMenu}
@@ -307,7 +290,7 @@
 		? 'flex flex-col lg:gap-12 gap-8 pt-60 relative'
 		: 'flex flex-col lg:gap-20 gap-12 pt-72 relative'}
 >
-	<div class="w-full absolute items-center flex justify-center z-10 top-[85px]">
+	<div class="w-full absolute items-center flex justify-center z-10 top-[100px]">
 		<a
 			href="https://www.youtube.com/watch?v=atn1FXDDswY"
 			target="blank_"
@@ -331,7 +314,11 @@
 		</p>
 	</div>
 	<div class="flex justify-center text-white z-10 items-center w-full text-center">
-		<p class={pixelRatio > 1 ? 'w-2/3 lg:text-lg text-md' : 'w-2/3 text-md lg:text-xl'}>
+		<p
+			class={pixelRatio > 1
+				? 'w-2/3 lg:text-lg text-md text-justify lg:text-center'
+				: 'w-2/3 text-md lg:text-xl text-justify lg:text-center'}
+		>
 			Gestão Contábil completa e o melhor BPO Financeiro do Brasil, com profissionais altamente
 			qualificados e constantemente desenvolvidos. Tudo isso pensando no sucesso do SEU NEGÓCIO!
 		</p>
@@ -364,11 +351,9 @@
 		<a
 			aria-label="Clique para falar com o nosso time"
 			href="/sobre"
-			class="button-before group border border-move/30 relative p-4 rounded-xl text-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 backdrop-blur-xl bg-yellow-600/70 text-move transition-all"
+			class="button-before group relative p-4 rounded-xl text-xl shadow-xl font-bold w-fit hover:bg-yellow-400/90 bg-move text-black transition-all"
 		>
-			<span class="transition-all drop-shadow-[0_0_0.3rem_rgba(0,0,0,0.5)] uppercase">
-				Fazer um diagnóstico da sua empresa
-			</span>
+			<span class="uppercase"> Fazer um diagnóstico da sua empresa </span>
 		</a>
 	</div>
 	<video
@@ -385,220 +370,11 @@
 
 <Servicos bind:gestaoOpen bind:contabilOpen />
 
-<div class="-mb-60">
-	<span class="opacity-50 font-bold w-full flex justify-center mb-10">Nossos clientes</span>
-	<Embla />
-</div>
+<Frase {phraseInView} {complicadoOpt} />
 
-<img src={peaksSvg} alt="" class="w-full scale-y-50 translate-y-[calc(25%+2px)]" />
+<Quemsomos {timelineOpt} {timelineInView} />
 
-<div
-	use:inview={complicadoOpt}
-	oninview_enter={() => {
-		phraseInView = true;
-	}}
-	class="bg-move flex-col relative transition-all duration-[2500ms] opacity-100 flex items-center justify-center text-black pb-32 uppercase"
->
-	<p
-		class={phraseInView
-			? 'transition-all duration-[2500ms] text-[10vw] tracking leading-none flex justify-center tracking-tight font-grifter'
-			: 'opacity-0 translate-y-10 text-[10vw] tracking leading-none flex justify-center tracking-tight font-grifter'}
-	>
-		Descomplicando
-	</p>
-	<p
-		class={phraseInView
-			? 'transition-all duration-[2500ms] text-[12.25vw] tracking leading-none flex z-30 justify-center tracking-tight font-grifter'
-			: 'opacity-0 translate-y-10 text-[12.25vw] tracking leading-none flex justify-center tracking-tight font-grifter'}
-	>
-		o complicado
-	</p>
-	<div class="drop-shadow-lg absolute origin-center right-20 animationwhatever z-10">
-		<img src={foguete} alt="" class=" drop-shadow-[0_10px_1rem_rgba(0,0,0,0.5)] w-40" />
-	</div>
-</div>
-
-<div id="sobre" class="flex flex-col gap-10 px-10 lg:px-20 pb-32 bg-move text-black">
-	<div class="flex justify-between relative">
-		<div class="flex flex-col gap-12">
-			<div class="flex flex-col">
-				<h2 class="text-4xl font-bold font-grifter">Quem Somos</h2>
-			</div>
-			<div class="flex flex-col gap-5 w-1/2">
-				<Welcome />
-			</div>
-		</div>
-		<img
-			loading="lazy"
-			src={cafe}
-			class="h-[600px] absolute -top-20 right-[10%] drop-shadow-[0_10px_1rem_rgba(0,0,0,0.4)]"
-			alt=""
-		/>
-	</div>
-	<div
-		use:inview={timelineOpt}
-		oninview_enter={() => {
-			timelineInView = true;
-		}}
-		oninview_leave={() => {
-			timelineInView = false;
-		}}
-		class={timelineInView
-			? 'flex flex-col gap-10 pt-60 pb-40 group inview'
-			: 'flex flex-col gap-10 pt-60 pb-40'}
-	>
-		<div class="relative flex items-center mx-40 text-sm">
-			<div class="w-full rounded-full h-[200px] absolute blur-3xl"></div>
-			<div class="w-full bg-black h-1 z-10"></div>
-			<div class="rounded-full absolute bg-black left-0 z-20 border-4 border-move w-5 h-5"></div>
-			<div
-				class="absolute group-[.inview]:-bottom-12 -bottom-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(0%-30px)] text-center w-fit px-2 font-bold"
-			>
-				2018
-			</div>
-			<div
-				class="absolute bottom-0 group-[.inview]:bottom-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(0%-115px)] w-[250px] text-center"
-			>
-				Começamos uma história com vontade de vencer
-			</div>
-			<div
-				class="rounded-full absolute bg-black left-[calc(100%/6)] z-20 border-4 border-move w-5 h-5"
-			></div>
-			<div
-				class="absolute group-[.inview]:-top-12 -top-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc((100%/6)-30px)] text-center w-fit px-2 font-bold"
-			>
-				2019
-			</div>
-			<div
-				class="absolute top-0 group-[.inview]:top-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc((100%/6)-115px)] w-[250px] text-center"
-			>
-				Mudamos para uma nova sede, a família cresceu
-			</div>
-			<div
-				class="rounded-full absolute bg-black left-[calc((100%/6)*2)] z-20 border-4 border-move w-5 h-5"
-			></div>
-			<div
-				class="absolute group-[.inview]:-bottom-12 -bottom-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(((100%/6)*2)-30px)] text-center w-fit px-2 font-bold"
-			>
-				2020
-			</div>
-			<div
-				class="absolute bottom-0 group-[.inview]:bottom-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(((100%/6)*2)-115px)] w-[250px] text-center"
-			>
-				Passamos a oferecer soluções de gestão financeira
-			</div>
-			<div
-				class="rounded-full absolute bg-black left-[calc((100%/6)*3)] z-20 border-4 border-move w-5 h-5"
-			></div>
-			<div
-				class="absolute group-[.inview]:-top-12 -top-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(((100%/6)*3)-30px)] w-fit px-2 text-center font-bold"
-			>
-				2021
-			</div>
-			<div
-				class="absolute top-0 group-[.inview]:top-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(((100%/6)*3)-115px)] w-[250px] text-center"
-			>
-				Ampliação do nosso escritório, a casa ficou maior
-			</div>
-			<div
-				class="rounded-full absolute bg-black left-[calc((100%/6)*4)] z-20 border-4 border-move w-5 h-5"
-			></div>
-			<div
-				class="absolute group-[.inview]:-bottom-12 -bottom-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(((100%/6)*4)-30px)] w-fit px-2 text-center font-bold"
-			>
-				2022
-			</div>
-			<div
-				class="absolute bottom-0 group-[.inview]:bottom-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(((100%/6)*4)-115px)] w-[250px] text-center"
-			>
-				Criação do nosso podcast &ldquo;Negócio em Jogo&rdquo;
-			</div>
-			<div
-				class="rounded-full absolute bg-black left-[calc((100%/6)*5)] z-20 border-4 border-move w-5 h-5"
-			></div>
-			<div
-				class="absolute group-[.inview]:-top-12 -top-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(((100%/6)*5)-30px)] w-fit px-2 text-center font-bold"
-			>
-				2023
-			</div>
-			<div
-				class="absolute top-0 group-[.inview]:top-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(((100%/6)*5)-115px)] w-[250px] text-center"
-			>
-				Expansão do escritório
-			</div>
-			<div
-				class="rounded-full absolute bg-black left-[100%] z-20 border-4 border-move w-5 h-5"
-			></div>
-			<div
-				class="absolute group-[.inview]:-bottom-12 -bottom-3 bg-move z-30 transition-all duration-500 text-2xl left-[calc(100%-30px)] w-fit px-2 text-center font-bold"
-			>
-				2024
-			</div>
-			<div
-				class="absolute bottom-0 group-[.inview]:bottom-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(100%-115px)] w-[250px] text-center"
-			>
-				Prêmio Conta Azul de melhor escritório de BPO Financeiro do Brasil
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="-mb-60">
-	<img src={peaksSvg} alt="" class="w-full rotate-180 scale-y-50 -translate-y-[calc(25%+2px)]" />
-</div>
-
-<div class="relative flex flex-col gap-12 lg:px-20 px-8 py-20 items-center">
-	<div class="absolute w-full h-full flex justify-center items-center">
-		<img src={foguetesmoke} alt="" class="opacity-30 w-full" />
-	</div>
-	<div class="absolute h-full flex flex-col items-center justify-center">
-		<img
-			loading="lazy"
-			src={moveIcon}
-			alt="Logo Move Negócios"
-			class=" scale-[200%] translate-x-3 -translate-y-9 opacity-20 hidden"
-		/>
-	</div>
-	<div class="">
-		<h2 class="grifter-title">Diferenciais</h2>
-	</div>
-	<div class="flex lg:flex-row flex-col gap-12 justify-center">
-		<div
-			class="p-8 relative shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[290px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
-		>
-			<Handshake
-				class="absolute opacity-20 drop-shadow-[0_0_1rem_rgba(255,255,255,1)] text-9xl text-white right-2 bottom-2"
-			/>
-			<Sintonia />
-		</div>
-		<div
-			class="p-8 relative shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[290px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
-		>
-			<HandHeart
-				class="absolute opacity-20 drop-shadow-[0_0_1rem_rgba(255,255,255,1)] text-9xl text-white right-2 bottom-2"
-			/>
-			<Solucao />
-		</div>
-	</div>
-	<div class="flex lg:flex-row flex-col gap-12 justify-center">
-		<div
-			class="p-8 relative shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[290px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
-		>
-			<RocketLaunch
-				class="absolute opacity-20 drop-shadow-[0_0_1rem_rgba(255,255,255,1)] text-white text-9xl right-2 bottom-2"
-			/>
-			<Tecnologia />
-		</div>
-		<div
-			class="p-8 relative shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[290px] border-move/10 rounded-xl backdrop-blur-xl lg:w-1/2 max-w-[600px] bg-yellow-200/5"
-		>
-			<Teaching
-				class="absolute opacity-20 drop-shadow-[0_0_1rem_rgba(255,255,255,1)] text-white text-9xl right-2 bottom-2"
-			/>
-			<Podcast />
-		</div>
-	</div>
-</div>
+<Diferenciais />
 
 <EmblaColaboradores />
 
@@ -606,137 +382,11 @@
 
 <Donos />
 
-<div id="contato" class="flex w-full items-center justify-evenly pb-40">
-	<div class="flex">
-		<img src={planeta} alt="" />
-	</div>
-	<div class="flex flex-col w-1/3 gap-12">
-		<div class=" flex flex-col justify-center gap-12">
-			<h1 class="grifter-title">Fale com o nosso time!</h1>
-			<p class="text-justify">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, repellendus. Voluptatibus
-				maxime eveniet veritatis tenetur, quidem rerum qui explicabo quae quo nesciunt totam iure
-				facere voluptates sequi beatae minus ipsum eaque laudantium, velit ex soluta? Error rem sunt
-				voluptates quidem tempore iusto at necessitatibus laborum ducimus? Fugit labore placeat ut.
-			</p>
-		</div>
-		<div class="flex flex-col gap-8">
-			<button
-				class="button-before flex text-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-700/90 transition-all bg-yellow-700/70 border border-move/10 backdrop-blur"
-				><WhatsApp class=" scale-125" />WhatsApp</button
-			>
-			<button
-				class="button-before flex text-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-700/90 transition-all bg-yellow-700/70 border border-move/10 backdrop-blur"
-				><Email class=" scale-125" />Email</button
-			>
-			<button
-				class="button-before flex text-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-700/90 transition-all bg-yellow-700/70 border border-move/10 backdrop-blur"
-				><Phone class=" scale-125" />Telefone</button
-			>
-		</div>
-	</div>
-</div>
+<Contato />
 
-<div class="h-0.5 w-full bg-white/10 px-10"></div>
-
-<footer class="flex flex-col lg:flex-row gap-10 lg:gap-0 justify-between items-center w-full py-10">
-	<div class="flex items-center px-10 max-w-[500px] w-full">
-		<a href="/">
-			<img
-				loading="lazy"
-				src={moveIcon}
-				alt="Logo Move Negócios"
-				class="hover:scale-110 transition-all"
-			/>
-		</a>
-	</div>
-	<div class="hidden lg:flex"></div>
-	<div class="flex flex-col gap-10 pr-10 pl-10 lg:pl-0 items-center lg:items-start">
-		<div class="flex text-4xl items-center gap-6 text-move -translate-x-1">
-			<div class="flex">
-				<a
-					aria-label="Link para o Instagram da Move Negócios"
-					href="https://www.instagram.com/movenegocios/"
-					class="hover:scale-110 transition-all"
-				>
-					<Instagram />
-				</a>
-			</div>
-			<div class="flex">
-				<a
-					aria-label="Link para o LinkedIn da Move Negócios"
-					href="https://www.linkedin.com/company/move-neg-cios/"
-					class="hover:scale-110 transition-all"
-				>
-					<LinkedIn />
-				</a>
-			</div>
-
-			<div class="flex">
-				<a
-					aria-label="Link para o Facebook da Move Negócios"
-					href="https://www.facebook.com/movenegociosoficial/"
-					class="hover:scale-110 transition-all"
-				>
-					<Facebook />
-				</a>
-			</div>
-		</div>
-		<div class="flex flex-col gap-2 w-full">
-			<div class="flex gap-2 items-center">
-				<Email class="scale-110 text-move" />
-				<a
-					aria-label="E-mail de contato da Move Negócios: contato@movenegocios.com.br"
-					href="mailto:contato@movenegocios.com.br"
-					class="after:underline after:h-0.5 after:w-0 after:hover:w-full after:bg-move after:absolute relative after:left-0 after:bottom-0 after:transition-all"
-				>
-					contato@movenegocios.com.br
-				</a>
-			</div>
-			<div
-				aria-label="Número do WhatsApp da Move Negócios: (41) 99816-3983"
-				class="flex gap-2 items-center"
-			>
-				<WhatsApp class="scale-110 text-move" />
-				<a href="tel:041998163983" class="lg:hidden">(41) 99816-3983</a>
-				<div
-					class="hidden lg:block before:underline before:h-0.5 before:w-0 before:hover:w-full before:bg-move before:absolute relative before:left-0 before:bottom-0 before:transition-all"
-				>
-					<a href="wame">(41) 99816-3983</a>
-				</div>
-			</div>
-			<div
-				aria-label="Número do telefone fixo da Move Negócios: (41) 3078-4210"
-				class="flex gap-2 items-center"
-			>
-				<Phone class="text-move scale-110" />
-				<a href="tel:04130784210" class="lg:hidden">(41) 3078-4210</a>
-				<button
-					onclick={() => copyToClipboard('4130784210')}
-					class="before:underline before:h-0.5 before:w-0 before:hover:w-full before:bg-move before:absolute relative before:left-0 before:bottom-0 before:transition-all hidden lg:block after:hover:content-[attr(data-content)] after:text-sm after:flex after:text-left after:opacity-50 after:ml-2 after:absolute after:bottom-0 after:w-[160px] after:left-[8.5rem]"
-					data-content={clipboardResult}>(41) 3078-4210</button
-				>
-			</div>
-		</div>
-		<div class="">
-			<a
-				aria-label="Endereço da Move Negócios: Av. Visconde de Guarapuava, número 2764, sala 306, Centro, Curitiba, Paraná, CEP: 12345-678"
-				href="https://maps.app.goo.gl/XgDwzC39xEEJwP1v9"
-				class="before:content-[]"
-			>
-				<p>Av. Visconde de Guarapuava, nº 2764, sala 306</p>
-				<p>Centro, Curitiba &mdash; PR, 12345-678</p>
-			</a>
-		</div>
-	</div>
-</footer>
+<Footer />
 
 <style>
-	.animationwhatever {
-		offset-path: path('m 10 21 c 0 0 0 -11 19 -12 c 9 0 14 1 17 -6');
-		animation: move 3000ms;
-		width: 700px;
-	}
 	@keyframes move {
 		from {
 			offset-distance: 0%;
