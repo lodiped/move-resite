@@ -100,19 +100,19 @@
 	>
 		<div class="lg:w-32 w-20">
 			<p class="lg:text-3xl text-lg font-bold">+{clientes}</p>
-			<p class="text-xs lg:text-md">Clientes ativos</p>
+			<p class="text-xs lg:text-sm">Clientes ativos</p>
 		</div>
 		<div class="lg:w-32 w-20">
 			<p class="lg:text-3xl text-lg font-bold">+{anos}</p>
-			<p class="text-xs lg:text-md">Anos de experiência</p>
+			<p class="text-xs lg:text-sm">Anos de experiência</p>
 		</div>
 		<div class="lg:w-32 w-20">
 			<p class="lg:text-3xl text-lg font-bold">+{solucoes}</p>
-			<p class="text-xs lg:text-md">Soluções para seu negócio</p>
+			<p class="text-xs lg:text-sm">Soluções para seu negócio</p>
 		</div>
 		<div class="lg:w-32 w-20">
 			<p class="lg:text-3xl text-lg font-bold">+R${dinheiros}M</p>
-			<p class="text-xs md:text-md">Em valores administrados</p>
+			<p class="text-xs md:text-sm">Em valores administrados</p>
 		</div>
 	</div>
 	<div class="flex flex-col h-fit justify-center items-center z-10">
