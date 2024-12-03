@@ -16,15 +16,23 @@
 	let plugins = [AutoScroll({ startDelay: 0, stopOnMouseEnter: true, stopOnInteraction: false })];
 
 	let logos = [
-		{ icon: seuelias, a: 'https://seuelias.com/' },
-		{ icon: p2, a: 'https://www.potencialpleno.com.br/' },
-		{ icon: taus, a: 'https://www.clinicataus.com.br/' },
-		{ icon: ifb, a: 'https://www.institutofernandabenead.com.br/' },
-		{ icon: iefe, a: 'https://evolucaoeducacional.com.br/' },
-		{ icon: comendador, a: 'https://www.instagram.com/comendadorburguer/' },
-		{ icon: europan, a: 'https://www.instagram.com/europanbrasil/' },
-		{ icon: novaciencia, a: 'http://www.lojanovaciencia.com/' },
-		{ icon: efficiency, a: 'https://www.instagram.com/efficiencygym/' }
+		{ icon: seuelias, a: 'https://seuelias.com/', alt: 'Seu Elias' },
+		{ icon: p2, a: 'https://www.potencialpleno.com.br/', alt: 'Potencial Pleno' },
+		{ icon: taus, a: 'https://www.clinicataus.com.br/', alt: 'Clínica Taus' },
+		{ icon: ifb, a: 'https://www.institutofernandabenead.com.br/', alt: 'Instituto Fernanda Ben' },
+		{ icon: iefe, a: 'https://evolucaoeducacional.com.br/', alt: 'IEFE Evolução Educacional' },
+		{
+			icon: comendador,
+			a: 'https://www.instagram.com/comendadorburguer/',
+			alt: 'Comendador Burger'
+		},
+		{ icon: europan, a: 'https://www.instagram.com/europanbrasil/', alt: 'Europan Brasil' },
+		{ icon: novaciencia, a: 'http://www.lojanovaciencia.com/', alt: 'Nova Ciência' },
+		{
+			icon: efficiency,
+			a: 'https://www.instagram.com/efficiencygym/',
+			alt: 'Academia Efficiency Gym'
+		}
 	];
 </script>
 
@@ -36,7 +44,7 @@
 					<a href={logo.a} class="border opacity-50 hover:opacity-100 transition-opacity">
 						<img
 							src={logo.icon}
-							alt=""
+							alt={logo.alt}
 							class={logo.icon === comendador || logo.icon === seuelias || logo.icon === efficiency
 								? 'lg:w-[200px] w-[150px] scale-150'
 								: 'lg:w-[200px] w-[150px]'}
