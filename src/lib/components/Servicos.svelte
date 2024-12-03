@@ -59,7 +59,7 @@
 </script>
 
 <div id="servicos" class="flex px-10 lg:px-20 py-40 justify-center lg:items-start">
-	<div class="flex gap-10 lg:flex-row flex-col">
+	<div class="flex lg:gap-10 gap-40 lg:flex-row flex-col">
 		<div class="flex z-10 flex-col items-center justify-between gap-12 max-w-[500px]">
 			<h2 class="grifter-title text-3xl md:text-4xl text-center">
 				Soluções Contábeis
@@ -100,7 +100,7 @@
 	</div>
 </div>
 
-<div class="-mb-60">
+<div class="lg:-mb-60 mb-0">
 	<span class="opacity-50 font-bold w-full flex justify-center mb-10">Nossos clientes</span>
 	<Embla />
 </div>

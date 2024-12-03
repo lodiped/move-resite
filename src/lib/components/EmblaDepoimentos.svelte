@@ -59,11 +59,11 @@
 	>
 		<div class="flex">
 			{#each depos as Depo}
-				<div class="lg:flex-[0_0_500px] flex-[0_0_150px] mr-[5%] lg:mr-[15%] min-w-0">
+				<div class="lg:flex-[0_0_500px] flex-[0_0_350px] mr-[20%] lg:mr-[15%] min-w-0">
 					<div class="w-full">
 						<div
 							class={isFirefox
-								? 'flex justify-center items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-fit border-move/10 backdrop-blur-xl rounded-xl bg-yellow-200/5 w-[500px] '
+								? 'flex justify-center items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-fit border-move/10 backdrop-blur-xl rounded-xl bg-yellow-200/5 w-[350px] lg:w-[500px]'
 								: 'h-[500px] flex justify-center items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border border-move/10 rounded-xl backdrop-blur-md bg-yellow-200/5 w-[500px] '}
 						>
 							<Depo />

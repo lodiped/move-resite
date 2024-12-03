@@ -68,13 +68,25 @@
 		});
 
 	// ESC para fechar o menu dropdown
+	/**
+	 * @type {any}
+	 */
+	let menu;
 	/** @param {{ key: string; }} event */
 	function handleEsc(event) {
 		if (event.key === 'Escape') {
-			mobileDrop = false;
-			gestaoOpen = false;
-			contabilOpen = false;
+			closeAllMenus();
 		}
+	}
+	function handleClickOutside(event) {
+		if (menu && !menu.contains(event.target)) {
+			closeAllMenus;
+		}
+	}
+	function closeAllMenus() {
+		mobileDrop = false;
+		gestaoOpen = false;
+		contabilOpen = false;
 	}
 
 	onMount(() => {
@@ -83,9 +95,11 @@
 		console.log('Pixel Ratio: ' + window.devicePixelRatio);
 		window.addEventListener('scroll', handleScroll);
 		window.addEventListener('keydown', handleEsc);
+		window.addEventListener('mousedown', handleClickOutside);
 		return () => {
 			window.removeEventListener('keydown', handleEsc);
 			window.removeEventListener('scroll', handleScroll);
+			window.removeEventListener('mousedown', handleClickOutside);
 		};
 	});
 </script>
@@ -106,7 +120,7 @@
 	<meta property="og:type" content="website" />
 </svelte:head>
 
-<Header {atTop} {mobileMenu} {scrollToSection} bind:mobileDrop />
+<Header {menu} {atTop} {mobileMenu} {scrollToSection} bind:mobileDrop />
 
 <Hero {numbersInView} {inviewOpt} {pixelRatio} />
 

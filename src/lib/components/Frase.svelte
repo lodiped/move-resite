@@ -16,27 +16,27 @@
 	>
 		<p
 			class={phraseInView
-				? 'transition-all duration-[2500ms] text-[10vw] tracking leading-none flex justify-center z-10 tracking-tight font-grifter'
-				: 'opacity-0 translate-y-10 text-[10vw] tracking leading-none flex justify-center z-10 tracking-tight font-grifter'}
+				? 'transition-all translate-y-10 lg:translate-y-0 duration-[2500ms] text-[10vw] tracking leading-none flex justify-center z-10 tracking-tight font-grifter'
+				: 'opacity-0 translate-y-20 lg:translate-y-10 text-[10vw] tracking leading-none flex justify-center z-10 tracking-tight font-grifter'}
 		>
 			Descomplicando
 		</p>
 		<p
 			class={phraseInView
-				? 'transition-all duration-[2500ms] text-[12.25vw] tracking leading-none flex z-30 justify-center tracking-tight font-grifter'
-				: 'opacity-0 translate-y-10 text-[12.25vw] tracking leading-none flex justify-center tracking-tight font-grifter'}
+				? 'transition-all translate-y-10 lg:translate-y-0 duration-[2500ms] text-[12.25vw] tracking leading-none flex z-30 justify-center tracking-tight font-grifter'
+				: 'opacity-0 translate-y-20 lg:translate-y-10 text-[12.25vw] tracking leading-none flex justify-center tracking-tight font-grifter'}
 		>
 			o complicado
 		</p>
 		<div
 			class={phraseInView
-				? 'transition-all rotate-12 ease-linear duration-[3500ms] absolute origin-center z-20 translate-x-[600%] -translate-y-[250%] delay-700'
-				: 'transition-all rotate-12 ease-linear absolute origin-center z-20 -translate-x-[600%] translate-y-[200%]'}
+				? 'transition-all rotate-12 ease-linear duration-[3500ms] absolute origin-center z-20 translate-x-[600%] -translate-y-[200%] delay-700'
+				: 'transition-all rotate-12 ease-linear absolute origin-center z-20 -translate-x-[600%] translate-y-[300%] 2xl:translate-y-[200%]'}
 		>
 			<img
 				src={foguete}
 				alt=""
-				class="transition-all drop-shadow-[0_10px_1rem_rgba(0,0,0,0.5)] w-40"
+				class="transition-all drop-shadow-[0_10px_1rem_rgba(0,0,0,0.5)] w-16 md:w-24 lg:w-40 2xl:w-60"
 			/>
 		</div>
 	</div>
