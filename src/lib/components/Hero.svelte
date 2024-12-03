@@ -118,7 +118,7 @@
 	<div class="flex flex-col h-fit justify-center items-center z-10">
 		<a
 			aria-label="Clique para falar com o nosso time"
-			href="/sobre"
+			href="/"
 			class="button-before group relative p-4 rounded-xl text-md lg:text-xl shadow-xl font-bold w-fit hover:bg-yellow-400/90 bg-move text-black transition-all"
 		>
 			<span class="uppercase"> Fazer um diagnóstico da sua empresa </span>
