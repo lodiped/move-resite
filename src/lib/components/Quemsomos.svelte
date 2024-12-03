@@ -8,20 +8,20 @@
 
 <div id="sobre" class="flex flex-col gap-10 px-10 lg:px-20 pb-24 bg-move text-black">
 	<div class="flex justify-between relative">
-		<div class="flex flex-col gap-12">
-			<div class="flex flex-col">
-				<h2 class="text-4xl font-bold font-grifter">Quem Somos</h2>
-			</div>
-			<div class="flex flex-col gap-5 w-1/2">
-				<Welcome />
-			</div>
-		</div>
 		<img
 			loading="lazy"
 			src={cafe}
-			class="h-[600px] absolute -top-20 right-[10%] drop-shadow-[0_10px_1rem_rgba(0,0,0,0.4)]"
+			class="h-[600px] hidden lg:block absolute -top-20 right-[10%] drop-shadow-[0_10px_1rem_rgba(0,0,0,0.4)]"
 			alt=""
 		/>
+		<div class="flex flex-col gap-12 z-10">
+			<div class="flex flex-col">
+				<h2 class="text-4xl font-bold font-grifter">Quem Somos</h2>
+			</div>
+			<div class="flex text-justify lg:text-left flex-col gap-5 lg:w-1/2 w-full">
+				<Welcome />
+			</div>
+		</div>
 	</div>
 	<div
 		use:inview={timelineOpt}

@@ -16,8 +16,8 @@
 	>
 		<p
 			class={phraseInView
-				? 'transition-all duration-[2500ms] text-[10vw] tracking leading-none flex justify-center tracking-tight font-grifter'
-				: 'opacity-0 translate-y-10 text-[10vw] tracking leading-none flex justify-center tracking-tight font-grifter'}
+				? 'transition-all duration-[2500ms] text-[10vw] tracking leading-none flex justify-center z-10 tracking-tight font-grifter'
+				: 'opacity-0 translate-y-10 text-[10vw] tracking leading-none flex justify-center z-10 tracking-tight font-grifter'}
 		>
 			Descomplicando
 		</p>
@@ -30,8 +30,8 @@
 		</p>
 		<div
 			class={phraseInView
-				? 'transition-all rotate-12 ease-linear duration-[3500ms] absolute origin-center z-10 translate-x-[600%] -translate-y-[250%] delay-700'
-				: 'transition-all rotate-12 ease-linear absolute origin-center z-10 -translate-x-[600%] translate-y-[200%]'}
+				? 'transition-all rotate-12 ease-linear duration-[3500ms] absolute origin-center z-20 translate-x-[600%] -translate-y-[250%] delay-700'
+				: 'transition-all rotate-12 ease-linear absolute origin-center z-20 -translate-x-[600%] translate-y-[200%]'}
 		>
 			<img
 				src={foguete}
