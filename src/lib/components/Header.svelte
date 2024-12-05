@@ -38,7 +38,7 @@
 			</a>
 			<a
 				aria-label="Podcast"
-				href="/"
+				href="/podcast"
 				class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
 			>
 				Podcast
@@ -94,7 +94,7 @@
 				</a>
 				<a
 					aria-label="Podcast"
-					href="/"
+					href="/podcast"
 					class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] w-fit"
 				>
 					Podcast
