@@ -23,7 +23,7 @@
 			<div class="border rounded-lg p-40">IMAGE</div>
 		</div>
 	</div>
-	<div class="w-[1200px] my-20 flex flex-col gap-4 justify-center items-center">
+	<div id="sobre" class="w-[1200px] my-20 flex flex-col gap-4 justify-center items-center">
 		<h2 class="font-grifter text-2xl">Sobre</h2>
 		<p class="text-center">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio beatae amet iusto sed
@@ -33,7 +33,7 @@
 			totam.
 		</p>
 	</div>
-	<div class="flex flex-col items-center gap-10 w-[1200px]">
+	<div id="eposidios" class="flex flex-col items-center gap-10 w-[1200px]">
 		<h2 class="font-grifter text-2xl">Episódios</h2>
 		<div class="flex gap-4">
 			<div class="h-[180px] w-[320px] rounded-lg bg-stone-400"></div>
