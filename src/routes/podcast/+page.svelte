@@ -33,7 +33,7 @@
 			totam.
 		</p>
 	</div>
-	<div id="eposidios" class="flex flex-col items-center gap-10 w-[1200px]">
+	<div id="episodios" class="flex flex-col items-center gap-10 w-[1200px]">
 		<h2 class="font-grifter text-2xl">Episódios</h2>
 		<div class="flex gap-4">
 			<div class="h-[180px] w-[320px] rounded-lg bg-stone-400"></div>
