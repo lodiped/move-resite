@@ -4,7 +4,13 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				grifter: ['Grifter Bold']
+				grifter: ['Grifter Bold'],
+				cofo: [
+					'cofo-peshka-variable',
+					{
+						fontVariationSettings: '"slnt" -14, "wdth" 50, "wght" 564'
+					}
+				]
 			},
 			backgroundImage: {
 				team: "url('$lib/assets/team.png')",
@@ -13,7 +19,9 @@ export default {
 			},
 
 			colors: {
-				move: '#FFF200'
+				move: '#FFF200',
+				nej: '#66D866',
+				nejblack: '#2a2c2e'
 			},
 			animation: {
 				float: 'float 2s ease-in-out infinite',
