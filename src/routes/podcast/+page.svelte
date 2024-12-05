@@ -35,7 +35,7 @@
 	</div>
 </header>
 <div
-	class="bg-[#ebebeb] mt-10 font-montserrat text-nejblack flex flex-col justify-center items-center w-full pb-20"
+	class="bg-[#ebebeb] pt-10 font-montserrat text-nejblack flex flex-col justify-center items-center w-full pb-20"
 >
 	<div class="w-[1200px] gap-20 text-lg h-[650px] my-40 flex justify-center">
 		<div class="w-1/2 flex flex-col justify-between">
