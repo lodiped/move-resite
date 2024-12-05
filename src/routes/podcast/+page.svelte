@@ -1,5 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
+	import heroNej from '$lib/assets/nej/hero.png';
+	import headerNej from '$lib/assets/nej/header.png';
 	//Função que mede se a página está scrollada até o topo
 	let atTop = $state(true);
 	function handleScroll() {
@@ -20,31 +22,33 @@
 
 <header
 	class={atTop
-		? 'fixed text-nejblack py-4 transition-all top-0 left-0 w-full flex justify-center'
-		: 'fixed text-nejblack py-4 bg-stone-500/5 transition-all backdrop-blur border-b border-black/5 drop-shadow top-0 left-0 w-full flex justify-center'}
+		? 'fixed text-nejblack bg-nej py-4 transition-all top-0 left-0 w-full flex justify-center'
+		: 'fixed text-nejblack py-4 bg-nej/50 transition-all backdrop-blur border-b border-black/5 drop-shadow top-0 left-0 w-full flex justify-center'}
 >
-	<div class="w-[1200px] flex justify-between items-center">
-		<div class="text-4xl">LOGO</div>
+	<div class="w-[1200px] h-12 flex justify-between items-center">
+		<a href="/podcast"><img src={headerNej} alt="" class=" w-48" /></a>
 		<div class="flex gap-10">
-			<a href="/" class="uppercase font-montserrat font-bold">início</a>
+			<a href="/podcast" class="uppercase font-montserrat font-bold">início</a>
 			<a href="#sobre" class="uppercase font-montserrat font-bold">sobre</a>
 			<a href="#episodios" class="uppercase font-montserrat font-bold">episódios</a>
 		</div>
 	</div>
 </header>
 <div
-	class="bg-[#ebebeb] font-montserrat text-nejblack flex flex-col justify-center items-center w-full pb-20"
+	class="bg-[#ebebeb] mt-10 font-montserrat text-nejblack flex flex-col justify-center items-center w-full pb-20"
 >
-	<div class="w-[1200px] text-lg h-[500px] my-60 flex justify-center">
+	<div class="w-[1200px] gap-20 text-lg h-[650px] my-40 flex justify-center">
 		<div class="w-1/2 flex flex-col justify-between">
-			<p class="text-8xl font-cofo">
-				Lorem ipsum dolor <span class="text-nej">sit amet</span> consectetur
-				<span class="text-nej">adipisicing.</span>
-			</p>
-			<p>
-				Um podcast foda e tal não sei o que não sei o que lá sobre empreendedorismo feito por
-				empresários para empresários.
-			</p>
+			<div>
+				<p class="text-8xl font-cofo">
+					Um podcast feito pra você <span class="text-nej">empresário</span> e
+					<span class="text-nej">empresária</span>
+				</p>
+				<p class="text-2xl">
+					que todo dia arrisca a sua pele por acreditar em um sonho, o sonho de ter um negócio de
+					sucesso.
+				</p>
+			</div>
 			<div class="flex gap-2">
 				<a
 					href="https://youtube.com/"
@@ -56,10 +60,26 @@
 					>Lista de episódios</a
 				>
 			</div>
-			<div>+1000 ouvintes mensais</div>
+			<div class=" leading-10">
+				<span class="text-nowrap bg-nej/40 text-green-600 p-2 rounded-lg text-sm font-bold"
+					>+1M acessos nas redes</span
+				>
+				<span class="text-nowrap bg-nej/40 text-green-600 p-2 rounded-lg text-sm font-bold"
+					>+170K views no Reels</span
+				>
+				<span class="text-nowrap bg-nej/40 text-green-600 p-2 rounded-lg text-sm font-bold"
+					>+34.4K curtidas no TikTok</span
+				>
+				<span class="text-nowrap bg-nej/40 text-green-600 p-2 rounded-lg text-sm font-bold"
+					>+3.8K impressões no Spotify</span
+				>
+				<span class="text-nowrap bg-nej/40 text-green-600 p-2 rounded-lg text-sm font-bold"
+					>+17K impressões no YouTube</span
+				>
+			</div>
 		</div>
 		<div class="w-1/2 rounded-lg flex justify-center items-center">
-			<div class="border border-black rounded-lg py-60 w-full text-center">IMAGE</div>
+			<img src={heroNej} alt="" />
 		</div>
 	</div>
 	<div id="sobre" class="w-[1200px] my-20 flex flex-col gap-4 justify-center items-center">
@@ -142,7 +162,7 @@
 	<div class="my-10">
 		<h2 class="font-grifter text-2xl">Patrocinadores</h2>
 		<div class="flex gap-4 *:border-nejblack">
-			<a href="https://potencialpleno.com.br/" class="border p-2 rounded-lg">Potencial Pleho</a>
+			<a href="https://potencialpleno.com.br/" class="border p-2 rounded-lg">Potencial Pleno</a>
 			<a href="https://movenegocios.com.br/" class="border p-2 rounded-lg">Move Negócios</a>
 			<a href="https://ztxlabs.com/" class="border p-2 rounded-lg">ZTX Labs</a>
 		</div>
