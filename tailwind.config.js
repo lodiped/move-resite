@@ -5,6 +5,7 @@ export default {
 		extend: {
 			fontFamily: {
 				grifter: ['Grifter Bold'],
+				montserrat: ['Montserrat'],
 				cofo: [
 					'cofo-peshka-variable',
 					{
