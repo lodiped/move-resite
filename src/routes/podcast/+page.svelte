@@ -10,6 +10,7 @@
 	import naganos from '$lib/assets/nej/thumbs/Naganos.png';
 	import heroNej from '$lib/assets/nej/hero.png';
 	import headerNej from '$lib/assets/nej/header.png';
+	import andre from '$lib/assets/nej/andre.jpg';
 
 	// @ts-ignore
 	import Amazon from 'virtual:icons/cbi/amazon-logo';
@@ -190,7 +191,7 @@
 	<div id="sobre" class="w-[1200px] my-20 flex flex-col gap-20 justify-center items-between">
 		<h2 class="font-cofo text-6xl text-center">Conheça os Hosts</h2>
 		<div class="flex gap-5">
-			<div class="border-nejblack border rounded-2xl w-[300px] h-[300px]">IMAGE ANDRE</div>
+			<img src={andre} alt="" class="drop-shadow rounded-2xl w-[300px] h-[300px]" />
 			<div class="flex flex-col w-[600px] gap-2">
 				<h3 class="text-2xl font-bold">André Castro</h3>
 				<p>
