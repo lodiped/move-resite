@@ -47,6 +47,8 @@
 		};
 	}
 
+	let pixelRatio = $state(1);
+
 	//Função que mede se a página está scrollada até o topo
 	let atTop = $state(true);
 	function handleScroll() {
@@ -59,6 +61,7 @@
 
 	onMount(() => {
 		handleScroll();
+		pixelRatio = window.devicePixelRatio;
 		window.addEventListener('scroll', handleScroll);
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
@@ -71,7 +74,11 @@
 		? 'fixed z-50 text-nejblack rounded-b-3xl bg-nej py-4 transition-all top-0 left-0 w-full flex justify-center'
 		: 'fixed z-50 text-nejblack rounded-b-3xl py-4 bg-nej/50 transition-all backdrop-blur border-b border-black/5 drop-shadow top-0 left-0 w-full flex justify-center'}
 >
-	<div class="w-[1200px] h-12 flex justify-between items-center">
+	<div
+		class={pixelRatio > 1
+			? 'w-[1000px] h-12 flex justify-between items-center'
+			: 'w-[1200px] h-12 flex justify-between items-center'}
+	>
 		<a href="/podcast"><img src={headerNej} alt="" class=" w-48" /></a>
 		<div class="flex gap-14">
 			<a href="/podcast" class="uppercase font-montserrat font-bold">início</a>
@@ -87,13 +94,19 @@
 	</div>
 </header>
 <div
-	class="bg-nejwhite pt-10 font-montserrat text-nejblack flex flex-col justify-center items-center w-full pb-20"
+	class={pixelRatio > 1
+		? 'bg-nejwhite pt-8 font-montserrat text-nejblack flex flex-col justify-center items-center w-full pb-20'
+		: 'bg-nejwhite pt-10 font-montserrat text-nejblack flex flex-col justify-center items-center w-full pb-20'}
 >
-	<div class="w-[1200px] gap-14 text-lg h-[550px] my-40 flex justify-center">
+	<div
+		class={pixelRatio > 1
+			? 'w-[1000px] gap-14 h-[550px] mt-20 mb-40 flex justify-center'
+			: 'w-[1200px] gap-14 text-lg h-[550px] my-40 flex justify-center'}
+	>
 		<div class="w-1/2 flex flex-col justify-between">
 			<div></div>
 			<div>
-				<p class="text-8xl font-cofo">
+				<p class="text-7xl font-cofo">
 					O podcast feito pra você <span class="text-nej">empresário</span> e
 					<span class="text-nej">empresária</span>
 				</p>
@@ -159,8 +172,16 @@
 
 	<div class="flex flex-col gap-20 mb-40 mt-20">
 		<h2 class="font-cofo text-6xl text-center">Nossos Patrocinadores</h2>
-		<div class="flex w-[1200px] justify-around items-center">
-			<a href="https://movenegocios.com.br/" class="relative w-[300px] group flex items-center"
+		<div
+			class={pixelRatio > 1
+				? 'flex w-[1000px] justify-around items-center'
+				: 'flex w-[1200px] justify-around items-center'}
+		>
+			<a
+				href="https://movenegocios.com.br/"
+				class={pixelRatio > 1
+					? 'relative w-[200px] group flex items-center'
+					: 'relative w-[300px] group flex items-center'}
 				><img
 					src={movelogo}
 					alt=""
@@ -172,7 +193,11 @@
 					class="w-[300px] absolute opacity-0 group-hover:opacity-100 group-hover:drop-shadow-[0_2px_0.2rem_rgba(0,0,0,0.3)] transition-opacity"
 				/>
 			</a>
-			<a href="https://potencialpleno.com.br/" class="relative w-[300px] group flex items-center"
+			<a
+				href="https://potencialpleno.com.br/"
+				class={pixelRatio > 1
+					? 'relative w-[200px] group flex items-center'
+					: 'relative w-[300px] group flex items-center'}
 				><img
 					src={p2logo}
 					alt=""
@@ -184,11 +209,18 @@
 					class="w-[300px] absolute opacity-0 group-hover:opacity-100 transition-opacity"
 				/>
 			</a>
-			<a href="https://ztxlabs.com.br/"><img src={ztxlogo} alt="" class="w-[300px]" /></a>
+			<a href="https://ztxlabs.com.br/"
+				><img src={ztxlogo} alt="" class={pixelRatio > 1 ? 'w-[200px]' : 'w-[300px]'} /></a
+			>
 		</div>
 	</div>
 
-	<div id="sobre" class="w-[1200px] my-20 flex flex-col gap-20 justify-center items-between">
+	<div
+		id="sobre"
+		class={pixelRatio > 1
+			? 'w-[1000px] my-20 flex flex-col gap-20 justify-center items-between'
+			: 'w-[1200px] my-20 flex flex-col gap-20 justify-center items-between'}
+	>
 		<h2 class="font-cofo text-6xl text-center">Conheça os Hosts</h2>
 		<div class="flex gap-5">
 			<img src={andre} alt="" class="drop-shadow rounded-2xl w-[300px] h-[300px]" />
@@ -214,7 +246,12 @@
 		</div>
 	</div>
 
-	<div id="episodios" class="flex flex-col items-center gap-20 w-[1200px]">
+	<div
+		id="episodios"
+		class={pixelRatio > 1
+			? 'flex flex-col items-center gap-20 w-[1000px]'
+			: 'flex flex-col items-center gap-20 w-[1200px]'}
+	>
 		<h2 class="font-cofo text-6xl">Episódios</h2>
 		<div class="flex gap-4 justify-between w-full">
 			<img src={angelo} alt="" class="h-[200px] w-[355px] rounded-xl drop-shadow" />
