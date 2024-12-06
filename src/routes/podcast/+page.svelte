@@ -1,4 +1,16 @@
 <script>
+	// @ts-ignore
+	import Amazon from 'virtual:icons/cbi/amazon-logo';
+	// @ts-ignore
+	import Deezer from 'virtual:icons/cbi/deezer-logo';
+	// @ts-ignore
+	import Apple from 'virtual:icons/mdi/apple';
+	// @ts-ignore
+	import YouTube from 'virtual:icons/mdi/youtube';
+	// @ts-ignore
+	import YouTubeMusic from 'virtual:icons/cbi/youtube-music';
+	// @ts-ignore
+	import Spotify from 'virtual:icons/mdi/spotify';
 	import { onMount } from 'svelte';
 	import heroNej from '$lib/assets/nej/hero.png';
 	import headerNej from '$lib/assets/nej/header.png';
@@ -35,47 +47,69 @@
 	</div>
 </header>
 <div
-	class="bg-[#ebebeb] pt-10 font-montserrat text-nejblack flex flex-col justify-center items-center w-full pb-20"
+	class="bg-nejwhite pt-10 font-montserrat text-nejblack flex flex-col justify-center items-center w-full pb-20"
 >
-	<div class="w-[1200px] gap-20 text-lg h-[650px] my-40 flex justify-center">
+	<div class="w-[1200px] gap-14 text-lg h-[550px] my-40 flex justify-center">
 		<div class="w-1/2 flex flex-col justify-between">
+			<div></div>
 			<div>
 				<p class="text-8xl font-cofo">
-					Um podcast feito pra você <span class="text-nej">empresário</span> e
+					O podcast feito pra você <span class="text-nej">empresário</span> e
 					<span class="text-nej">empresária</span>
 				</p>
 				<p class="text-2xl">
-					que todo dia arrisca a sua pele por acreditar em um sonho, o sonho de ter um negócio de
+					que todo dia arrisca a pele por acreditar em um sonho, o sonho de ter um negócio de
 					sucesso.
 				</p>
 			</div>
 			<div class="flex gap-2">
 				<a
 					href="https://youtube.com/"
-					class="text-center rounded-lg font-bold py-4 px-5 text-nejblack bg-nej">Assistir Agora</a
+					class="transition-all hover:bg-nejblack hover:text-nejwhite text-center rounded-lg font-bold py-4 px-5 text-nejblack bg-nej"
+					>Assistir Agora</a
 				>
 				<a
 					href="#episodios"
-					class="font-bold border border-nejblack rounded-lg py-4 px-5 text-center"
+					class="transition-all hover:bg-nejblack hover:text-nejwhite font-bold border border-nejblack rounded-lg py-4 px-5 text-center"
 					>Lista de episódios</a
 				>
 			</div>
-			<div class=" leading-10">
-				<span class="text-nowrap bg-nej/40 text-green-600 p-2 rounded-lg text-sm font-bold"
-					>+1M acessos nas redes</span
-				>
-				<span class="text-nowrap bg-nej/40 text-green-600 p-2 rounded-lg text-sm font-bold"
-					>+170K views no Reels</span
-				>
-				<span class="text-nowrap bg-nej/40 text-green-600 p-2 rounded-lg text-sm font-bold"
-					>+34.4K curtidas no TikTok</span
-				>
-				<span class="text-nowrap bg-nej/40 text-green-600 p-2 rounded-lg text-sm font-bold"
-					>+3.8K impressões no Spotify</span
-				>
-				<span class="text-nowrap bg-nej/40 text-green-600 p-2 rounded-lg text-sm font-bold"
-					>+17K impressões no YouTube</span
-				>
+			<div class="flex flex-col gap-1">
+				<p class="text-base">Disponível em:</p>
+				<div class="flex gap-4 text-4xl">
+					<a
+						class="transition-all hover:text-nej scale-110"
+						href="https://www.youtube.com/@negocioemjogo"
+					>
+						<YouTube />
+					</a>
+					<a
+						class="transition-all hover:text-nej"
+						href="https://open.spotify.com/show/5J6XHkBZYIKs65gA9oe7vR"
+					>
+						<Spotify />
+					</a>
+					<a
+						class="transition-all hover:text-nej scale-90"
+						href="https://music.youtube.com/channel/UCEt2BmiwU0GwUbNg5uRJNbw"
+					>
+						<YouTubeMusic />
+					</a>
+					<a
+						class="-translate-y-1 scale-110 transition-all hover:text-nej"
+						href="https://podcasts.apple.com/ao/podcast/neg%C3%B3cio-em-jogo/id1715471413"
+						><Apple />
+					</a>
+					<a class="transition-all hover:text-nej" href="https://www.deezer.com/br/show/1000413681">
+						<Deezer />
+					</a>
+					<a
+						class="scale-105 transition-all hover:text-nej"
+						href="https://music.amazon.com.br/podcasts/7d706416-1537-4771-9580-12c08dfe5690/neg%C3%B3cio-em-jogo"
+					>
+						<Amazon />
+					</a>
+				</div>
 			</div>
 		</div>
 		<div class="w-1/2 rounded-lg flex justify-center items-center">

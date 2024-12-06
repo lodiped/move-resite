@@ -22,7 +22,8 @@ export default {
 			colors: {
 				move: '#FFF200',
 				nej: '#66D866',
-				nejblack: '#2a2c2e'
+				nejblack: '#2a2c2e',
+				nejwhite: '#ebebeb'
 			},
 			animation: {
 				float: 'float 2s ease-in-out infinite',
