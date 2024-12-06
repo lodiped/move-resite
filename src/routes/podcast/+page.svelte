@@ -24,6 +24,8 @@
 	import YouTubeMusic from 'virtual:icons/cbi/youtube-music';
 	// @ts-ignore
 	import Spotify from 'virtual:icons/mdi/spotify';
+	// @ts-ignore
+	import Play from 'virtual:icons/mdi/play';
 
 	// ´Go to´ seção com padding especificos
 	/** @param {number} offset */
@@ -254,7 +256,18 @@
 	>
 		<h2 class="font-cofo text-6xl">Episódios</h2>
 		<div class="flex gap-4 justify-between w-full">
-			<img src={angelo} alt="" class="h-[200px] w-[355px] rounded-xl drop-shadow" />
+			<button class="relative self-start group">
+				<img
+					src={angelo}
+					alt=""
+					class="h-[200px] w-[355px] group-hover:brightness-50 rounded-xl drop-shadow"
+				/>
+				<div
+					class="absolute w-full h-full text-white top-0 items-center text-5xl justify-center hidden group-hover:flex"
+				>
+					<Play />
+				</div>
+			</button>
 			<div class="flex flex-col justify-start gap-5 w-[810px] h-[250px]">
 				<h3 class="font-bold text-xl">#43 - Ângelo Max Donaton (Lavô)</h3>
 				<p>
@@ -265,10 +278,10 @@
 					Unidos e na dificuldade que ele próprio observou em viagens.
 				</p>
 				<div class="flex gap-2 *:border-nejblack">
-					<div class="text-2xl scale-110"><YouTube /></div>
-					<div class="text-2xl"><Spotify /></div>
-					<div class="text-2xl scale-90"><YouTubeMusic /></div>
-					<div class="text-2xl -translate-y-0.5 scale-105"><Apple /></div>
+					<a href="https://youtube.com/" class="text-2xl scale-110"><YouTube /></a>
+					<a href="https://spotify.com/" class="text-2xl"><Spotify /></a>
+					<a href="https://music.youtube.com/" class="text-2xl scale-90"><YouTubeMusic /></a>
+					<a href="https://apple.com/" class="text-2xl -translate-y-0.5 scale-105"><Apple /></a>
 				</div>
 			</div>
 		</div>
@@ -285,52 +298,49 @@
 					segredos para inovar em um setor tão competitivo? Não perca esse episódio!
 				</p>
 				<div class="flex gap-2 *:border-nejblack">
-					<div class="text-2xl scale-110"><YouTube /></div>
-					<div class="text-2xl"><Spotify /></div>
-					<div class="text-2xl scale-90"><YouTubeMusic /></div>
-					<div class="text-2xl -translate-y-0.5 scale-105"><Apple /></div>
+					<a href="https://youtube.com/" class="text-2xl scale-110"><YouTube /></a>
+					<a href="https://spotify.com/" class="text-2xl"><Spotify /></a>
+					<a href="https://music.youtube.com/" class="text-2xl scale-90"><YouTubeMusic /></a>
+					<a href="https://apple.com/" class="text-2xl -translate-y-0.5 scale-105"><Apple /></a>
 				</div>
 			</div>
 		</div>
 		<div class="flex gap-4 justify-between w-full">
-			<div class="h-[200px] w-[355px] rounded-lg bg-stone-400"></div>
+			<img src={angelo} alt="" class="h-[200px] w-[355px] rounded-xl drop-shadow" />
 			<div class="flex flex-col justify-start gap-5 w-[810px] h-[250px]">
-				<h3 class="font-bold text-xl">#01 Titulo do Episódio</h3>
+				<h3 class="font-bold text-xl">#43 - Ângelo Max Donaton (Lavô)</h3>
 				<p>
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi tempore praesentium
-					quibusdam perspiciatis. Commodi saepe minima cum fugiat praesentium nemo quasi ipsum
-					nesciunt ad, asperiores eaque voluptas voluptates aut ipsam accusantium sequi alias quos
-					hic itaque. Sit porro suscipit ipsam sequi repellendus enim expedita dicta recusandae
-					veniam, molestias consequatur autem mollitia, officiis corrupti. Facere quo quidem eos
-					vero recusandae cumque? Quo tempore explicabo consequuntur pariatur consequatur quos
-					aliquam architecto qui.
+					Nosso convidado é o Angelo Max Donaton, o empreendedor por trás da Lavô, a maior rede de
+					lavanderias self-service do país, com mais de mil unidades! Angelo largou uma carreira de
+					25 anos como representante comercial para apostar em um modelo de lavanderia que alia
+					praticidade e autonomia, inspirando-se nas experiências de autoatendimento nos Estados
+					Unidos e na dificuldade que ele próprio observou em viagens.
 				</p>
 				<div class="flex gap-2 *:border-nejblack">
-					<div class="w-8 h-8 rounded-lg border"></div>
-					<div class="w-8 h-8 rounded-lg border"></div>
-					<div class="w-8 h-8 rounded-lg border"></div>
-					<div class="w-8 h-8 rounded-lg border"></div>
+					<a href="https://youtube.com/" class="text-2xl scale-110"><YouTube /></a>
+					<a href="https://spotify.com/" class="text-2xl"><Spotify /></a>
+					<a href="https://music.youtube.com/" class="text-2xl scale-90"><YouTubeMusic /></a>
+					<a href="https://apple.com/" class="text-2xl -translate-y-0.5 scale-105"><Apple /></a>
 				</div>
 			</div>
 		</div>
 		<div class="flex gap-4 justify-between w-full">
-			<div class="h-[200px] w-[355px] rounded-lg bg-stone-400"></div>
+			<img src={naganos} alt="" class="h-[200px] w-[355px] rounded-xl drop-shadow" />
 			<div class="flex flex-col justify-start gap-5 w-[810px] h-[250px]">
-				<h3 class="font-bold text-xl">#01 Titulo do Episódio</h3>
+				<h3 class="font-bold text-xl">#42 - Marcos e Lucas Nagano (10 Pastéis)</h3>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, eveniet velit quos rerum
-					doloribus debitis fugiat ullam voluptatem eum corporis consequuntur culpa odit itaque
-					dignissimos minima voluptas labore non facilis quod quis ipsum architecto aspernatur vero.
-					Deleniti aliquam voluptates magni. Magni consequatur necessitatibus facilis ipsam iure,
-					dignissimos corrupti assumenda quaerat cupiditate numquam qui nobis aspernatur accusamus
-					optio placeat architecto at tempora eos temporibus enim harum ducimus vero. Vitae,
-					explicabo architecto!
+					Conheça a jornada de Marcos e Lucas Nagano, os visionários por trás da rede 10 Pastéis,
+					que transformaram o tradicional pastel em um negócio milionário! Marcos largou uma
+					carreira consolidada para apostar no empreendedorismo, enquanto seu filho, Lucas, agora
+					Diretor de Novos Negócios, está liderando a expansão da marca, que já fatura R$ 65 milhões
+					e planeja dobrar até 2025! Quer saber como eles fizeram o negócio crescer e quais os
+					segredos para inovar em um setor tão competitivo? Não perca esse episódio!
 				</p>
 				<div class="flex gap-2 *:border-nejblack">
-					<div class="w-8 h-8 rounded-lg border"></div>
-					<div class="w-8 h-8 rounded-lg border"></div>
-					<div class="w-8 h-8 rounded-lg border"></div>
-					<div class="w-8 h-8 rounded-lg border"></div>
+					<a href="https://youtube.com/" class="text-2xl scale-110"><YouTube /></a>
+					<a href="https://spotify.com/" class="text-2xl"><Spotify /></a>
+					<a href="https://music.youtube.com/" class="text-2xl scale-90"><YouTubeMusic /></a>
+					<a href="https://apple.com/" class="text-2xl -translate-y-0.5 scale-105"><Apple /></a>
 				</div>
 			</div>
 		</div>
