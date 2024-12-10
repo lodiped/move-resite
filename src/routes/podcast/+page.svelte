@@ -8,8 +8,6 @@
 	import movelogo from '$lib/assets/nej/move.png';
 	import movecorlogo from '$lib/assets/nej/movecor.png';
 	import ztxlogo from '$lib/assets/nej/ztx.png';
-	import angelo from '$lib/assets/nej/thumbs/43.png';
-	import naganos from '$lib/assets/nej/thumbs/42.png';
 	import heroNej from '$lib/assets/nej/hero.png';
 	import headerNej from '$lib/assets/nej/header.png';
 	import andre from '$lib/assets/nej/andre.jpg';
@@ -292,6 +290,7 @@
 						src={`/lib/assets/nej/thumbs/${episode.id}.png`}
 						alt=""
 						class="h-[200px] w-[355px] transition-all group-hover:brightness-50 brightness-100 rounded-xl drop-shadow"
+						loading="lazy"
 					/>
 					<div
 						class="absolute w-full h-full text-white top-0 items-center text-6xl justify-center transition-opacity flex opacity-0 group-hover:opacity-100"
