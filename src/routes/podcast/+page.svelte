@@ -279,7 +279,7 @@
 	</div>
 
 	<div
-		id="pagination"
+		id="episodios"
 		class={pixelRatio > 1
 			? 'flex flex-col items-center gap-20 w-[1000px]'
 			: 'flex flex-col items-center gap-20 w-[1200px]'}
