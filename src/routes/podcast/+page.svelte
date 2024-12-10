@@ -1,13 +1,15 @@
 <script>
 	import { onMount } from 'svelte';
+	import { writable } from 'svelte/store';
+	import podcastData from '$lib/data/podcasts.json';
 
 	import p2logo from '$lib/assets/empresas/p2.png';
 	import p2corlogo from '$lib/assets/nej/p2cor.png';
 	import movelogo from '$lib/assets/nej/move.png';
 	import movecorlogo from '$lib/assets/nej/movecor.png';
 	import ztxlogo from '$lib/assets/nej/ztx.png';
-	import angelo from '$lib/assets/nej/thumbs/Angelo.png';
-	import naganos from '$lib/assets/nej/thumbs/Naganos.png';
+	import angelo from '$lib/assets/nej/thumbs/43.png';
+	import naganos from '$lib/assets/nej/thumbs/42.png';
 	import heroNej from '$lib/assets/nej/hero.png';
 	import headerNej from '$lib/assets/nej/header.png';
 	import andre from '$lib/assets/nej/andre.jpg';
@@ -26,6 +28,23 @@
 	import Spotify from 'virtual:icons/mdi/spotify';
 	// @ts-ignore
 	import Play from 'virtual:icons/mdi/play';
+
+	// PAGINATION
+	const itemsPerPage = 5;
+	const currentPage = writable(1);
+
+	let paginatedEpisodes = $derived(
+		podcastData.slice(($currentPage - 1) * itemsPerPage, $currentPage * itemsPerPage)
+	);
+
+	const totalPages = Math.ceil(podcastData.length / itemsPerPage);
+
+	/** @param {any} page*/
+	function changePage(page) {
+		if (page >= 1 && page <= totalPages) {
+			currentPage.set(page);
+		}
+	}
 
 	// ´Go to´ seção com padding especificos
 	/** @param {number} offset */
@@ -50,6 +69,14 @@
 	}
 
 	let pixelRatio = $state(1);
+	let playModal = $state(false);
+
+	/** @param {{ key: string; }} event */
+	function handleEsc(event) {
+		if (event.key === 'Escape') {
+			playModal = false;
+		}
+	}
 
 	//Função que mede se a página está scrollada até o topo
 	let atTop = $state(true);
@@ -65,16 +92,18 @@
 		handleScroll();
 		pixelRatio = window.devicePixelRatio;
 		window.addEventListener('scroll', handleScroll);
+		window.addEventListener('keydown', handleEsc);
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
+			window.removeEventListener('keydown', handleEsc);
 		};
 	});
 </script>
 
 <header
 	class={atTop
-		? 'fixed z-50 text-nejblack rounded-b-3xl bg-nej py-4 transition-all top-0 left-0 w-full flex justify-center'
-		: 'fixed z-50 text-nejblack rounded-b-3xl py-4 bg-nej/50 transition-all backdrop-blur border-b border-black/5 drop-shadow top-0 left-0 w-full flex justify-center'}
+		? 'fixed z-40 text-nejblack rounded-b-3xl bg-nej py-4 transition-all top-0 left-0 w-full flex justify-center'
+		: 'fixed z-40 text-nejblack rounded-b-3xl py-4 bg-nej/50 transition-all backdrop-blur border-b border-black/5 drop-shadow top-0 left-0 w-full flex justify-center'}
 >
 	<div
 		class={pixelRatio > 1
@@ -95,6 +124,7 @@
 		</div>
 	</div>
 </header>
+
 <div
 	class={pixelRatio > 1
 		? 'bg-nejwhite pt-8 font-montserrat text-nejblack flex flex-col justify-center items-center w-full pb-20'
@@ -249,102 +279,54 @@
 	</div>
 
 	<div
-		id="episodios"
+		id="pagination"
 		class={pixelRatio > 1
 			? 'flex flex-col items-center gap-20 w-[1000px]'
 			: 'flex flex-col items-center gap-20 w-[1200px]'}
 	>
 		<h2 class="font-cofo text-6xl">Episódios</h2>
-		<div class="flex gap-4 justify-between w-full">
-			<button class="relative self-start group">
-				<img
-					src={angelo}
-					alt=""
-					class="h-[200px] w-[355px] group-hover:brightness-50 rounded-xl drop-shadow"
-				/>
-				<div
-					class="absolute w-full h-full text-white top-0 items-center text-5xl justify-center hidden group-hover:flex"
-				>
-					<Play />
-				</div>
-			</button>
-			<div class="flex flex-col justify-start gap-5 w-[810px] h-[250px]">
-				<h3 class="font-bold text-xl">#43 - Ângelo Max Donaton (Lavô)</h3>
-				<p>
-					Nosso convidado é o Angelo Max Donaton, o empreendedor por trás da Lavô, a maior rede de
-					lavanderias self-service do país, com mais de mil unidades! Angelo largou uma carreira de
-					25 anos como representante comercial para apostar em um modelo de lavanderia que alia
-					praticidade e autonomia, inspirando-se nas experiências de autoatendimento nos Estados
-					Unidos e na dificuldade que ele próprio observou em viagens.
-				</p>
-				<div class="flex gap-2 *:border-nejblack">
-					<a href="https://youtube.com/" class="text-2xl scale-110"><YouTube /></a>
-					<a href="https://spotify.com/" class="text-2xl"><Spotify /></a>
-					<a href="https://music.youtube.com/" class="text-2xl scale-90"><YouTubeMusic /></a>
-					<a href="https://apple.com/" class="text-2xl -translate-y-0.5 scale-105"><Apple /></a>
+		{#each paginatedEpisodes as episode}
+			<div class="flex gap-4 justify-between w-full">
+				<button onclick={() => (playModal = true)} class="relative self-start group">
+					<img
+						src={`/lib/assets/nej/thumbs/${episode.id}.png`}
+						alt=""
+						class="h-[200px] w-[355px] transition-all group-hover:brightness-50 brightness-100 rounded-xl drop-shadow"
+					/>
+					<div
+						class="absolute w-full h-full text-white top-0 items-center text-6xl justify-center transition-opacity flex opacity-0 group-hover:opacity-100"
+					>
+						<Play />
+					</div>
+				</button>
+				<div class="flex flex-col justify-start gap-5 w-[810px] h-[250px]">
+					<h3 class="font-bold text-xl">{episode.title}</h3>
+					<p>{episode.desc}</p>
+					<div class="flex gap-2 *:border-nejblack">
+						<a href={episode.youtube} class="text-2xl scale-110"><YouTube /></a>
+						<a href={episode.spotify} class="text-2xl"><Spotify /></a>
+						<a href={episode.ytmusic} class="text-2xl scale-90"><YouTubeMusic /></a>
+						<a href={episode.apple} class="text-2xl -translate-y-0.5 scale-105"><Apple /></a>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="flex gap-4 justify-between w-full">
-			<img src={naganos} alt="" class="h-[200px] w-[355px] rounded-xl drop-shadow" />
-			<div class="flex flex-col justify-start gap-5 w-[810px] h-[250px]">
-				<h3 class="font-bold text-xl">#42 - Marcos e Lucas Nagano (10 Pastéis)</h3>
-				<p>
-					Conheça a jornada de Marcos e Lucas Nagano, os visionários por trás da rede 10 Pastéis,
-					que transformaram o tradicional pastel em um negócio milionário! Marcos largou uma
-					carreira consolidada para apostar no empreendedorismo, enquanto seu filho, Lucas, agora
-					Diretor de Novos Negócios, está liderando a expansão da marca, que já fatura R$ 65 milhões
-					e planeja dobrar até 2025! Quer saber como eles fizeram o negócio crescer e quais os
-					segredos para inovar em um setor tão competitivo? Não perca esse episódio!
-				</p>
-				<div class="flex gap-2 *:border-nejblack">
-					<a href="https://youtube.com/" class="text-2xl scale-110"><YouTube /></a>
-					<a href="https://spotify.com/" class="text-2xl"><Spotify /></a>
-					<a href="https://music.youtube.com/" class="text-2xl scale-90"><YouTubeMusic /></a>
-					<a href="https://apple.com/" class="text-2xl -translate-y-0.5 scale-105"><Apple /></a>
-				</div>
-			</div>
-		</div>
-		<div class="flex gap-4 justify-between w-full">
-			<img src={angelo} alt="" class="h-[200px] w-[355px] rounded-xl drop-shadow" />
-			<div class="flex flex-col justify-start gap-5 w-[810px] h-[250px]">
-				<h3 class="font-bold text-xl">#43 - Ângelo Max Donaton (Lavô)</h3>
-				<p>
-					Nosso convidado é o Angelo Max Donaton, o empreendedor por trás da Lavô, a maior rede de
-					lavanderias self-service do país, com mais de mil unidades! Angelo largou uma carreira de
-					25 anos como representante comercial para apostar em um modelo de lavanderia que alia
-					praticidade e autonomia, inspirando-se nas experiências de autoatendimento nos Estados
-					Unidos e na dificuldade que ele próprio observou em viagens.
-				</p>
-				<div class="flex gap-2 *:border-nejblack">
-					<a href="https://youtube.com/" class="text-2xl scale-110"><YouTube /></a>
-					<a href="https://spotify.com/" class="text-2xl"><Spotify /></a>
-					<a href="https://music.youtube.com/" class="text-2xl scale-90"><YouTubeMusic /></a>
-					<a href="https://apple.com/" class="text-2xl -translate-y-0.5 scale-105"><Apple /></a>
-				</div>
-			</div>
-		</div>
-		<div class="flex gap-4 justify-between w-full">
-			<img src={naganos} alt="" class="h-[200px] w-[355px] rounded-xl drop-shadow" />
-			<div class="flex flex-col justify-start gap-5 w-[810px] h-[250px]">
-				<h3 class="font-bold text-xl">#42 - Marcos e Lucas Nagano (10 Pastéis)</h3>
-				<p>
-					Conheça a jornada de Marcos e Lucas Nagano, os visionários por trás da rede 10 Pastéis,
-					que transformaram o tradicional pastel em um negócio milionário! Marcos largou uma
-					carreira consolidada para apostar no empreendedorismo, enquanto seu filho, Lucas, agora
-					Diretor de Novos Negócios, está liderando a expansão da marca, que já fatura R$ 65 milhões
-					e planeja dobrar até 2025! Quer saber como eles fizeram o negócio crescer e quais os
-					segredos para inovar em um setor tão competitivo? Não perca esse episódio!
-				</p>
-				<div class="flex gap-2 *:border-nejblack">
-					<a href="https://youtube.com/" class="text-2xl scale-110"><YouTube /></a>
-					<a href="https://spotify.com/" class="text-2xl"><Spotify /></a>
-					<a href="https://music.youtube.com/" class="text-2xl scale-90"><YouTubeMusic /></a>
-					<a href="https://apple.com/" class="text-2xl -translate-y-0.5 scale-105"><Apple /></a>
-				</div>
-			</div>
-		</div>
+		{/each}
+
+		<nav class="flex gap-10">
+			<button
+				onclick={() => changePage($currentPage - 1)}
+				disabled={$currentPage === 1}
+				class="disabled:opacity-30">Anterior</button
+			>
+			<span>Página {$currentPage} de {totalPages}</span>
+			<button
+				onclick={() => changePage($currentPage + 1)}
+				disabled={$currentPage === totalPages}
+				class="disabled:opacity-30">Próxima</button
+			>
+		</nav>
 	</div>
+
 	<div class="my-10">
 		<h2 class="font-bold text-2xl">Patrocinadores</h2>
 		<div class="flex gap-4 *:border-nejblack">
@@ -354,3 +336,18 @@
 		</div>
 	</div>
 </div>
+
+{#if playModal}
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<div
+		class="text-nejblack z-50 fixed flex items-center justify-center w-full h-full top-0 left-0 bg-black/50"
+		onclick={(event) => {
+			if (event.target === event.currentTarget) {
+				playModal = false;
+			}
+		}}
+	>
+		<div class="flex w-[1000px] h-[700px] bg-white rounded-xl">YouTube Embed</div>
+	</div>
+{/if}

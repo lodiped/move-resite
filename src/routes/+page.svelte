@@ -34,14 +34,13 @@
 	import Diferenciais from '$lib/components/Diferenciais.svelte';
 	import Quemsomos from '$lib/components/Quemsomos.svelte';
 	import Header from '$lib/components/Header.svelte';
-
 	import Hero from '$lib/components/Hero.svelte';
 
 	// InView stuff
 	let gestaoOpen = $state(false), // Modal
 		contabilOpen = $state(false); // Modal
 	const inviewOpt = { unobserveOnEnter: true }; //parte do InView (não sei se é necessário)
-	const complicadoOpt = { unobserveOnEnter: true, rootMargin: '-50%' }; //parte do InView (não sei se é necessário)
+	const complicadoOpt = { unobserveOnEnter: true, rootMargin: '-30%' }; //parte do InView (não sei se é necessário)
 	const timelineOpt = { rootMargin: '-45%' }; //parte do InView (não sei se é necessário)
 	let numbersInView = $state(false), //Checa se a section dos números está em vista (IntersectionObserver com InView)
 		phraseInView = $state(false),
@@ -68,9 +67,7 @@
 		});
 
 	// ESC para fechar o menu dropdown
-	/**
-	 * @type {any}
-	 */
+	/** @type {any} */
 	let menu;
 	/** @param {{ key: string; }} event */
 	function handleEsc(event) {
@@ -78,6 +75,7 @@
 			closeAllMenus();
 		}
 	}
+	/** @param event {any} */
 	function handleClickOutside(event) {
 		if (menu && !menu.contains(event.target)) {
 			closeAllMenus;
