@@ -1,6 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	import { writable } from 'svelte/store';
 	import podcastData from '$lib/data/podcasts.json';
 
 	import p2logo from '$lib/assets/empresas/p2.png';
@@ -29,18 +28,28 @@
 
 	// PAGINATION
 	const itemsPerPage = 5;
-	const currentPage = writable(1);
+	const currentPage = $state({ value: 1 });
+
+	/** @type any*/
+	let currentSeason = $state([]);
+
+	let selectedSeason = $state({ value: 2 });
+
+	function selectSeason() {
+		selectedSeason.value = Number(selectedSeason.value);
+		currentSeason = podcastData.filter((data) => data.temp === selectedSeason.value);
+	}
 
 	let paginatedEpisodes = $derived(
-		podcastData.slice(($currentPage - 1) * itemsPerPage, $currentPage * itemsPerPage)
+		currentSeason.slice((currentPage.value - 1) * itemsPerPage, currentPage.value * itemsPerPage)
 	);
 
-	const totalPages = Math.ceil(podcastData.length / itemsPerPage);
+	const totalPages = $derived(Math.ceil(currentSeason.length / itemsPerPage));
 
 	/** @param {any} page*/
 	function changePage(page) {
 		if (page >= 1 && page <= totalPages) {
-			currentPage.set(page);
+			currentPage.value = page;
 		}
 	}
 
@@ -88,6 +97,7 @@
 
 	onMount(() => {
 		handleScroll();
+		selectSeason();
 		pixelRatio = window.devicePixelRatio;
 		window.addEventListener('scroll', handleScroll);
 		window.addEventListener('keydown', handleEsc);
@@ -282,7 +292,20 @@
 			? 'flex flex-col items-center gap-20 w-[1000px]'
 			: 'flex flex-col items-center gap-20 w-[1200px]'}
 	>
-		<h2 class="font-cofo text-6xl">Episódios</h2>
+		<label for="temporada-select" class="font-cofo text-6xl">Episódios</label>
+		<select
+			bind:value={selectedSeason.value}
+			onchange={() => {
+				selectSeason();
+				changePage(1);
+			}}
+			name="temporada"
+			id="temporada-select"
+		>
+			<option value={2}>Temporada 2</option>
+			<option value={1}>Temporada 1</option>
+		</select>
+
 		{#each paginatedEpisodes as episode}
 			<div class="flex gap-4 justify-between w-full">
 				<button onclick={() => (playModal = true)} class="relative self-start group">
@@ -313,14 +336,14 @@
 
 		<nav class="flex gap-10">
 			<button
-				onclick={() => changePage($currentPage - 1)}
-				disabled={$currentPage === 1}
+				onclick={() => changePage(currentPage.value - 1)}
+				disabled={currentPage.value === 1}
 				class="disabled:opacity-30">Anterior</button
 			>
-			<span>Página {$currentPage} de {totalPages}</span>
+			<span>Página {currentPage.value} de {totalPages}</span>
 			<button
-				onclick={() => changePage($currentPage + 1)}
-				disabled={$currentPage === totalPages}
+				onclick={() => changePage(currentPage.value + 1)}
+				disabled={currentPage.value === totalPages}
 				class="disabled:opacity-30">Próxima</button
 			>
 		</nav>
