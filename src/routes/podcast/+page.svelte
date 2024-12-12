@@ -156,10 +156,10 @@
 				</p>
 			</div>
 			<div class="flex gap-2">
-				<a
-					href="https://youtube.com/"
+				<button
+					onclick={() => (playModal = true)}
 					class="transition-all hover:bg-nejblack hover:text-nejwhite text-center rounded-2xl font-bold py-4 px-5 text-nejblack bg-nej"
-					>Assistir Agora</a
+					>Assistir Agora</button
 				>
 				<a
 					href="#episodios"
@@ -289,8 +289,8 @@
 	<div
 		id="episodios"
 		class={pixelRatio > 1
-			? 'flex flex-col items-center gap-20 w-[1000px]'
-			: 'flex flex-col items-center gap-20 w-[1200px]'}
+			? 'flex flex-col items-center gap-10 w-[1000px]'
+			: 'flex flex-col items-center gap-10 w-[1200px]'}
 	>
 		<label for="temporada-select" class="font-cofo text-6xl">Episódios</label>
 		<select
@@ -301,6 +301,7 @@
 			}}
 			name="temporada"
 			id="temporada-select"
+			class="bg-[#dfdfdf] font-bold p-4 rounded-xl border-none pr-10"
 		>
 			<option value={2}>Temporada 2</option>
 			<option value={1}>Temporada 1</option>
@@ -349,12 +350,12 @@
 		</nav>
 	</div>
 
-	<div class="my-10">
-		<h2 class="font-bold text-2xl">Patrocinadores</h2>
-		<div class="flex gap-4 *:border-nejblack">
-			<a href="https://potencialpleno.com.br/" class="border p-2 rounded-lg">Potencial Pleno</a>
-			<a href="https://movenegocios.com.br/" class="border p-2 rounded-lg">Move Negócios</a>
-			<a href="https://ztxlabs.com/" class="border p-2 rounded-lg">ZTX Labs</a>
+	<div class="my-10 flex flex-col gap-10 justify-center items-center">
+		<h2 class="font-bold text-2xl text-center flex">Patrocinadores</h2>
+		<div class="flex gap-4 *:border-nejblack/10 *:border *:font-bold">
+			<a href="https://potencialpleno.com.br/" class="p-2 rounded-lg">Potencial Pleno</a>
+			<a href="https://movenegocios.com.br/" class="p-2 rounded-lg">Move Negócios</a>
+			<a href="https://ztxlabs.com/" class="p-2 rounded-lg">ZTX Labs</a>
 		</div>
 	</div>
 </div>
@@ -363,13 +364,21 @@
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
-		class="text-nejblack z-50 fixed flex items-center justify-center w-full h-full top-0 left-0 bg-black/50"
+		class=" text-nejblack z-50 fixed font-montserrat flex items-center justify-center w-full h-full top-0 left-0 bg-black/50"
 		onclick={(event) => {
 			if (event.target === event.currentTarget) {
 				playModal = false;
 			}
 		}}
 	>
-		<div class="flex w-[1000px] h-[700px] bg-white rounded-xl">YouTube Embed</div>
+		<div class="relative flex w-[1000px] h-[700px] bg-white rounded-xl">
+			YouTube Embed
+			<button
+				onclick={() => {
+					playModal = false;
+				}}
+				class="absolute right-4 top-4 rounded-full bg-[#dfdfdf] p-2 w-10 h-10">X</button
+			>
+		</div>
 	</div>
 {/if}
