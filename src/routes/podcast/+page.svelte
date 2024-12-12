@@ -108,6 +108,22 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Negócio Em Jogo Podcast&reg;</title>
+	<meta
+		name="description"
+		content="O Podcast feito pra você empresário e empresária que todo dia arrisca a pele por acreditar em um sonho, o sonho de ter um negócio de sucesso."
+	/>
+	<meta name="author" content="Move Negócios - Growth" />
+	<meta property="og:locale" content="pt_BR" />
+	<meta property="og:title" content="Negócio Em Jogo Podcast&reg;" />
+	<meta
+		property="og:description"
+		content="O Podcast feito pra você empresário e empresária que todo dia arrisca a pele por acreditar em um sonho, o sonho de ter um negócio de sucesso."
+	/>
+	<meta property="og:type" content="website" />
+</svelte:head>
+
 <header
 	class={atTop
 		? 'fixed z-40 text-nejblack rounded-b-3xl bg-nej py-4 transition-all top-0 left-0 w-full flex justify-center'
@@ -118,13 +134,16 @@
 			? 'w-[1000px] h-12 flex justify-between items-center'
 			: 'w-[1200px] h-12 flex justify-between items-center'}
 	>
-		<a href="/podcast"><img src={headerNej} alt="" class=" w-48" /></a>
+		<a aria-label="início" href="/podcast"><img src={headerNej} alt="" class=" w-48" /></a>
 		<div class="flex gap-14">
-			<a href="/podcast" class="uppercase font-montserrat font-bold">início</a>
+			<a aria-label="Sobre o podcast" href="/podcast" class="uppercase font-montserrat font-bold"
+				>início</a
+			>
 			<a onclick={scrollToSection(-150)} href="#sobre" class="uppercase font-montserrat font-bold"
 				>sobre</a
 			>
 			<a
+				aria-label="Lista de episódios"
 				onclick={scrollToSection(-150)}
 				href="#episodios"
 				class="uppercase font-montserrat font-bold">episódios</a
@@ -171,32 +190,41 @@
 				<p class="text-base">Disponível em:</p>
 				<div class="flex gap-4 text-4xl">
 					<a
+						aria-label="Canal no YouTube"
 						class="transition-all hover:text-nej scale-110"
 						href="https://www.youtube.com/@negocioemjogo"
 					>
 						<YouTube />
 					</a>
 					<a
+						aria-label="Página no Spotify"
 						class="transition-all hover:text-nej"
 						href="https://open.spotify.com/show/5J6XHkBZYIKs65gA9oe7vR"
 					>
 						<Spotify />
 					</a>
 					<a
+						aria-label="Canal no YouTube Music"
 						class="transition-all hover:text-nej scale-90"
 						href="https://music.youtube.com/channel/UCEt2BmiwU0GwUbNg5uRJNbw"
 					>
 						<YouTubeMusic />
 					</a>
 					<a
+						aria-label="Página na Apple Music"
 						class="-translate-y-1 scale-110 transition-all hover:text-nej"
 						href="https://podcasts.apple.com/ao/podcast/neg%C3%B3cio-em-jogo/id1715471413"
 						><Apple />
 					</a>
-					<a class="transition-all hover:text-nej" href="https://www.deezer.com/br/show/1000413681">
+					<a
+						aria-label="Página no Deezer"
+						class="transition-all hover:text-nej"
+						href="https://www.deezer.com/br/show/1000413681"
+					>
 						<Deezer />
 					</a>
 					<a
+						aria-label="Página na Amazon Music"
 						class="scale-105 transition-all hover:text-nej"
 						href="https://music.amazon.com.br/podcasts/7d706416-1537-4771-9580-12c08dfe5690/neg%C3%B3cio-em-jogo"
 					>
@@ -206,7 +234,10 @@
 			</div>
 		</div>
 		<div class="w-1/2 rounded-lg flex justify-center items-center">
-			<img src={heroNej} alt="" />
+			<img
+				src={heroNej}
+				alt="Uma núvem de imagens e frases com o Logo do Negócio Em Jogo Podcast no meio. Foto do host André Castro e da Carol Costa. Termos temáticos do podcast: Família, Saúde, Fé, Empreendedorismo, Liderança, Cultura organizacional, Gestão"
+			/>
 		</div>
 	</div>
 
@@ -218,6 +249,7 @@
 				: 'flex w-[1200px] justify-around items-center'}
 		>
 			<a
+				aria-label="Move Negócios"
 				href="https://movenegocios.com.br/"
 				class={pixelRatio > 1
 					? 'relative w-[200px] group flex items-center'
@@ -234,6 +266,7 @@
 				/>
 			</a>
 			<a
+				aria-label="Potencial Pleno - Escola de Resultados"
 				href="https://potencialpleno.com.br/"
 				class={pixelRatio > 1
 					? 'relative w-[200px] group flex items-center'
@@ -249,7 +282,7 @@
 					class="w-[300px] absolute opacity-0 group-hover:opacity-100 transition-opacity"
 				/>
 			</a>
-			<a href="https://ztxlabs.com.br/"
+			<a aria-label="ZTX Labs" href="https://ztxlabs.com.br/"
 				><img src={ztxlogo} alt="" class={pixelRatio > 1 ? 'w-[200px]' : 'w-[300px]'} /></a
 			>
 		</div>
@@ -263,7 +296,7 @@
 	>
 		<h2 class="font-cofo text-6xl text-center">Conheça os Hosts</h2>
 		<div class="flex gap-5">
-			<img src={andre} alt="" class="drop-shadow rounded-2xl w-[300px] h-[300px]" />
+			<img src={andre} alt="André Castro" class="drop-shadow rounded-2xl w-[300px] h-[300px]" />
 			<div class="flex flex-col w-[600px] gap-2">
 				<h3 class="text-2xl font-bold">André Castro</h3>
 				<p>
@@ -326,10 +359,22 @@
 					<h3 class="font-bold text-xl">{episode.title}</h3>
 					<p>{episode.desc}</p>
 					<div class="flex gap-2 *:border-nejblack">
-						<a href={episode.youtube} class="text-2xl scale-110"><YouTube /></a>
-						<a href={episode.spotify} class="text-2xl"><Spotify /></a>
-						<a href={episode.ytmusic} class="text-2xl scale-90"><YouTubeMusic /></a>
-						<a href={episode.apple} class="text-2xl -translate-y-0.5 scale-105"><Apple /></a>
+						<a aria-label="Link para o YouTube" href={episode.youtube} class="text-2xl scale-110"
+							><YouTube /></a
+						>
+						<a aria-label="Link para o Spotify" href={episode.spotify} class="text-2xl"
+							><Spotify /></a
+						>
+						<a
+							aria-label="Link para o YouTube Music"
+							href={episode.ytmusic}
+							class="text-2xl scale-90"><YouTubeMusic /></a
+						>
+						<a
+							aria-label="Link para o Apple Music"
+							href={episode.apple}
+							class="text-2xl -translate-y-0.5 scale-105"><Apple /></a
+						>
 					</div>
 				</div>
 			</div>
@@ -337,12 +382,14 @@
 
 		<nav class="flex gap-10">
 			<button
+				aria-label="Página Anterior"
 				onclick={() => changePage(currentPage.value - 1)}
 				disabled={currentPage.value === 1}
 				class="disabled:opacity-30">Anterior</button
 			>
 			<span>Página {currentPage.value} de {totalPages}</span>
 			<button
+				aria-label="Próxima Página"
 				onclick={() => changePage(currentPage.value + 1)}
 				disabled={currentPage.value === totalPages}
 				class="disabled:opacity-30">Próxima</button
@@ -353,9 +400,13 @@
 	<div class="my-10 flex flex-col gap-10 justify-center items-center">
 		<h2 class="font-bold text-2xl text-center flex">Patrocinadores</h2>
 		<div class="flex gap-4 *:border-nejblack/10 *:border *:font-bold">
-			<a href="https://potencialpleno.com.br/" class="p-2 rounded-lg">Potencial Pleno</a>
-			<a href="https://movenegocios.com.br/" class="p-2 rounded-lg">Move Negócios</a>
-			<a href="https://ztxlabs.com/" class="p-2 rounded-lg">ZTX Labs</a>
+			<a aria-label="Potencial Pleno" href="https://potencialpleno.com.br/" class="p-2 rounded-lg"
+				>Potencial Pleno</a
+			>
+			<a aria-label="Move Negócios" href="https://movenegocios.com.br/" class="p-2 rounded-lg"
+				>Move Negócios</a
+			>
+			<a aria-label="ZTX Labs" href="https://ztxlabs.com/" class="p-2 rounded-lg">ZTX Labs</a>
 		</div>
 	</div>
 </div>
@@ -374,6 +425,7 @@
 		<div class="relative flex w-[1000px] h-[700px] bg-white rounded-xl">
 			YouTube Embed
 			<button
+				aria-label="Fechar modal"
 				onclick={() => {
 					playModal = false;
 				}}
