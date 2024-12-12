@@ -3,12 +3,12 @@
 	import podcastData from '$lib/data/podcasts.json';
 
 	import p2logo from '$lib/assets/empresas/p2.png';
-	import p2corlogo from '$lib/assets/nej/p2cor.png';
-	import movelogo from '$lib/assets/nej/move.png';
-	import movecorlogo from '$lib/assets/nej/movecor.png';
-	import ztxlogo from '$lib/assets/nej/ztx.png';
-	import heroNej from '$lib/assets/nej/hero.png';
-	import headerNej from '$lib/assets/nej/header.png';
+	import p2corlogo from '$lib/assets/nej/p2cor.webp';
+	import movelogo from '$lib/assets/nej/move.webp';
+	import movecorlogo from '$lib/assets/nej/movecor.webp';
+	import ztxlogo from '$lib/assets/nej/ztx.webp';
+	import heroNej from '$lib/assets/nej/hero.webp';
+	import headerNej from '$lib/assets/nej/header.webp';
 	import andre from '$lib/assets/nej/andre.jpg';
 
 	// @ts-ignore
@@ -342,10 +342,14 @@
 
 		{#each paginatedEpisodes as episode}
 			<div class="flex gap-4 justify-between w-full">
-				<button onclick={() => (playModal = true)} class="relative self-start group">
+				<button
+					aria-label="Assistir Episódio"
+					onclick={() => (playModal = true)}
+					class="relative self-start group"
+				>
 					<img
-						src={`/lib/assets/nej/thumbs/${episode.id}.png`}
-						alt=""
+						src={`/lib/assets/nej/thumbs/${episode.id}.webp`}
+						alt="Capa do Episódio"
 						class="h-[200px] w-[355px] transition-all group-hover:brightness-50 brightness-100 rounded-xl drop-shadow"
 						loading="lazy"
 					/>
