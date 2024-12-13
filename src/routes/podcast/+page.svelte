@@ -25,6 +25,7 @@
 	import Spotify from 'virtual:icons/mdi/spotify';
 	// @ts-ignore
 	import Play from 'virtual:icons/mdi/play';
+	import Podcast from '$lib/components/diferenciais/Podcast.svelte';
 
 	// PAGINATION
 	const itemsPerPage = 5;
@@ -76,6 +77,7 @@
 	}
 
 	let pixelRatio = $state(1);
+	let activeYTLink = $state('');
 	let playModal = $state(false);
 
 	/** @param {{ key: string; }} event */
@@ -126,8 +128,8 @@
 
 <header
 	class={atTop
-		? 'fixed z-40 text-nejblack rounded-b-3xl bg-nej py-4 transition-all top-0 left-0 w-full flex justify-center'
-		: 'fixed z-40 text-nejblack rounded-b-3xl py-4 bg-nej/50 transition-all backdrop-blur border-b border-black/5 drop-shadow top-0 left-0 w-full flex justify-center'}
+		? 'hidden fixed z-40 text-nejblack rounded-b-3xl bg-nej py-4 transition-all top-0 left-0 w-full xl:flex justify-center'
+		: 'hidden fixed z-40 text-nejblack rounded-b-3xl py-4 bg-nej/50 transition-all backdrop-blur border-b border-black/5 drop-shadow top-0 left-0 w-full xl:flex justify-center'}
 >
 	<div
 		class={pixelRatio > 1
@@ -176,11 +178,16 @@
 			</div>
 			<div class="flex gap-2">
 				<button
-					onclick={() => (playModal = true)}
+					onclick={() => {
+						activeYTLink = podcastData[0].youtube;
+						playModal = true;
+					}}
 					class="transition-all hover:bg-nejblack hover:text-nejwhite text-center rounded-2xl font-bold py-4 px-5 text-nejblack bg-nej"
 					>Assistir Agora</button
 				>
 				<a
+					aria-label="Lista de episódios"
+					onclick={scrollToSection(-150)}
 					href="#episodios"
 					class="transition-all hover:bg-nejblack hover:text-nejwhite font-bold border border-nejblack rounded-2xl py-4 px-5 text-center"
 					>Lista de episódios</a
@@ -323,7 +330,7 @@
 		id="episodios"
 		class={pixelRatio > 1
 			? 'flex flex-col items-center gap-10 w-[1000px]'
-			: 'flex flex-col items-center gap-10 w-[1200px]'}
+			: 'flex flex-col items-center gap-20 w-[1200px]'}
 	>
 		<label for="temporada-select" class="font-cofo text-6xl">Episódios</label>
 		<select
@@ -334,7 +341,7 @@
 			}}
 			name="temporada"
 			id="temporada-select"
-			class="bg-[#dfdfdf] font-bold p-4 rounded-xl border-none pr-10"
+			class="bg-[#dfdfdf] font-bold p-4 rounded-xl border-none pr-10 -my-10"
 		>
 			<option value={2}>Temporada 2</option>
 			<option value={1}>Temporada 1</option>
@@ -344,7 +351,10 @@
 			<div class="flex gap-4 justify-between w-full">
 				<button
 					aria-label="Assistir Episódio"
-					onclick={() => (playModal = true)}
+					onclick={() => {
+						activeYTLink = episode.youtube;
+						playModal = true;
+					}}
 					class="relative self-start group"
 				>
 					<img
@@ -362,9 +372,11 @@
 				<div class="flex flex-col justify-start gap-5 w-[810px] h-[250px]">
 					<h3 class="font-bold text-xl">{episode.title}</h3>
 					<p>{episode.desc}</p>
-					<div class="flex gap-2 *:border-nejblack">
-						<a aria-label="Link para o YouTube" href={episode.youtube} class="text-2xl scale-110"
-							><YouTube /></a
+					<div class="flex gap-3 *:border-nejblack">
+						<a
+							aria-label="Link para o YouTube"
+							href={`https://youtube.com/watch?v=${episode.youtube}`}
+							class="text-2xl scale-110"><YouTube /></a
 						>
 						<a aria-label="Link para o Spotify" href={episode.spotify} class="text-2xl"
 							><Spotify /></a
@@ -379,6 +391,8 @@
 							href={episode.apple}
 							class="text-2xl -translate-y-0.5 scale-105"><Apple /></a
 						>
+						<a aria-label="Link para o Deezer" href={episode.deezer} class="text-2xl"><Deezer /></a>
+						<a aria-label="Link para o Amazon" href={episode.amazon} class="text-2xl"><Amazon /></a>
 					</div>
 				</div>
 			</div>
@@ -426,14 +440,26 @@
 			}
 		}}
 	>
-		<div class="relative flex w-[1000px] h-[700px] bg-white rounded-xl">
-			YouTube Embed
+		<div
+			class="relative flex w-[1000px] h-[580px] bg-nejwhite rounded-xl justify-center items-center"
+		>
+			<iframe
+				width="950"
+				height="534"
+				src={`https://youtube.com/embed/${activeYTLink}`}
+				title="YouTube video player"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				referrerpolicy="strict-origin-when-cross-origin"
+				allowfullscreen
+			></iframe>
 			<button
 				aria-label="Fechar modal"
 				onclick={() => {
 					playModal = false;
 				}}
-				class="absolute right-4 top-4 rounded-full bg-[#dfdfdf] p-2 w-10 h-10">X</button
+				class="absolute right-0 -top-11 rounded-full bg-[#dfdfdf] p-2 w-8 h-8 flex items-center justify-center"
+				>X</button
 			>
 		</div>
 	</div>
