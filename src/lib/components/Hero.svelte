@@ -1,7 +1,7 @@
 <script>
 	import { inview } from 'svelte-inview';
 	// Imagens
-	import bpo from '$lib/assets/bpo.png';
+	import bpo from '$lib/assets/bpo.webp';
 	import timelapse from '$lib/assets/timelapse.webm';
 
 	let { pixelRatio, inviewOpt, numbersInView } = $props();

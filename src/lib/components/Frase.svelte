@@ -2,7 +2,7 @@
 	import { inview } from 'svelte-inview';
 	let { phraseInView, complicadoOpt } = $props();
 	import peaksSvg from '$lib/assets/peaks.svg';
-	import foguete from '$lib/assets/Foguete.png';
+	import foguete from '$lib/assets/foguete.webp';
 </script>
 
 <div class="overflow-hidden">

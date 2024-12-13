@@ -25,7 +25,6 @@
 	import Spotify from 'virtual:icons/mdi/spotify';
 	// @ts-ignore
 	import Play from 'virtual:icons/mdi/play';
-	import Podcast from '$lib/components/diferenciais/Podcast.svelte';
 
 	// PAGINATION
 	const itemsPerPage = 5;
@@ -376,41 +375,60 @@
 						<a
 							aria-label="Link para o YouTube"
 							href={`https://youtube.com/watch?v=${episode.youtube}`}
-							class="text-2xl scale-110"><YouTube /></a
+							target="_blank"
+							class="text-2xl scale-110 transition-colors hover:text-nej"><YouTube /></a
 						>
-						<a aria-label="Link para o Spotify" href={episode.spotify} class="text-2xl"
-							><Spotify /></a
+						<a
+							aria-label="Link para o Spotify"
+							href={episode.spotify}
+							target="_blank"
+							class="text-2xl transition-colors hover:text-nej"><Spotify /></a
 						>
 						<a
 							aria-label="Link para o YouTube Music"
 							href={episode.ytmusic}
-							class="text-2xl scale-90"><YouTubeMusic /></a
+							target="_blank"
+							class="text-2xl scale-90 transition-colors hover:text-nej"><YouTubeMusic /></a
 						>
 						<a
 							aria-label="Link para o Apple Music"
 							href={episode.apple}
-							class="text-2xl -translate-y-0.5 scale-105"><Apple /></a
+							target="_blank"
+							class="text-2xl -translate-y-0.5 scale-105 transition-colors hover:text-nej"
+							><Apple /></a
 						>
-						<a aria-label="Link para o Deezer" href={episode.deezer} class="text-2xl"><Deezer /></a>
-						<a aria-label="Link para o Amazon" href={episode.amazon} class="text-2xl"><Amazon /></a>
+						<a
+							aria-label="Link para o Deezer"
+							href={episode.deezer}
+							target="_blank"
+							class="text-2xl transition-colors hover:text-nej"><Deezer /></a
+						>
+						<a
+							aria-label="Link para o Amazon"
+							href={episode.amazon}
+							target="_blank"
+							class="text-2xl transition-colors hover:text-nej"><Amazon /></a
+						>
 					</div>
 				</div>
 			</div>
 		{/each}
 
-		<nav class="flex gap-10">
+		<nav class="flex gap-12">
 			<button
 				aria-label="Página Anterior"
 				onclick={() => changePage(currentPage.value - 1)}
 				disabled={currentPage.value === 1}
-				class="disabled:opacity-30">Anterior</button
+				class="disabled:opacity-30 relative after:absolute after:content-[''] after:w-0 after:hover:w-full after:h-0.5 after:transition-all after:bottom-0 after:left-0 after:bg-black"
+				>Anterior</button
 			>
-			<span>Página {currentPage.value} de {totalPages}</span>
+			<span>Página <b>{currentPage.value}</b> de <b>{totalPages}</b></span>
 			<button
 				aria-label="Próxima Página"
 				onclick={() => changePage(currentPage.value + 1)}
 				disabled={currentPage.value === totalPages}
-				class="disabled:opacity-30">Próxima</button
+				class="disabled:opacity-30 relative after:absolute after:content-[''] after:w-0 after:hover:w-full after:h-0.5 after:transition-all after:bottom-0 after:left-0 after:bg-black"
+				>Próxima</button
 			>
 		</nav>
 	</div>

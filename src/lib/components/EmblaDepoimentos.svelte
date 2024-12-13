@@ -11,9 +11,9 @@
 	import Depo6 from './depoimentos/Depo3.svelte';
 	import Depo7 from './depoimentos/Depo4.svelte';
 	import { onMount } from 'svelte';
-	import astronauta from '$lib/assets/Astronauta.png';
-	import foguete from '$lib/assets/Foguete.png';
-	import planeta from '$lib/assets/Planeta.png';
+	import astronauta from '$lib/assets/astronauta.webp';
+	import foguete from '$lib/assets/foguete.webp';
+	import planeta from '$lib/assets/planeta.webp';
 
 	let isFirefox = $state(false);
 	let options = { loop: true };

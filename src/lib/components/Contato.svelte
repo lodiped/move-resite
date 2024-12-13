@@ -1,5 +1,5 @@
 <script>
-	import planeta from '$lib/assets/Planeta.png';
+	import planeta from '$lib/assets/planeta.webp';
 
 	// @ts-ignore
 	import Email from 'virtual:icons/mdi/email';

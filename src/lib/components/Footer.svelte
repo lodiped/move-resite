@@ -1,5 +1,5 @@
 <script>
-	import moveIcon from '$lib/assets/move-icon.png';
+	import moveIcon from '$lib/assets/move-icon.webp';
 	// @ts-ignore
 	import Facebook from 'virtual:icons/mdi/facebook';
 	// @ts-ignore

@@ -1,7 +1,7 @@
 <script>
-	import foguetesmoke from '$lib/assets/Foguete Fumaça.png';
-	import cafe from '$lib/assets/Café.png';
-	import moveIcon from '$lib/assets/move-icon.png';
+	import foguetesmoke from '$lib/assets/foguete-fumaca.webp';
+	import cafe from '$lib/assets/cafe.webp';
+	import moveIcon from '$lib/assets/move-icon.webp';
 
 	// @ts-ignore
 	import Handshake from 'virtual:icons/mdi/handshake';
