@@ -111,6 +111,7 @@
 
 <svelte:head>
 	<title>Negócio Em Jogo Podcast&reg;</title>
+	<link rel="shortcut icon" href="/lib/assets/nej/favicon.ico" type="image/x-icon" />
 	<meta
 		name="description"
 		content="O Podcast feito pra você empresário e empresária que todo dia arrisca a pele por acreditar em um sonho, o sonho de ter um negócio de sucesso."
@@ -160,11 +161,11 @@
 >
 	<div
 		class={pixelRatio > 1
-			? 'xl:w-[1000px] xl:px-0 px-4 w-full xl:gap-14 gap-4 xl:h-[550px] xl:mt-20 mb-40 flex justify-center xl:flex-row flex-col-reverse xl:items-stretch items-center'
+			? 'xl:w-[1000px] xl:px-0 px-4 w-full xl:gap-14 gap-4 xl:h-[550px] xl:mt-20 xl:mb-40 flex justify-center xl:flex-row flex-col-reverse xl:items-stretch items-center'
 			: 'xl:w-[1200px] xl:px-0 px-4 w-full xl:gap-14 gap-4 text-lg xl:h-[550px] xl:my-40 flex justify-center xl:flex-row flex-col-reverse xl:items-stretch items-center'}
 	>
 		<div class="xl:w-1/2 w-full xl:mb-0 flex xl:gap-0 gap-10 flex-col justify-between">
-			<div></div>
+			<div class="xl:block hidden"></div>
 			<div>
 				<p class="xl:text-7xl xl:text-start text-center text-6xl font-cofo">
 					O podcast feito pra você <span class="text-nej">empresário</span> e
@@ -181,12 +182,12 @@
 						activeYTLink = podcastData[0].youtube;
 						playModal = true;
 					}}
-					class="transition-all hidden xl:block hover:bg-nejblack hover:text-nejwhite text-center xl:rounded-2xl rounded-xl font-bold py-4 px-5 text-nejblack bg-nej xl:text-base text-sm"
+					class="transition-all hidden xl:flex hover:bg-nejblack hover:text-nejwhite text-center xl:rounded-2xl rounded-xl font-bold py-4 px-5 text-nejblack bg-nej xl:text-base text-sm justify-center items-center"
 					>Assistir Agora</button
 				>
 				<a
 					href={`https://youtube.com/watch?v=${podcastData[0].youtube}`}
-					class="transition-all xl:hidden hover:bg-nejblack hover:text-nejwhite text-center xl:rounded-2xl rounded-xl font-bold py-4 px-5 text-nejblack bg-nej xl:text-base text-sm"
+					class="transition-all xl:hidden hover:bg-nejblack hover:text-nejwhite text-center xl:rounded-2xl rounded-xl font-bold py-4 px-5 text-nejblack bg-nej xl:text-base text-sm flex items-center justify-center"
 					>Assistir Agora</a
 				>
 				<a
@@ -252,7 +253,7 @@
 		</div>
 	</div>
 
-	<div class="flex flex-col gap-20 mb-40 mt-20">
+	<div class="flex flex-col gap-20 xl:mb-40 mt-20">
 		<h2 class="font-cofo text-6xl text-center">Nossos Patrocinadores</h2>
 		<div
 			class={pixelRatio > 1
@@ -336,7 +337,7 @@
 	<div
 		id="episodios"
 		class={pixelRatio > 1
-			? 'flex flex-col items-center gap-10 xl:w-[1000px] xl:px-0 px-4'
+			? 'flex flex-col items-center gap-16 xl:w-[1000px] xl:px-0 px-4'
 			: 'flex flex-col items-center gap-20 xl:w-[1200px] xl:px-0 px-4'}
 	>
 		<label for="temporada-select" class="font-cofo text-6xl">Episódios</label>

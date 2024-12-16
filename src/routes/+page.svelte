@@ -104,6 +104,7 @@
 
 <svelte:head>
 	<title>Move Negócios</title>
+	<link rel="icon" href="favicon.png" type="image/png" />
 	<meta
 		name="description"
 		content="Solução contábil e gestão financeira para descomplicar a sua rotina, auxiliando no desenvolvimento estratégico da sua empresa."
