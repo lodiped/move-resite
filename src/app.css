@@ -9,10 +9,10 @@
 
 @layer base {
 	@font-face {
-		font-family: 'Grifter Bold';
+		font-family: 'Grifter Bold', sans-serif;
 		src: url('/fonts/grifterbold.otf');
 		font-weight: bold;
-		font-display: swap;
+		font-display: optional;
 	}
 	body {
 		@apply -z-50 bg-[#151515];
