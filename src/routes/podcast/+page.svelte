@@ -160,41 +160,46 @@
 >
 	<div
 		class={pixelRatio > 1
-			? 'w-[1000px] gap-14 h-[550px] mt-20 mb-40 flex justify-center'
-			: 'w-[1200px] gap-14 text-lg h-[550px] my-40 flex justify-center'}
+			? 'xl:w-[1000px] xl:px-0 px-4 w-full xl:gap-14 gap-4 xl:h-[550px] xl:mt-20 mb-40 flex justify-center xl:flex-row flex-col-reverse xl:items-stretch items-center'
+			: 'xl:w-[1200px] xl:px-0 px-4 w-full xl:gap-14 gap-4 text-lg xl:h-[550px] xl:my-40 flex justify-center xl:flex-row flex-col-reverse xl:items-stretch items-center'}
 	>
-		<div class="w-1/2 flex flex-col justify-between">
+		<div class="xl:w-1/2 w-full xl:mb-0 flex xl:gap-0 gap-10 flex-col justify-between">
 			<div></div>
 			<div>
-				<p class="text-7xl font-cofo">
+				<p class="xl:text-7xl xl:text-start text-center text-6xl font-cofo">
 					O podcast feito pra você <span class="text-nej">empresário</span> e
 					<span class="text-nej">empresária</span>
 				</p>
-				<p class="text-2xl">
+				<p class="xl:text-2xl xl:text-start text-center text-xl">
 					que todo dia arrisca a pele por acreditar em um sonho, o sonho de ter um negócio de
 					sucesso.
 				</p>
 			</div>
-			<div class="flex gap-2">
+			<div class="flex xl:gap-2 gap-4 xl:justify-start justify-between *:w-full xl:*:w-auto">
 				<button
 					onclick={() => {
 						activeYTLink = podcastData[0].youtube;
 						playModal = true;
 					}}
-					class="transition-all hover:bg-nejblack hover:text-nejwhite text-center rounded-2xl font-bold py-4 px-5 text-nejblack bg-nej"
+					class="transition-all hidden xl:block hover:bg-nejblack hover:text-nejwhite text-center xl:rounded-2xl rounded-xl font-bold py-4 px-5 text-nejblack bg-nej xl:text-base text-sm"
 					>Assistir Agora</button
+				>
+				<a
+					href={`https://youtube.com/watch?v=${podcastData[0].youtube}`}
+					class="transition-all xl:hidden hover:bg-nejblack hover:text-nejwhite text-center xl:rounded-2xl rounded-xl font-bold py-4 px-5 text-nejblack bg-nej xl:text-base text-sm"
+					>Assistir Agora</a
 				>
 				<a
 					aria-label="Lista de episódios"
 					onclick={scrollToSection(-150)}
 					href="#episodios"
-					class="transition-all hover:bg-nejblack hover:text-nejwhite font-bold border border-nejblack rounded-2xl py-4 px-5 text-center"
+					class="transition-all hover:bg-nejblack hover:text-nejwhite font-bold border border-nejblack xl:rounded-2xl rounded-xl py-4 px-5 text-center xl:text-base text-sm"
 					>Lista de episódios</a
 				>
 			</div>
 			<div class="flex flex-col gap-1">
 				<p class="text-base">Disponível em:</p>
-				<div class="flex gap-4 text-4xl">
+				<div class="flex gap-4 text-4xl xl:justify-start justify-between">
 					<a
 						aria-label="Canal no YouTube"
 						class="transition-all hover:text-nej scale-110"
@@ -239,7 +244,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="w-1/2 rounded-lg flex justify-center items-center">
+		<div class="xl:w-1/2 w-full flex justify-center items-center">
 			<img
 				src={heroNej}
 				alt="Uma núvem de imagens e frases com o Logo do Negócio Em Jogo Podcast no meio. Foto do host André Castro e da Carol Costa. Termos temáticos do podcast: Família, Saúde, Fé, Empreendedorismo, Liderança, Cultura organizacional, Gestão"
@@ -251,45 +256,48 @@
 		<h2 class="font-cofo text-6xl text-center">Nossos Patrocinadores</h2>
 		<div
 			class={pixelRatio > 1
-				? 'flex w-[1000px] justify-around items-center'
-				: 'flex w-[1200px] justify-around items-center'}
+				? 'flex xl:w-[1000px] xl:flex-row flex-col justify-around items-center'
+				: 'flex xl:w-[1200px] xl:flex-row flex-col justify-around items-center'}
 		>
 			<a
 				aria-label="Move Negócios"
 				href="https://movenegocios.com.br/"
 				class={pixelRatio > 1
-					? 'relative w-[200px] group flex items-center'
-					: 'relative w-[300px] group flex items-center'}
+					? 'relative xl:w-[200px] w-2/3 h-[200px] xl:h-auto group flex items-center'
+					: 'relative xl:w-[300px] w-2/3 h-[200px] xl:h-auto group flex items-center'}
 				><img
 					src={movelogo}
 					alt=""
-					class="w-[300px] opacity-80 group-hover:opacity-0 transition-opacity absolute"
+					class="xl:w-[300px] opacity-80 group-hover:opacity-0 transition-opacity absolute"
 				/>
 				<img
 					src={movecorlogo}
 					alt=""
-					class="w-[300px] absolute opacity-0 group-hover:opacity-100 group-hover:drop-shadow-[0_2px_0.2rem_rgba(0,0,0,0.3)] transition-opacity"
+					class="xl:w-[300px] absolute opacity-0 group-hover:opacity-100 group-hover:drop-shadow-[0_2px_0.2rem_rgba(0,0,0,0.3)] transition-opacity"
 				/>
 			</a>
 			<a
 				aria-label="Potencial Pleno - Escola de Resultados"
 				href="https://potencialpleno.com.br/"
 				class={pixelRatio > 1
-					? 'relative w-[200px] group flex items-center'
-					: 'relative w-[300px] group flex items-center'}
+					? 'relative xl:w-[200px] w-2/3 h-[200px] xl:h-auto group flex items-center'
+					: 'relative xl:w-[300px] w-2/3 h-[200px] xl:h-auto group flex items-center'}
 				><img
 					src={p2logo}
 					alt=""
-					class="w-[300px] opacity-80 group-hover:opacity-0 transition-opacity absolute"
+					class="xl:w-[300px] opacity-80 group-hover:opacity-0 transition-opacity absolute"
 				/>
 				<img
 					src={p2corlogo}
 					alt=""
-					class="w-[300px] absolute opacity-0 group-hover:opacity-100 transition-opacity"
+					class="xl:w-[300px] absolute opacity-0 group-hover:opacity-100 transition-opacity"
 				/>
 			</a>
-			<a aria-label="ZTX Labs" href="https://ztxlabs.com.br/"
-				><img src={ztxlogo} alt="" class={pixelRatio > 1 ? 'w-[200px]' : 'w-[300px]'} /></a
+			<a
+				aria-label="ZTX Labs"
+				href="https://ztxlabs.com.br/"
+				class="flex justify-center items-center xl:h-auto h-[200px]"
+				><img src={ztxlogo} alt="" class={pixelRatio > 1 ? 'w-[200px]' : 'xl:w-[300px] w-2/3'} /></a
 			>
 		</div>
 	</div>
@@ -297,13 +305,13 @@
 	<div
 		id="sobre"
 		class={pixelRatio > 1
-			? 'w-[1000px] my-20 flex flex-col gap-20 justify-center items-between'
-			: 'w-[1200px] my-20 flex flex-col gap-20 justify-center items-between'}
+			? 'xl:w-[1000px] my-20 flex flex-col gap-20 justify-center items-between xl:px-0 px-4'
+			: 'xl:w-[1200px] my-20 flex flex-col gap-20 justify-center items-between xl:px-0 px-4'}
 	>
 		<h2 class="font-cofo text-6xl text-center">Conheça os Hosts</h2>
-		<div class="flex gap-5">
+		<div class="flex gap-5 xl:flex-row flex-col">
 			<img src={andre} alt="André Castro" class="drop-shadow rounded-2xl w-[300px] h-[300px]" />
-			<div class="flex flex-col w-[600px] gap-2">
+			<div class="flex flex-col xl:w-[600px] gap-2">
 				<h3 class="text-2xl font-bold">André Castro</h3>
 				<p>
 					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae quas, consequuntur quia ea
@@ -312,8 +320,8 @@
 				</p>
 			</div>
 		</div>
-		<div class="flex gap-5 justify-end">
-			<div class="flex flex-col w-[600px] gap-2 text-right">
+		<div class="flex gap-5 items-end xl:items-start xl:justify-end xl:flex-row flex-col-reverse">
+			<div class="flex flex-col xl:w-[600px] gap-2 text-right">
 				<h3 class="font-bold text-2xl">Carol Costa</h3>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus fugit consequatur, earum
@@ -328,8 +336,8 @@
 	<div
 		id="episodios"
 		class={pixelRatio > 1
-			? 'flex flex-col items-center gap-10 w-[1000px]'
-			: 'flex flex-col items-center gap-20 w-[1200px]'}
+			? 'flex flex-col items-center gap-10 xl:w-[1000px] xl:px-0 px-4'
+			: 'flex flex-col items-center gap-20 xl:w-[1200px] xl:px-0 px-4'}
 	>
 		<label for="temporada-select" class="font-cofo text-6xl">Episódios</label>
 		<select
@@ -347,7 +355,7 @@
 		</select>
 
 		{#each paginatedEpisodes as episode}
-			<div class="flex gap-4 justify-between w-full">
+			<div class="flex xl:flex-row flex-col gap-4 justify-between w-full">
 				<button
 					aria-label="Assistir Episódio"
 					onclick={() => {
@@ -359,7 +367,7 @@
 					<img
 						src={`/lib/assets/nej/thumbs/${episode.id}.webp`}
 						alt="Capa do Episódio"
-						class="h-[200px] w-[355px] transition-all group-hover:brightness-50 brightness-100 rounded-xl drop-shadow"
+						class="xl:h-[200px] xl:w-[355px] transition-all group-hover:brightness-50 brightness-100 rounded-xl drop-shadow"
 						loading="lazy"
 					/>
 					<div
@@ -368,7 +376,7 @@
 						<Play />
 					</div>
 				</button>
-				<div class="flex flex-col justify-start gap-5 w-[810px] h-[250px]">
+				<div class="flex flex-col justify-start gap-5 xl:w-[810px] xl:h-[250px]">
 					<h3 class="font-bold text-xl">{episode.title}</h3>
 					<p>{episode.desc}</p>
 					<div class="flex gap-3 *:border-nejblack">
