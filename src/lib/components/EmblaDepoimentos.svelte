@@ -15,6 +15,8 @@
 	import foguete from '$lib/assets/foguete.webp';
 	import planeta from '$lib/assets/planeta.webp';
 
+	const [] = $props();
+
 	let isFirefox = $state(false);
 	let options = { loop: true };
 	let plugins = [Autoplay({ stopOnMouseEnter: true, stopOnInteraction: false })];

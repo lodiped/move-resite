@@ -5,7 +5,6 @@ import amandafoto from '$lib/assets/colaboradores/Amanda.webp';
 import andreusfoto from '$lib/assets/colaboradores/Andreus.webp';
 import cassiafoto from '$lib/assets/colaboradores/Cassia.webp';
 import betefoto from '$lib/assets/colaboradores/Bete.webp';
-import danielefoto from '$lib/assets/colaboradores/Daniele.webp';
 import ewertonfoto from '$lib/assets/colaboradores/Ewerton.webp';
 import fernandofoto from '$lib/assets/colaboradores/Fernandinho.webp';
 import ketelinfoto from '$lib/assets/colaboradores/Ketelin.webp';
@@ -17,10 +16,8 @@ import nunesfoto from '$lib/assets/colaboradores/Jessica.webp';
 import phelipefoto from '$lib/assets/colaboradores/Phelipe.webp';
 import rafaelfoto from '$lib/assets/colaboradores/Rafael.webp';
 import robersonfoto from '$lib/assets/colaboradores/Roberson.webp';
-import sabrinafoto from '$lib/assets/colaboradores/Sabrina.webp';
 import tamirisfoto from '$lib/assets/colaboradores/Tamiris.webp';
 import thiagofoto from '$lib/assets/colaboradores/Thiago.webp';
-import tochafoto from '$lib/assets/colaboradores/Tocha.webp';
 import zeufoto from '$lib/assets/colaboradores/Eliseu.webp';
 import pedrofoto from '$lib/assets/colaboradores/Pedro.webp';
 import andrefoto from '$lib/assets/colaboradores/Andre.webp';
@@ -32,7 +29,6 @@ export const colaboradoresimg = [
 	andreusfoto,
 	betefoto,
 	cassiafoto,
-	danielefoto,
 	fernandofoto,
 	ewertonfoto,
 	ketelinfoto,
@@ -45,10 +41,8 @@ export const colaboradoresimg = [
 	phelipefoto,
 	rafaelfoto,
 	robersonfoto,
-	sabrinafoto,
 	tamirisfoto,
 	thiagofoto,
-	tochafoto,
 	zeufoto,
 	andrefoto,
 	valdifoto

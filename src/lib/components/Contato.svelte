@@ -21,17 +21,20 @@
 			<h1 class="grifter-title text-3xl lg:text-4xl">Fale com o nosso time!</h1>
 		</div>
 		<div class="flex flex-col gap-8">
-			<button
+			<a
+				href="https://wa.me/5541998163983"
 				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
-				><WhatsApp class=" scale-125" />WhatsApp</button
+				><WhatsApp class=" scale-125" />WhatsApp</a
 			>
-			<button
+			<a
+				href="mailto:contato@movenegocios.com.br"
 				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
-				><Email class=" scale-125" />Email</button
+				><Email class=" scale-125" />Email</a
 			>
-			<button
+			<a
+				href="tel:4130784210"
 				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
-				><Phone class=" scale-125" />Telefone</button
+				><Phone class=" scale-125" />Telefone</a
 			>
 		</div>
 	</div>
