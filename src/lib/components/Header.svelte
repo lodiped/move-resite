@@ -5,13 +5,15 @@
 	// @ts-ignore
 	import BigX from 'virtual:icons/mdi/close';
 
-	let { mobileMenu, atTop, mobileDrop = $bindable(), scrollToSection, menu } = $props();
+	let { mobileMenu, atTop, mobileDrop = $bindable(), scrollToSection, menu, avgFPS } = $props();
 </script>
 
 <header
 	class={atTop && !mobileDrop
 		? 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 transition-all duration-700 z-50 border-move/5'
-		: 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 drop-shadow-lg shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/20 z-50 transition-all duration-700 backdrop-blur-md border-b border-move/10'}
+		: avgFPS < 24
+			? 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/70 z-50 transition-all duration-700 border-b border-move/10'
+			: 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 drop-shadow-lg shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/20 z-50 transition-all duration-700 backdrop-blur-md border-b border-move/10'}
 >
 	<div class="flex justify-between w-full" bind:this={menu}>
 		<div>
@@ -38,7 +40,7 @@
 			</a>
 			<a
 				aria-label="Podcast"
-				href="/podcast"
+				href="https://negocioemjogo.movenegocios.com.br/"
 				class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
 			>
 				Podcast

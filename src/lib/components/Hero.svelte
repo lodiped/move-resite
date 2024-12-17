@@ -4,7 +4,7 @@
 	import bpo from '$lib/assets/bpo.webp';
 	import timelapse from '$lib/assets/timelapse.webm';
 
-	let { pixelRatio, inviewOpt, numbersInView } = $props();
+	let { pixelRatio, inviewOpt, numbersInView, avgFPS } = $props();
 
 	// Efeito de aumento dos números
 	let clientes = $state(0),
@@ -75,8 +75,8 @@
 	<div class="flex h-2/3 justify-center z-10">
 		<p
 			class={pixelRatio > 1
-				? 'text-4xl lg:text-6xl font-bold font-grifter drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] w-fit uppercase text-center leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text'
-				: 'text-4xl lg:text-7xl font-bold font-grifter drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] w-fit uppercase text-center leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text'}
+				? 'text-4xl lg:text-6xl font-bold font-grifter w-fit uppercase text-center leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text'
+				: 'text-4xl lg:text-7xl font-bold font-grifter w-fit uppercase text-center leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text'}
 		>
 			Saia do amadorismo
 		</p>
@@ -119,7 +119,7 @@
 		<a
 			aria-label="Clique para falar com o nosso time"
 			href="/"
-			class="button-before group relative p-4 rounded-xl text-md lg:text-xl shadow-xl font-bold w-fit hover:bg-yellow-400/90 bg-move text-black transition-all"
+			class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.2)] group relative p-4 rounded-xl text-md lg:text-xl shadow-xl font-bold w-fit hover:bg-yellow-400/90 bg-move text-black transition-all"
 		>
 			<span class="uppercase"> Fazer um diagnóstico da sua empresa </span>
 		</a>
@@ -130,7 +130,9 @@
 		muted
 		loop
 		playsinline
-		class="absolute touch-none pointer-events-none -z-0 lg:bottom-1/4 2xl:translate-y-60 xl:translate-y-20 lg:top-auto top-0 opacity-40 blur-[3px] w-full"
+		class={avgFPS < 24
+			? 'hidden'
+			: 'absolute touch-none pointer-events-none -z-0 lg:bottom-1/4 2xl:translate-y-60 xl:translate-y-20 lg:top-auto top-0 opacity-40 blur-[3px] w-full'}
 	>
 		<source src={timelapse} type="video/webm" />
 	</video>

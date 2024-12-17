@@ -61,7 +61,7 @@
 <div id="servicos" class="flex px-10 lg:px-20 py-40 justify-center lg:items-start">
 	<div class="flex lg:gap-10 gap-40 lg:flex-row flex-col">
 		<div class="flex z-10 flex-col items-center justify-between gap-12 max-w-[500px]">
-			<h2 class="grifter-title text-3xl md:text-4xl text-center">
+			<h2 class="grifter-title relative text-3xl md:text-4xl text-center">
 				Soluções Contábeis
 				<span
 					class="absolute md:text-3xl text-2xl font-bold font-grifter text-move bottom-3 left-24 translate-x-2.5 -translate-y-0.5"
@@ -72,7 +72,7 @@
 			<Contabil />
 			<button
 				aria-label="Saiba mais sobre o serviço de Gestão Contábil"
-				class="button-before group border border-move/30 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 backdrop-blur-xl bg-yellow-600/70 text-move transition-all"
+				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] group border border-move/30 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 bg-yellow-600/70 text-move transition-all"
 				onclick={() => {
 					contabilOpen = !contabilOpen;
 				}}
@@ -87,7 +87,7 @@
 			<Financeira />
 			<button
 				aria-label="Saiba mais sobre o serviço de Gestão Financeira"
-				class="button-before group border border-move/30 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 backdrop-blur-xl bg-yellow-600/70 text-move transition-all"
+				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] group border border-move/30 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 bg-yellow-600/70 text-move transition-all"
 				onclick={() => {
 					gestaoOpen = !gestaoOpen;
 				}}

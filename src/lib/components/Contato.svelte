@@ -22,15 +22,15 @@
 		</div>
 		<div class="flex flex-col gap-8">
 			<button
-				class="button-before flex text-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-700/90 transition-all bg-yellow-700/70 border border-move/10 backdrop-blur"
+				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
 				><WhatsApp class=" scale-125" />WhatsApp</button
 			>
 			<button
-				class="button-before flex text-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-700/90 transition-all bg-yellow-700/70 border border-move/10 backdrop-blur"
+				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
 				><Email class=" scale-125" />Email</button
 			>
 			<button
-				class="button-before flex text-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-700/90 transition-all bg-yellow-700/70 border border-move/10 backdrop-blur"
+				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
 				><Phone class=" scale-125" />Telefone</button
 			>
 		</div>

@@ -311,7 +311,7 @@
 	>
 		<h2 class="font-cofo text-6xl text-center">Conheça os Hosts</h2>
 		<div class="flex gap-5 xl:flex-row flex-col">
-			<img src={andre} alt="André Castro" class="drop-shadow rounded-2xl w-[300px] h-[300px]" />
+			<img src={andre} alt="André Castro" class="drop-shadow rounded-full w-[300px] h-[300px]" />
 			<div class="flex flex-col xl:w-[600px] gap-2">
 				<h3 class="text-2xl font-bold">André Castro</h3>
 				<p>

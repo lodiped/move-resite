@@ -87,7 +87,30 @@
 		contabilOpen = false;
 	}
 
+	//FPS Counter
+	let avgFPS = $state(60);
+	let frameCount = $state(0);
+	let startTime = $state(0);
+	let hasMeasuredFPS = $state(false);
+
+	function measureFPS(timestamp) {
+		if (!startTime) startTime = timestamp;
+		frameCount++;
+		const elapsedTime = timestamp - startTime;
+
+		if (elapsedTime >= 2000 && !hasMeasuredFPS) {
+			avgFPS = frameCount / (elapsedTime / 1000);
+			console.log(`Average FPS: ${avgFPS.toFixed(2)}`);
+			hasMeasuredFPS = true;
+			return;
+		}
+		if (!hasMeasuredFPS) {
+			requestAnimationFrame(measureFPS);
+		}
+	}
+
 	onMount(() => {
+		requestAnimationFrame(measureFPS);
 		handleScroll();
 		pixelRatio = window.devicePixelRatio;
 		console.log('Pixel Ratio: ' + window.devicePixelRatio);
@@ -119,9 +142,9 @@
 	<meta property="og:type" content="website" />
 </svelte:head>
 
-<Header {menu} {atTop} {mobileMenu} {scrollToSection} bind:mobileDrop />
+<Header {menu} {atTop} {avgFPS} {mobileMenu} {scrollToSection} bind:mobileDrop />
 
-<Hero {numbersInView} {inviewOpt} {pixelRatio} />
+<Hero {numbersInView} {inviewOpt} {pixelRatio} {avgFPS} />
 
 <Servicos bind:gestaoOpen bind:contabilOpen />
 
