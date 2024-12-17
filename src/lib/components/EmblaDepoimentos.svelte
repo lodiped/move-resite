@@ -15,7 +15,7 @@
 	import foguete from '$lib/assets/foguete.webp';
 	import planeta from '$lib/assets/planeta.webp';
 
-	const [] = $props();
+	//const [] = $props();
 
 	let isFirefox = $state(false);
 	let options = { loop: true };
