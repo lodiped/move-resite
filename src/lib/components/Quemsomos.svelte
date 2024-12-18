@@ -131,6 +131,6 @@
 	</div>
 </div>
 
-<div class="-mb-60">
+<div class="-mb-60 2xl:-mb-80">
 	<img src={peaksSvg} alt="" class="w-full rotate-180 scale-y-50 -translate-y-[calc(25%+2px)]" />
 </div>

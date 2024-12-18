@@ -6,7 +6,11 @@
 </script>
 
 <div class="overflow-hidden">
-	<img src={peaksSvg} alt="" class="w-full scale-y-50 translate-y-[calc(25%+2px)] -z-10" />
+	<img
+		src={peaksSvg}
+		alt=""
+		class="w-full 2xl:-mt-24 scale-y-50 translate-y-[calc(25%+2px)] -z-10"
+	/>
 	<div
 		use:inview={complicadoOpt}
 		oninview_enter={() => {
