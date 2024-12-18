@@ -1,7 +1,6 @@
 <script>
 	import foguetesmoke from '$lib/assets/foguete-fumaca.webp';
 	import cafe from '$lib/assets/cafe.webp';
-	import moveIcon from '$lib/assets/move-icon.webp';
 
 	// @ts-ignore
 	import Handshake from 'virtual:icons/mdi/handshake';
@@ -27,15 +26,7 @@
 	<div class="absolute md:hidden w-full h-full flex justify-end items-start">
 		<img src={cafe} alt="" class="opacity-30 w-1/3" />
 	</div>
-	<div class="absolute h-full flex flex-col items-center justify-center">
-		<img
-			loading="lazy"
-			src={moveIcon}
-			alt="Logo Move Negócios"
-			class=" scale-[200%] translate-x-3 -translate-y-9 opacity-20 hidden"
-		/>
-	</div>
-	<div class="">
+	<div>
 		<h2 class="grifter-title">Diferenciais</h2>
 	</div>
 	<div class="flex lg:flex-row flex-col gap-12 justify-center">
