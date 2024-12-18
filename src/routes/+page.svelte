@@ -152,13 +152,13 @@
 
 <Quemsomos {timelineOpt} {timelineInView} />
 
-<Diferenciais />
+<Diferenciais {avgFPS} />
 
 <EmblaColaboradores />
 
-<EmblaDepoimentos />
+<EmblaDepoimentos {avgFPS} />
 
-<Donos />
+<Donos {avgFPS} />
 
 <Contato />
 

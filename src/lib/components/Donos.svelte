@@ -1,6 +1,8 @@
 <script>
 	import AndreCastro from './AndreCastro.svelte';
 	import ValdineiSilva from './ValdineiSilva.svelte';
+
+	let { avgFPS } = $props();
 </script>
 
 <div
@@ -20,7 +22,9 @@
 				<p class="text-white">Cofundador e CEO</p>
 			</div>
 			<div
-				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[400px] border-move/10 lg:-right-[130px] -right-[80px] rounded-xl lg:-bottom-[150px] -bottom-[290px] backdrop-blur-xl lg:w-[80%] w-[320px] bg-yellow-200/5"
+				class={avgFPS < 24
+					? 'absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[400px] border-move/10 lg:-right-[130px] -right-[80px] rounded-xl lg:-bottom-[150px] -bottom-[290px] lg:w-[80%] w-[320px] bg-black/70'
+					: 'absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[400px] border-move/10 lg:-right-[130px] -right-[80px] rounded-xl lg:-bottom-[150px] -bottom-[290px] backdrop-blur-xl lg:w-[80%] w-[320px] bg-yellow-200/5'}
 			>
 				<AndreCastro />
 			</div>
@@ -40,7 +44,9 @@
 				<p class="text-white">Cofundador e COO</p>
 			</div>
 			<div
-				class="absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[400px] lg:h-[380px] border-move/10 lg:-right-[130px] -right-[80px] rounded-xl lg:-bottom-[150px] -bottom-[290px] backdrop-blur-xl lg:w-[80%] w-[320px] bg-yellow-200/5"
+				class={avgFPS < 24
+					? 'absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[400px] border-move/10 lg:-right-[130px] -right-[80px] rounded-xl lg:-bottom-[150px] -bottom-[290px] lg:w-[80%] w-[320px] bg-black/70'
+					: 'absolute flex items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[400px] border-move/10 lg:-right-[130px] -right-[80px] rounded-xl lg:-bottom-[150px] -bottom-[290px] backdrop-blur-xl lg:w-[80%] w-[320px] bg-yellow-200/5'}
 			>
 				<ValdineiSilva />
 			</div>

@@ -10,14 +10,12 @@
 	import Depo5 from './depoimentos/Depo1.svelte';
 	import Depo6 from './depoimentos/Depo3.svelte';
 	import Depo7 from './depoimentos/Depo4.svelte';
-	import { onMount } from 'svelte';
 	import astronauta from '$lib/assets/astronauta.webp';
 	import foguete from '$lib/assets/foguete.webp';
 	import planeta from '$lib/assets/planeta.webp';
 
-	//const [] = $props();
+	let { avgFPS } = $props();
 
-	let isFirefox = $state(false);
 	let options = { loop: true };
 	let plugins = [Autoplay({ stopOnMouseEnter: true, stopOnInteraction: false })];
 	let emblaApi;
@@ -28,11 +26,6 @@
 		emblaApi = event.detail;
 		emblaApi.plugins().autoplay.play();
 	}
-
-	onMount(() => {
-		isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
-		console.log(navigator.userAgent);
-	});
 </script>
 
 <div class="py-20 flex flex-col gap-12 relative">
@@ -64,7 +57,7 @@
 				<div class="lg:flex-[0_0_500px] flex-[0_0_350px] mr-[20%] lg:mr-[15%] min-w-0">
 					<div class="w-full">
 						<div
-							class={isFirefox
+							class={avgFPS < 24
 								? 'flex justify-center items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-fit border-move/10 backdrop-blur-xl rounded-xl bg-yellow-200/5 w-[350px] lg:w-[500px]'
 								: 'h-[500px] flex justify-center items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border border-move/10 rounded-xl backdrop-blur-md bg-yellow-200/5 w-[500px] '}
 						>

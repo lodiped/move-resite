@@ -32,10 +32,10 @@
 			timelineInView = false;
 		}}
 		class={timelineInView
-			? 'flex flex-col gap-10 pt-60 pb-40 group inview'
-			: 'flex flex-col gap-10 pt-60 pb-40'}
+			? 'flex flex-col gap-10 2xl:pt-60 translate-y-12 2xl:pb-40 group inview'
+			: 'flex flex-col gap-10 2xl:pt-60 translate-y-12 2xl:pb-40'}
 	>
-		<div class="relative flex items-center mx-40 text-sm">
+		<div class="relative 2xl:flex items-center mx-40 text-sm hidden">
 			<div class="w-full rounded-full h-[200px] absolute blur-3xl"></div>
 			<div class="w-full bg-black h-1 z-10"></div>
 			<div class="rounded-full absolute bg-black left-0 z-20 border-4 border-move w-5 h-5"></div>

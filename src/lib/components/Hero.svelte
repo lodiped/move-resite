@@ -76,7 +76,7 @@
 		<p
 			class={pixelRatio > 1
 				? 'text-4xl lg:text-6xl font-bold font-grifter w-fit uppercase text-center leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text'
-				: 'text-4xl lg:text-7xl font-bold font-grifter w-fit uppercase text-center leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text'}
+				: 'drop-shadow-xl text-4xl lg:text-7xl font-bold font-grifter w-fit uppercase text-center leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text'}
 		>
 			Saia do amadorismo
 		</p>
