@@ -1,7 +1,5 @@
-<div class="relative">
-	<p
-		class="text-justify text-sm lg:text-md before:content-['\201C'] before:absolute before:bottom-32 before:left-0 before:font-serif before:text-[15rem] before:-z-10 z-20 before:text-move/30 after:content-['\201D'] after:top-44 after:right-0 after:font-serif after:text-[15rem] after:absolute after:-z-10 after:text-move/30"
-	>
+<div>
+	<p class="text-justify text-sm lg:text-md">
 		MOVIMENTO! Essa foi a primeira palavra que escutei da galera da MOVE, falar de números sempre
 		foi um tabu, e uma confusão muito grande pra nossa empresa. Fechamos a parceria com a MOVE, e
 		sentimos a diferença já no primeiro mês. Hoje sinto ORGULHO de fazer parte desse time

@@ -118,7 +118,7 @@
 		}}
 	>
 		<div
-			class="p-16 w-[75%] relative text-center h-fit flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
+			class="xl:p-16 p-4 xl:w-[75%] w-[85%] relative text-center xl:h-fit overflow-scroll max-h-[80vh] flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
 		>
 			<button
 				onclick={() => {
@@ -128,12 +128,12 @@
 			>
 				<BigX />
 			</button>
-			<h2 class="grifter-title">Gestão Financeira.</h2>
-			<div class="flex flex-wrap *:h-full relative justify-center items-start gap-10">
+			<h2 class="grifter-title mt-5">Gestão Financeira.</h2>
+			<div class="flex flex-wrap *:h-full relative justify-center items-start xl:gap-10 gap-5">
 				{#each financeira as item}
-					<div class="w-48 flex flex-col gap-2 items-center">
-						<item.icon class="text-3xl" />
-						<p>{item.desc}</p>
+					<div class="xl:w-48 w-32 flex flex-col gap-2 items-center">
+						<item.icon class="text-2xl" />
+						<p class="text-sm">{item.desc}</p>
 					</div>
 				{/each}
 			</div>
@@ -155,7 +155,7 @@
 		}}
 	>
 		<div
-			class="p-16 w-[70%] relative text-center h-fit flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
+			class="xl:p-16 p-4 xl:w-[70%] w-[85%] relative text-center xl:h-fit flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
 		>
 			<button
 				onclick={() => {
@@ -165,12 +165,12 @@
 			>
 				<BigX />
 			</button>
-			<h2 class="grifter-title">Soluções Contábeis.</h2>
+			<h2 class="grifter-title mt-5">Soluções Contábeis.</h2>
 			<div class="flex flex-wrap *:h-full relative justify-center items-start gap-10">
 				{#each contabeis as item}
-					<div class="w-48 flex flex-col gap-2 items-center">
-						<item.icon class="text-3xl" />
-						<p>{item.desc}</p>
+					<div class="xl:w-48 w-32 flex flex-col gap-2 items-center">
+						<item.icon class="text-2xl" />
+						<p class="text-sm">{item.desc}</p>
 					</div>
 				{/each}
 			</div>

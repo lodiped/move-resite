@@ -3,6 +3,7 @@
 	import cafe from '$lib/assets/cafe.webp';
 	import peaksSvg from '$lib/assets/peaks.svg';
 	import Welcome from './Welcome.svelte';
+
 	let { timelineInView, timelineOpt } = $props();
 </script>
 
