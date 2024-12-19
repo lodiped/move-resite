@@ -87,10 +87,20 @@
 		<div
 			class="absolute h-full top-0 -translate-x-5 xl:flex items-center hidden right-0 w-3/4 2xl:w-2/3"
 		>
-			<button onclick={scrollPrev} class="text-6xl text-move/30 font-bold"> &lt; </button>
+			<button
+				onclick={scrollPrev}
+				class="text-6xl text-move/30 transition-colors hover:text-move font-bold"
+			>
+				&lt;
+			</button>
 		</div>
 		<div class="absolute h-full top-0 xl:flex items-center hidden right-0 w-1/4 2xl:w-1/3">
-			<button onclick={scrollNext} class="text-6xl text-move/30 font-bold"> &gt; </button>
+			<button
+				onclick={scrollNext}
+				class="text-6xl text-move/30 transition-colors hover:text-move font-bold"
+			>
+				&gt;
+			</button>
 		</div>
 	</div>
 	<div class="w-full justify-around flex z-20 -mt-10">

@@ -39,19 +39,20 @@
 				Sobre
 			</a>
 			<a
-				aria-label="Podcast"
-				href="https://negocioemjogo.movenegocios.com.br/"
-				class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
-			>
-				Podcast
-			</a>
-			<a
 				aria-label="Contato"
 				onclick={scrollToSection(-200)}
 				href="#contato"
 				class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
 			>
 				Contato
+			</a>
+			<a
+				aria-label="Podcast"
+				href="https://negocioemjogo.movenegocios.com.br/"
+				target="_blank"
+				class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
+			>
+				Podcast
 			</a>
 		</div>
 		<div>
@@ -95,19 +96,20 @@
 					Sobre
 				</a>
 				<a
-					aria-label="Podcast"
-					href="/podcast"
-					class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] w-fit"
-				>
-					Podcast
-				</a>
-				<a
 					aria-label="Contato"
 					onclick={scrollToSection(-10)}
 					href="#contato"
 					class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] w-fit"
 				>
 					Contato
+				</a>
+				<a
+					aria-label="Podcast"
+					href="https://negocioemjogo.movenegocios.com.br"
+					target="_blank"
+					class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] w-fit"
+				>
+					Podcast
 				</a>
 			</div>
 		</div>

@@ -1,9 +1,9 @@
 <script>
-	import MoveLogo from '$lib/assets/logo-move-pb.webp';
+	import MoveLogo from '$lib/assets/logo-move-b.webp';
 </script>
 
 <p>
-	Somos a <img src={MoveLogo} alt="Move Negócios" class="inline w-48 drop-shadow" />, nossa missão é
+	Somos a <img src={MoveLogo} alt="Move Negócios" class="inline w-48" />, nossa missão é
 	revolucionar a gestão contábil e financeira com soluções práticas, inovadoras e personalizadas,
 	especialmente desenhadas para pequenas e médias empresas. Combinamos tecnologia de ponta e uma
 	abordagem proativa para simplificar os processos financeiros, ajudando empresários a focar no

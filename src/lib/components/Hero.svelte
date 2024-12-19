@@ -119,6 +119,7 @@
 		<a
 			aria-label="Clique para falar com o nosso time"
 			href="https://wa.me/5541998163983"
+			target="_blank"
 			class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.2)] group relative p-4 rounded-xl text-md lg:text-xl shadow-xl font-bold w-fit hover:bg-yellow-400/90 bg-move text-black transition-all"
 		>
 			<span class="uppercase"> Fazer um diagnóstico da sua empresa </span>

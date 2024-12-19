@@ -19,14 +19,14 @@
 	let { avgFPS } = $props();
 </script>
 
-<div class="relative flex flex-col gap-12 lg:px-20 px-8 py-20 mt-40 lg:mt-0 items-center">
+<div class="relative flex flex-col gap-12 lg:px-20 px-8 py-20 2xl:pt-10 mt-40 lg:mt-0 items-center">
 	<div class="absolute w-full h-full flex justify-start items-end">
 		<img src={foguetesmoke} alt="" class="opacity-30 w-2/3 lg:w-1/2 2xl:w-1/3" />
 	</div>
 	<div class="absolute md:hidden w-full h-full flex justify-end items-start">
 		<img src={cafe} alt="" class="opacity-30 w-1/3" />
 	</div>
-	<div>
+	<div class="z-10 2xl:-translate-y-10">
 		<h2 class="grifter-title">Diferenciais</h2>
 	</div>
 	<div class="flex lg:flex-row flex-col gap-12 justify-center">

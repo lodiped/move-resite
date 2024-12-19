@@ -41,7 +41,11 @@
 		{#each logos as logo}
 			<div class="lg:flex-[0_0_200px] flex-[0_0_150px] mr-[15%] lg:mr-[10%] min-w-0 invert">
 				<div class="w-full">
-					<a href={logo.a} class="border opacity-50 hover:opacity-100 transition-opacity">
+					<a
+						href={logo.a}
+						target="_blank"
+						class="border opacity-50 hover:opacity-100 transition-opacity"
+					>
 						<img
 							src={logo.icon}
 							alt={logo.alt}
