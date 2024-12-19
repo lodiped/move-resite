@@ -118,7 +118,7 @@
 		}}
 	>
 		<div
-			class="xl:p-16 p-4 xl:w-[75%] w-[85%] relative text-center xl:h-fit overflow-scroll max-h-[80vh] flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
+			class="xl:p-16 p-4 xl:w-[75%] w-[85%] relative text-center xl:h-fit overflow-scroll xl:overflow-auto max-h-[80vh] flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
 		>
 			<button
 				onclick={() => {
