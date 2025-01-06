@@ -94,11 +94,11 @@
 				class="flex gap-2 items-center"
 			>
 				<WhatsApp class="scale-110 text-move" />
-				<a href="tel:041998163983" class="lg:hidden">(41) 99816-3983</a>
+				<a href="https://wa.me/5541998163983" class="lg:hidden">(41) 99816-3983</a>
 				<div
 					class="hidden lg:block before:underline before:h-0.5 before:w-0 before:hover:w-full before:bg-move before:absolute relative before:left-0 before:bottom-0 before:transition-all"
 				>
-					<a href="tel:041998153983">(41) 99816-3983</a>
+					<a href="https://wa.me/5541998163983">(41) 99816-3983</a>
 				</div>
 			</div>
 			<div
