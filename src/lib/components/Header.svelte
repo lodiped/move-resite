@@ -111,6 +111,13 @@
 				>
 					Podcast
 				</a>
+				<a
+					aria-label="Área do Cliente"
+					class="p-4 rounded-xl font-bold z-20 drop-shadow-lg hover:drop-shadow-[0_1rem_1rem_rgba(255,180,0,0.2)] w-full text-center bg-move text-black transition-all hover:bg-yellow-400/90"
+					href="https://app.gestta.com.br/#/login/auth?isInitialPage=true%20"
+				>
+					<span> Área do Cliente </span>
+				</a>
 			</div>
 		</div>
 	{/if}
