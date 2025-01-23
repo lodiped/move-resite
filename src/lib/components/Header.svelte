@@ -10,12 +10,12 @@
 
 <header
 	class={atTop && !mobileDrop
-		? 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 transition-all duration-700 z-50 border-move/5'
+		? 'flex fixed flex-col lg:flex-row lg:justify-center w-full justify-between px-10 lg:px-20 py-8 transition-all duration-700 z-50 border-move/5'
 		: avgFPS < 24
-			? 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/70 z-50 transition-all duration-700 border-b border-move/10'
-			: 'flex fixed flex-col lg:flex-row w-full justify-between px-10 lg:px-20 py-8 drop-shadow-lg shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/20 z-50 transition-all duration-700 backdrop-blur-md border-b border-move/10'}
+			? 'flex fixed flex-col lg:flex-row lg:justify-center w-full justify-between px-10 lg:px-20 py-8 shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/70 z-50 transition-all duration-700 border-b border-move/10'
+			: 'flex fixed flex-col lg:flex-row lg:justify-center w-full justify-between px-10 lg:px-20 py-8 drop-shadow-lg shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/20 z-50 transition-all duration-700 backdrop-blur-md border-b border-move/10'}
 >
-	<div class="flex justify-between w-full" bind:this={menu}>
+	<div class="flex justify-between w-full max-w-[1500px] px-5" bind:this={menu}>
 		<div>
 			<a aria-label="Logo Move Negócios" href="/">
 				<img loading="lazy" src={moveLogo} class="w-64 drop-shadow-md" alt="Logo Move Negócios" />

@@ -93,6 +93,7 @@
 	let startTime = $state(0);
 	let hasMeasuredFPS = $state(false);
 
+	/** @param {number} timestamp */
 	function measureFPS(timestamp) {
 		if (!startTime) startTime = timestamp;
 		frameCount++;
@@ -144,7 +145,9 @@
 
 <Header {menu} {atTop} {avgFPS} {mobileMenu} {scrollToSection} bind:mobileDrop />
 
-<Hero {numbersInView} {inviewOpt} {pixelRatio} {avgFPS} />
+<div class="w-full flex justify-center">
+	<Hero {numbersInView} {inviewOpt} {pixelRatio} {avgFPS} />
+</div>
 
 <Servicos bind:gestaoOpen bind:contabilOpen />
 

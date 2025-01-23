@@ -58,7 +58,7 @@
 	let { gestaoOpen = $bindable(), contabilOpen = $bindable() } = $props();
 </script>
 
-<div id="servicos" class="flex px-10 lg:px-20 py-40 justify-center lg:items-start">
+<div id="servicos" class="flex px-10 lg:px-20 pb-40 pt-20 justify-center lg:items-start">
 	<div class="flex lg:gap-10 gap-40 lg:flex-row flex-col">
 		<div class="flex z-10 flex-col items-center justify-between gap-12 max-w-[500px]">
 			<h2 class="grifter-title relative text-3xl md:text-4xl text-center">
