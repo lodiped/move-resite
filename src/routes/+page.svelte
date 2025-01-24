@@ -146,7 +146,7 @@
 <Header {menu} {atTop} {avgFPS} {mobileMenu} {scrollToSection} bind:mobileDrop />
 
 <div class="w-full flex justify-center">
-	<Hero {numbersInView} {inviewOpt} {pixelRatio} {avgFPS} />
+	<Hero {numbersInView} {scrollToSection} {inviewOpt} {pixelRatio} {avgFPS} />
 </div>
 
 <Servicos bind:gestaoOpen bind:contabilOpen />

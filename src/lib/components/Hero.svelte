@@ -10,7 +10,7 @@
 	// @ts-ignore
 	import Laurelr from 'virtual:icons/hugeicons/laurel-wreath-right-03';
 
-	let { pixelRatio, inviewOpt, numbersInView, avgFPS } = $props();
+	let { pixelRatio, inviewOpt, numbersInView, avgFPS, scrollToSection } = $props();
 
 	// Efeito de aumento dos números
 	let clientes = $state(0),
@@ -59,17 +59,19 @@
 		});
 </script>
 
-<div class="2xl:w-[1500px] h-screen mt-5 flex relative items-center justify-center">
+<div
+	class="2xl:w-[1500px] xl:h-screen mt-5 flex xl:flex-row flex-col relative items-center justify-center"
+>
 	<div
-		class={pixelRatio > 1
-			? 'flex flex-col relative w-1/2 pl-5'
-			: 'flex flex-col relative w-1/2 pl-5'}
+		class="flex flex-col relative xl:w-1/2 mt-20 xl:mt-0 xl:pl-5 px-4 xl:px-0{pixelRatio > 1
+			? ''
+			: ''}"
 	>
-		<div class="w-fit rounded-full items-center z-10">
+		<div class="xl:w-fit w-full rounded-full flex justify-center z-10">
 			<a
 				href="https://www.youtube.com/watch?v=atn1FXDDswY"
 				target="blank_"
-				class="flex group items-center transition-all tracking-wider text-sm text-move/60 hover:text-move rounded-full"
+				class="flex group items-center transition-all tracking-wider xl:text-sm text-xs text-move/60 hover:text-move rounded-full"
 			>
 				<Laurell class="" /><span
 					class="font-bold group-hover:text-white text-[#ebebeb] mx-1.5 transition-all"
@@ -79,33 +81,37 @@
 		</div>
 		<div class="flex justify-center z-10 my-6">
 			<p
-				class={pixelRatio > 1
-					? 'text-4xl lg:text-6xl font-bold font-grifter w-full uppercase leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text'
-					: 'drop-shadow-xl text-4xl lg:text-7xl font-bold font-grifter w-full uppercase leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text'}
+				class="text-5xl lg:text-7xl text-center xl:text-left font-bold font-grifter w-full uppercase leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text {pixelRatio >
+				1
+					? ''
+					: ''}"
 			>
 				Saia do amadorismo
 			</p>
 		</div>
 		<div class="flex justify-start text-white z-10 items-center w-full">
-			<p class=" w-9/12 text-lg">
+			<p class="xl:text-left text-center xl:w-9/12 w-full text-base xl:text-lg">
 				Gestão Contábil completa e a melhor terceirização de Financeiro do Brasil!
 			</p>
 		</div>
-		<div class="flex h-fit justify-start gap-10 z-10 my-8">
+		<div class="flex flex-col xl:flex-row h-fit justify-start xl:gap-10 gap-4 z-10 my-8">
 			<a
 				aria-label="Clique para falar com o nosso time"
 				href="#servicos"
-				class="px-8 group flex justify-center relative p-4 rounded-xl text-md lg:text-lg shadow-xl font-bold w-fit hover:bg-white hover:text-black border-white/40 border text-white transition-all"
+				onclick={scrollToSection(-80)}
+				class="px-8 group flex justify-center relative p-4 rounded-xl xl:text-lg shadow-xl font-bold xl:w-fit w-full hover:bg-white hover:text-black border-white/40 border text-white transition-all"
 			>
-				<span class="uppercase">SERVIÇOS</span>
+				<span class="uppercase text-center flex items-center">SERVIÇOS</span>
 			</a>
 			<a
+				data-umami-event="Hero CTA Principal"
 				aria-label="Clique para falar com o nosso time"
 				href="https://wa.me/5541998163983"
 				target="_blank"
-				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.2)] flex justify-center px-8 group relative p-4 rounded-xl w-fit text-md lg:text-lg shadow-xl font-bold hover:bg-yellow-400/90 bg-move text-black transition-all"
+				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.2)] flex justify-center px-7 group relative p-4 rounded-xl xl:w-fit w-full xl:text-lg shadow-xl font-bold hover:bg-yellow-400/90 bg-move text-black transition-all"
 			>
-				<span class="uppercase">Economize tempo e dinheiro agora!</span>
+				<span class="uppercase text-center xl:leading-loose">Economize tempo e dinheiro agora!</span
+				>
 			</a>
 		</div>
 		<div
@@ -133,7 +139,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="w-1/2 z-10 flex justify-center translate-y-20"><img src={moveicon} alt="" /></div>
+	<div class="w-1/2 hidden z-10 xl:flex justify-center translate-y-16">
+		<img src={moveicon} alt="" />
+	</div>
 </div>
 
 <video
@@ -144,7 +152,7 @@
 	playsinline
 	class={avgFPS < 24
 		? 'hidden'
-		: 'absolute touch-none pointer-events-none -z-0 lg:bottom-1/4 2xl:translate-y-60 xl:translate-y-20 lg:top-auto top-0 opacity-35 blur-[5px] w-full'}
+		: 'absolute touch-none pointer-events-none -z-0 lg:bottom-1/4 2xl:translate-y-60 xl:translate-y-20 lg:top-auto top-0 opacity-35 blur-[4px] w-full'}
 >
 	<source src={timelapse} type="video/webm" />
 </video>
