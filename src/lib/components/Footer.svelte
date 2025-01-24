@@ -1,4 +1,6 @@
 <script>
+	import { inview } from 'svelte-inview';
+	import { ctaInview } from '$lib/state.svelte';
 	import moveIcon from '$lib/assets/move-icon.webp';
 	// @ts-ignore
 	import Facebook from 'virtual:icons/mdi/facebook';
@@ -13,6 +15,7 @@
 	// @ts-ignore
 	import Phone from 'virtual:icons/mdi/phone';
 
+	let { ctaOpt } = $props();
 	//Copiar para o clipboard
 	let clipboardResult = $state('clique para copiar');
 	/** @param {string} text */
@@ -35,7 +38,16 @@
 
 <div class="h-[1px] w-full bg-white/10 px-10"></div>
 
-<footer class="flex flex-col lg:flex-row gap-10 justify-center items-center w-full py-10">
+<footer
+	use:inview={ctaOpt}
+	oninview_enter={() => {
+		ctaInview.value = true;
+	}}
+	oninview_leave={() => {
+		ctaInview.value = false;
+	}}
+	class="flex flex-col lg:flex-row gap-10 justify-center items-center w-full py-10"
+>
 	<div class="flex items-center px-10 max-w-[500px] w-full">
 		<a href="/">
 			<img
