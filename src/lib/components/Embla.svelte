@@ -42,6 +42,7 @@
 			<div class="lg:flex-[0_0_200px] flex-[0_0_150px] mr-[15%] lg:mr-[10%] min-w-0 invert">
 				<div class="w-full">
 					<a
+						data-umami-event={`Embla ${logo.alt}`}
 						href={logo.a}
 						target="_blank"
 						class="border opacity-50 hover:opacity-100 transition-opacity"

@@ -71,12 +71,12 @@
 			</h2>
 			<Contabil />
 			<button
+				data-umami-event="Servicos Contabeis"
 				aria-label="Saiba mais sobre o serviço de Gestão Contábil"
 				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] group border border-move/30 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 bg-yellow-600/70 text-move transition-all"
 				onclick={() => {
 					contabilOpen = !contabilOpen;
 				}}
-				data-umami-event="Servicos Contabeis"
 			>
 				<span class="transition-all group-hover:drop-shadow-[0_0_0.5rem_rgba(255,255,0,0.7)]"
 					>Serviços Contábeis</span
@@ -87,12 +87,12 @@
 			<h2 class="grifter-title text-3xl md:text-4xl text-center">Gestão Financeira</h2>
 			<Financeira />
 			<button
+				data-umami-event="Servicos BPO"
 				aria-label="Saiba mais sobre o serviço de Gestão Financeira"
 				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] group border border-move/30 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 bg-yellow-600/70 text-move transition-all"
 				onclick={() => {
 					gestaoOpen = !gestaoOpen;
 				}}
-				data-umami-event="Servicos BPO"
 			>
 				<span class="transition-all group-hover:drop-shadow-[0_0_0.5rem_rgba(255,255,0,0.7)]"
 					>Serviços BPO</span

@@ -23,6 +23,7 @@
 		</div>
 		<div class="gap-10 font-bold justify-between hidden lg:flex">
 			<a
+				data-umami-event="Header Servicos Desktop"
 				aria-label="Serviços"
 				onclick={scrollToSection(-80)}
 				href="#servicos"
@@ -31,6 +32,7 @@
 				Serviços
 			</a>
 			<a
+				data-umami-event="Header Sobre Desktop"
 				aria-label="Sobre"
 				onclick={scrollToSection(-180)}
 				href="#sobre"
@@ -39,6 +41,7 @@
 				Sobre
 			</a>
 			<a
+				data-umami-event="Header Contato Desktop"
 				aria-label="Contato"
 				onclick={scrollToSection(-200)}
 				href="#contato"
@@ -47,21 +50,21 @@
 				Contato
 			</a>
 			<a
+				data-umami-event="Header Podcast Desktop"
 				aria-label="Podcast"
 				href="https://negocioemjogo.movenegocios.com.br/"
 				target="_blank"
 				class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
-				data-umami-event="Header Podcast Desktop"
 			>
 				Podcast
 			</a>
 		</div>
 		<div>
 			<a
+				data-umami-event="Header Gestta Desktop"
 				aria-label="Área do Cliente"
 				class="p-4 rounded-xl font-bold z-20 drop-shadow-lg hover:drop-shadow-[0_1rem_1rem_rgba(255,180,0,0.2)] w-fit bg-move text-black transition-all hover:bg-yellow-400/90 hidden lg:inline"
 				href="https://app.gestta.com.br/#/login/auth?isInitialPage=true%20"
-				data-umami-event="Área do Cliente Gestta Desktop"
 			>
 				<span> Área do Cliente </span>
 			</a>
@@ -82,6 +85,7 @@
 		<div class="w-full lg:hidden pt-2 drop-shadow-lg transition-all -z-10">
 			<div class="gap-4 font-bold justify-between flex flex-col text-lg items-end">
 				<a
+					data-umami-event="Header Servicos Mobile"
 					aria-label="Serviços"
 					onclick={scrollToSection(-10)}
 					href="#servicos"
@@ -90,6 +94,7 @@
 					Serviços
 				</a>
 				<a
+					data-umami-event="Header Sobre Mobile"
 					aria-label="Sobre"
 					onclick={scrollToSection(-190)}
 					href="#sobre"
@@ -98,6 +103,7 @@
 					Sobre
 				</a>
 				<a
+					data-umami-event="Header Contato Mobile"
 					aria-label="Contato"
 					onclick={scrollToSection(-10)}
 					href="#contato"
@@ -106,19 +112,19 @@
 					Contato
 				</a>
 				<a
+					data-umami-event="Header Podcast Mobile"
 					aria-label="Podcast"
 					href="https://negocioemjogo.movenegocios.com.br"
 					target="_blank"
 					class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] w-fit"
-					data-umami-event="Header Podcast Mobile"
 				>
 					Podcast
 				</a>
 				<a
+					data-umami-event="Área do Cliente Gestta Mobile"
 					aria-label="Área do Cliente"
 					class="p-4 rounded-xl font-bold z-20 drop-shadow-lg hover:drop-shadow-[0_1rem_1rem_rgba(255,180,0,0.2)] w-full text-center bg-move text-black transition-all hover:bg-yellow-400/90"
 					href="https://app.gestta.com.br/#/login/auth?isInitialPage=true%20"
-					data-umami-event="Área do Cliente Gestta Mobile"
 				>
 					<span> Área do Cliente </span>
 				</a>

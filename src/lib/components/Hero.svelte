@@ -96,6 +96,7 @@
 		</div>
 		<div class="flex flex-col xl:flex-row h-fit justify-start xl:gap-10 gap-4 z-10 my-8">
 			<a
+				data-umami-event="Hero Servicos"
 				aria-label="Clique para falar com o nosso time"
 				href="#servicos"
 				onclick={scrollToSection(-80)}

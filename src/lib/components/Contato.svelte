@@ -36,22 +36,29 @@
 		</div>
 		<div class="flex flex-col gap-8">
 			<a
+				data-umami-event="Contato Whatsapp"
 				href="https://wa.me/5541998163983"
 				target="_blank"
 				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
-				data-umami-event="Contato Whatsapp"><WhatsApp class=" scale-125" />WhatsApp</a
+			>
+				<WhatsApp class=" scale-125" />WhatsApp</a
 			>
 			<a
+				data-umami-event="Contato E-mail"
 				href="mailto:contato@movenegocios.com.br"
 				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
-				data-umami-event="Contato E-mail"><Email class=" scale-125" />Email</a
+			>
+				<Email class=" scale-125" />Email</a
 			>
 			<a
+				data-umami-event="Contato Telefone"
 				href="tel:4130784210"
 				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex xl:hidden text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
-				data-umami-event="Contato Telefone"><Phone class=" scale-125" />Telefone</a
+			>
+				<Phone class=" scale-125" />Telefone</a
 			>
 			<button
+				data-umami-event="Contato Telefone"
 				class="relative group hidden drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] xl:flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
 				onclick={() => {
 					telefoneClicked = true;
@@ -61,7 +68,6 @@
 					}, 3000);
 					copyToClipboard('4130784210');
 				}}
-				data-umami-event="Contato Telefone"
 			>
 				{#if telefoneClicked}
 					41 3078-4210

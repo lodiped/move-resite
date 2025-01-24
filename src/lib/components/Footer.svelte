@@ -51,15 +51,18 @@
 		<div class="flex text-4xl items-center gap-6 text-move -translate-x-1">
 			<div class="flex">
 				<a
+					data-umami-event="Footer Instagram"
+					class="hover:scale-110 transition-all"
 					aria-label="Link para o Instagram da Move Negócios"
 					href="https://www.instagram.com/movenegocios/"
-					class="hover:scale-110 transition-all"
 				>
 					<Instagram />
 				</a>
 			</div>
+
 			<div class="flex">
 				<a
+					data-umami-event="Footer LinkedIn"
 					aria-label="Link para o LinkedIn da Move Negócios"
 					href="https://www.linkedin.com/company/move-neg-cios/"
 					class="hover:scale-110 transition-all"
@@ -70,6 +73,7 @@
 
 			<div class="flex">
 				<a
+					data-umami-event="Footer Facebook"
 					aria-label="Link para o Facebook da Move Negócios"
 					href="https://www.facebook.com/movenegociosoficial/"
 					class="hover:scale-110 transition-all"
@@ -82,6 +86,7 @@
 			<div class="flex gap-2 items-center">
 				<Email class="scale-110 text-move" />
 				<a
+					data-umami-event="Footer E-mail"
 					aria-label="E-mail de contato da Move Negócios: contato@movenegocios.com.br"
 					href="mailto:contato@movenegocios.com.br"
 					class="after:underline after:h-0.5 after:w-0 after:hover:w-full after:bg-move after:absolute relative after:left-0 after:bottom-0 after:transition-all"
@@ -94,11 +99,15 @@
 				class="flex gap-2 items-center"
 			>
 				<WhatsApp class="scale-110 text-move" />
-				<a href="https://wa.me/5541998163983" class="lg:hidden">(41) 99816-3983</a>
+				<a href="https://wa.me/5541998163983" data-umami-event="Footer Whatsapp" class="lg:hidden"
+					>(41) 99816-3983</a
+				>
 				<div
 					class="hidden lg:block before:underline before:h-0.5 before:w-0 before:hover:w-full before:bg-move before:absolute relative before:left-0 before:bottom-0 before:transition-all"
 				>
-					<a href="https://wa.me/5541998163983">(41) 99816-3983</a>
+					<a href="https://wa.me/5541998163983" data-umami-event="Footer Whatsapp"
+						>(41) 99816-3983</a
+					>
 				</div>
 			</div>
 			<div
@@ -106,8 +115,11 @@
 				class="flex gap-2 items-center"
 			>
 				<Phone class="text-move scale-110" />
-				<a href="tel:04130784210" class="lg:hidden">(41) 3078-4210</a>
+				<a href="tel:04130784210" class="lg:hidden" data-umami-event="Footer Telefone"
+					>(41) 3078-4210</a
+				>
 				<button
+					data-umami-event="Footer Telefone"
 					onclick={() => copyToClipboard('4130784210')}
 					class="before:underline before:h-0.5 before:w-0 before:hover:w-full before:bg-move before:absolute relative before:left-0 before:bottom-0 before:transition-all hidden lg:block after:hover:content-[attr(data-content)] after:text-sm after:flex after:text-left after:opacity-50 after:ml-2 after:absolute after:bottom-0 after:w-[160px] after:left-[8.5rem]"
 					data-content={clipboardResult}>(41) 3078-4210</button
@@ -116,6 +128,7 @@
 		</div>
 		<div class="">
 			<a
+				data-umami-event="Footer Maps"
 				aria-label="Endereço da Move Negócios: Av. Visconde de Guarapuava, número 2764, sala 306, Centro, Curitiba, Paraná, CEP: 12345-678"
 				href="https://maps.app.goo.gl/XgDwzC39xEEJwP1v9"
 				class="before:content-[]"
