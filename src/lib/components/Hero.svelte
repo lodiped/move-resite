@@ -1,16 +1,16 @@
 <script>
 	import { inview } from 'svelte-inview';
 	// Imagens
-	import bpo from '$lib/assets/bpo.webp';
 	import timelapse from '$lib/assets/timelapse.webm';
 	import moveicon from '$lib/assets/hero.png';
+	import { ctaInview } from '$lib/state.svelte';
 
 	// @ts-ignore
 	import Laurell from 'virtual:icons/hugeicons/laurel-wreath-left-03';
 	// @ts-ignore
 	import Laurelr from 'virtual:icons/hugeicons/laurel-wreath-right-03';
 
-	let { pixelRatio, inviewOpt, numbersInView, avgFPS, scrollToSection } = $props();
+	let { ctaOpt, pixelRatio, inviewOpt, numbersInView, avgFPS, scrollToSection } = $props();
 
 	// Efeito de aumento dos números
 	let clientes = $state(0),
@@ -94,7 +94,18 @@
 				Gestão Contábil completa e a melhor terceirização de Financeiro do Brasil!
 			</p>
 		</div>
-		<div class="flex flex-col xl:flex-row h-fit justify-start xl:gap-10 gap-4 z-10 my-8">
+		<div
+			use:inview={ctaOpt}
+			oninview_enter={() => {
+				ctaInview.value = true;
+			}}
+			oninview_leave={() => {
+				console.log('inview leave before declare:' + ctaInview.value);
+				ctaInview.value = false;
+				console.log('inview leave after declare:' + ctaInview.value);
+			}}
+			class="flex flex-col xl:flex-row h-fit justify-start xl:gap-10 gap-4 z-10 my-8"
+		>
 			<a
 				data-umami-event="Hero Servicos"
 				aria-label="Clique para falar com o nosso time"
@@ -109,7 +120,9 @@
 				aria-label="Clique para falar com o nosso time"
 				href="https://wa.me/5541998163983"
 				target="_blank"
-				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.2)] flex justify-center px-7 group relative p-4 rounded-xl xl:w-fit w-full xl:text-lg shadow-xl font-bold hover:bg-yellow-400/90 bg-move text-black transition-all"
+				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.2)] duration-200 flex justify-center px-7 group relative p-4 rounded-xl xl:w-fit w-full xl:text-lg shadow-xl font-bold hover:bg-yellow-400/90 bg-move text-black transition-all {ctaInview.value
+					? 'opacity-100'
+					: 'xl:translate-y-60 xl:translate-x-60 xl:opacity-0'}"
 			>
 				<span class="uppercase text-center xl:leading-loose">Economize tempo e dinheiro agora!</span
 				>

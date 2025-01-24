@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { ctaInview } from '$lib/state.svelte';
 
 	// ´Go to´ seção com padding especificos
 	/** @param {number} offset */
@@ -42,6 +43,7 @@
 	const inviewOpt = { unobserveOnEnter: true }; //parte do InView (não sei se é necessário)
 	const complicadoOpt = { unobserveOnEnter: true, rootMargin: '-30%' }; //parte do InView (não sei se é necessário)
 	const timelineOpt = { rootMargin: '-45%' }; //parte do InView (não sei se é necessário)
+	const ctaOpt = { rootMargin: '-30%' };
 	let numbersInView = $state(false), //Checa se a section dos números está em vista (IntersectionObserver com InView)
 		phraseInView = $state(false),
 		timelineInView = $state(false);
@@ -146,7 +148,7 @@
 <Header {menu} {atTop} {avgFPS} {mobileMenu} {scrollToSection} bind:mobileDrop />
 
 <div class="w-full flex justify-center">
-	<Hero {numbersInView} {scrollToSection} {inviewOpt} {pixelRatio} {avgFPS} />
+	<Hero {numbersInView} {scrollToSection} {inviewOpt} {ctaOpt} {pixelRatio} {avgFPS} />
 </div>
 
 <Servicos bind:gestaoOpen bind:contabilOpen />

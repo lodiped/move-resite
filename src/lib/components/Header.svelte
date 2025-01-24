@@ -1,4 +1,5 @@
 <script>
+	import { ctaInview } from '$lib/state.svelte';
 	import moveLogo from '$lib/assets/logo-move.webp';
 	// @ts-ignore
 	import Hamburger from 'virtual:icons/mdi/menu';
@@ -132,3 +133,14 @@
 		</div>
 	{/if}
 </header>
+
+<footer
+	class="fixed w-full h-screen z-50 pointer-events-none flex items-end justify-center xl:items-end xl:justify-end"
+>
+	<a
+		href="https://wa.me/"
+		class="hidden xl:block drop-shadow-xl font-bold bottom-0 right-0 z-50 pointer-events-auto p-5 px-8 bg-move text-black uppercase text-lg rounded-xl m-4 transition-all {ctaInview.value
+			? 'xl:-translate-y-60 xl:-translate-x-60 xl:opacity-0'
+			: 'opacity-100'}">Economize tempo e dinheiro agora!</a
+	>
+</footer>
