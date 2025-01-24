@@ -81,7 +81,7 @@
 		</div>
 		<div class="flex justify-center z-10 my-6">
 			<p
-				class="text-5xl lg:text-7xl text-center xl:text-left font-bold font-grifter w-full uppercase leading-snug bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text {pixelRatio >
+				class="text-5xl lg:text-7xl text-center xl:text-left font-bold font-grifter w-full uppercase leading-none bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text {pixelRatio >
 				1
 					? ''
 					: ''}"

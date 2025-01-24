@@ -68,9 +68,10 @@
 				<div class="lg:flex-[0_0_500px] flex-[0_0_350px] mr-[50%] lg:mr-[15%] min-w-0">
 					<div class="w-full">
 						<div
-							class={avgFPS < 24
-								? 'flex justify-center items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border h-[500px] border-move/10 backdrop-blur-xl rounded-xl bg-yellow-200/5 w-[350px] lg:w-[500px] '
-								: 'h-[500px] flex justify-center items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border border-move/10 rounded-xl backdrop-blur-md bg-yellow-200/5 w-[500px] '}
+							class="flex justify-center items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border border-move/10 h-[500px] rounded-xl bg-yellow-200/5 w-[350px] lg:w-[500px] {avgFPS <
+							24
+								? 'backdrop-blur-xl'
+								: 'backdrop-blur-md'}"
 						>
 							<Depo />
 							<div class="text-9xl font-serif absolute top-10 left-10 text-move/30 scale-150">
@@ -85,7 +86,7 @@
 			{/each}
 		</div>
 		<div
-			class="absolute h-full top-0 -translate-x-5 xl:flex items-center hidden right-0 w-3/4 2xl:w-2/3"
+			class="absolute h-full top-0 -translate-x-8 xl:flex items-center hidden right-0 w-3/4 2xl:w-2/3"
 		>
 			<button
 				onclick={scrollPrev}
