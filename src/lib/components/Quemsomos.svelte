@@ -113,7 +113,7 @@
 			<div
 				class="absolute top-0 group-[.inview]:top-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(((100%/7)*5)-115px)] w-[250px] text-center"
 			>
-				Expansão do escritório, agora ocupamos um total de 420m²
+				Expansão do escritório, agora ocupamos mais de 400m²
 			</div>
 			<div
 				class="rounded-full absolute bg-black left-[calc((100%/7)*6)] z-20 border-4 border-move w-5 h-5"

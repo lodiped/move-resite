@@ -16,7 +16,8 @@
 	import Phone from 'virtual:icons/mdi/phone';
 
 	let reachedBottom = $state(false);
-	let { ctaOpt } = $props();
+	const footerOpt = {};
+
 	//Copiar para o clipboard
 	let clipboardResult = $state('clique para copiar');
 	/** @param {string} text */
@@ -40,16 +41,12 @@
 <div class="h-[1px] w-full bg-white/10 px-10"></div>
 
 <footer
-	use:inview={ctaOpt}
+	use:inview={footerOpt}
 	oninview_enter={() => {
 		ctaInview.value = true;
-		reachedBottom = true;
 	}}
 	onview_leave={() => {
-		if (reachedBottom) {
-			ctaInview.value = false;
-			reachedBottom = false;
-		}
+		ctaInview.value = false;
 	}}
 	class="flex flex-col lg:flex-row gap-10 justify-center items-center w-full py-10"
 >
@@ -152,7 +149,7 @@
 				target="_blank"
 			>
 				<p>Av. Visconde de Guarapuava, nº 2764, sala 306</p>
-				<p>Centro, Curitiba &mdash; PR, 30010-100</p>
+				<p>Centro, Curitiba &mdash; PR, 80010-100</p>
 			</a>
 		</div>
 	</div>
