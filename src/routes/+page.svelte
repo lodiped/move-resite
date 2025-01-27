@@ -113,6 +113,7 @@
 	}
 
 	onMount(() => {
+		console.log(ctaInview.value);
 		requestAnimationFrame(measureFPS);
 		handleScroll();
 		pixelRatio = window.devicePixelRatio;

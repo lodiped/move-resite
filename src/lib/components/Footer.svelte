@@ -15,6 +15,7 @@
 	// @ts-ignore
 	import Phone from 'virtual:icons/mdi/phone';
 
+	let reachedBottom = $state(false);
 	let { ctaOpt } = $props();
 	//Copiar para o clipboard
 	let clipboardResult = $state('clique para copiar');
@@ -42,9 +43,13 @@
 	use:inview={ctaOpt}
 	oninview_enter={() => {
 		ctaInview.value = true;
+		reachedBottom = true;
 	}}
-	oninview_leave={() => {
-		ctaInview.value = false;
+	onview_leave={() => {
+		if (reachedBottom) {
+			ctaInview.value = false;
+			reachedBottom = false;
+		}
 	}}
 	class="flex flex-col lg:flex-row gap-10 justify-center items-center w-full py-10"
 >
@@ -147,7 +152,7 @@
 				target="_blank"
 			>
 				<p>Av. Visconde de Guarapuava, nº 2764, sala 306</p>
-				<p>Centro, Curitiba &mdash; PR, 12345-678</p>
+				<p>Centro, Curitiba &mdash; PR, 30010-100</p>
 			</a>
 		</div>
 	</div>

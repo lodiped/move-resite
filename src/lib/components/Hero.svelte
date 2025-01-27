@@ -9,6 +9,7 @@
 	import Laurell from 'virtual:icons/hugeicons/laurel-wreath-left-03';
 	// @ts-ignore
 	import Laurelr from 'virtual:icons/hugeicons/laurel-wreath-right-03';
+	import { onMount } from 'svelte';
 
 	let { ctaOpt, pixelRatio, inviewOpt, numbersInView, avgFPS, scrollToSection } = $props();
 
@@ -100,9 +101,7 @@
 				ctaInview.value = true;
 			}}
 			oninview_leave={() => {
-				console.log('inview leave before declare:' + ctaInview.value);
 				ctaInview.value = false;
-				console.log('inview leave after declare:' + ctaInview.value);
 			}}
 			class="flex flex-col xl:flex-row h-fit justify-start xl:gap-10 gap-4 z-10 my-8"
 		>
