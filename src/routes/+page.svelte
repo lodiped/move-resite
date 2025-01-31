@@ -62,6 +62,7 @@
 	// Resto do código em onMount
 	let pixelRatio = $state(1);
 
+	let trabalheBtn = $state(false);
 	//Mobile menu dropdown
 	let mobileDrop = $state(false),
 		mobileMenu = $derived(() => {
@@ -87,6 +88,7 @@
 		mobileDrop = false;
 		gestaoOpen = false;
 		contabilOpen = false;
+		trabalheBtn = false;
 	}
 
 	//FPS Counter
@@ -166,6 +168,6 @@
 
 <Donos {avgFPS} />
 
-<Contato />
+<Contato {trabalheBtn} {handleEsc} />
 
 <Footer />
