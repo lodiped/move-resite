@@ -68,7 +68,7 @@
 	>
 		<div class="flex z-50">
 			{#each depos as Depo}
-				<div class="lg:flex-[0_0_500px] flex-[0_0_350px] mr-[50%] lg:mr-[15%] min-w-0">
+				<div class="lg:flex-[0_0_500px] z-50 flex-[0_0_350px] mr-[50%] lg:mr-[15%] min-w-0">
 					<div class="w-full">
 						<div
 							class="flex justify-center items-center p-8 shadow-[0_5px_12px_rgba(0,0,0,0.75)] border border-move/10 h-[500px] rounded-xl bg-yellow-200/5 w-[350px] lg:w-[500px] {avgFPS <
@@ -89,7 +89,7 @@
 			{/each}
 		</div>
 		<div
-			class="absolute h-full top-0 -translate-x-8 xl:flex items-center hidden right-0 w-3/4 2xl:w-2/3"
+			class="absolute h-full top-0 z-0 -translate-x-8 xl:flex items-center hidden right-0 w-3/4 2xl:w-2/3"
 		>
 			<button
 				onclick={scrollPrev}
@@ -98,7 +98,7 @@
 				<ArrowLeft />
 			</button>
 		</div>
-		<div class="absolute h-full top-0 xl:flex items-center hidden right-0 w-1/4 2xl:w-1/3">
+		<div class="absolute h-full top-0 z-10 xl:flex items-center hidden right-10 w-1/4 2xl:w-1/3">
 			<button
 				onclick={scrollNext}
 				class="text-6xl text-move/30 transition-colors hover:text-move font-bold"
@@ -108,7 +108,11 @@
 		</div>
 	</div>
 	<div class="w-full justify-around flex z-20 -mt-10">
-		<button onclick={scrollPrev} class="font-bold text-6xl text-move xl:hidden">&lt;</button>
-		<button onclick={scrollNext} class="font-bold text-6xl text-move xl:hidden">&gt;</button>
+		<button onclick={scrollPrev} class="font-bold text-6xl text-move xl:hidden"
+			><ArrowLeft /></button
+		>
+		<button onclick={scrollNext} class="font-bold text-6xl text-move xl:hidden"
+			><ArrowRight /></button
+		>
 	</div>
 </div>

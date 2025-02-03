@@ -44,9 +44,12 @@
 	use:inview={footerOpt}
 	oninview_enter={() => {
 		ctaInview.value = true;
+		reachedBottom = true;
 	}}
 	oninview_leave={() => {
-		ctaInview.value = false;
+		if (reachedBottom) {
+			ctaInview.value = false;
+		}
 	}}
 	class="flex flex-col lg:flex-row gap-10 justify-center items-center w-full py-10"
 >
