@@ -13,6 +13,10 @@
 	import astronauta from '$lib/assets/astronauta.webp';
 	import foguete from '$lib/assets/foguete.webp';
 	import planeta from '$lib/assets/planeta.webp';
+	// @ts-ignore
+	import ArrowLeft from 'virtual:icons/mdi/chevron-left';
+	// @ts-ignore
+	import ArrowRight from 'virtual:icons/mdi/chevron-right';
 
 	let { avgFPS } = $props();
 
@@ -92,7 +96,7 @@
 				onclick={scrollPrev}
 				class="text-6xl text-move/30 transition-colors hover:text-move font-bold"
 			>
-				&lt;
+				<ArrowLeft />
 			</button>
 		</div>
 		<div class="absolute h-full top-0 xl:flex items-center hidden right-0 w-1/4 2xl:w-1/3">
@@ -100,7 +104,7 @@
 				onclick={scrollNext}
 				class="text-6xl text-move/30 transition-colors hover:text-move font-bold"
 			>
-				&gt;
+				<ArrowRight />
 			</button>
 		</div>
 	</div>

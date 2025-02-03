@@ -7,6 +7,8 @@
 	import WhatsApp from 'virtual:icons/mdi/whatsapp';
 	// @ts-ignore
 	import Phone from 'virtual:icons/mdi/phone';
+	// @ts-ignore
+	import Close from 'virtual:icons/mdi/close';
 	import { fade, fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
@@ -94,11 +96,19 @@
 				}}
 			>
 				{#if telefoneClicked}
-					41 3078-4210
+					<span class="flex gap-2 items-center">
+						<Phone class="scale-125" />41 3078-4210
+					</span>
 				{:else}
-					<Phone class="scale-125" />Telefone
+					<span class="flex gap-2 items-center">
+						<Phone class="scale-125" />Telefone
+					</span>
 				{/if}
-				<div class="absolute group-hover:block hidden -bottom-10 text-base text-white/50">
+				<div
+					class="absolute -bottom-7 text-base text-white/50 {copyNotice
+						? 'block'
+						: 'hidden group-hover:block'}"
+				>
 					{#if copyNotice}
 						Número copiado ✔
 					{:else}
@@ -130,22 +140,22 @@
 		}}
 	>
 		<div
-			class="xl:p-16 p-4 xl:w-fit w-[85%] relative text-center h-fit overflow-scroll xl:overflow-auto flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
+			class="xl:p-12 p-4 xl:w-[35rem] w-[25rem] relative text-center overflow-scroll xl:overflow-auto flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
 		>
 			<button
 				onclick={() => {
 					trabalheBtn = false;
 				}}
-				class="absolute hover:bg-white/10 rounded-full text-lg top-0 right-0 p-2 m-2"
+				class="absolute hover:bg-white/10 rounded-full flex justify-center items-center text-lg top-0 right-0 p-2 m-2"
 			>
-				X
+				<Close class="text-xl" />
 			</button>
-			<div class="flex flex-col gap-10 w-full items-center justify-center">
-				<h2 class="grifter-title mt-5">Trabalhe Conosco</h2>
+			<div class="flex flex-col mt-8 xl:mt-0 gap-10 w-full items-center justify-center">
+				<h2 class="grifter-title">Trabalhe Conosco</h2>
 				<form
-					class="flex flex-col gap-4 w-full"
+					class="flex flex-col gap-5 w-full"
 					method="POST"
-					action="https://formsubmit.co/recrutamento@movenegocios.com.br"
+					action="https://formsubmit.co/recrutamento.movenegocios@gmail.com"
 					enctype="multipart/form-data"
 				>
 					<input
@@ -169,9 +179,9 @@
 						bind:value={candidate.email}
 					/>
 					<input
-						type="phone"
+						type="tel"
 						name="tel"
-						id="phone"
+						id="tel"
 						required
 						class="rounded-xl text-black"
 						placeholder="WhatsApp"
@@ -197,8 +207,12 @@
 							{#if candidate.message.length === 279}caractere restante{:else}caracteres restantes{/if}
 						</p>
 					</div>
-					<div class="flex flex-col items-start">
+					<div class="flex flex-col items-start overflow-hidden">
 						<p>Anexe seu currículo:</p>
+						<p class="text-sm mb-1.5">
+							<span class="opacity-50">tamanho máximo:</span>
+							<span class="text-move drop-shadow-[0_0_4px_rgba(255,255,0,1)]">5MB</span>
+						</p>
 						<input
 							type="file"
 							name="attachment"
@@ -208,18 +222,14 @@
 							class="rounded-none"
 							placeholder="Currículo DOCX ou PDF"
 						/>
-						<p>tamanho máximo: 5MB</p>
 					</div>
 					<input
 						type="submit"
 						value="Enviar"
-						class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
+						class="cursor-pointer drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
 					/>
 				</form>
 			</div>
-			<div
-				class="flex flex-wrap *:h-full relative justify-center items-start xl:gap-10 gap-5"
-			></div>
 		</div>
 	</div>
 {/if}
