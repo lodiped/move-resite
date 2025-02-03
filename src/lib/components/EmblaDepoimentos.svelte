@@ -1,6 +1,5 @@
 <script>
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
-	import AutoScroll from 'embla-carousel-auto-scroll';
 	import Autoplay from 'embla-carousel-autoplay';
 
 	import Depo1 from './depoimentos/Depo1.svelte';

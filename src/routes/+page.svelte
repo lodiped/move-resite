@@ -168,6 +168,6 @@
 
 <Donos {avgFPS} />
 
-<Contato {trabalheBtn} {handleEsc} />
+<Contato {trabalheBtn} />
 
 <Footer />

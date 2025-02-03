@@ -45,7 +45,7 @@
 	oninview_enter={() => {
 		ctaInview.value = true;
 	}}
-	onview_leave={() => {
+	oninview_leave={() => {
 		ctaInview.value = false;
 	}}
 	class="flex flex-col lg:flex-row gap-10 justify-center items-center w-full py-10"

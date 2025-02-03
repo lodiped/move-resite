@@ -1,5 +1,8 @@
 <script>
 	import { ctaInview } from '$lib/state.svelte';
+
+	let { mobileMenu, atTop, mobileDrop = $bindable(), scrollToSection, menu, avgFPS } = $props();
+
 	import moveLogo from '$lib/assets/logo-move.webp';
 	// @ts-ignore
 	import Hamburger from 'virtual:icons/mdi/menu';
@@ -7,8 +10,6 @@
 	import BigX from 'virtual:icons/mdi/close';
 	// @ts-ignore
 	import WhatsApp from 'virtual:icons/mdi/whatsapp';
-
-	let { mobileMenu, atTop, mobileDrop = $bindable(), scrollToSection, menu, avgFPS } = $props();
 </script>
 
 <header
@@ -140,9 +141,9 @@
 	class="fixed w-full h-screen z-50 pointer-events-none flex items-end justify-center xl:items-end xl:justify-end"
 >
 	<a
-		href="https://wa.me/"
+		href="https://wa.me/5541998163983"
 		class="hidden absolute xl:flex gap-2 items-center drop-shadow-xl font-bold z-50 pointer-events-auto p-4 px-5 bg-move text-black uppercase rounded-xl m-4 transition-all {ctaInview.value
-			? 'xl:-translate-y-60 xl:-translate-x-60 xl:opacity-0'
+			? 'xl:-translate-y-60 xl:-translate-x-60 xl:opacity-0 xl:pointer-events-none'
 			: 'opacity-100'}"><WhatsApp class="text-xl" /> Economize tempo e dinheiro agora!</a
 	>
 </footer>

@@ -1,4 +1,9 @@
 <script>
+	import { fade, fly } from 'svelte/transition';
+	import { onMount } from 'svelte';
+
+	let { trabalheBtn = $bindable() } = $props();
+
 	import planeta from '$lib/assets/planeta.webp';
 
 	// @ts-ignore
@@ -9,10 +14,8 @@
 	import Phone from 'virtual:icons/mdi/phone';
 	// @ts-ignore
 	import Close from 'virtual:icons/mdi/close';
-	import { fade, fly } from 'svelte/transition';
-	import { onMount } from 'svelte';
-
-	let { trabalheBtn = $bindable() } = $props();
+	// @ts-ignore
+	import Clip from 'virtual:icons/mdi/paperclip';
 
 	let candidate = $state({ name: '', email: '', message: '', phone: '' });
 
@@ -208,7 +211,7 @@
 						</p>
 					</div>
 					<div class="flex flex-col items-start overflow-hidden">
-						<p>Anexe seu currículo:</p>
+						<p class="flex gap-1 items-center"><Clip />Anexe seu currículo:</p>
 						<p class="text-sm mb-1.5">
 							<span class="opacity-50">tamanho máximo:</span>
 							<span class="text-move drop-shadow-[0_0_4px_rgba(255,255,0,1)]">5MB</span>
