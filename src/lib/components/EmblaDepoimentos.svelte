@@ -16,17 +16,30 @@
 	import ArrowLeft from 'virtual:icons/mdi/chevron-left';
 	// @ts-ignore
 	import ArrowRight from 'virtual:icons/mdi/chevron-right';
+	import { onDestroy, onMount } from 'svelte';
 
 	let { avgFPS } = $props();
 
+	let autoplayDelay = 7000;
 	let options = { loop: true };
-	let plugins = [Autoplay({ stopOnMouseEnter: true, stopOnInteraction: false, delay: 10000 })];
+	let plugins = [
+		Autoplay({ stopOnMouseEnter: true, stopOnInteraction: false, delay: autoplayDelay })
+	];
 	/** @type any*/
 	let emblaApi;
 	let scrollPrev = $state();
 	let scrollNext = $state();
 
 	let depos = $state([Depo1, Depo2, Depo3, Depo4, Depo5, Depo6, Depo7]);
+
+	let timeLeft = $state(autoplayDelay);
+	/**
+	 * @type {number | undefined}
+	 */
+	let timerInterval;
+
+	/** @param {number} leftPercentage*/
+	let leftPercentage = $derived(Number(((timeLeft / autoplayDelay) * 100).toFixed()) - 5);
 
 	/** @param {any} event*/
 	function onInit(event) {
@@ -39,7 +52,22 @@
 		scrollNext = () => {
 			if (emblaApi) emblaApi.scrollNext();
 		};
+		emblaApi.on('select', () => {
+			timeLeft = autoplayDelay;
+		});
 	}
+
+	onMount(() => {
+		timerInterval = setInterval(() => {
+			timeLeft -= 100;
+			if (timeLeft <= 0) {
+				timeLeft = autoplayDelay;
+			}
+		}, 100);
+	});
+	onDestroy(() => {
+		clearInterval(timerInterval);
+	});
 </script>
 
 <div class="py-20 flex flex-col gap-12 relative">
@@ -106,8 +134,13 @@
 				<ArrowRight />
 			</button>
 		</div>
+		<div class="flex justify-center w-full mt-5">
+			<div class="w-[300px] flex justify-center">
+				<div style={`width: ` + leftPercentage + `%`} class="h-1 bg-move transition-all"></div>
+			</div>
+		</div>
 	</div>
-	<div class="w-full justify-around flex z-20 -mt-10">
+	<div class="w-full justify-around flex z-20 -mt-10 -mb-10">
 		<button onclick={scrollPrev} class="font-bold text-6xl text-move xl:hidden"
 			><ArrowLeft /></button
 		>
