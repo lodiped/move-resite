@@ -7,22 +7,22 @@
 	let { timelineInView, timelineOpt } = $props();
 </script>
 
-<div id="sobre" class="flex flex-col gap-10 px-10 lg:px-20 pb-24 bg-move text-black">
-	<div class="flex justify-between relative">
-		<img
-			loading="lazy"
-			src={cafe}
-			class="h-[600px] hidden lg:block absolute -top-20 right-[10%] drop-shadow-[0_10px_1rem_rgba(0,0,0,0.4)]"
-			alt=""
-		/>
+<div id="sobre" class="flex flex-col px-10 lg:px-20 pb-24 bg-move text-black">
+	<div class="flex justify-center gap-40 relative">
 		<div class="flex flex-col gap-12 z-10">
 			<div class="flex flex-col">
 				<h2 class="lg:text-4xl text-3xl font-bold font-grifter">Quem Somos</h2>
 			</div>
-			<div class="flex text-justify lg:text-left flex-col gap-5 lg:w-1/2 w-full">
+			<div class="flex flex-col gap-5 w-full">
 				<Welcome />
 			</div>
 		</div>
+		<img
+			loading="lazy"
+			src={cafe}
+			class="h-[600px] hidden xl:block drop-shadow-[0_10px_1rem_rgba(0,0,0,0.4)]"
+			alt=""
+		/>
 	</div>
 	<div
 		use:inview={timelineOpt}
@@ -33,8 +33,8 @@
 			timelineInView = false;
 		}}
 		class={timelineInView
-			? 'flex flex-col gap-10 2xl:pt-60 translate-y-12 2xl:pb-40 group inview'
-			: 'flex flex-col gap-10 2xl:pt-60 translate-y-12 2xl:pb-40'}
+			? 'flex flex-col gap-10 2xl:pt-16 translate-y-12 2xl:pb-40 group inview'
+			: 'flex flex-col gap-10 2xl:pt-16 translate-y-12 2xl:pb-40'}
 	>
 		<div class="relative 2xl:flex items-center mx-40 text-sm hidden">
 			<div class="w-full rounded-full h-[200px] absolute blur-3xl"></div>

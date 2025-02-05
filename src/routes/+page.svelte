@@ -42,7 +42,7 @@
 		contabilOpen = $state(false); // Modal
 	const inviewOpt = { unobserveOnEnter: true }; //parte do InView (não sei se é necessário)
 	const complicadoOpt = { unobserveOnEnter: true, rootMargin: '-30%' }; //parte do InView (não sei se é necessário)
-	const timelineOpt = { rootMargin: '-45%' }; //parte do InView (não sei se é necessário)
+	const timelineOpt = { rootMargin: '-35%' }; //parte do InView (não sei se é necessário)
 	const ctaOpt = { rootMargin: '-30%' };
 	let numbersInView = $state(false), //Checa se a section dos números está em vista (IntersectionObserver com InView)
 		phraseInView = $state(false),

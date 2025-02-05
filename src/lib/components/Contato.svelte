@@ -161,6 +161,8 @@
 					action="https://formsubmit.co/recrutamento.movenegocios@gmail.com"
 					enctype="multipart/form-data"
 				>
+					<input type="hidden" name="_next" id="next" value="https://novo.movenegocios.com.br/" />
+					<input type="hidden" name="_subject" id="subject" value={`CV ${candidate.name}`} />
 					<input
 						type="text"
 						name="name"

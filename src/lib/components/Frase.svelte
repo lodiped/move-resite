@@ -9,7 +9,7 @@
 	<img
 		src={peaksSvg}
 		alt=""
-		class="w-full 2xl:-mt-24 scale-y-50 translate-y-[calc(25%+2px)] -z-10"
+		class="w-full 2xl:-mt-24 scale-y-50 translate-y-[calc(25%+2px)] -z-10 pointer-events-none"
 	/>
 	<div
 		use:inview={complicadoOpt}
@@ -20,17 +20,17 @@
 	>
 		<p
 			class={phraseInView
-				? 'transition-all translate-y-10 lg:translate-y-0 duration-[2500ms] text-[10vw] tracking leading-none flex justify-center z-10 tracking-tight font-grifter'
-				: 'opacity-0 translate-y-20 lg:translate-y-10 text-[10vw] tracking leading-none flex justify-center z-10 tracking-tight font-grifter'}
+				? 'transition-all translate-y-10 lg:translate-y-0 duration-[2500ms] text-[12.5vw] tracking leading-none flex justify-center z-10 tracking-tight font-grifter'
+				: 'opacity-0 translate-y-20 lg:translate-y-10 text-[12.5vw] tracking leading-none flex justify-center z-10 tracking-tight font-grifter'}
 		>
-			Descomplicando
+			Você rumo ao
 		</p>
 		<p
 			class={phraseInView
 				? 'transition-all translate-y-10 lg:translate-y-0 duration-[2500ms] text-[12.25vw] tracking leading-none flex z-30 justify-center tracking-tight font-grifter'
 				: 'opacity-0 translate-y-20 lg:translate-y-10 text-[12.25vw] tracking leading-none flex justify-center tracking-tight font-grifter'}
 		>
-			o complicado
+			próximo nível
 		</p>
 		<div
 			class={phraseInView

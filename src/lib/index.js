@@ -3,7 +3,6 @@
 import alinefoto from '$lib/assets/colaboradores/Aline.webp';
 import amandafoto from '$lib/assets/colaboradores/Amanda.webp';
 import andreusfoto from '$lib/assets/colaboradores/Andreus.webp';
-import brandomfoto from '$lib/assets/colaboradores/Brandom.webp';
 import cassiafoto from '$lib/assets/colaboradores/Cassia.webp';
 import crisfoto from '$lib/assets/colaboradores/Cristina.webp';
 import betefoto from '$lib/assets/colaboradores/Bete.webp';
@@ -32,7 +31,6 @@ export const colaboradoresimg = [
 	alinefoto,
 	amandafoto,
 	andreusfoto,
-	brandomfoto,
 	betefoto,
 	cassiafoto,
 	crisfoto,
