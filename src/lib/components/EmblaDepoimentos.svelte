@@ -20,11 +20,7 @@
 
 	let { avgFPS } = $props();
 
-	let autoplayDelay = 7000;
 	let options = { loop: true };
-	let plugins = [
-		Autoplay({ stopOnMouseEnter: true, stopOnInteraction: false, delay: autoplayDelay })
-	];
 	/** @type any*/
 	let emblaApi;
 	let scrollPrev = $state();
@@ -32,43 +28,59 @@
 
 	let depos = $state([Depo1, Depo2, Depo3, Depo4, Depo5, Depo6, Depo7]);
 
+	let autoplayDelay = 7000;
 	let timeLeft = $state(autoplayDelay);
 	/**
-	 * @type {number | undefined}
+	 * @type {number}
 	 */
-	let timerInterval;
+	let animationFrameId;
+
+	let plugins = [
+		Autoplay({ stopOnMouseEnter: true, stopOnInteraction: false, delay: autoplayDelay })
+	];
 
 	/** @param {number} leftPercentage*/
-	let leftPercentage = $derived(Number(((timeLeft / autoplayDelay) * 100).toFixed()) - 5);
+	let leftPercentage = $derived(Number(((timeLeft / autoplayDelay) * 100).toFixed()));
+
+	function updateProgress() {
+		if (!emblaApi) return;
+
+		const autoplay = emblaApi.plugins().autoplay;
+		const remaining = autoplay.timeUntilNext();
+
+		if (remaining !== null) {
+			timeLeft = remaining;
+			animationFrameId = requestAnimationFrame(updateProgress);
+		} else {
+			timeLeft = autoplayDelay;
+		}
+	}
 
 	/** @param {any} event*/
 	function onInit(event) {
 		emblaApi = event.detail;
-		emblaApi.plugins().autoplay.play();
-		scrollPrev = () => {
-			if (emblaApi) emblaApi.scrollPrev();
-		};
 
-		scrollNext = () => {
-			if (emblaApi) emblaApi.scrollNext();
-		};
-		emblaApi.on('select', () => {
+		emblaApi.on('autoplay:timerset', () => {
+			cancelAnimationFrame(animationFrameId);
+			animationFrameId = requestAnimationFrame(updateProgress);
+		});
+
+		emblaApi.on('autoplay:timerstopped', () => {
+			cancelAnimationFrame(animationFrameId);
 			timeLeft = autoplayDelay;
 		});
-	}
 
-	onMount(() => {
-		timerInterval = setInterval(() => {
-			if (emblaApi.plugins().autoplay.isPlaying()) {
-				timeLeft -= 100;
-			}
-			if (timeLeft <= 0 || !emblaApi.plugins().autoplay.isPlaying()) {
-				timeLeft = autoplayDelay;
-			}
-		}, 100);
-	});
+		scrollPrev = () => emblaApi.scrollPrev();
+		scrollNext = () => emblaApi.scrollNext();
+	}
+	onMount(() => {});
+
 	onDestroy(() => {
-		clearInterval(timerInterval);
+		if (emblaApi) {
+			emblaApi.off('autoplay:timerset', updateProgress);
+			emblaApi.off('autoplay:timerstopped', updateProgress);
+		}
+		if (animationFrameId) cancelAnimationFrame(animationFrameId);
 	});
 </script>
 
