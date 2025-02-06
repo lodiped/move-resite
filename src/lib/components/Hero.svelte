@@ -80,6 +80,9 @@
 				><Laurelr class="" />
 			</a>
 		</div>
+		<div class="flex xl:hidden z-10 justify-center -my-5 items-center">
+			<img src={moveicon} alt="" class="w-3/4" />
+		</div>
 		<div class="flex justify-center z-10 my-6">
 			<p
 				class="text-5xl lg:text-7xl text-center xl:text-left font-bold font-grifter w-full uppercase leading-none bg-gradient-to-r from-move to-yellow-600 text-transparent bg-clip-text {pixelRatio >
