@@ -4,6 +4,9 @@
 	import peaksSvg from '$lib/assets/peaks.svg';
 	import Welcome from './Welcome.svelte';
 
+	// @ts-ignore
+	import External from 'virtual:icons/mdi/external-link';
+
 	let { timelineInView, timelineOpt } = $props();
 </script>
 
@@ -100,7 +103,12 @@
 			<div
 				class="absolute bottom-0 group-[.inview]:bottom-5 transition-all opacity-0 duration-500 group-[.inview]:opacity-100 left-[calc(((100%/7)*4)-115px)] w-[250px] text-center"
 			>
-				Criação do nosso podcast &ldquo;Negócio em Jogo&rdquo;
+				Criação do nosso podcast <a
+					data-umami-event="Timeline NeJ"
+					href="https://negocioemjogo.movenegocios.com.br/"
+					target="_blank"
+					class="underline">Negócio em Jogo</a
+				>
 			</div>
 			<div
 				class="rounded-full absolute bg-black left-[calc((100%/7)*5)] z-20 border-4 border-move w-5 h-5"
