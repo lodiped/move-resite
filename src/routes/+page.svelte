@@ -36,6 +36,7 @@
 	import Quemsomos from '$lib/components/Quemsomos.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Hero from '$lib/components/Hero.svelte';
+	import embed from '$lib/assets/embed.jpg';
 
 	// InView stuff
 	let gestaoOpen = $state(false), // Modal
@@ -146,6 +147,10 @@
 		content="Solução contábil e gestão financeira para descomplicar a sua rotina, auxiliando no desenvolvimento estratégico da sua empresa."
 	/>
 	<meta property="og:type" content="website" />
+	<meta property="og:image" content={embed} />
+	<meta property="og:image:type" content="image/jpg" />
+	<meta property="og:image:width" content="600" />
+	<meta property="og:image:height" content="600" />
 </svelte:head>
 
 <Header {menu} {atTop} {avgFPS} {mobileMenu} {scrollToSection} bind:mobileDrop />
