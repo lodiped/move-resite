@@ -59,8 +59,10 @@
 
 	onMount(() => {
 		timerInterval = setInterval(() => {
-			timeLeft -= 100;
-			if (timeLeft <= 0) {
+			if (emblaApi.plugins().autoplay.isPlaying()) {
+				timeLeft -= 100;
+			}
+			if (timeLeft <= 0 || !emblaApi.plugins().autoplay.isPlaying()) {
 				timeLeft = autoplayDelay;
 			}
 		}, 100);
