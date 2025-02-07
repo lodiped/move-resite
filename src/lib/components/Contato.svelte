@@ -19,6 +19,8 @@
 
 	let candidate = $state({ name: '', email: '', message: '', phone: '' });
 
+	let submitButton = $state('Enviar');
+
 	let telefoneClicked = $state();
 	let copyNotice = $state();
 	/** @param {string} text*/
@@ -160,6 +162,9 @@
 					method="POST"
 					action="https://formsubmit.co/recrutamento.movenegocios@gmail.com"
 					enctype="multipart/form-data"
+					onsubmit={() => {
+						submitButton = 'Enviando...';
+					}}
 				>
 					<input type="hidden" name="_next" id="next" value="https://novo.movenegocios.com.br/" />
 					<input type="hidden" name="_subject" id="subject" value={`CV ${candidate.name}`} />
@@ -230,7 +235,7 @@
 					</div>
 					<input
 						type="submit"
-						value="Enviar"
+						value={submitButton}
 						class="cursor-pointer drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
 					/>
 				</form>
