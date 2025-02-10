@@ -16,7 +16,7 @@
 	import ArrowLeft from 'virtual:icons/mdi/chevron-left';
 	// @ts-ignore
 	import ArrowRight from 'virtual:icons/mdi/chevron-right';
-	import { onDestroy, onMount } from 'svelte';
+	import { onDestroy } from 'svelte';
 
 	let { avgFPS } = $props();
 
@@ -60,6 +60,12 @@
 	function onInit(event) {
 		emblaApi = event.detail;
 
+		const autoplay = emblaApi.plugins().autoplay;
+		if (autoplay && autoplay.isPlaying()) {
+			cancelAnimationFrame(animationFrameId);
+			animationFrameId = requestAnimationFrame(updateProgress);
+		}
+
 		emblaApi.on('autoplay:timerset', () => {
 			cancelAnimationFrame(animationFrameId);
 			animationFrameId = requestAnimationFrame(updateProgress);
@@ -70,10 +76,17 @@
 			timeLeft = autoplayDelay;
 		});
 
-		scrollPrev = () => emblaApi.scrollPrev();
-		scrollNext = () => emblaApi.scrollNext();
+		scrollPrev = () => {
+			emblaApi.scrollPrev();
+			autoplay?.stop();
+			autoplay?.play();
+		};
+		scrollNext = () => {
+			emblaApi.scrollNext();
+			autoplay?.stop();
+			autoplay?.play();
+		};
 	}
-	onMount(() => {});
 
 	onDestroy(() => {
 		if (emblaApi) {

@@ -27,10 +27,8 @@
 	function handleOutside(event) {
 		if (dropdownButton.contains(event.target)) {
 			mobileMenu();
-			console.log('button');
 		} else if (!targetHeader.contains(event.target)) {
 			mobileDrop = false;
-			console.log('outside');
 		}
 	}
 
