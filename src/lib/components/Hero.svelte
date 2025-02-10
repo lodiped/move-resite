@@ -134,7 +134,7 @@
 			use:inview={inviewOpt}
 			oninview_enter={raiseNumbers}
 			class={numbersInView
-				? 'flex gap-2 transition-all text-sm w-full z-10 duration-[2500ms] mb-10 text-[#ebebeb]'
+				? 'flex justify-center xl:justify-start gap-2 transition-all text-sm w-full z-10 duration-[2500ms] mb-10 text-[#ebebeb]'
 				: 'transition-all opacity-0 flex gap-2 text-sm duration-[2500ms] mb-10 text-[#ebebeb] translate-y-10'}
 		>
 			<div class="lg:w-32 w-20">
