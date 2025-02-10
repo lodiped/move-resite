@@ -7,7 +7,6 @@
 	function scrollToSection(offset) {
 		// @ts-ignore
 		return (event) => {
-			console.log(event);
 			event.preventDefault();
 			const targetId = event.currentTarget.getAttribute('href').substring(1);
 			const targetElement = document.getElementById(targetId);

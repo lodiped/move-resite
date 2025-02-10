@@ -10,14 +10,46 @@
 	import BigX from 'virtual:icons/mdi/close';
 	// @ts-ignore
 	import WhatsApp from 'virtual:icons/mdi/whatsapp';
+	import { onMount } from 'svelte';
+
+	/**
+	 * @type {HTMLElement}
+	 */
+	let targetHeader;
+	/**
+	 * @type {HTMLButtonElement}
+	 */
+	let dropdownButton;
+
+	/**
+	 * @param {any} event
+	 */
+	function handleOutside(event) {
+		if (dropdownButton.contains(event.target)) {
+			mobileMenu();
+			console.log('button');
+		} else if (!targetHeader.contains(event.target)) {
+			mobileDrop = false;
+			console.log('outside');
+		}
+	}
+
+	onMount(() => {
+		window.addEventListener('click', handleOutside);
+		return () => {
+			window.removeEventListener('click', handleOutside);
+		};
+	});
 </script>
 
 <header
-	class={atTop && !mobileDrop
-		? 'flex fixed flex-col lg:flex-row lg:justify-center w-full justify-between px-2 lg:px-20 py-8 transition-all duration-700 z-50 border-move/5'
+	bind:this={targetHeader}
+	class="flex fixed flex-col lg:flex-row lg:justify-center w-full justify-between px-2 lg:px-20 py-8 transition-all duration-700 {atTop &&
+	!mobileDrop
+		? 'duration-700 z-50 border-move/5'
 		: avgFPS < 24
-			? 'flex fixed flex-col lg:flex-row lg:justify-center w-full justify-between px-2 lg:px-20 py-8 shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/70 z-50 transition-all duration-700 border-b border-move/10'
-			: 'flex fixed flex-col lg:flex-row lg:justify-center w-full justify-between px-2 lg:px-20 py-8 drop-shadow-lg shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/20 z-50 transition-all duration-700 backdrop-blur-md border-b border-move/10'}
+			? 'shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/70 z-50 border-b border-move/10'
+			: 'drop-shadow-lg shadow-[0px_3px_5px_rgba(0,0,0,0.1)] bg-black/20 z-50 backdrop-blur-md border-b border-move/10'}"
 >
 	<div class="flex justify-between w-full max-w-[1500px] px-5" bind:this={menu}>
 		<div>
@@ -73,7 +105,7 @@
 				<span> Área do Cliente </span>
 			</a>
 			<button
-				onclick={mobileMenu}
+				bind:this={dropdownButton}
 				aria-label="Menu de navegação"
 				class="z-20 lg:hidden text-xl drop-shadow w-fit"
 			>
