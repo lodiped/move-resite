@@ -45,11 +45,12 @@
 				}
 			};
 			let raiseDinheiros = () => {
-				if (dinheiros < 42) {
+				if (dinheiros < 500) {
 					setTimeout(() => {
 						dinheiros++;
+						dinheiros++;
 						raiseDinheiros();
-					}, 70);
+					}, 10);
 				}
 			};
 			raiseClientes();
