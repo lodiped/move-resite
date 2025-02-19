@@ -64,7 +64,7 @@
 			<h2 class="grifter-title relative text-3xl md:text-4xl text-center">
 				Soluções Contábeis
 				<span
-					class="absolute md:text-3xl text-2xl font-bold font-grifter text-move bottom-3 left-24 translate-x-2.5 -translate-y-0.5"
+					class="absolute md:text-3xl text-2xl font-bold font-grifter text-move bottom-3 left-24 sm:translate-x-2.5 -translate-x-2 -translate-y-0.5"
 				>
 					~
 				</span>
@@ -167,7 +167,15 @@
 			>
 				<BigX />
 			</button>
-			<h2 class="grifter-title mt-5">Soluções Contábeis.</h2>
+			<h2 class="grifter-title mt-5 relative">
+				Soluções Contábeis.
+
+				<span
+					class="absolute md:text-3xl text-2xl font-bold font-grifter text-move sm:bottom-3 left-1/2 bottom-14 sm:left-24 translate-x-5 sm:translate-x-2.5 sm:-translate-y-0.5"
+				>
+					~
+				</span>
+			</h2>
 			<div class="flex flex-wrap *:h-full relative justify-center items-start gap-10">
 				{#each contabeis as item}
 					<div class="xl:w-48 w-32 flex flex-col gap-2 items-center">
