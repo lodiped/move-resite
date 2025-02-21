@@ -35,6 +35,8 @@
 	import Quemsomos from '$lib/components/Quemsomos.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Hero from '$lib/components/Hero.svelte';
+	import Threlte from '$lib/components/Threlte.svelte';
+	import { Canvas } from '@threlte/core';
 	import embed from '$lib/assets/embed.jpg';
 
 	// InView stuff
@@ -159,6 +161,12 @@
 </div>
 
 <Servicos bind:gestaoOpen bind:contabilOpen />
+
+<div class="-mb-80">
+	<Canvas>
+		<Threlte />
+	</Canvas>
+</div>
 
 <Frase {phraseInView} {complicadoOpt} />
 

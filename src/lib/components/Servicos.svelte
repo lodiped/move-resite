@@ -102,7 +102,7 @@
 	</div>
 </div>
 
-<div class="lg:-mb-60 mb-0">
+<div>
 	<span class="opacity-50 font-bold w-full flex justify-center mb-10">Nossos clientes</span>
 	<Embla />
 </div>
