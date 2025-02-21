@@ -14,11 +14,11 @@
 		>
 			<div class="lg:h-3/4 h-1/2"></div>
 			<div class="lg:h-1/4 h-1/2">
-				<h3
+				<h2
 					class="font-grifter text-2xl drop-shadow-md bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
 				>
 					André Castro
-				</h3>
+				</h2>
 				<p class="text-white">Cofundador e CEO</p>
 			</div>
 			<div
@@ -36,11 +36,11 @@
 		>
 			<div class="lg:h-3/4 h-1/2"></div>
 			<div class="lg:h-1/4 h-1/2">
-				<h3
+				<h2
 					class="font-grifter text-2xl drop-shadow-lg bg-gradient-to-r from-move to-yellow-500 w-fit text-transparent bg-clip-text"
 				>
 					Valdinei Silva
-				</h3>
+				</h2>
 				<p class="text-white">Cofundador e COO</p>
 			</div>
 			<div
