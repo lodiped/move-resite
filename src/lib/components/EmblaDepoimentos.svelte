@@ -145,6 +145,7 @@
 			class="absolute h-full top-0 z-0 -translate-x-8 xl:flex items-center hidden right-0 w-3/4 2xl:w-2/3"
 		>
 			<button
+				aria-label="slide anterior"
 				onclick={scrollPrev}
 				class="text-6xl text-move/30 transition-colors hover:text-move font-bold"
 			>
@@ -153,6 +154,7 @@
 		</div>
 		<div class="absolute h-full top-0 z-10 xl:flex items-center hidden right-10 w-1/4 2xl:w-1/3">
 			<button
+				aria-label="próximo slide"
 				onclick={scrollNext}
 				class="text-6xl text-move/30 transition-colors hover:text-move font-bold"
 			>
@@ -166,11 +168,15 @@
 		</div>
 	</div>
 	<div class="w-full justify-around flex z-20 -mt-10 -mb-10">
-		<button onclick={scrollPrev} class="font-bold text-6xl text-move xl:hidden"
-			><ArrowLeft /></button
+		<button
+			onclick={scrollPrev}
+			aria-label="slide anterior"
+			class="font-bold text-6xl text-move xl:hidden"><ArrowLeft /></button
 		>
-		<button onclick={scrollNext} class="font-bold text-6xl text-move xl:hidden"
-			><ArrowRight /></button
+		<button
+			onclick={scrollNext}
+			aria-label="próximo slide"
+			class="font-bold text-6xl text-move xl:hidden"><ArrowRight /></button
 		>
 	</div>
 </div>

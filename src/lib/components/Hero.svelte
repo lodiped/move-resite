@@ -2,14 +2,13 @@
 	import { inview } from 'svelte-inview';
 	// Imagens
 	import timelapse from '$lib/assets/timelapse.webm';
-	import moveicon from '$lib/assets/hero.png';
+	import moveicon from '$lib/assets/hero.webp';
 	import { ctaInview } from '$lib/state.svelte';
 
 	// @ts-ignore
 	import Laurell from 'virtual:icons/hugeicons/laurel-wreath-left-03';
 	// @ts-ignore
 	import Laurelr from 'virtual:icons/hugeicons/laurel-wreath-right-03';
-	import { onMount } from 'svelte';
 
 	let { ctaOpt, pixelRatio, inviewOpt, numbersInView, avgFPS, scrollToSection } = $props();
 
