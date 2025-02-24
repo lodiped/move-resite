@@ -13,7 +13,6 @@ import ketelinfoto from '$lib/assets/colaboradores/Ketelin.webp';
 import larifoto from '$lib/assets/colaboradores/Larissa.webp';
 import lauanyfoto from '$lib/assets/colaboradores/Lauany.webp';
 import lincolnfoto from '$lib/assets/colaboradores/Lincoln.webp';
-import lyncolnfoto from '$lib/assets/colaboradores/Lyncoln.webp';
 import michaelfoto from '$lib/assets/colaboradores/Michael.webp';
 import nunesfoto from '$lib/assets/colaboradores/Jéssica.webp';
 import phelipefoto from '$lib/assets/colaboradores/Phelipe.webp';
@@ -41,7 +40,6 @@ export const colaboradoresimg = [
 	larifoto,
 	lauanyfoto,
 	lincolnfoto,
-	lyncolnfoto,
 	michaelfoto,
 	nunesfoto,
 	pedrofoto,
