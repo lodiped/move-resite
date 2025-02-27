@@ -4,9 +4,6 @@
 	import peaksSvg from '$lib/assets/peaks.svg';
 	import Welcome from './Welcome.svelte';
 
-	// @ts-ignore
-	import External from 'virtual:icons/mdi/external-link';
-
 	let { timelineInView, timelineOpt } = $props();
 </script>
 
