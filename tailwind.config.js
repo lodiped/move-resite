@@ -17,7 +17,8 @@ export default {
 			backgroundImage: {
 				team: "url('$lib/assets/team.png')",
 				valdi: "url('$lib/assets/Valdi.webp')",
-				andre: "url('$lib/assets/Andre.webp')"
+				andre: "url('$lib/assets/Andre.webp')",
+				lpbg: "url('$lib/assets/lp-bg.png')"
 			},
 
 			colors: {
