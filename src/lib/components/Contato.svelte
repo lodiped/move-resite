@@ -75,13 +75,13 @@
 			<a
 				data-umami-event="Contato Telefone"
 				href="tel:4130784210"
-				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex xl:hidden text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
+				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] flex sm:hidden text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
 			>
 				<Phone class=" scale-125" />Telefone</a
 			>
 			<button
 				data-umami-event="Contato Telefone"
-				class="relative group hidden drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] xl:flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
+				class="relative group hidden drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] sm:flex text-xl shadow-xl justify-center items-center gap-3 rounded-xl p-4 text-move font-bold hover:bg-yellow-600/90 transition-all bg-yellow-600/70 border border-move/30"
 				onclick={() => {
 					telefoneClicked = true;
 					copyNotice = true;
