@@ -1,7 +1,7 @@
 <script>
 	import embed from '$lib/assets/embed.jpg';
 	import moveLogo from '$lib/assets/logo-move.webp';
-	import foguete from '$lib/assets/foguete-fumaca-3d.png';
+	import foguete from '$lib/assets/foguete-fumaca-3d.webp';
 	import hero from '$lib/assets/hero.webp';
 	import bg from '$lib/assets/lp-bg.png';
 </script>
