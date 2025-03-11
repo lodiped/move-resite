@@ -54,28 +54,30 @@
 	import BPOList from 'virtual:icons/mdi/playlist-check';
 	// @ts-ignore
 	import BPOEye from 'virtual:icons/mdi/file-eye-outline';
+	import { pushState } from '$app/navigation';
+	import { page } from '$app/state';
 
 	let { gestaoOpen = $bindable(), contabilOpen = $bindable() } = $props();
+
+	function showContabil() {
+		pushState('contabil', { contabilOpen: !contabilOpen });
+	}
+	function showGestao() {
+		pushState('financeiro', { gestaoOpen: !gestaoOpen });
+	}
 </script>
 
 <div id="servicos" class="flex px-10 lg:px-20 pb-40 pt-20 justify-center lg:items-start">
 	<div class="flex lg:gap-10 gap-40 lg:flex-row flex-col">
 		<div class="flex z-10 flex-col items-center justify-between gap-12 max-w-[500px]">
-			<h2 class="grifter-title relative text-3xl md:text-4xl text-center">
-				Soluções Contábeis
-				<span
-					class="absolute md:text-3xl text-2xl font-bold font-grifter text-move bottom-3 left-24 sm:translate-x-2.5 -translate-x-2 -translate-y-0.5"
-				>
-					~
-				</span>
-			</h2>
+			<h2 class="grifter-title text-3xl md:text-4xl text-center">Soluções Contábeis</h2>
 			<Contabil />
 			<button
 				data-umami-event="Servicos Contabeis"
 				aria-label="Saiba mais sobre o serviço de Gestão Contábil"
 				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] group border border-move/30 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 bg-yellow-600/70 text-move transition-all"
 				onclick={() => {
-					contabilOpen = !contabilOpen;
+					showContabil();
 				}}
 			>
 				<span class="transition-all group-hover:drop-shadow-[0_0_0.5rem_rgba(255,255,0,0.7)]"
@@ -91,7 +93,7 @@
 				aria-label="Saiba mais sobre o serviço de Gestão Financeira"
 				class="drop-shadow-[0_1.2rem_1rem_rgba(240,175,0,0.5)] group border border-move/30 relative p-4 rounded-xl shadow-xl font-bold w-fit hover:bg-yellow-600/90 bg-yellow-600/70 text-move transition-all"
 				onclick={() => {
-					gestaoOpen = !gestaoOpen;
+					showGestao();
 				}}
 			>
 				<span class="transition-all group-hover:drop-shadow-[0_0_0.5rem_rgba(255,255,0,0.7)]"
@@ -106,7 +108,7 @@
 	<span class="opacity-50 font-bold w-full flex justify-center mb-10">Nossos clientes</span>
 	<Embla />
 </div>
-{#if gestaoOpen}
+{#if page.state.gestaoOpen}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
@@ -115,7 +117,7 @@
 		class="fixed flex flex-col inset-0 justify-center items-center bg-black/30 z-50"
 		onclick={(event) => {
 			if (event.target === event.currentTarget) {
-				gestaoOpen = false;
+				history.back();
 			}
 		}}
 	>
@@ -124,7 +126,7 @@
 		>
 			<button
 				onclick={() => {
-					gestaoOpen = false;
+					history.back();
 				}}
 				class="absolute hover:bg-white/10 rounded-full text-lg top-0 right-0 p-2 m-2"
 			>
@@ -143,7 +145,7 @@
 	</div>
 {/if}
 
-{#if contabilOpen}
+{#if page.state.contabilOpen}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
@@ -152,7 +154,7 @@
 		class="fixed flex inset-0 justify-center items-center bg-black/30 z-50"
 		onclick={(event) => {
 			if (event.target === event.currentTarget) {
-				contabilOpen = false;
+				history.back();
 			}
 		}}
 	>
@@ -161,21 +163,13 @@
 		>
 			<button
 				onclick={() => {
-					contabilOpen = false;
+					history.back();
 				}}
 				class="absolute hover:bg-white/10 rounded-full text-lg top-0 right-0 p-2 m-2"
 			>
 				<BigX />
 			</button>
-			<h2 class="grifter-title mt-5 relative">
-				Soluções Contábeis.
-
-				<span
-					class="absolute md:text-3xl text-2xl font-bold font-grifter text-move sm:bottom-3 left-1/2 bottom-14 sm:left-24 translate-x-5 sm:translate-x-2.5 sm:-translate-y-0.5"
-				>
-					~
-				</span>
-			</h2>
+			<h2 class="grifter-title mt-5">Soluções Contábeis.</h2>
 			<div class="flex flex-wrap *:h-full relative justify-center items-start gap-10">
 				{#each contabeis as item}
 					<div class="xl:w-48 w-32 flex flex-col gap-2 items-center">
