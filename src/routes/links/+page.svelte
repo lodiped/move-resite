@@ -3,7 +3,6 @@
 	import moveLogo from '$lib/assets/logo-move.webp';
 	import foguete from '$lib/assets/foguete-fumaca-3d.webp';
 	import hero from '$lib/assets/hero.webp';
-	import bg from '$lib/assets/lp-bg.png';
 </script>
 
 <svelte:head>
@@ -47,23 +46,27 @@
 		class="flex z-50 flex-col gap-5 *:bg-black *:text-center *:text-move *:rounded-2xl xl:*:text-xl *:py-5 xl:*:py-6 xl:*:px-16 *:px-9 *:drop-shadow-xl *:text-sm"
 	>
 		<a
+			data-umami-event="Links WhatsApp"
 			href="https://wa.me/5541998163983"
 			class="hover:bg-move hover:text-black transition-all hover:scale-105"
 			>Economize tempo e dinheiro agora! 🚀</a
 		>
 		<a
+			data-umami-event="Links Instagram"
 			href="https://youtube.com/@negocioemjogo"
 			target="_blank"
 			class="hover:bg-move hover:text-black transition-all hover:scale-105"
-			>Assista noso PODCAST no YouTube! 🎙️</a
+			>Assista nosso PODCAST no YouTube! 🎙️</a
 		>
 		<a
+			data-umami-event="Links Move Negócios"
 			href="https://movenegocios.com.br/"
 			target="_blank"
 			class="hover:bg-move hover:text-black transition-all hover:scale-105"
 			>Visite o nosso site! 🌐</a
 		>
 		<a
+			data-umami-event="Links Recrutamento"
 			href="https://forms.gle/xYBtMxCFXCjQqwPN9"
 			target="_blank"
 			class="hover:bg-move hover:text-black transition-all hover:scale-105"
