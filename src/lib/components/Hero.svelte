@@ -61,10 +61,10 @@
 </script>
 
 <div
-	class="2xl:w-[1500px] xl:h-screen mt-5 flex xl:flex-row flex-col relative items-center justify-center"
+	class="2xl:w-[1500px] xl:h-screen mt-5 xl:px-20 lg:px-10 flex xl:flex-row flex-col relative items-center justify-center"
 >
 	<div
-		class="flex flex-col relative xl:w-1/2 mt-20 xl:mt-0 xl:pl-5 px-4 xl:px-0{pixelRatio > 1
+		class="flex flex-col relative xl:w-1/2 mt-20 xl:mt-0 xl:pl-5 px-4 xl:px-0 {pixelRatio > 1
 			? ''
 			: ''}"
 	>
@@ -106,7 +106,7 @@
 			oninview_leave={() => {
 				ctaInview.value = false;
 			}}
-			class="flex flex-col xl:flex-row h-fit justify-start xl:gap-10 gap-4 z-10 my-8"
+			class="flex flex-col xl:flex-row h-fit justify-start xl:gap-4 2xl:gap-10 z-10 my-8"
 		>
 			<a
 				data-umami-event="Hero Servicos"
@@ -155,7 +155,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="w-1/2 hidden z-10 xl:flex justify-center translate-y-16">
+	<div class="xl:w-1/2 hidden z-10 xl:flex justify-center translate-y-16">
 		<img src={moveicon} alt="" />
 	</div>
 </div>
