@@ -9,6 +9,9 @@
 	import Laurell from 'virtual:icons/hugeicons/laurel-wreath-left-03';
 	// @ts-ignore
 	import Laurelr from 'virtual:icons/hugeicons/laurel-wreath-right-03';
+	// @ts-ignore
+	import WhatsApp from 'virtual:icons/mdi/whatsapp';
+	import { onMount } from 'svelte';
 
 	let { ctaOpt, pixelRatio, inviewOpt, numbersInView, avgFPS, scrollToSection } = $props();
 
@@ -58,6 +61,31 @@
 			raiseDinheiros();
 			numbersInView = true;
 		});
+
+	/** @type {string | null} */
+	let variant = $state(null);
+
+	const COOKIE_NAME = 'ab_test_variant';
+
+	/** @param {string} name */
+	function getCookie(name) {
+		return document.cookie
+			.split('; ')
+			.find((row) => row.startsWith(name))
+			?.split('=')[1];
+	}
+
+	onMount(() => {
+		const existing = parseFloat(getCookie(COOKIE_NAME));
+		const randomVariant = Math.random();
+
+		const finalVariant = isNaN(existing) ? randomVariant : existing;
+		if (isNaN(existing)) {
+			document.cookie = `${COOKIE_NAME}=${finalVariant}; max-age=600000; path=/`;
+		}
+
+		variant = finalVariant < 0.5 ? 'A' : 'B';
+	});
 </script>
 
 <div
@@ -106,19 +134,23 @@
 			oninview_leave={() => {
 				ctaInview.value = false;
 			}}
-			class="flex flex-col xl:flex-row h-fit justify-start xl:gap-4 2xl:gap-10 z-10 my-8"
+			class="flex flex-col xl:flex-row h-fit justify-start xl:gap-4 z-10 my-8"
 		>
 			<a
 				data-umami-event="Hero Servicos"
 				aria-label="Clique para falar com o nosso time"
 				href="#servicos"
 				onclick={scrollToSection(-80)}
-				class="px-8 group flex justify-center relative p-4 rounded-xl xl:text-lg shadow-xl font-bold xl:w-fit w-full hover:bg-white hover:text-black border-white/40 border text-white transition-all"
+				class="px-7 group flex justify-center relative p-4 rounded-xl xl:text-lg shadow-xl font-bold xl:w-fit w-full hover:bg-white hover:text-black border-white/40 border text-white transition-all"
 			>
 				<span class="uppercase text-center flex items-center">SERVIÇOS</span>
 			</a>
 			<a
-				data-umami-event="Hero CTA Principal"
+				data-umami-event={variant === 'A'
+					? 'Hero CTA A'
+					: variant === 'B'
+						? 'Hero CTA B'
+						: 'Hero CTA Default'}
 				aria-label="Clique para falar com o nosso time"
 				href="https://wa.me/5541998163983"
 				target="_blank"
@@ -126,7 +158,9 @@
 					? 'opacity-100'
 					: 'xl:translate-y-60 xl:translate-x-60 xl:opacity-0'}"
 			>
-				<span class="uppercase text-center xl:leading-loose">Economize tempo e dinheiro agora!</span
+				<span class="uppercase text-center xl:leading-loose flex items-center justify-center gap-2"
+					><WhatsApp class="text-xl" />{#if variant === 'A'}Economize tempo e dinheiro agora!{:else if variant === 'B'}Fale
+						conosco!{:else}{/if}</span
 				>
 			</a>
 		</div>

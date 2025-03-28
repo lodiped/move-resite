@@ -32,8 +32,30 @@
 		}
 	}
 
+	/** @type {string | null} */
+	let variant = $state(null);
+
+	const COOKIE_NAME = 'ab_test_variant';
+
+	/** @param {string} name */
+	function getCookie(name) {
+		return document.cookie
+			.split('; ')
+			.find((row) => row.startsWith(name))
+			?.split('=')[1];
+	}
+
 	onMount(() => {
 		window.addEventListener('click', handleOutside);
+		let existing = parseFloat(getCookie(COOKIE_NAME));
+		if (isNaN(existing)) {
+			setTimeout(() => {
+				existing = parseFloat(getCookie(COOKIE_NAME));
+				variant = existing < 0.5 ? 'A' : 'B';
+			}, 1000);
+		} else {
+			variant = existing < 0.5 ? 'A' : 'B';
+		}
 		return () => {
 			window.removeEventListener('click', handleOutside);
 		};
@@ -171,9 +193,16 @@
 	class="fixed w-full h-screen z-50 pointer-events-none flex items-end justify-center xl:items-end xl:justify-end"
 >
 	<a
+		data-umami-event={variant === 'A'
+			? 'Floating CTA A'
+			: variant === 'B'
+				? 'Floating CTA B'
+				: 'Floating CTA Default'}
 		href="https://wa.me/5541998163983"
 		class="hidden absolute xl:flex gap-2 items-center drop-shadow-xl font-bold z-50 pointer-events-auto p-4 px-5 bg-move text-black uppercase rounded-xl m-4 transition-all {ctaInview.value
 			? 'xl:-translate-y-60 xl:-translate-x-60 xl:opacity-0 xl:pointer-events-none'
-			: 'opacity-100'}"><WhatsApp class="text-xl" /> Economize tempo e dinheiro agora!</a
+			: 'opacity-100'}"
+		><WhatsApp class="text-xl" />
+		{#if variant === 'A'}Economize tempo e dinheiro agora!{:else if variant === 'B'}Fale Conosco!{:else}{/if}</a
 	>
 </footer>
