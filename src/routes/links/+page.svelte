@@ -48,8 +48,7 @@
 		<a
 			data-umami-event="Links WhatsApp"
 			href="https://wa.me/5541998163983"
-			class="hover:bg-move hover:text-black transition-all hover:scale-105"
-			>Economize tempo e dinheiro agora! 🚀</a
+			class="hover:bg-move hover:text-black transition-all hover:scale-105">Fale conosco! 🚀</a
 		>
 		<a
 			data-umami-event="Links Instagram"
