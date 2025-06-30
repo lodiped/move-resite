@@ -151,7 +151,7 @@
 	<div
 		in:fly={{ duration: 200, y: 500, opacity: 0 }}
 		out:fade={{ duration: 200 }}
-		class="fixed flex inset-0 justify-center items-center bg-black/30 z-50"
+		class="fixed flex flex-col inset-0 justify-center items-center bg-black/30 z-50"
 		onclick={(event) => {
 			if (event.target === event.currentTarget) {
 				history.back();
@@ -159,7 +159,7 @@
 		}}
 	>
 		<div
-			class="xl:p-16 p-4 xl:w-[70%] w-[85%] relative text-center xl:h-fit flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
+			class="xl:p-16 p-4 xl:w-[75%] w-[85%] relative text-center xl:h-fit overflow-scroll xl:overflow-auto max-h-[80vh] flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
 		>
 			<button
 				onclick={() => {
