@@ -134,7 +134,7 @@
 			oninview_leave={() => {
 				ctaInview.value = false;
 			}}
-			class="flex flex-col xl:flex-row h-fit justify-start xl:gap-4 z-10 my-8"
+			class="flex flex-col xl:flex-row h-fit justify-start xl:gap-4 gap-2 z-10 my-8"
 		>
 			<a
 				data-umami-event="Hero Servicos"
