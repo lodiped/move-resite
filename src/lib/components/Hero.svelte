@@ -76,6 +76,7 @@
 	}
 
 	onMount(() => {
+		// @ts-ignore
 		const existing = parseFloat(getCookie(COOKIE_NAME));
 		const randomVariant = Math.random();
 
