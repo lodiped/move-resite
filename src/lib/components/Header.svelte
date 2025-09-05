@@ -77,7 +77,7 @@
 				<img loading="lazy" src={moveLogo} class="w-64 drop-shadow-md" alt="Logo Move Negócios" />
 			</a>
 		</div>
-		<div class="gap-10 font-bold justify-between hidden lg:flex">
+		<div class="gap-10 font-bold justify-between hidden xl:flex">
 			<a
 				data-umami-event="Header Servicos Desktop"
 				aria-label="Serviços"
@@ -100,7 +100,7 @@
 				data-umami-event="Header Contato Desktop"
 				aria-label="Contato"
 				onclick={scrollToSection(-200)}
-				href="#contato"
+				href="#cafe"
 				class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
 			>
 				Contato
@@ -114,12 +114,21 @@
 			>
 				Podcast
 			</a>
+			<a
+				data-umami-event="Trabalhe Conosco"
+				aria-label="Trabalhe Conosco"
+				href="https://forms.gle/xYBtMxCFXCjQqwPN9"
+				target="_blank"
+				class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
+			>
+				Trabalhe Conosco
+			</a>
 		</div>
 		<div>
 			<a
 				data-umami-event="Header Gestta Desktop"
 				aria-label="Área do Cliente"
-				class="p-4 rounded-xl font-bold z-20 drop-shadow-lg hover:drop-shadow-[0_1rem_1rem_rgba(255,180,0,0.2)] w-fit bg-move text-black transition-all hover:bg-yellow-400/90 hidden lg:inline"
+				class="p-4 rounded-xl font-bold z-20 drop-shadow-lg hover:drop-shadow-[0_1rem_1rem_rgba(255,180,0,0.2)] w-fit bg-move text-black transition-all hover:bg-yellow-400/90 hidden xl:inline"
 				href="https://app.gestta.com.br/#/login/auth?isInitialPage=true%20"
 			>
 				<span> Área do Cliente </span>
@@ -127,7 +136,7 @@
 			<button
 				bind:this={dropdownButton}
 				aria-label="Menu de navegação"
-				class="z-20 lg:hidden text-xl drop-shadow w-fit"
+				class="z-20 xl:hidden text-xl drop-shadow w-fit"
 			>
 				{#if !mobileDrop}
 					<Hamburger />
@@ -162,7 +171,7 @@
 					data-umami-event="Header Contato Mobile"
 					aria-label="Contato"
 					onclick={scrollToSection(-10)}
-					href="#contato"
+					href="#cafe"
 					class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] w-fit"
 				>
 					Contato
@@ -183,6 +192,15 @@
 					href="https://app.gestta.com.br/#/login/auth?isInitialPage=true%20"
 				>
 					<span> Área do Cliente </span>
+				</a>
+				<a
+					data-umami-event="Trabalhe Conosco Mobile"
+					aria-label="Trabalhe Conosco"
+					href="https://forms.gle/xYBtMxCFXCjQqwPN9"
+					target="_blank"
+					class="drop-shadow transition-all hover:drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
+				>
+					Trabalhe Conosco
 				</a>
 			</div>
 		</div>

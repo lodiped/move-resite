@@ -8,6 +8,7 @@
 	import Depo4 from './depoimentos/Depo4.svelte';
 	import Depo5 from './depoimentos/Depo5.svelte';
 	import Depo6 from './depoimentos/Depo6.svelte';
+	import Depo7 from './depoimentos/Depo7.svelte';
 	import astronauta from '$lib/assets/astronauta.webp';
 	import foguete from '$lib/assets/foguete.webp';
 	import planeta from '$lib/assets/planeta.webp';
@@ -25,7 +26,7 @@
 	let scrollPrev = $state();
 	let scrollNext = $state();
 
-	let depos = $state([Depo1, Depo2, Depo3, Depo4, Depo5, Depo6]);
+	let depos = $state([Depo1, Depo2, Depo3, Depo4, Depo5, Depo6, Depo7]);
 
 	let autoplayDelay = 7000;
 	let timeLeft = $state(autoplayDelay);

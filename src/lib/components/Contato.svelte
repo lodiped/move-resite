@@ -53,9 +53,7 @@
 		<img src={planeta} alt="" />
 	</div>
 	<div class="flex flex-col xl:w-1/3 gap-12">
-		<div class=" flex flex-col justify-center gap-12">
-			<h1 class="grifter-title text-3xl lg:text-4xl">Fale com o nosso time!</h1>
-		</div>
+		<h1 class="grifter-title text-3xl lg:text-4xl">Fale com o nosso time!</h1>
 		<div class="flex flex-col gap-8">
 			<a
 				data-umami-event="Contato Whatsapp"

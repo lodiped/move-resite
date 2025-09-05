@@ -35,6 +35,7 @@
 	import Quemsomos from '$lib/components/Quemsomos.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Hero from '$lib/components/Hero.svelte';
+	import Cafe from '$lib/components/Cafe.svelte';
 	import embed from '$lib/assets/embed.jpg';
 
 	// InView stuff
@@ -172,6 +173,8 @@
 
 <Donos {avgFPS} />
 
-<Contato {trabalheBtn} />
+<!-- <Contato {trabalheBtn} /> -->
+
+<Cafe />
 
 <Footer />
