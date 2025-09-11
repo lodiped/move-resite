@@ -211,6 +211,7 @@
 	class="fixed w-full h-screen z-50 pointer-events-none flex items-end justify-center xl:items-end xl:justify-end"
 >
 	<a
+		target="_blank"
 		data-umami-event={variant === 'A'
 			? 'Floating CTA A'
 			: variant === 'B'
