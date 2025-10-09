@@ -22,7 +22,7 @@
 		dinheiros = $state(0),
 		raiseNumbers = $derived(() => {
 			let raiseClientes = () => {
-				if (clientes < 330) {
+				if (clientes < 358) {
 					setTimeout(() => {
 						clientes++;
 						clientes++;
