@@ -97,7 +97,7 @@
 				}}
 			>
 				<span class="transition-all group-hover:drop-shadow-[0_0_0.5rem_rgba(255,255,0,0.7)]"
-					>Serviços BPO</span
+					>Serviços Financeiros</span
 				>
 			</button>
 		</div>
