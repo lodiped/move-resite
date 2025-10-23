@@ -35,6 +35,7 @@ import fernandanova from '$lib/assets/colaboradores/Fernanda-25.webp';
 import fernandonova from '$lib/assets/colaboradores/Fernando-25.webp';
 import frannova from '$lib/assets/colaboradores/Fran-25.webp';
 import heloisanova from '$lib/assets/colaboradores/Heloisa-25.webp';
+import henriquenova from '$lib/assets/colaboradores/Henrique-25.webp';
 import jessicanova from '$lib/assets/colaboradores/Jéssica-25.webp';
 import ketelinnova from '$lib/assets/colaboradores/Ketelin-25.webp';
 import larissanova from '$lib/assets/colaboradores/Larissa-25.webp';
@@ -44,10 +45,8 @@ import lucasnova from '$lib/assets/colaboradores/Lucas-25.webp';
 import malunova from '$lib/assets/colaboradores/Malu-25.webp';
 import pedronova from '$lib/assets/colaboradores/Pedro-25.webp';
 import rafaelnova from '$lib/assets/colaboradores/Rafael-25.webp';
-import robersonnova from '$lib/assets/colaboradores/Roberson-25.webp';
 import tamirisnova from '$lib/assets/colaboradores/Tamiris-25.webp';
 import thiagonova from '$lib/assets/colaboradores/Thiago-25.webp';
-import thiagolnova from '$lib/assets/colaboradores/Thiago-L-25.webp';
 import valdinova from '$lib/assets/colaboradores/Valdi-Nova.webp';
 import xexeunova from '$lib/assets/colaboradores/Xexéu-25.webp';
 import zeunova from '$lib/assets/colaboradores/Zeu-25.webp';
@@ -90,6 +89,7 @@ export const colaboradoresimg = [
 	fernandonova,
 	frannova,
 	heloisanova,
+	henriquenova,
 	jessicanova,
 	ketelinnova,
 	larissanova,
@@ -99,10 +99,8 @@ export const colaboradoresimg = [
 	malunova,
 	pedronova,
 	rafaelnova,
-	robersonnova,
 	tamirisnova,
 	thiagonova,
-	thiagolnova,
 	valdinova,
 	xexeunova,
 	zeunova
