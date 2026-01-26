@@ -42,6 +42,7 @@ import leonardonova from '$lib/assets/colaboradores/Leonardo-25.webp';
 import lincolnnova from '$lib/assets/colaboradores/Lincoln-25.webp';
 import lucasnova from '$lib/assets/colaboradores/Lucas-25.webp';
 import malunova from '$lib/assets/colaboradores/Malu-25.webp';
+import mayconnova from '$lib/assets/colaboradores/Maycon.webp';
 import pedronova from '$lib/assets/colaboradores/Pedro-25.webp';
 import raffaellanova from '$lib/assets/colaboradores/Raffaella-25.webp';
 import rafaelnova from '$lib/assets/colaboradores/Rafael-25.webp';
@@ -97,6 +98,7 @@ export const colaboradoresimg = [
 	lincolnnova,
 	lucasnova,
 	malunova,
+	mayconnova,
 	pedronova,
 	raffaellanova,
 	rafaelnova,
