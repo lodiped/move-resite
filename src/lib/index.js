@@ -25,8 +25,8 @@
 
 import andrenova from '$lib/assets/colaboradores/André-Nova.webp';
 import andreusnova from '$lib/assets/colaboradores/Andreus-25.webp';
-import asaphnova from '$lib/assets/colaboradores/Asaph-25.webp';
 import carolnova from '$lib/assets/colaboradores/Carol-25.webp';
+import esternova from '$lib/assets/colaboradores/Ester-25.webp';
 import mandinhanova from '$lib/assets/colaboradores/Mandinha-25.webp';
 import cassianova from '$lib/assets/colaboradores/Cássia-25.webp';
 import eduardonova from '$lib/assets/colaboradores/Eduardo-25.webp';
@@ -37,14 +37,15 @@ import frannova from '$lib/assets/colaboradores/Fran-25.webp';
 import heloisanova from '$lib/assets/colaboradores/Heloisa-25.webp';
 import henriquenova from '$lib/assets/colaboradores/Henrique-25.webp';
 import jessicanova from '$lib/assets/colaboradores/Jéssica-25.webp';
-import ketelinnova from '$lib/assets/colaboradores/Ketelin-25.webp';
-import larissanova from '$lib/assets/colaboradores/Larissa-25.webp';
+import joaonova from '$lib/assets/colaboradores/João-25.webp';
 import leonardonova from '$lib/assets/colaboradores/Leonardo-25.webp';
 import lincolnnova from '$lib/assets/colaboradores/Lincoln-25.webp';
 import lucasnova from '$lib/assets/colaboradores/Lucas-25.webp';
 import malunova from '$lib/assets/colaboradores/Malu-25.webp';
 import pedronova from '$lib/assets/colaboradores/Pedro-25.webp';
+import raffaellanova from '$lib/assets/colaboradores/Raffaella-25.webp';
 import rafaelnova from '$lib/assets/colaboradores/Rafael-25.webp';
+import stefanynova from '$lib/assets/colaboradores/Stefany-25.webp';
 import tamirisnova from '$lib/assets/colaboradores/Tamiris-25.webp';
 import thiagonova from '$lib/assets/colaboradores/Thiago-25.webp';
 import valdinova from '$lib/assets/colaboradores/Valdi-Nova.webp';
@@ -79,8 +80,8 @@ import zeunova from '$lib/assets/colaboradores/Zeu-25.webp';
 export const colaboradoresimg = [
 	andrenova,
 	andreusnova,
-	asaphnova,
 	carolnova,
+	esternova,
 	mandinhanova,
 	cassianova,
 	eduardonova,
@@ -91,14 +92,15 @@ export const colaboradoresimg = [
 	heloisanova,
 	henriquenova,
 	jessicanova,
-	ketelinnova,
-	larissanova,
+	joaonova,
 	leonardonova,
 	lincolnnova,
 	lucasnova,
 	malunova,
 	pedronova,
+	raffaellanova,
 	rafaelnova,
+	stefanynova,
 	tamirisnova,
 	thiagonova,
 	valdinova,
