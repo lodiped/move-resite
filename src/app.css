@@ -6,7 +6,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@source inline('text-cyan-500');
+@source inline('text-rose-500');
+@source inline('text-orange-500');
+@source inline('text-red-500');
 @layer base {
 	@font-face {
 		font-family: 'Grifter Bold';

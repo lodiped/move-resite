@@ -26,10 +26,8 @@
 	// Components
 	import Servicos from '$lib/components/Servicos.svelte';
 	import EmblaDepoimentos from '$lib/components/EmblaDepoimentos.svelte';
-	import EmblaColaboradores from '$lib/components/EmblaColaboradores.svelte';
 	import Donos from '$lib/components/Donos.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import Contato from '$lib/components/Contato.svelte';
 	import Frase from '$lib/components/Frase.svelte';
 	import Diferenciais from '$lib/components/Diferenciais.svelte';
 	import Quemsomos from '$lib/components/Quemsomos.svelte';
@@ -63,7 +61,6 @@
 	// Resto do código em onMount
 	let pixelRatio = $state(1);
 
-	let trabalheBtn = $state(false);
 	//Mobile menu dropdown
 	let mobileDrop = $state(false),
 		mobileMenu = $derived(() => {
