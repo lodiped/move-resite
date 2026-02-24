@@ -7,6 +7,8 @@
 	import BigX from 'virtual:icons/mdi/close';
 	// @ts-ignore
 	import ChevronDown from 'virtual:icons/mdi/chevron-down';
+	// @ts-ignore
+	import ArrowBottom from 'virtual:icons/mdi/arrow-right-bottom-bold';
 
 	let financeira = $state([
 		{ icon: BPOCard, desc: 'Contas a pagar' },
@@ -71,18 +73,32 @@
 	let contabilTab = $state(false);
 
 	const prices = [
-		{ type: 'item', service: 'Alteração de Contrato', price: 300 },
+		{ type: 'item', service: 'Alteração de Contrato', price: 1000 },
 		{ type: 'item', service: 'Abertura de associação (registro em cartório)', price: 2300 },
 		{ type: 'item', service: 'Alteração de estatuto (cartório)', price: 2000 },
 		{ type: 'item', service: 'Alteração de CNPJ (RFB)', price: 300 },
 		{ type: 'item', service: 'Abertura de Empresa/Filial', price: 1200 },
-		{ type: 'item', service: 'Baixa de Empresa/Filial', price: 1500, note: '¹', color: 'orange' },
+		{ type: 'item', service: 'Baixa de Empresa/Filial', price: 1500 },
+		{
+			type: 'description',
+			service:
+				'Levantamento de débitos incluído no preço + serviços adicionais conforme necessidade de cada empresa'
+		},
 		{ type: 'item', service: 'Levantamento de Débitos Federais', price: 500 },
-		{ type: 'item', service: 'Parcelamentos', note: '*', color: 'red' },
+		{ type: 'item', service: 'Parcelamentos', note: '--' },
+		{
+			type: 'description',
+			service:
+				'0,5% sobre o valor total do débito, valor mínimo de R$ 200 + (quantidade de guias x R$ 15)'
+		},
 		{ type: 'item', service: 'Envio de guia de parcelamento', price: 0 },
 		{ type: 'item', service: 'Recáculo de guia tributária', price: 20 },
 		{ type: 'item', service: 'Emissão de nota fiscal de serviço', price: 25 },
-		{ type: 'item', service: 'Emissão de nota de produto', price: 20, note: '²', color: 'cyan' },
+		{ type: 'item', service: 'Emissão de nota de produto', price: 20 },
+		{
+			type: 'description',
+			service: 'R$ 20 + R$ 5 por produto constante na NF'
+		},
 
 		{ type: 'item', service: 'IBGE PAC', price: 600 },
 		{ type: 'item', service: 'IBGE PAS', price: 800 },
@@ -95,7 +111,11 @@
 		{ type: 'item', service: 'CRA', price: 200 },
 		{ type: 'item', service: 'CREFITO', price: 300 },
 		{ type: 'item', service: 'CREF', price: 300 },
-		{ type: 'item', service: 'OAB', price: 800, note: '³', color: 'magenta' },
+		{ type: 'item', service: 'OAB', price: 800 },
+		{
+			type: 'description',
+			service: 'R$ 20 + R$ 5 por produto constante na NF'
+		},
 		{ type: 'item', service: 'CRO', price: 500 },
 		{ type: 'item', service: 'CREA', price: 250 },
 
@@ -272,28 +292,13 @@
 						<table class="text-left w-full">
 							<caption class="caption-bottom pt-6 gap-2 text-sm">
 								<div class="flex flex-col gap-2">
-									<div class="text-left flex flex-col gap-4">
-										<p class="">
-											<span class="text-[orange] font-bold">¹</span> Levantamento de débitos incluído
-											no preço + serviços adicionais conforme necessidade de cada empresa
-										</p>
-										<p>
-											<span class="text-[red] font-bold">*</span> 0,5% sobre o valor total do débito,
-											valor mínimo de R$ 200 + (quantidade de guias x R$ 15)
-										</p>
-										<p>
-											<span class="text-[cyan] font-bold">²</span> R$ 20 + R$ 5 por produto constante
-											na NF
-										</p>
-										<p><span class="text-[magenta] font-bold">³</span> Exceto Paraná</p>
-									</div>
 									<p class="opacity-50">
 										Para qualquer serviço a cliente que não esteja na base, forma de pagamento:
 										Cartão de crédito ou PIX
 									</p>
 								</div>
 							</caption>
-							<thead class="">
+							<thead class="bg-move text-black">
 								<tr>
 									<th>Serviço</th>
 									<th>Preço</th>
@@ -302,13 +307,19 @@
 							<tbody>
 								{#each prices as row}
 									{#if row.type === 'category'}
-										<tr class="font-semibold bg-move/10">
+										<tr class="font-semibold bg-move text-black">
 											<td colspan="2">{row.service}:</td>
 										</tr>
 									{:else}
 										<tr class="odd:bg-move/10">
-											<td>{row.service}</td>
-											<td class="text-left">{@html formatPrice(row)}</td>
+											{#if row.type === 'description'}
+												<td class="text-neutral-400 text-xs pl-4 py-1" colspan="2"
+													>↳ {row.service}</td
+												>
+											{:else}
+												<td>{row.service}</td>
+												<td class="text-left">{@html formatPrice(row)}</td>
+											{/if}
 										</tr>
 									{/if}
 								{/each}
