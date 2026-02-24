@@ -167,7 +167,7 @@
 
 <Diferenciais {avgFPS} />
 
-<EmblaColaboradores />
+<!-- <EmblaColaboradores /> -->
 
 <EmblaDepoimentos {avgFPS} />
 
