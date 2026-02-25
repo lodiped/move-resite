@@ -19,11 +19,11 @@
 		{ icon: seuelias, a: 'https://seuelias.com/', alt: 'Seu Elias' },
 		{ icon: p2, a: 'https://www.potencialpleno.com.br/', alt: 'Potencial Pleno' },
 		{ icon: taus, a: 'https://www.clinicataus.com.br/', alt: 'Clínica Taus' },
-		{ icon: ifb, a: 'https://www.institutofernandabenead.com.br/', alt: 'Instituto Fernanda Ben' },
+		{ icon: ifb, a: 'https://institutofernandaben.com.br/', alt: 'Instituto Fernanda Ben' },
 		{ icon: iefe, a: 'https://evolucaoeducacional.com.br/', alt: 'IEFE Evolução Educacional' },
 		{
 			icon: comendador,
-			a: 'https://www.instagram.com/comendadorburguer/',
+			a: 'https://www.instagram.com/comendadorburguerbr/',
 			alt: 'Comendador Burger'
 		},
 		{ icon: europan, a: 'https://www.instagram.com/europanbrasil/', alt: 'Europan Brasil' },

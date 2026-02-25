@@ -114,7 +114,7 @@
 		{ type: 'item', service: 'OAB', price: 800 },
 		{
 			type: 'description',
-			service: 'R$ 20 + R$ 5 por produto constante na NF'
+			service: 'Exceto Paraná'
 		},
 		{ type: 'item', service: 'CRO', price: 500 },
 		{ type: 'item', service: 'CREA', price: 250 },
