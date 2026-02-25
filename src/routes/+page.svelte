@@ -61,6 +61,7 @@
 	// Resto do código em onMount
 	let pixelRatio = $state(1);
 
+	let trabalheBtn = $state(false);
 	//Mobile menu dropdown
 	let mobileDrop = $state(false),
 		mobileMenu = $derived(() => {

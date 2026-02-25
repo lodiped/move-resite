@@ -197,7 +197,7 @@
 		}}
 	>
 		<div
-			class="xl:p-16 p-4 xl:w-[75%] w-[85%] relative text-center xl:h-fit overflow-scroll xl:overflow-auto max-h-[80vh] flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
+			class="xl:p-16 p-4 xl:w-[75%] w-[85%] max-w-[110ch] relative text-center xl:h-fit overflow-scroll xl:overflow-auto max-h-[80vh] flex flex-wrap gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
 		>
 			<button
 				onclick={() => {
@@ -234,7 +234,7 @@
 		}}
 	>
 		<div
-			class="xl:p-16 p-4 py-6 flex-col xl:w-[75%] w-[85%] relative text-center xl:h-fit xl:overflow-auto max-h-[80vh] flex gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
+			class="xl:p-16 p-4 py-6 flex-col xl:w-[75%] w-[85%] max-w-[110ch] relative text-center xl:h-fit xl:overflow-auto max-h-[80vh] flex gap-10 justify-center items-center shadow-[0_15px_12px_rgba(0,0,0,0.4)] rounded-xl border border-move/10 bg-yellow-200/5 backdrop-blur-xl"
 		>
 			<button
 				onclick={() => {
@@ -275,6 +275,7 @@
 			</div>
 			<div class="w-full flex justify-start items-start flex-col">
 				<button
+					data-umami-event="Tabela de Precos Contabil"
 					onclick={() => {
 						contabilTab = !contabilTab;
 					}}
