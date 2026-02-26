@@ -81,7 +81,7 @@
 				<a
 					data-umami-event="Footer LinkedIn"
 					aria-label="Link para o LinkedIn da Move Negócios"
-					href="https://www.linkedin.com/company/move-neg-cios/"
+					href="https://www.linkedin.com/company/move-negocios/"
 					class="hover:scale-110 transition-all"
 				>
 					<LinkedIn />
